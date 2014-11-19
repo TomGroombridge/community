@@ -7,7 +7,9 @@ require 'spec_helper'
 				fill_in 'Name', with: 'Sewing'
 				fill_in 'Description', with: "come and try sewing"
 				click_button 'Create Course'
-				
+				click_link('view')
+				expect(current_path).to eq '/courses/2'
+
 			end
 		end
 	end
