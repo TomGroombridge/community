@@ -8,7 +8,7 @@ require 'spec_helper'
 			visit "/courses/new"
 			fill_in 'Name', with: 'Sewing'
 			fill_in 'Description', with: "come and try sewing"
-			click_button 'submit'
+			click_button 'Create Course'
 
 			expect(current_path).to eq '/courses'
 			expect(page).to have_content 'come and try sewing'
