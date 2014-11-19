@@ -5,7 +5,7 @@ def new
 end
 
 def create 
-	Course.create params[:course].permit(:name, :description)
+	Course.create params[:course].permit(:name, :description, :quantity)
 	redirect_to '/courses'
 end
 
@@ -15,6 +15,10 @@ end
 
 def show
   @course = Course.find(params[:id])
+end
+
+def confirmation
+	
 end
 
 end

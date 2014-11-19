@@ -4,7 +4,9 @@
 	<br>
 	<%= form.label :description %>
 	<%= form.text_area :description %>
-
+	<br>
+	<%= form.label :quantity %>
+	<%= form.select :quantity, (0..10)%>
 	<br>
 	<%= form.submit %>
 
