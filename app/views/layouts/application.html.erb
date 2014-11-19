@@ -15,6 +15,7 @@
 	  <li role="presentation">
 	  	<a href="/courses">All Courses</a>
 	  </li>
+	  <li role="presentation"><%= link_to "Profile", current_user %></li>
 	  <% if user_signed_in? %>
 		  <li role="presentation" style="float:right">
 		  	<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
@@ -28,7 +29,7 @@
 	  	</li>
 	  	<li role="presentation" style="float:right">
 	  		<%= link_to('Register', new_user_registration_path)  %>
-	  	</li>
+	  	</li>	  	
 	  <% end %>
 	</ul>
 	
