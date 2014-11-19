@@ -17,8 +17,5 @@ def show
   @course = Course.find(params[:id])
 end
 
-def confirmation
-	
-end
 
 end
