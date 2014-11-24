@@ -8,3 +8,4 @@
 	<%= link_to('Login to Book course', new_user_session_path)  %>
 <% end %>
 <h3><%= @course.quantity %> places available</h3>
+<h3> this course starts on the <%= @course.Date.strftime("%m/%d/%Y") %></h3>
