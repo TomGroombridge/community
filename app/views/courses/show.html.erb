@@ -1,5 +1,10 @@
 <%= @course.name %>
-<%= form_tag(course_update_quantity_path(@course), method: :put) do -%>
-  <div><%= submit_tag 'Book course' %></div>
-<% end -%>
+<br>
+<% if user_signed_in? %>
+	<%= form_tag(course_update_quantity_path(@course), method: :put) do -%>
+	  <div><%= submit_tag 'Book course' %></div>
+	<% end %>
+<% else %>
+	<%= link_to('Login to Book course', new_user_session_path)  %>
+<% end %>
 <h3><%= @course.quantity %> places available</h3>
