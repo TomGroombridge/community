@@ -17,5 +17,11 @@ def show
   @course = Course.find(params[:id])
 end
 
+def update_quantity
+	@course = Course.find(params[:course_id])
+	@course.update_attribute(:quantity, @course.quantity - 1)
+	redirect_to '/courses'
+end
+
 
 end

@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   root "courses#index"
   
-  resources :courses
+  resources :courses do 
+    put "update_quantity" => 'courses#update_quantity'
+  end
+
+
 
   
   devise_for :users

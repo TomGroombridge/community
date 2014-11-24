@@ -1,1 +1,5 @@
 <%= @course.name %>
+<%= form_tag(course_update_quantity_path(@course), method: :put) do -%>
+  <div><%= submit_tag 'Save' %></div>
+<% end -%>
+<%= @course.quantity %>
