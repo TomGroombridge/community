@@ -41,6 +41,8 @@ gem 'rspec-rails'
 gem 'capybara'
 
 gem 'devise'
+
+gem 'stripe'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

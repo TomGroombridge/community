@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     put "update_quantity" => 'courses#update_quantity'
   end
 
+  resources :payments
+
 
 
   

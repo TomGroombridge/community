@@ -1,0 +1,24 @@
+<h1>Signing up for "<%= @payment.course.name %>"</h1>
+
+<%= form_for @payment do |f| %>
+  <% if @payment.errors.any? %>
+    <div class="error_messages">
+      <h2><%= pluralize(@payment.errors.count, "error") %> prohibited this subscription from being saved:</h2>
+      <ul>
+      <% @payment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :course_id %>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Subscribe" %>
+  </div>
+<% end %>

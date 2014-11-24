@@ -9,3 +9,5 @@
 <% end %>
 <h3><%= @course.quantity %> places available</h3>
 <h3> this course starts on the <%= @course.Date.strftime("%m/%d/%Y") %></h3>
+
+ <%= link_to "Sign up", new_payment_path(:id => @course.id) %>
