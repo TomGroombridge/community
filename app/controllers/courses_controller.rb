@@ -19,7 +19,11 @@ end
 
 def update_quantity
 	@course = Course.find(params[:course_id])
-	@course.update_attribute(:quantity, @course.quantity - 1)
+	if @course.quantity <= 0
+		raise "test"
+	else
+		@course.update_attribute(:quantity, @course.quantity - 1)
+	end
 	redirect_to '/courses'
 end
 
