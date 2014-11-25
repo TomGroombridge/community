@@ -2,10 +2,11 @@ class CoursesController < ApplicationController
 
 def new
 	@course = Course.new
+	@course.user = current_user
 end
 
-def create 
-	Course.create params[:course].permit(:name, :description, :quantity, :Date, :price)
+def create 		
+	@course = Course.create(params[:course].permit(:name, :description, :quantity, :Date, :price, :user_id))	
 	redirect_to '/courses'
 end
 

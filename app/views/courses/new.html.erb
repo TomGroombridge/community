@@ -1,4 +1,7 @@
 <%= form_for @course do |form|  %>
+
+	<%= form.hidden_field :user_id %>
+
 	<%= form.label :name %>
 	<%= form.text_field :name %>
 	<br>

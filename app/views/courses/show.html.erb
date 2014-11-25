@@ -1,5 +1,6 @@
 <%= @course.name %>
 <h1><%= @course.price %></h1>
+<h1><%= @course.user_id %>t</h1>
 <br>
 <% if user_signed_in? %>
 	<%= form_tag(course_update_quantity_path(@course), method: :put) do -%>

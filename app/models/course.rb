@@ -1,7 +1,7 @@
 class Course < ActiveRecord::Base
+	belongs_to :user
 	has_many :payments
-	has_many :users
-
+	
  	def to_param
   	[id, name.parameterize].join("-")
  	end
