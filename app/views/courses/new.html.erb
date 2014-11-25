@@ -11,6 +11,8 @@
 	<%= form.label :date %>
 	<%= form.date_select :Date, :start_year=> Date.today.year %>
 	<br>
+	<%= form.label :price %>
+	<%= form.text_field :price %>
+	<br>
 	<%= form.submit %>
-
 <% end %>

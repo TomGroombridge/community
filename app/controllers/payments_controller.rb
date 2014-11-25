@@ -10,7 +10,7 @@ class PaymentsController < ApplicationController
 
   def create  
     @payment = Payment.new(params[:payment].permit(:course_id, :user_id))  	    
-    if @payment.save 
+    if @payment.save_with_payment 
     	@payment.course.update_attribute(:quantity, @payment.course.quantity - 1)		      
       redirect_to @payment, :notice => "Thank you for paying!"
     else
