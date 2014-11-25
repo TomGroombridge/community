@@ -16,6 +16,9 @@
 	  <li role="presentation">
 	  	<a href="/courses">All Courses</a>
 	  </li>
+	  <li role="presentation">
+	  	<%= link_to('Dashbaord', user_dashboard_index_path(current_user)) %>
+	  </li>
 	  <li role="presentation"><%= link_to "Profile", current_user %></li>
 	  <% if user_signed_in? %>
 		  <li role="presentation" style="float:right">
