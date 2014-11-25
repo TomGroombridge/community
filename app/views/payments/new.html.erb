@@ -13,11 +13,23 @@
   <% end %>
 
   <%= f.hidden_field :course_id %>
+  <%= f.hidden_field :user_id %>
 
   <div class="field">
     <%= f.label :email %>
     <%= f.text_field :email %>
   </div>
+
+  <div class="field">
+  <%= f.fields_for @user do |ff| %>
+    <div>
+      <%= ff.label :email %>
+      <%= ff.text_field :email %>
+    </div>
+  <% end %>
+   
+  </div>
+
   <div class="actions">
     <%= f.submit "Subscribe" %>
   </div>

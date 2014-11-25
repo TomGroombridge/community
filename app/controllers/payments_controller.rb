@@ -1,14 +1,16 @@
 class PaymentsController < ApplicationController
 	
-	def new
+	def new    				
     @course = Course.find(params[:id])
     @payment = @course.payments.build
+		@payment.user = current_user	
+		@user = @payment.user	
   end
 
 
-  def create
-    @payment = Payment.new(params[:payment].permit(:email, :course_id))  	
-    if @payment.save
+  def create  
+    @payment = Payment.new(params[:payment].permit(:email, :course_id, :user_id))  	    
+    if @payment.save  		      
       redirect_to @payment, :notice => "Thank you for paying!"
     else
       render :new
