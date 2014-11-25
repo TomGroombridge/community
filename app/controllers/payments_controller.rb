@@ -7,7 +7,6 @@ class PaymentsController < ApplicationController
 		@user = @payment.user	
   end
 
-
   def create  
     @payment = Payment.new(params[:payment].permit(:course_id, :user_id))  	    
     if @payment.save_with_payment 
