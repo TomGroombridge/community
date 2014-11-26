@@ -1,3 +1,21 @@
-<% @course.payments.each do |booking| %>
-	<%= booking.user.email %>
-<% end %>
+<table style="border: 1px solid black;">
+	<thead style="border-bottom: 1px solid black;">
+		<tr>
+			<th style="border-right: 1px solid black; width:147px">Booking Name</th>
+			<th style="border-right: 1px solid black; width:181px">Email</th>			
+			<th style="border-right: 1px solid black; width:147px">Contact number</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @course.payments.each do |booking| %>
+			<tr>
+				<td style="text-align:center; border-right: 1px solid black;"><%= booking.user.name %></td>
+				<td style="text-align:center; border-right: 1px solid black;"><a href="mailto:<%=booking.user.email%>" %><%=booking.user.email%></td>
+				<td style="text-align:center; border-right: 1px solid black;"><%= booking.user.contact_number %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+
+

@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  #allows us to add extra attributes to the sign up process such as name
+
   def configure_devise_permitted_parameters
     registration_params = [:name, :email, :password, :password_confirmation]
 
