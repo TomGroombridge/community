@@ -1,4 +1,7 @@
 class Dashboard < ActiveRecord::Base
-	belongs_to :xuser
+	belongs_to :user
+
+
+	
 
 end
