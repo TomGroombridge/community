@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   
   resources :courses do 
     put "update_quantity" => 'courses#update_quantity'
+    get "course_details" => 'dashboard#course_details'
   end
 
   resources :payments
@@ -14,7 +15,10 @@ Rails.application.routes.draw do
   
   devise_for :users
   resources :users, :only => [:show, :edit, :update] do 
-    resources :dashboard, :only => [:index]
+    resources :dashboard, :only => [:index] do 
+      # resources :courses , :only => [:show]
+      get "course_details" => 'dashboard#course_details'
+    end
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
