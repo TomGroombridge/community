@@ -1,7 +1,4 @@
-<%= @user.email %>
-<br>
-
-<table style="border: 1px solid black">
+<table style="border: 1px solid black; margin:auto">
 	<thead>
 		<tr style="border-bottom: 1px solid black">
 			<th style="border-right:1px solid black; width:163px">
@@ -33,10 +30,7 @@
 				<td>
 					<%= link_to('course', course_course_details_path(course.id)) %>
 				</td>
-			</tr>
-			<% course.payments.each do |payment|%>
-				<%= payment.user.email %>
-			<% end %>
+			</tr>			
 		<% end %>
 	</tbody>
 

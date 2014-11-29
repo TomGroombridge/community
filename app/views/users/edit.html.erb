@@ -1,9 +1,15 @@
 <%= form_for @user do |form|  %>
-	<%= form.label :name %>
-	<%= form.text_field :name %>
+	<%= form.label :first_name %>
+	<%= form.text_field :first_name %>
+	<br>
+	<%= form.label :last_name %>
+	<%= form.text_field :last_name %>
 	<br>
 	<%= form.label :contact_number %>
 	<%= form.text_field :contact_number %>
+	<br>
+	<%= form.label :description %>
+	<%= form.text_area :description %>
 	<br>
 	<%= form.submit %>
 <% end %>

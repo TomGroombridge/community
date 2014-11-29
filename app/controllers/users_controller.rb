@@ -10,7 +10,7 @@ end
 
 def update	
 	@user = User.find(params[:id])
-	@user.update_attributes(params[:user].permit(:name, :contact_number))
+	@user.update_attributes(params[:user].permit(:first_name, :last_name, :contact_number))
 	redirect_to current_user	
 end
 
