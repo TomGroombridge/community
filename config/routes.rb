@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   
   devise_for :users
+
+  
   resources :users, :only => [:show, :edit, :update] do 
     resources :dashboard, :only => [:index] do 
       # resources :courses , :only => [:show]
