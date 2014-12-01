@@ -19,7 +19,8 @@
   </div>
 
   <div class="field">    
-    <%= f.hidden_field :type, :value => "User" %>   
+    <%= f.label :type %><br/>
+    <%= f.select :type, options_for_select([["Normal User", "User"], ["Course Provider", "Member"]]) %>
   </div>
 
   <div class="field">
