@@ -18,6 +18,11 @@
     <%= f.email_field :email, autofocus: true %>
   </div>
 
+  <div class="field">    
+    <%= f.label :type %>
+    <%= f.select :type, options_for_select([["Normal User", "User"], ["Course Provider", "Member"]]) %>     
+  </div>
+
   <div class="field">
     <%= f.label :password %>
     <% if @validatable %>

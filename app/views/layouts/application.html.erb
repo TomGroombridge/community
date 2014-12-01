@@ -10,17 +10,22 @@
 <body>
 	<ul class="nav nav-tabs">
 	  <li role="presentation" class="active"><a href="#">Home</a></li>
-	  <li role="presentation">
-	  	<a href="/courses/new">New course</a>
-	  </li>
+	  <% if user_signed_in? %>
+		  <% if current_user.try(:type) == "Member" %>
+			  <li role="presentation">
+			  	<a href="/courses/new">New course</a>
+			  </li>
+			  <li role="presentation">
+		  		<%= link_to('Dashbaord', user_dashboard_index_path(current_user)) %>
+		  	</li>
+			<% else %>
+				 <li role="presentation"><%= link_to "Profile", current_user %></li>
+	  	<% end %>
+	  <% end %>
 	  <li role="presentation">
 	  	<a href="/courses">All Courses</a>
-	  </li>
-	  <li role="presentation"><%= link_to "Profile", current_user %></li>
-	  <% if user_signed_in? %>
-		  <li role="presentation">
-		  	<%= link_to('Dashbaord', user_dashboard_index_path(current_user)) %>
-		  </li>
+	  </li>	  
+	  <% if user_signed_in? %>		  
 		  <li role="presentation" style="float:right">
 		  	<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
 		  </li>

@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   #allows us to add extra attributes to the sign up process such as name
 
   def configure_devise_permitted_parameters
-    registration_params = [:first_name, :last_name, :email, :password, :password_confirmation]
+    registration_params = [:first_name, :last_name, :email, :password, :password_confirmation, :type]
 
     if params[:action] == 'update'
       devise_parameter_sanitizer.for(:account_update) { 
