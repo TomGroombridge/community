@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
 
   
-  devise_for :users
+  devise_for :users, :members
 
   
   resources :users, :only => [:show, :edit, :update] do 

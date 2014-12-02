@@ -9,7 +9,7 @@
 </head>
 <body>
 	<ul class="nav nav-tabs">
-	  <li role="presentation" class="active"><a href="#">Home</a></li>
+	  <li role="presentation" class="active"><a href="#">Home</a></li>	  	
 	  <% if user_signed_in? %>
 		  <% if current_user.try(:type) == "Member" %>
 			  <li role="presentation">
