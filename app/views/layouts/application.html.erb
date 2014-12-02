@@ -9,22 +9,14 @@
 </head>
 <body>
 	<ul class="nav nav-tabs">
-	  <li role="presentation" class="active"><a href="#">Home</a></li>	  	
-	  <% if member_signed_in? %>
-	  	<li role="presentation">
-			  <a href="/courses/new">New course</a>
-			</li>
-			<li role="presentation">
-		  	<%= link_to('Dashbaord', user_dashboard_index_path(current_member)) %>
-		  </li>
-	  <% end %>
-	  <% if user_signed_in? %>
-		  <% if current_user.try(:type) == "Member" %>
+	  <li role="presentation" class="active"><a href="#">Home</a></li>		  		  
+	  <% if signed_in? %>
+		  <% if current_course_provider %>
 			  <li role="presentation">
 			  	<a href="/courses/new">New course</a>
 			  </li>			
 			  <li role="presentation">
-		  		<%= link_to('Dashbaord', user_dashboard_index_path(current_user)) %>
+		  		<%= link_to('Dashbaord', user_dashboard_index_path(current_course_provider)) %>
 		  	</li>  
 			<% else %>
 				 <li role="presentation"><%= link_to "Profile", current_user %></li>
@@ -37,18 +29,24 @@
 		  <li role="presentation" style="float:right">
 		  	<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
 		  </li>
-		  <li role="presentation" style="float:right">
-		  	<%= link_to('Edit registration', edit_user_registration_path) %>
-		  </li>
+		  <% if current_course_provider %>
+			  <li role="presentation" style="float:right">
+			  	<%= link_to('Edit registration', edit_course_provider_registration_path) %>
+			  </li>
+			<% else %>
+			  <li role="presentation" style="float:right">
+			  	<%= link_to('Edit registration', edit_member_registration_path) %>
+			  </li>
+			<% end %>
 		<% else %>
 			<li role="presentation" style="float:right">
 	  		<%= link_to('Login', new_user_session_path)  %>	  		
 	  	</li>
 	  	<li role="presentation" style="float:right">
-	  		<%= link_to('Register', new_user_registration_path)  %>	  		
+	  		<%= link_to('Register', new_member_registration_path)  %>	  		
 	  	</li>	  	
 	  	<li role="presentation" style="float:right">
-	  		<%= link_to('Register as course provider', new_member_registration_path)  %>	  		
+	  		<%= link_to('Register as course provider', new_course_provider_registration_path)  %>	  		
 	  	</li>	  
 	  <% end %>	  
 	</ul>
