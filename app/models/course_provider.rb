@@ -1,0 +1,3 @@
+class CourseProvider < User
+  
+end
