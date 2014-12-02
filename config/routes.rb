@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   devise_for :users, :members, :course_providers
 
   
-  resources :users, :only => [:show, :edit, :update] do 
+  resources :users, :only => [:show, :edit, :update, :index] do 
     resources :dashboard, :only => [:index] do 
       # resources :courses , :only => [:show]
       get "course_details" => 'dashboard#course_details'
