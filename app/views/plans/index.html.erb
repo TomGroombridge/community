@@ -1,4 +1,5 @@
 <% @plans.each do |plan| %>
 	<%= plan.name %>
 	<%= number_to_currency plan.price, :precision => 0 %>
+	<%= link_to "Sign up", new_subscription_path(:plan_id => plan.id) %>
 <% end %>
