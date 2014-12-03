@@ -9,19 +9,20 @@
 </head>
 <body>
 	<ul class="nav nav-tabs">
-	  <li role="presentation" class="active"><a href="#">Home</a></li>		  		  
+	  <li role="presentation" class="active"><a href="#">Home</a></li>
 	  <% if signed_in? %>
-		  <% if current_course_provider %>
-			  <li role="presentation">
-			  	<a href="/courses/new">New course</a>
-			  </li>			
-			  <li role="presentation">
-		  		<%= link_to('Dashbaord', user_dashboard_index_path(current_course_provider)) %>
-		  	</li>  
+
+		  <% if all_user.type == "CourseProvider" %>	
+		  		<li role="presentation">
+				  	<a href="/courses/new">New course</a>
+				  </li>
+				  <li role="presentation">
+			  		<%= link_to('Dashbaord', user_dashboard_index_path(all_user)) %>
+			  	</li> 
 			<% else %>
-				 <li role="presentation"><%= link_to "Profile", current_user %></li>
-	  	<% end %>
-	  <% end %>
+					
+			<% end %>	
+		<% end %>	 
 	  <li role="presentation">
 	  	<a href="/courses">All Courses</a>
 	  </li>	  

@@ -1,21 +1,35 @@
-<%= form_for @course do |form|  %>
+<% if all_user.subscription_added == false  %>
+		
+	<h1>You have not yet added your subscription plan, please add this before you can create a course</h1>
+	<a href="/plans">Subscriptions</a>
 
-	<%= form.hidden_field :user_id %>
+<% else %>
 
-	<%= form.label :name %>
-	<%= form.text_field :name %>
-	<br>
-	<%= form.label :description %>
-	<%= form.text_area :description %>
-	<br>
-	<%= form.label :quantity %>
-	<%= form.select :quantity, (0..10)%>
-	<br>
-	<%= form.label :date %>
-	<%= form.date_select :Date, :start_year => Date.today.year %>	
-	<br>
-	<%= form.label :price %>
-	<%= form.text_field :price %>
-	<br>
-	<%= form.submit %>
+	<%= form_for @course do |form|  %>
+
+		<%= form.hidden_field :user_id %>
+
+		<%= form.label :name %>
+		<%= form.text_field :name %>
+		<br>
+		<%= form.label :description %>
+		<%= form.text_area :description %>
+		<br>
+		<%= form.label :quantity %>
+		<%= form.select :quantity, (0..10)%>
+		<br>
+		<%= form.label :date %>
+		<%= form.date_select :Date, :start_year => Date.today.year %>	
+		<br>
+		<%= form.time_select :Date %>	
+
+		<br>
+		<%= form.label :price %>
+		<%= form.text_field :price %>
+		<br>
+		<%= form.submit %>
+	<% end %>
+
+
+
 <% end %>

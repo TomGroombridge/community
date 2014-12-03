@@ -4,7 +4,7 @@ class DashboardController < ApplicationController
 		@user = User.find params[:user_id]
 		@courses = []
 			Course.all.each do |course| 
-				if course.user_id == current_course_provider.id
+				if course.user_id == @user.id
 					@courses << course  
 				end 
 			end		 
