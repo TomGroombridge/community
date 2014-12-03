@@ -2,12 +2,18 @@ class CoursesController < ApplicationController
 
 def new
 	@course = Course.new
-	@course.user = current_course_provider
+	@course.user = current_course_provider	
 end
 
 def create 		
-	@course = Course.create(params[:course].permit(:name, :description, :quantity, :Date, :price, :user_id))	
-	redirect_to '/courses'
+	@course = Course.create(params[:course].permit(:name, :description, :quantity, :Date, :price, :user_id))
+	if @course.save
+		@user =  @course.user
+		UserMailer.welcome_email(@user).deliver		
+    redirect_to '/courses'
+  else
+	  format.html { render action: 'new' }	  
+	end	
 end
 
 def index

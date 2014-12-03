@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get "course_details" => 'dashboard#course_details'
   end
 
+
   resources :payments
 
   resources :plans
