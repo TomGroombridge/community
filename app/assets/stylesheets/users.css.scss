@@ -9,6 +9,26 @@ body{
 	height: 100%;
 	font-family: 'Lato', sans-serif;
 }
+
+.pink{
+	color: #de809a;
+}
+.blue{
+	color:#70b7ba;
+}
+.orange{
+	color: #f6b286;
+}
+.green{
+	color: #a4eeaf;
+}
+.purple{
+	color: #b192cd;
+}
+.yellow{
+	color: #d2ca72;
+}
+
 #container{	
 	height: 100%;
 	position: absolute;
@@ -18,7 +38,7 @@ body{
 		background: #101617;
 		height: 100%;
 		position: fixed;
-		float: left;
+		float: left;		
 		.account{
 			width: 100%;
 			height: 30px;
@@ -43,6 +63,22 @@ body{
 			}
 			.signup{				
 				
+			}
+		}
+		.courses{
+			margin-top: 60px;
+			.course-section{
+				margin-bottom: 25px;
+				.course-type-logo{
+					position: relative;
+					left: 30px;
+				}
+				.course-type-title{
+					display: inline-block;
+					left: 43px;
+					position: relative;						
+					font-weight: 100;
+				}
 			}
 		}
 	}
