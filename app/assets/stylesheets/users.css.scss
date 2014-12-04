@@ -69,6 +69,9 @@ body{
 			margin-top: 60px;
 			.course-section{
 				margin-bottom: 25px;
+				a{
+					display: block;
+				}
 				.course-type-logo{
 					position: relative;
 					left: 30px;
@@ -79,6 +82,21 @@ body{
 					position: relative;						
 					font-weight: 100;
 				}
+			}
+		}
+		.course-provider-button{
+			width: 75%;
+			height: 45px;
+			margin: auto;
+			border: 1px solid white;
+			border-radius: 32px;
+			margin-top: 42px;
+			position: relative;
+			.provider{
+				text-align: center; 
+				color: #E9E9E9; 
+				font-weight: 100; 
+				line-height: 1.9; 
 			}
 		}
 	}
