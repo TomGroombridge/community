@@ -10,46 +10,58 @@
 </head>
 <body>
 	<div id="container">
-    <div id="left">      
-      <h2 style="color:#89b160; text-align:center">PICKACOURSE</h2>  
-      <div class="account">   
-        <% if signed_in? %>     
-          <%= link_to('LOG OUT', destroy_user_session_path, :method => :delete, :class => "account-buttons login") %>
-        <% else %>
-          <%= link_to('LOG IN', new_user_session_path,:class => "account-buttons login") %>          
-          <a class="account-buttons signup" href="/users"> SIGN UP</a>              
-        <% end %>        
-      </div>
-      <div class="courses">
-        <div class="course-section">
-          <a href="/courses">
-            <%= image_tag 'icon-burger.png', :class => "course-type-logo"%>
-            <h5 class="course-type-title pink">FOOD & DRINK</h5>
-          </a>
+    <div id="left">    
+      <div class="side-nav">
+        <h2 style="color:#89b160; text-align:center; margin-bottom:0px;">PICKACOURSE</h2>  
+        <div class="account">   
+          <% if signed_in? %>     
+            <%= link_to('LOG OUT', destroy_user_session_path, :method => :delete, :class => "account-buttons login") %>
+          <% else %>
+            <%= link_to('LOG IN', new_user_session_path,:class => "account-buttons login") %>          
+            <a class="account-buttons signup" href="/users"> SIGN UP</a>              
+          <% end %>        
         </div>
-        <div class="course-section">
-          <%= image_tag 'icon-notes.png', :class => "course-type-logo"%>
-          <h5 class="course-type-title blue">MUSIC</h5>
+        <div class="courses">
+          <div class="course-section">
+            <a href="/courses">
+              <%= image_tag 'icon-burger.png', :class => "course-type-logo"%>
+              <h5 class="course-type-title pink">FOOD & DRINK</h5>
+            </a>
+          </div>
+          <div class="course-section">
+            <a href="/courses">
+              <%= image_tag 'icon-notes.png', :class => "course-type-logo"%>
+              <h5 class="course-type-title blue">MUSIC</h5>
+            </a>
+          </div>
+          <div class="course-section">
+            <a href="/courses">
+              <%= image_tag 'icon-camera.png', :class => "course-type-logo"%>
+              <h5 class="course-type-title orange">PHOTOGRAPHY</h5>
+            </a>
+          </div>
+          <div class="course-section">
+            <a href="/courses">
+              <%= image_tag 'icon-scissors.png', :class => "course-type-logo"%>
+              <h5 class="course-type-title green">ARTS & CRAFTS</h5>
+            </a>
+          </div>
+          <div class="course-section">
+            <a href="/courses">
+              <%= image_tag 'icon-lotus.png', :class => "course-type-logo"%>
+              <h5 class="course-type-title purple">WELLBEING</h5>
+            </a>
+          </div>
+          <div class="course-section">
+            <a href="/courses">
+              <%= image_tag 'icon-directions.png', :class => "course-type-logo"%>
+              <h5 class="course-type-title yellow">UNCATEGORIZED</h5>
+            </a>
+          </div>        
         </div>
-        <div class="course-section">
-          <%= image_tag 'icon-camera.png', :class => "course-type-logo"%>
-          <h5 class="course-type-title orange">PHOTOGRAPHY</h5>
+        <div class="course-provider-button">
+          <h5 class="provider">COURSE PROVIDERS</h5>
         </div>
-        <div class="course-section">
-          <%= image_tag 'icon-scissors.png', :class => "course-type-logo"%>
-          <h5 class="course-type-title green">ARTS & CRAFTS</h5>
-        </div>
-        <div class="course-section">
-          <%= image_tag 'icon-lotus.png', :class => "course-type-logo"%>
-          <h5 class="course-type-title purple">WELLBEING</h5>
-        </div>
-        <div class="course-section">
-          <%= image_tag 'icon-directions.png', :class => "course-type-logo"%>
-          <h5 class="course-type-title yellow">UNCATEGORIZED</h5>
-        </div>        
-      </div>
-      <div class="course-provider-button">
-        <h5 class="provider">COURSE PROVIDERS</h5>
       </div>
     </div>
     <div id="right">      
