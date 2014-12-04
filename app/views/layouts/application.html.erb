@@ -10,7 +10,15 @@
 <body>
 	<div id="container">
     <div id="left">      
-      <h2 style="color:#89b160; text-align:center">PICKACOURSE</h2>      
+      <h2 style="color:#89b160; text-align:center">PICKACOURSE</h2>  
+      <div class="account">   
+        <% if signed_in? %>     
+          <%= link_to('LOG OUT', destroy_user_session_path, :method => :delete, :class => "account-buttons login") %>
+        <% else %>
+          <%= link_to('LOG IN', new_user_session_path,:class => "account-buttons login") %>          
+          <a class="account-buttons signup" href="/users"> SIGN UP</a>              
+        <% end %>        
+      </div>
     </div>
     <div id="right">      
 			<%= yield %>	      	      

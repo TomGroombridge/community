@@ -3,50 +3,53 @@
     <h2 style="text-align:center; margin-top:0px;">SIGN UP AS A COURSE PROVIDER</h2>
   <% end %>  
 
-
+<div class="sign-up-form">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 
+    <div class="image-field">
+      <h1 style="text-align: center; margin-top: 60px; letter-spacing: 4px;">JPG/PNG 2MB MAX</h1>
+      <%= f.file_field :avatar %>
+    </div>    
+
     <div class="field">      
-      <%= f.text_field :first_name, :placeholder => 'FIRST NAME', autofocus: true %>
+      <%= f.text_field :first_name, :placeholder => 'FIRST NAME', autofocus: true , :class => 'top-input' %>
     </div>
 
     <div class="field">      
-      <%= f.text_field :last_name, :placeholder => 'LAST NAME', autofocus: true %>
+      <%= f.text_field :last_name, :placeholder => 'LAST NAME', autofocus: true, :class => 'top-input' %>
     </div>
    
 
     <div class="field">      
-      <%= f.email_field :email, :placeholder => 'EMAIL', autofocus: true %>
+      <%= f.email_field :email, :placeholder => 'EMAIL', autofocus: true, :class => 'top-input' %>
     </div>
   
     <%= f.hidden_field  :type %>        
     
+
+    <div class="field">          
+      <%= f.password_field :password, :placeholder => 'PASSWORD (MIN 8 CHARACTERS)', autocomplete: "off", :class => 'top-input' %>
+    </div>
+
+    <div class="field">        
+      <%= f.password_field :password_confirmation, :placeholder => 'CONFIRM PASSWORD', autocomplete: "off", :class => 'top-input' %>
+    </div>
+
     <% if @member %>
       <p>I am a member</p>
     <% end %>
     <% if @course_provider %>
-      <div class="field">            
+      <div class="bottom-fields">          
         <%= f.text_field  :company_name, :placeholder => 'COMPANY NAME' %>    
       </div>
-    <% end %>
-
-    <div class="field">
-      <%= f.file_field :avatar %>
-    </div>    
-
-    <div class="field">          
-      <%= f.password_field :password, :placeholder => 'PASSWORD (MIN 8 CHARACTERS)', autocomplete: "off" %>
-    </div>
-
-    <div class="field">      
-      <%= f.password_field :password_confirmation, :placeholder => 'CONFIRM PASSWORD', autocomplete: "off" %>
-    </div>
+    <% end %>   
 
     <div class="actions">
       <%= f.submit "Sign up" %>
     </div>
   <% end %>
+</div>
 
   <%= render "devise/shared/links" %>
 </div>
