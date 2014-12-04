@@ -1,14 +1,18 @@
 <div class="background">
   <% if @course_provider %>
-    <h2 style="text-align:center; margin-top:0px;">SIGN UP AS A COURSE PROVIDER</h2>
+    <h3 style="text-align:center; margin-top:0px; padding-top:40px;">SIGN UP AS A COURSE PROVIDER</h3>
+  <% else %>
+    <h3 style="text-align:center; margin-top:0px; padding-top:40px;">SIGN UP</h3>
   <% end %>  
+  
+  <p style="width: 278px; margin: auto; position: relative; display: block; line-height: 2; margin-top: 70px; font-style:italic">Already a course provider?<%= render "devise/shared/links" %></p>
 
 <div class="sign-up-form">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 
     <div class="image-field">
-      <h1 style="text-align: center; margin-top: 60px; letter-spacing: 4px;">JPG/PNG 2MB MAX</h1>
+      <h1 style="text-align: center; margin-top: 60px; letter-spacing: 4px; color:#807e4f">JPG/PNG 2MB MAX</h1>
       <%= f.file_field :avatar %>
     </div>    
 
@@ -35,21 +39,36 @@
     <div class="field">        
       <%= f.password_field :password_confirmation, :placeholder => 'CONFIRM PASSWORD', autocomplete: "off", :class => 'top-input' %>
     </div>
-
-    <% if @member %>
-      <p>I am a member</p>
-    <% end %>
+   
     <% if @course_provider %>
       <div class="bottom-fields">          
         <%= f.text_field  :company_name, :placeholder => 'COMPANY NAME' %>    
       </div>
+
+      <div class="bottom-fields">          
+        <%= f.text_field  :company_website, :placeholder => 'COMPANY WEBSITE' %>    
+      </div>
+      <div class="social-bottom-fields left">          
+        <%= f.text_field  :contact_number, :placeholder => 'CONTACT NUMBER' %>    
+      </div>
+      <div class="social-bottom-fields">          
+        <%= f.text_field  :facebook, :placeholder => 'FACEBOOK' %>    
+      </div>
+      <div class="social-bottom-fields left">          
+        <%= f.text_field  :twitter, :placeholder => 'TWITTER' %>    
+      </div>
+      <div class="social-bottom-fields">          
+        <%= f.text_field  :instagram, :placeholder => 'INSTAGRAM' %>    
+      </div>
+      <div class="social-bottom-fields left">          
+        <%= f.text_field  :google, :placeholder => 'GOOGLE+' %>    
+      </div>
+      <div class="social-bottom-fields">          
+        <%= f.text_field  :pinterest, :placeholder => 'PINTEREST' %>    
+      </div>
     <% end %>   
-
-    <div class="actions">
-      <%= f.submit "Sign up" %>
-    </div>
+    
+    <%= f.submit "SUBMIT", :class => 'sign-up-button' %>
   <% end %>
-</div>
-
-  <%= render "devise/shared/links" %>
+</div>  
 </div>
