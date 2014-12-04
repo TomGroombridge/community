@@ -1,57 +1,52 @@
-<h2>Sign up</h2>
-
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true %>
-  </div>
- 
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">    
-    <%= f.label :type %><br/>
-    <%= f.text_field  :type %>    
-  </div>
-  
-  <% if @member %>
-    <p>I am a member</p>
-  <% end %>
+<div class="background">
   <% if @course_provider %>
-    <div class="field">    
-      <%= f.label :company_name %><br/>
-      <%= f.text_field  :company_name %>    
+    <h2 style="text-align:center; margin-top:0px;">SIGN UP AS A COURSE PROVIDER</h2>
+  <% end %>  
+
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="field">      
+      <%= f.text_field :first_name, :placeholder => 'FIRST NAME', autofocus: true %>
+    </div>
+
+    <div class="field">      
+      <%= f.text_field :last_name, :placeholder => 'LAST NAME', autofocus: true %>
+    </div>
+   
+
+    <div class="field">      
+      <%= f.email_field :email, :placeholder => 'EMAIL', autofocus: true %>
+    </div>
+  
+    <%= f.hidden_field  :type %>        
+    
+    <% if @member %>
+      <p>I am a member</p>
+    <% end %>
+    <% if @course_provider %>
+      <div class="field">            
+        <%= f.text_field  :company_name, :placeholder => 'COMPANY NAME' %>    
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.file_field :avatar %>
+    </div>    
+
+    <div class="field">          
+      <%= f.password_field :password, :placeholder => 'PASSWORD (MIN 8 CHARACTERS)', autocomplete: "off" %>
+    </div>
+
+    <div class="field">      
+      <%= f.password_field :password_confirmation, :placeholder => 'CONFIRM PASSWORD', autocomplete: "off" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Sign up" %>
     </div>
   <% end %>
 
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+</div>

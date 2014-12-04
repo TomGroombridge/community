@@ -5,54 +5,17 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "https://js.stripe.com/v1/", "application", "data-turbolinks-track" => true %>
 	<%= tag :meta, :name => "stripe-key", :content => STRIPE_PUBLIC_KEY %>
-  <%= csrf_meta_tags %>  
+  <%= csrf_meta_tags %> 
 </head>
 <body>
-	<ul class="nav nav-tabs">
-	  <li role="presentation" class="active"><a href="#">Home</a></li>
-	  <% if signed_in? %>
-
-		  <% if all_user.type == "CourseProvider" %>	
-		  		<li role="presentation">
-				  	<a href="/courses/new">New course</a>
-				  </li>
-				  <li role="presentation">
-			  		<%= link_to('Dashbaord', user_dashboard_index_path(all_user)) %>
-			  	</li> 
-			<% else %>
-					
-			<% end %>	
-		<% end %>	 
-	  <li role="presentation">
-	  	<a href="/courses">All Courses</a>
-	  </li>	  
-	  <% if signed_in? %>		  
-		  <li role="presentation" style="float:right">
-		  	<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-		  </li>
-		  <% if current_course_provider %>
-			  <li role="presentation" style="float:right">
-			  	<%= link_to('Edit registration', edit_course_provider_registration_path) %>
-			  </li>
-			<% else %>
-			  <li role="presentation" style="float:right">
-			  	<%= link_to('Edit registration', edit_member_registration_path) %>
-			  </li>
-			<% end %>
-		<% else %>
-			<li role="presentation" style="float:right">
-	  		<%= link_to('Login', new_user_session_path)  %>	  		
-	  	</li>
-	  	<li role="presentation" style="float:right">
-	  		<a href="/users"> Register</a> 		
-	  	</li>	  		  	
-	  <% end %>	  
-	</ul>
-	
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
-
-<%= yield %>
-
+	<div id="container">
+    <div id="left">      
+      <h2 style="color:#89b160; text-align:center">PICKACOURSE</h2>      
+    </div>
+    <div id="right">      
+			<%= yield %>	      	      
+    </div>    
+  </div>
+	</div>
 </body>
 </html>
