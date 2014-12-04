@@ -3,50 +3,92 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-div.clear
-{
-    clear: both;
-}
-
-div.product-chooser{
-	width: 30%;
-	display: inline-block;
-	margin-right: 10px;
-	margin-left: 0px;
-}
-
-    div.product-chooser.disabled div.product-chooser-item
-	{
-		zoom: 1;
-		filter: alpha(opacity=60);
-		opacity: 0.6;
-		cursor: default;
+.blue-background{
+	background: #70b7ba;
+	overflow: auto;
+	.new_course{
+		padding-left: 30px;
+		padding-right: 0px;
+		margin-top: 60px;
+		overflow-x: hidden;
 	}
-
-	div.product-chooser div.product-chooser-item{
-		padding: 11px;
-		border-radius: 6px;
-		cursor: pointer;
+	.create-course-button{
+		width: 154px;
+		background: #182123;
+		border: none;
+		border-radius: 20px;
+		height: 47px;
+		color: #d5ddd5;
+		left: 139px;
+		margin: auto;
+		display: block;
 		position: relative;
-		border: 1px solid #efefef;
-		margin-bottom: 10px;
-        margin-left: 10px;
-        margin-right: 10x;
+		top: -127px;
 	}
-	
-
-	
-		
-		
-		div.product-chooser div.product-chooser-item span.title{
-			display: block;
-			margin: 10px 0 5px 0;
-			font-weight: bold;
-			font-size: 12px;
+	.image-field{
+		width: 300px;
+		height: 300px;
+		display: inline-block;
+		background: white;
+		float: left;
+	}
+	.field{			
+		width: 631px;
+		margin-left: 27px;
+		display: inline-block;		
+		label{
+			display: inline-block;
 		}
-		
-		div.product-chooser div.product-chooser-item span.description{
-			font-size: 12px;
+		input{
+			width: 424px;
+			border-radius: 2px;
+			height: 24px;
+			margin-left: 5%;
 		}
-		
+	}
+	.bottom-field{
+		display: inline-block;
+		margin-top: 30px;
+		input{
+			width: 100%;
+		}
+		#course_Date_1i{
+			width: 65px;
+			margin-right: 20px;
+		}
+		#course_Date_2i{
+			width: 106px;
+			margin-right: 26px;
+		}
+		#course_Date_3i{
+			width: 59px;
+		}
+		#course_Date_4i{
+			width: 50px
+		}
+		#course_Date_5i{
+			width: 50px
+		}
+		#course_end_time_4i{
+			width: 50px
+		}
+		#course_end_time_5i{
+			width: 50px
+		}
+	}
+	.left{
+		float: left;
+	}
+	.middle{
+		margin-left: 26px;
+		margin-top: 10px;
+	}
+	.right{
+		float: right;
+		position: relative;
+		top: -171px;
+		width: 290px;
+		right: 40px;
+	}
+}
 		
