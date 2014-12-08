@@ -6,8 +6,8 @@ def new
 end
 
 def create 			
-	@course_date = CourseDate.new(params[:course_date].permit(:course_id, :dates))	
-	if @course_date.save
+	@course_date = CourseDate.create(params[:course_date].permit(:dates, :course_id))	
+	if @course_date.save		
 		redirect_to '/courses'
 	else
 		raise "error"

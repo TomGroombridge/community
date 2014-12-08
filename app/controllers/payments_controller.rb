@@ -5,10 +5,11 @@ class PaymentsController < ApplicationController
     @payment = @course.payments.build
 		@payment.user = current_user || current_course_provider || current_member
 		@user = @payment.user	
+    @course_dates = @course.course_dates
   end
 
-  def create  
-    @payment = Payment.new(params[:payment].permit(:course_id, :user_id))  	    
+  def create          
+    @payment = Payment.new(params[:payment].permit(:course_id, :user_id, :course_dates_id, :email))  	    
     if @payment.save_with_payment 
     	@payment.course.update_attribute(:quantity, @payment.course.quantity - 1)		      
       redirect_to @payment, :notice => "Thank you for paying!"

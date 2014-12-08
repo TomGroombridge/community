@@ -37,9 +37,9 @@
 			</div>
 			<div class="bottom-field middle" style="display: table; position: relative; left: 28px;"> 		
 				<%= form.label :date, "COURSE DATE" %>
-				<%= form.date_select :Date, :start_year => Date.today.year %>	
+				<%= form.datetime_select :Date, :start_year => Date.today.year %>	
 			</div>
-
+			<br>
 			<div class="bottom-field right">
 				<%= form.label :need_to_bring, "WHAT DO ATTENDEES NEED TO BRING?", :style => "text-align:center" %>
 				<%= form.text_field :need_to_bring %>
@@ -54,8 +54,7 @@
 				<%= form.text_field :benefits %>				
 			</div>		
 			<div class="bottom-field middle" style="margin-left: 333px; top: -157px; position: relative;">
-				<%= form.label :Date, "STARTS AT" %>
-				<%= form.time_select :Date %>	
+				
 			</div>
 			<div class="bottom-field middle" style="margin-left: 495px; top: -232px; position: relative;">
 				<%= form.label :end_time, "ENDS AT" %>

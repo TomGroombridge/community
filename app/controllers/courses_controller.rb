@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
 
 def new
-	@course = Course.new
+	@course = Course.new	
 	@course.user = current_user || current_member || current_course_provider
 end
 

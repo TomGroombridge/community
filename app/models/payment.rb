@@ -1,6 +1,7 @@
 class Payment < ActiveRecord::Base
 	belongs_to :course
 	belongs_to :user
+	has_one :course_dates
 	attr_accessor :stripe_card_token
 
 	def save_with_payment
