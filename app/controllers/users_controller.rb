@@ -18,4 +18,14 @@ def index
 
 end
 
+def course_providers_index	
+	@course_providers = []	
+	User.all.each do |user|
+		if user.type == "CourseProvider"
+			@course_providers << user		
+		end
+	end 
+	@course_providers
+end
+
 end
