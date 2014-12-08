@@ -1,0 +1,2 @@
+class CourseDatesController < ApplicationController
+end

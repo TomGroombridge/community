@@ -1,0 +1,2 @@
+module CourseDatesHelper
+end
