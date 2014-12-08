@@ -1,16 +1,23 @@
-<table style="border: 1px solid black; margin:auto">
-	<thead>
-		<tr style="border-bottom: 1px solid black">
-			<th style="border-right:1px solid black; width:163px">
+<div class="backgroud" style="background: #D2CA72;">
+<table style="margin:auto; color:#e9e9e9;">
+	<thead style="background:#7e7a50; color:#e9e9e9;">
+		<tr>
+			<th style="width:50px">	
+				#
+			</th>
+			<th style="width:163px">
 				course name
 			</th>
-			<th style="border-right:1px solid black; width:119px">
+			<th style="width:163px">
+				Date
+			</th>
+			<th style="width:119px">
 				spaces left
 			</th>
-			<th style="border-right:1px solid black; width:137px">
+			<th style="width:137px">
 				payments taken
 			</th>
-			<th style="border-right:1px solid black; width:115px">
+			<th style="width:115px">
 				booked people
 			</th>
 		</tr>
@@ -19,7 +26,13 @@
 		<% @courses.each do |course| %>
 			<tr>
 				<td style="text-align:center">
+					1
+				</td>
+				<td style="text-align:center">
 					<%= course.name %>
+				</td>
+				<td style="text-align:center">
+					<%= course.Date.strftime("%m/%d/%Y") %>
 				</td>
 				<td style="text-align:center">	
 					<%= course.quantity %>
@@ -34,7 +47,5 @@
 		<% end %>
 	</tbody>
 
-</table>
-
-    <%= image_tag @user.avatar.url(:medium) %>
-    <%= image_tag @user.avatar.url(:thumb) %>
+</table>    
+</div>
