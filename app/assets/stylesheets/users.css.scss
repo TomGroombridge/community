@@ -43,9 +43,20 @@ body{
 		position: fixed;
 		.account{
 			width: 100%;
-			height: 30px;
+			height: 60px;
 			top: 10px;
-			position: relative;			
+			position: relative;	
+			.profile-pic{
+				border-radius: 70px;
+				width: 47px;
+				border: 1px solid white;
+				margin: auto;
+				display: block;
+			}	
+			.username{
+				color: #d5ddd5;
+				text-align: center;
+			}	
 			.account-buttons{
 				display: inline-block;
 				width: 23%;
@@ -65,12 +76,19 @@ body{
 					background: #413a4d;
 				}
 			}
-			.login{				
-				margin-left: 55px;
-				margin-right: 15px;				
+			.login{
+				margin-left: 65px;
+			}										
+			.logged-in-buttons {
+				font-size: 9px;
 			}
-			.signup{				
-				
+			.dashboard{
+				color: #9fea9d;
+				margin-left: 70px;
+				margin-right: 15px;	
+			}
+			.logout{				
+				color: #a82f20;
 			}
 		}
 		.courses{

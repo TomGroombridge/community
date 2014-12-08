@@ -6,7 +6,7 @@ def new
 end
 
 def create 		
-	@course = Course.create(params[:course].permit(:name, :description, :quantity, :Date, :price, :user_id, :image, :blurb, :address, :need_to_bring, :end_time, :benefits, :need_to_bring))
+	@course = Course.create(params[:course].permit(:name, :description, :quantity, :Date, :price, :user_id, :image, :blurb, :address, :need_to_bring, :end_time, :benefits, :need_to_wear))
 	if @course.save
 		@user =  @course.user
 		UserMailer.welcome_email(@user).deliver		
