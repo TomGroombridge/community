@@ -1,16 +1,9 @@
-<div class="container">
+<div class="grid-block small-up-3">
 	<% @courses.each do |course| %>
-	  <div class="row product-chooser">    
-	  	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-	  		<div class="product-chooser-item">
-	  			<img src="http://renswijnmalen.nl/bootstrap/desktop_mobile.png" class="img-rounded col-xs-4 col-sm-4 col-md-12 col-lg-12" alt="Mobile and Desktop">
-	          <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12">
-	  					<span class="title"><%= course.name %></span>	  					
-	  					<span class="description"><%= link_to "view", course_path(course) %></span>  				
-	  				</div>
-	  			<div class="clear"></div>
-	  		</div>
-	  	</div>   	
-	  </div>
+	<div class="grid-block"></div>
+	  <%= course.name %>  					
+	  <%= link_to "view", course_path(course) %>
+	</div>  				
 	<% end %>
 </div>
+
