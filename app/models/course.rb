@@ -1,5 +1,6 @@
 class Course < ActiveRecord::Base
 	belongs_to :user
+	has_many :course_dates
 	has_many :users
 	has_many :payments
 	has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
