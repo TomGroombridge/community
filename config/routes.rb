@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :courses do 
     put "update_quantity" => 'courses#update_quantity'
     get "course_details" => 'dashboard#course_details'
+    resources :course_dates do 
+      
+    end
   end
 
 

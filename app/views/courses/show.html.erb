@@ -14,3 +14,7 @@
 <% else %>
 	<%= link_to('Login to Book course', new_user_session_path)  %>
 <% end %>
+
+<%= link_to('add date',  new_course_course_date_path(@course.id))  %>
+
+

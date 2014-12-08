@@ -1,0 +1,10 @@
+<%= @course_date.inspect %>
+
+<%= form_for [@course, @course_date] do |f| %>
+	<%= f.label :dates %>
+	<%= f.date_select :dates , :start_year => Date.today.year%>
+	<%= f.time_select :dates %>	
+	<%= f.text_field :course_id %>
+	<br>
+	<%= f.submit %>
+<% end %>
