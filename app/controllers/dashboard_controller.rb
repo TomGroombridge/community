@@ -8,7 +8,7 @@ class DashboardController < ApplicationController
 					@courses << course  
 				end 
 			end		 
-		@courses
+		@courses				
 	end
 
 	def course_details
