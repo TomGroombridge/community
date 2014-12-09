@@ -1,5 +1,14 @@
-<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
-<% @course_providers.each do |user| %>
-	<li><%= user.company_name %></li>
-<% end %>
+<ul class="large-block-grid-4" style="margin:10px;">
+	<% @course_providers.each do |user| %>
+		<li class="course-provider-card">
+			<div class="course-provider-name">
+				<%= user.company_name %>
+			</div>
+			<div class="course-provider-image">
+				<%= image_tag user.avatar.url(:medium), :class => "course-provider-avatar" %>				
+			</div>
+		</li>
+	<% end %>
 </ul>
+
+
