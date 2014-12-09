@@ -1,6 +1,11 @@
 
-	<% @courses.each do |course| %>	  
-	  	<%= course.name %>
-	  	<%= link_to "view", course_path(course) %>	  				
+<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+	<% @courses.each do |course| %>
+	<li>
+	  <%= course.name %>  					
+	  <%= link_to "view", course_path(course) %>
+	</li>  				
 	<% end %>
+</li>
+
 
