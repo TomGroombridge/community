@@ -92,3 +92,44 @@
 	}
 }
 		
+
+
+
+.large-block-grid-3{
+	li{
+		position: relative;
+		.course-pic{			
+			width: 100%;
+			height: 310px;
+		}
+		.image-overlay{
+			position: absolute;			
+			bottom: 20px;
+			background: black;
+			width: 93.7%;
+			height: 25%;
+			opacity: 0.8;
+			.class-info-left{
+				color: white;
+				width: 77%;
+				display: inline-block;
+				margin-left: 2%;
+				font-size: 15px;
+				height: 43%;
+			}
+			.class-info-right{
+				width: 16%;
+				display: inline-block;
+				margin-left: 4%;
+				color: white;
+			}			
+			.date{
+				width: 30%;
+				text-align: right;
+			}
+			.location{
+				width: 62%;
+			}
+		}
+	}
+}
