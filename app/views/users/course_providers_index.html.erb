@@ -7,6 +7,14 @@
 			<div class="course-provider-image">
 				<%= image_tag user.avatar.url(:medium), :class => "course-provider-avatar" %>				
 			</div>
+			<div class="social-networks">
+				<%= image_tag 'facebook-black.png', :class => "facebook-logo"%>
+				<%= image_tag 'twitter-black.png', :class => "facebook-logo"%>
+				<%= image_tag 'instagram-black.png', :class => "facebook-logo"%>
+			</div>
+			<div class="course-provider-site">
+				<%= user.company_website %>
+			</div>
 		</li>
 	<% end %>
 </ul>
