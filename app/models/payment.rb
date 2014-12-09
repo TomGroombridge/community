@@ -1,12 +1,11 @@
 class Payment < ActiveRecord::Base
 	belongs_to :course
-	belongs_to :user
-	has_one :course_dates
+	belongs_to :user		
 	attr_accessor :stripe_card_token
 
 	def save_with_payment
 	  if valid?
-	    customer = Stripe::Customer.create( card: stripe_card_token)
+	    customer = Stripe::Customer.create(card: stripe_card_token)
 	    self.stripe_customer_token = customer.id
 	    save!
 	  end

@@ -10,6 +10,13 @@
       <% end %>
       </ul>
     </div>
+  <% end %>  
+
+
+  <% @course_dates.each do |date| %>     
+    <%= f.fields_for :course_dates, date do |q| %>
+      <%= q.check_box :dates %>
+    <% end %>
   <% end %>
 
   <%= f.hidden_field :stripe_card_token %>
@@ -37,7 +44,8 @@
   </div>
 
   <%= f.hidden_field :course_id %>
-  <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :user_id %>  
+
 
   <%= f.fields_for @user do |ff| %>  
     <div class="field">
@@ -46,6 +54,8 @@
     </div>
   <% end %>  
 
+  <%= @course_dates.count %> course dates
+  
   <div class="actions">
     <%= f.submit "Subscribe" %>
   </div>
