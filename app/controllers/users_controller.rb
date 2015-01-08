@@ -15,7 +15,7 @@ def update
 end
 
 def index
-
+	@users = User.all
 end
 
 def course_providers_index	

@@ -1,16 +1,5 @@
-<div style="display: flex;">
-	<div style="width: 50%; display: inline-block;">
-		<h3>sign up as a normal user</h3>
-		<br>
-		<h3 role="presentation" style="float:left">
-			<%= link_to('Register', new_member_registration_path)  %>	  		
-		</h3>
-	</div>
-
-	<div style="width: 49%; display: inline-block;">
-		<h3>Sign up as a course provier</h3>
-		<h3 role="presentation" style="float:left ">
-			<%= link_to('Register as course provider', new_course_provider_registration_path)  %>	  		
-		</h3>	  
-	</div>
-</div>
+<% @users.each do |user| %>
+	<%= user.email %>
+	<%= user.admin %>
+	<%= link_to('Edit Account Details', edit_user_path(user)) %>
+<% end %>
