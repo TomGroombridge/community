@@ -3,7 +3,7 @@ class PaymentsController < ApplicationController
 	def new    				
     @course = Course.find(params[:id])
     @payment = @course.payments.build
-		@payment.user = current_user || current_course_provider || current_member
+		@payment.user = current_user
 		@user = @payment.user	
     @course_dates = []
     @course_dates = @course.course_dates.each do |date|

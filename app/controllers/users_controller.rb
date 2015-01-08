@@ -21,7 +21,7 @@ end
 def course_providers_index	
 	@course_providers = []	
 	User.all.each do |user|
-		if user.type == "CourseProvider"
+		if user.admin == true
 			@course_providers << user		
 		end
 	end 

@@ -15,10 +15,10 @@
         <h2 style="color:#89b160; text-align:center; margin-bottom:0px; font-size:1rem">PICKACOURSE</h2>  
         <div class="account">   
           <% if signed_in? %>
-          <div class=""><%= image_tag all_user.avatar.url(:thumb), :class => "profile-pic" %></div>          
-          <div class="username"><%= all_user.first_name%> <%= all_user.last_name%></div>     
+          <div class=""><%= image_tag current_user.avatar.url(:thumb), :class => "profile-pic" %></div>          
+          <div class="username"><%= current_user.first_name%> <%= current_user.last_name%></div>     
           <% if current_user.admin? %>
-            <%= link_to('DASHBOARD', user_dashboard_index_path(all_user),:class => "logged-in-buttons dashboard")%>
+            <%= link_to('DASHBOARD', user_dashboard_index_path(current_user ),:class => "logged-in-buttons dashboard")%>
           <% end %>
           <%= link_to('LOG OUT', destroy_user_session_path, :method => :delete, :class => "logged-in-buttons logout") %>
           <% else %>
