@@ -17,7 +17,6 @@
 				<%= form.label :name, 'TITLE OF YOUR COURSE' %>
 				<%= form.text_field :name, :placeholder => 'Enter course title here - max 200 characters'%>
 			</div>
-
 			<div class="field"> 
 				<%= form.label :blurb, 'TWEETABLE DESCRIPTION' %>
 				<%= form.text_field :blurb, :placeholder => 'Max 120 chracters(we\'ll include a bit.ly to your course)', :style => "margin-left:11px;"  %>
@@ -25,20 +24,10 @@
 			<div class="field"> 				
 				<%= form.text_area :description, :placeholder => 'Enter course description here', :style => "width:100%; height: 203px;" %>
 			</div>
-
 			<div class="bottom-field left" style="margin-top:9px;"> 				
 				<%= form.label :address %>
 				<%= form.text_area :address, :style => "width: 287px; height: 95px;"%>
-			</div>			
-
-			<div class="bottom-field middle"> 		
-				<%= form.label :price, "COST TO ATTEND (Includes 4% admin fee)" %>
-				<%= form.text_field :price, :placeholder => "£19.99" %>
-			</div>
-			<div class="bottom-field middle" style="display: table; position: relative; left: 28px;"> 		
-				<%= form.label :date, "COURSE DATE" %>
-				<%= form.datetime_select :Date, :start_year => Date.today.year %>	
-			</div>
+			</div>									
 			<br>
 			<div class="bottom-field right">
 				<%= form.label :need_to_bring, "WHAT DO ATTENDEES NEED TO BRING?", :style => "text-align:center" %>
@@ -53,17 +42,8 @@
 				<%= form.text_field :benefits %>
 				<%= form.text_field :benefits %>				
 			</div>		
-			<div class="bottom-field middle" style="margin-left: 333px; top: -157px; position: relative;">
-				
-			</div>
-			<div class="bottom-field middle" style="margin-left: 495px; top: -232px; position: relative;">
-				<%= form.label :end_time, "ENDS AT" %>
-				<%= form.time_select :end_time %>	
-			</div>
-			<div class="bottom-field middle" style="position: relative; display: table; margin-left: 333px; top: -202px;">
-				<%= form.label :quantity, "MAXIMUM AMOUNT OF PEOPLE", :style => "display:inline-block" %>
-				<%= form.text_field :quantity, :style => "width: 32px; left: 14px; position: relative;" %>
-			</div>
+			<div class="bottom-field middle" style="margin-left: 333px; top: -157px; position: relative;">				
+			</div>						
 			<div class="bottom-field right" style="top:-375px">
 				<%= form.label :need_to_wear, "WHAT DO ATTENDEES NEED TO WEAR?", :style => "text-align:center" %>
 				<%= form.text_field :need_to_wear %>

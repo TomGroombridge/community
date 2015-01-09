@@ -14,7 +14,7 @@
 
 
   <% @course_dates.each do |date| %>     
-    <%= f.fields_for :course_dates, date do |q| %>
+    <%= f.fields_for :course_dates, date do |q| %>            
       <%= q.check_box :dates %>
     <% end %>
   <% end %>

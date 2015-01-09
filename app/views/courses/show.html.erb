@@ -2,15 +2,8 @@
 <h1>£<%= @course.price %></h1>
 <br>
 <%= @course.description%>
-<h3><%= @course.quantity %> places available</h3>
-<h3> this course starts on the <%= @course.Date.strftime("%m/%d/%Y") %></h3>
 <% if signed_in? %>	
-	<% hours = DateTime.now + 1 %>
-	<%if hours.strftime("%m/%d/%Y") == @course.Date.strftime("%m/%d/%Y") %>
-		<h1>This course has started</h1>
-	<% else %>
- 		<%= link_to "Book Course", new_payment_path(:id => @course.id) %>
- 	<% end %>
+	<% hours = DateTime.now + 1 %>	
 <% else %>
 	<%= link_to('Login to Book course', new_user_session_path)  %>
 <% end %>
@@ -20,8 +13,8 @@
 	<br>
 <% end %>
 
-
-
+<%= link_to "Book Course", new_payment_path(:id => @course.id) %>
+<br>
 <%= link_to('add date',  new_course_course_date_path(@course.id))  %>
 
 
