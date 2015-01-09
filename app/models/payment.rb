@@ -1,5 +1,5 @@
 class Payment < ActiveRecord::Base
-	belongs_to :course
+	belongs_to :course_dates
 	belongs_to :user		
 	attr_accessor :stripe_card_token
 
