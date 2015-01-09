@@ -4,14 +4,13 @@ class PaymentsController < ApplicationController
     @course = CourseDate.find(params[:id])    
     @payment = @course.payments.build        
 		@payment.user = current_user
-	  @user = @payment.user	    
+	  @user = @payment.user	       
   end
 
-  def create         
+  def create      
     @payment = Payment.new(params[:payment].permit(:user_id, :course_date_id, :email, :course_id))  	            
-    if @payment.save_with_payment 
-      raise @payment.inspect
-    	# @payment.course.update_attribute(:quantity, @payment.course.quantity - 1)		      
+    if @payment.save_with_payment       
+    	@payment.course_date.update_attribute(:quantity, @payment.course_date.quantity - 1)		      
       redirect_to @payment, :notice => "Thank you for paying!"
     else
       render :new
