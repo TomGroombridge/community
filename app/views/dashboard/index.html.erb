@@ -57,13 +57,12 @@
 					1
 				</td>
 				<td style="text-align:center">
-					<%= course.name %>
+					<%= course.course.name %>
 				</td>
 				<td style="text-align:center">
-					<%= course.Date.strftime("%m/%d/%Y") %>
+					<%= course.dates.strftime("%m/%d/%Y") %>
 				</td>
-				<td style="text-align:center">	
-					<%= course.quantity %>
+				<td style="text-align:center">						
 				</td>
 				<td style="text-align:center">
 					<%= course.payments.count %>
