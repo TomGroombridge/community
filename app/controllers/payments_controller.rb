@@ -1,19 +1,15 @@
 class PaymentsController < ApplicationController
 	
 	def new    				
-    @course = Course.find(params[:id])
+    @course = CourseDate.find(params[:id])    
     @payment = @course.payments.build
+    raise @payment.inspect
 		@payment.user = current_user
-		@user = @payment.user	
-    @course_dates = []
-    @course_dates = @course.course_dates.each do |date|
-      @course_dates << date.course_id
-    end
-    
+	  @user = @payment.user	    
   end
 
   def create         
-    @payment = Payment.new(params[:payment].permit(:course_id, :user_id, :course_date_id, :email))  	        
+    @payment = Payment.new(params[:payment].permit(:user_id, :course_date_id, :email))  	        
     if @payment.save_with_payment 
       raise @payment.inspect
     	@payment.course.update_attribute(:quantity, @payment.course.quantity - 1)		      

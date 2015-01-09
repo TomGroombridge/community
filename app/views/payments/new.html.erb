@@ -1,4 +1,4 @@
-<h1>Signing up for "<%= @payment.course.name %>"</h1>
+Signing up for <%= @payment.inspect %>
 
 <%= form_for @payment do |f| %>
   <% if @payment.errors.any? %>
@@ -13,12 +13,7 @@
   <% end %>  
 
 
-  <% @course_dates.each do |date| %>     
-    <%= f.fields_for :course_dates, date do |q| %>            
-      <%= q.check_box :dates %>
-    <% end %>
-  <% end %>
-
+  
   <%= f.hidden_field :stripe_card_token %>
   
   <% if @payment.stripe_card_token.present? %>
@@ -54,7 +49,7 @@
     </div>
   <% end %>  
 
-  <%= @course_dates.count %> course dates
+  
   
   <div class="actions">
     <%= f.submit "Subscribe" %>

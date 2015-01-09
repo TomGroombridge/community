@@ -10,10 +10,10 @@
 <br>
 <% @course.course_dates.each do |date|%>
 	<%= date.dates.strftime("%m/%d/%Y") %>
+	<%= link_to "Book Course", new_payment_path(:id => date.id) %>
 	<br>
 <% end %>
 
-<%= link_to "Book Course", new_payment_path(:id => @course.id) %>
 <br>
 <%= link_to('add date',  new_course_course_date_path(@course.id))  %>
 
