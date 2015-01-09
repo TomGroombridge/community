@@ -3,6 +3,10 @@
 <%= form_for [@course, @course_date] do |f| %>
 	<%= f.label :dates %>
 	<%= f.datetime_select :dates %>	
-	<%= f.text_field :course_id %>	
+	<br>
+	<%= f.label :quantity %>
+	<%= f.text_field :quantity %>
+	<br>
+	<%= f.hidden_field :course_id %>		
 	<%= f.submit %>
 <% end %>
