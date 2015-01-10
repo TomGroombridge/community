@@ -1,3 +1,5 @@
-<%= @user.email %>
-<%= @user.contact_number %>
-<%= link_to "edit", edit_user_path %>
+<% if current_user.admin? %>
+	<%= render 'admin_show' %>
+<% else %>
+	goodbye
+<% end %>
