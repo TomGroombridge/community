@@ -10,9 +10,9 @@
 <br>
 <% @course.course_dates.each do |date|%>		
 	<%if date.valid_dates(date)%>		
-		<%= date.dates.strftime("%m/%d/%Y") %>
-		<%= link_to "Book Course", new_payment_path(:id => date.id) %>	
-		<br>
+		<%= date.dates.strftime("%m/%d/%Y") %>		
+			<%= link_to "Book Course", new_payment_path(:id => date.id) %>	
+		<br>		
 	<% end %>	
 <% end %>
 

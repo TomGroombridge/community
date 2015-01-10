@@ -1,19 +1,18 @@
 <ul class="large-block-grid-3" style="margin:10px;">
-	<% @courses.each do |course| %>
-	<li>					
-  	<%=link_to image_tag(course.image.url(:medium), :class => "course-pic"), course_path(course) %>
-  	<div class="image-overlay">
-  		<div class="class-info-left">
-  			<%= course.name %>
-  		</div>
-  		<div class="class-info-right">
-  			£<%= course.price %>
-  		</div>
-  		<div class="class-info-left location">
-
-  		</div>  		
-  	</div>
-	</li>  				
+	<% @courses.each do |course| %>    
+  	<li>					
+    	<%=link_to image_tag(course.image.url(:medium), :class => "course-pic"), course_path(course) %>
+    	<div class="image-overlay">
+    		<div class="class-info-left">
+    			<%= course.name %>
+    		</div>
+    		<div class="class-info-right">
+    			£<%= course.price %>
+    		</div>
+    		<div class="class-info-left location">
+    		</div>  		
+    	</div>
+  	</li>       
 	<% end %>
 </ul>
 

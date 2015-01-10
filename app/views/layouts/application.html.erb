@@ -23,7 +23,8 @@
           <%= link_to('LOG OUT', destroy_user_session_path, :method => :delete, :class => "logged-in-buttons logout") %>
           <% else %>
             <%= link_to('LOG IN', new_user_session_path,:class => "account-buttons login") %>          
-            <a class="account-buttons signup" href="/users"> SIGN UP</a>              
+            <%= link_to('SIGN UP', new_user_registration_path,:class => "account-buttons signup") %>          
+            
           <% end %>        
         </div>
         <div class="courses">
