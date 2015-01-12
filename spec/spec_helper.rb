@@ -9,6 +9,7 @@ ENV["RAILS_ENV"] ||= 'test'
   require 'rspec/rails'
   require 'capybara/rspec'
   require 'capybara/rails'
+  require 'factory_girl_rails'
 # Given that it is always loaded, you are encouraged to keep this file as
 # light-weight as possible. Requiring heavyweight dependencies from this file
 # will add to the boot time of your test suite on EVERY test run, even for an
@@ -20,8 +21,11 @@ ENV["RAILS_ENV"] ||= 'test'
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
 RSpec.configure do |config|
-  config.include Capybara::DSL
+  config.include Capybara::DSL  
+  config.include FactoryGirl::Syntax::Methods  
+ 
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
@@ -90,4 +94,5 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
 end
