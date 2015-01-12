@@ -6,4 +6,13 @@ FactoryGirl.define do
   	password '123456789'
   	password_confirmation '123456789'  	
   end
+
+  factory :admin, class: User do
+  	first_name 'james'
+  	last_name 'groombridge'
+  	email 'james@j.com'
+  	password '123456789'
+  	password_confirmation '123456789'  
+  	admin true
+  end  
 end

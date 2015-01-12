@@ -20,8 +20,24 @@ describe "signing in as a user" do
     expect(current_path).to eq '/'
   end
 
+end
 
 
 
+describe "a admin user" do 
+	let(:james) { create(:admin) }
 
+	before do 
+		create(:admin)			
+	end
+
+	it "should be able to access the admin board" do 
+		visit '/'    
+    click_link('LOG IN')
+    fill_in 'Email', with: 'james@j.com'
+    fill_in 'Password', with: '123456789'
+    click_button 'Log in'
+    click_link('DASHBOARD')
+	end
+	
 end
