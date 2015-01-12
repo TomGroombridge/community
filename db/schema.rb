@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150109121048) do
+ActiveRecord::Schema.define(version: 20150112175500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20150109121048) do
     t.string   "need_to_bring"
     t.string   "benefits"
     t.string   "need_to_wear"
+    t.boolean  "active",             default: false
   end
 
   create_table "dashboards", force: true do |t|

@@ -17,7 +17,14 @@ def create
 end
 
 def index
-	@courses = Course.all
+	@courses = []
+	@all_courses = Course.all
+	@all_courses.each do |course|
+		if course.active == true
+			@courses << course
+		end
+	end
+	@courses
 end
 
 def show

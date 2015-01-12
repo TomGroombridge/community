@@ -5,6 +5,7 @@ class CourseDate < ActiveRecord::Base
 	def valid_dates(course)			
 		if course.dates > Time.now	
 			course
+			course.course.update_attributes(active: true)
 		end
 	end
 
