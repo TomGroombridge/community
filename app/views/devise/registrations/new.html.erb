@@ -4,7 +4,7 @@
   <p style="width: 278px; margin: auto; position: relative; display: block; line-height: 2; margin-top: 25px; font-style:italic">Already a course provider?<%= render "devise/shared/links" %></p>
 
   <div class="sign-up-form">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:id => "new_user"}) do |f| %>
       <%= devise_error_messages! %>
 
       <div class="image-field">
@@ -12,24 +12,24 @@
         <%= f.file_field :avatar %>
       </div>    
 
-      <div class="field">      
-        <%= f.text_field :first_name, :placeholder => 'FIRST NAME', autofocus: true , :class => 'top-input' %>
+      <div class="field">          
+        <%= f.text_field :first_name, :placeholder => 'FIRST NAME', autofocus: true , :class => 'top-input', :id => "first_name"  %>
       </div>
 
-      <div class="field">      
-        <%= f.text_field :last_name, :placeholder => 'LAST NAME', autofocus: true, :class => 'top-input' %>
+      <div class="field">              
+        <%= f.text_field :last_name, :placeholder => 'LAST NAME', autofocus: true, :class => 'top-input', :id => "last_name"  %>
       </div>
      
       <div class="field">      
-        <%= f.email_field :email, :placeholder => 'EMAIL', autofocus: true, :class => 'top-input' %>
+        <%= f.email_field :email, :placeholder => 'EMAIL', autofocus: true, :class => 'top-input', :id => "email" %>
       </div>
                 
       <div class="field">          
-        <%= f.password_field :password, :placeholder => 'PASSWORD (MIN 8 CHARACTERS)', autocomplete: "off", :class => 'top-input' %>
+        <%= f.password_field :password, :placeholder => 'PASSWORD (MIN 8 CHARACTERS)', autocomplete: "off", :class => 'top-input', :id => "password" %>
       </div>
 
       <div class="field">        
-        <%= f.password_field :password_confirmation, :placeholder => 'CONFIRM PASSWORD', autocomplete: "off", :class => 'top-input' %>
+        <%= f.password_field :password_confirmation, :placeholder => 'CONFIRM PASSWORD', autocomplete: "off", :class => 'top-input', :id => "confirm_password" %>
       </div>
       
       <%= f.submit "SUBMIT", :class => 'sign-up-button' %>
