@@ -2,11 +2,27 @@
 <h1>£<%= @course.price %></h1>
 <br>
 <%= @course.description%>
-<% @course.need_to_wears.each do |course| %>
-	<%if course.valid_entries(course) %>	
-		<%= course.name %>		
+<h3>What to Wear</h3>
+
+<ul>
+	<% @course.need_to_wears.each do |course| %>
+		<%if course.valid_entries(course) %>	
+			<li><%= course.name %></li>
+			<br>	
+		<% end %>
 	<% end %>
-<% end %>
+</ul>
+
+<h3>What to Bring</h3>
+<ul>
+	<% @course.brings.each do |course| %>
+		<%if course.valid_entries(course) %>	
+			<li><%= course.name %>	</li>
+			<br>	
+		<% end %>
+	<% end %>
+</ul>
+
 <% if signed_in? %>	
 	<% hours = DateTime.now + 1 %>	
 <% else %>

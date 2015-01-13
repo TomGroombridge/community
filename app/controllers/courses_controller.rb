@@ -5,10 +5,11 @@ def new
 	@course.user = current_user
 	@course.course_addresses.build
 	3.times {@course.need_to_wears.build}
+	3.times {@course.brings.build}
 end
 
 def create 		
-	@course = Course.create(params[:course].permit(:name, :description, :price, :user_id, :image, :blurb, :benefits, course_addresses_attributes:[:id, :postcode], need_to_wears_attributes: [:id, :name]))
+	@course = Course.create(params[:course].permit(:name, :description, :price, :user_id, :image, :blurb, :benefits, course_addresses_attributes:[:id, :postcode], need_to_wears_attributes: [:id, :name], brings_attributes: [:id, :name]))
 		if @course.save
 			@user =  @course.user
 			UserMailer.welcome_email(@user).deliver		

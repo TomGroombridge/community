@@ -8,6 +8,8 @@ class Course < ActiveRecord::Base
   has_many :need_to_wears
   accepts_nested_attributes_for :course_addresses
   accepts_nested_attributes_for :need_to_wears
+  has_many :brings
+  accepts_nested_attributes_for :brings
 	
 
 
