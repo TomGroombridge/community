@@ -5,7 +5,9 @@ class Course < ActiveRecord::Base
 	has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   has_many :course_addresses
+  has_many :need_on_courses
   accepts_nested_attributes_for :course_addresses
+  accepts_nested_attributes_for :need_on_courses
 	
 
 
