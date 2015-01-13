@@ -3,7 +3,7 @@ class CoursesController < ApplicationController
 def new
 	@course = Course.new	
 	@course.user = current_user
-	2.times { @course.course_addresses.build}
+	@course.course_addresses.build
 end
 
 def create 		

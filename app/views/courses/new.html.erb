@@ -9,7 +9,19 @@
 		<%= form_for @course do |form|  %>
 
 			<%= form.fields_for :course_addresses do |addresses_form| %>
-				<%= addresses_form.label :postcode %>
+				<%= addresses_form.label :address1, 'Address Line 1' %>				
+        <%= addresses_form.text_field :address1 %>
+        <br>
+        <%= addresses_form.label :address2, 'Address Line 2' %>
+        <%= addresses_form.text_field :address2 %>
+        <br>
+        <%= addresses_form.label :city %>
+        <%= addresses_form.text_field :city %>
+        <br>
+        <%= addresses_form.label :county %>
+        <%= addresses_form.text_field :county %>
+        <br>
+        <%= addresses_form.label :postcode %>
         <%= addresses_form.text_field :postcode %>
 			<% end %>
 
