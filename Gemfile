@@ -42,7 +42,7 @@ gem 'stripe'
 
 gem 'foundation-rails'
 
-
+gem 'ckeditor'
 
 group :test, :development do
   gem 'rspec-rails'

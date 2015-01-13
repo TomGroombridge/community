@@ -1,7 +1,9 @@
 <%= @course.name %>
 <h1>£<%= @course.price %></h1>
 <br>
-<%= @course.description%>
+
+<%= @course.description.html_safe%>
+
 <h3>What to Wear</h3>
 
 <ul>
