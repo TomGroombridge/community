@@ -47,8 +47,8 @@
 				<%= form.label :blurb, 'TWEETABLE DESCRIPTION' %>
 				<%= form.text_field :blurb, :placeholder => 'Max 120 chracters(we\'ll include a bit.ly to your course)', :style => "margin-left:11px;"  %>
 			</div>
-			<div class="field"> 	
-				<%= form.cktext_area :description, :class => 'someclass', :ckeditor => {:language => 'uk'} %>			
+			<div class="field"> 					
+		  	<%= form.cktext_area :description, :value => 'Default value', :id => 'sometext' %>
 			</div>									
 			<br>			
 			<div class="bottom-field left" style="margin-top:20px; width:289px;"> 	

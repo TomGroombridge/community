@@ -1,8 +1,9 @@
 <%= @course.name %>
 <h1>£<%= @course.price %></h1>
 <br>
-
-<%= @course.description.html_safe%>
+<div class="descirption" style="height:100%">
+	<%= @course.description.html_safe%>
+</div>
 
 <h3>What to Wear</h3>
 
