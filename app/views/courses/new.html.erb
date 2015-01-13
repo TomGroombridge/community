@@ -8,13 +8,11 @@
 		<h2 style="color: #192123; text-align: center; margin-top: 0px; font-weight: 100; border: 1px solid #192123; width: 253px; margin: auto; position: relative; top: 30px; border-radius: 34px;">PICKACOURSE</h2>  
 		<%= form_for @course do |form|  %>
 
-			<%= form.fields_for :need_on_courses do |ing| %>			
-			 	<%= ing.label :need_to_bring %>
-			 		<%= ing.text_field :need_to_bring %>			 		
-			 <% end %>
-			 
-			 <%= form.submit 'Add ingredient', :name => "add_need_on_course" %>
-
+			<%= form.fields_for :need_to_wears do |ing| %>			
+			 	<%= ing.label :name, "What to Wear" %>
+			 	<%= ing.text_field :name %>	
+			<% end %>		
+			 			 
 			<%= form.fields_for :course_addresses do |addresses_form| %>
 				<%= addresses_form.label :address1, 'Address Line 1' %>				
         <%= addresses_form.text_field :address1 %>
@@ -63,8 +61,5 @@
 			</div>
 			<%= form.submit "CREATE COURSE", :class => 'create-course-button' %>
 		<% end %>
-
-
-
 	<% end %>
 </div>
