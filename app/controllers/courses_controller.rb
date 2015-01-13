@@ -3,10 +3,11 @@ class CoursesController < ApplicationController
 def new
 	@course = Course.new	
 	@course.user = current_user
+	2.times { @course.course_addresses.build}
 end
 
 def create 		
-	@course = Course.create(params[:course].permit(:name, :description, :price, :user_id, :image, :blurb, :address, :need_to_bring, :benefits, :need_to_wear))
+	@course = Course.create(params[:course].permit(:name, :description, :price, :user_id, :image, :blurb, :address, :need_to_bring, :benefits, :need_to_wear, course_addresses_attributes:[:id, :postcode]))
 	if @course.save
 		@user =  @course.user
 		UserMailer.welcome_email(@user).deliver		

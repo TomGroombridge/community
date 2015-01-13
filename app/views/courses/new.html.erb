@@ -8,6 +8,11 @@
 		<h2 style="color: #192123; text-align: center; margin-top: 0px; font-weight: 100; border: 1px solid #192123; width: 253px; margin: auto; position: relative; top: 30px; border-radius: 34px;">PICKACOURSE</h2>  
 		<%= form_for @course do |form|  %>
 
+			<%= form.fields_for :course_addresses do |addresses_form| %>
+				<%= addresses_form.label :postcode %>
+        <%= addresses_form.text_field :postcode %>
+			<% end %>
+
 			<%= form.hidden_field :user_id %>
 			<div class="image-field">
 			 <h1 style="text-align: center; margin-top: 60px; letter-spacing: 4px; color:#9c9c9b">JPG/PNG 2MB MAX</h1>
