@@ -8,10 +8,12 @@
 		<h2 style="color: #192123; text-align: center; margin-top: 0px; font-weight: 100; border: 1px solid #192123; width: 253px; margin: auto; position: relative; top: 30px; border-radius: 34px;">PICKACOURSE</h2>  
 		<%= form_for @course do |form|  %>
 
-			 <%= form.fields_for :need_on_courses do |ing| %>
+			<%= form.fields_for :need_on_courses do |ing| %>			
 			 	<%= ing.label :need_to_bring %>
-			 	<%= ing.text_field :need_to_bring %>
+			 		<%= ing.text_field :need_to_bring %>			 		
 			 <% end %>
+			 
+			 <%= form.submit 'Add ingredient', :name => "add_need_on_course" %>
 
 			<%= form.fields_for :course_addresses do |addresses_form| %>
 				<%= addresses_form.label :address1, 'Address Line 1' %>				
@@ -46,19 +48,10 @@
 			<div class="field"> 				
 				<%= form.text_area :description, :placeholder => 'Enter course description here', :style => "width:100%; height: 203px;" %>
 			</div>									
-			<br>
-			<div class="bottom-field right">
-				<%= form.label :need_to_bring, "WHAT DO ATTENDEES NEED TO BRING?", :style => "text-align:center" %>
-				<%= form.text_field :need_to_bring%>
-				<%= form.text_field :need_to_bring %>
-				<%= form.text_field :need_to_bring %>
-			</div>
-
+			<br>			
 			<div class="bottom-field left" style="margin-top:20px; width:289px;"> 	
 				<%= form.label :benefits, "BENEFTIS OF ATTENDING YOUR COURSE" %>				
-					<%= form.text_field :benefits %>
-					<%= form.text_field :benefits %>
-					<%= form.text_field :benefits %>
+					<%= form.text_field :benefits %>			
 			</div>		
 			<div class="bottom-field middle" style="margin-left: 333px; top: -157px; position: relative;">				
 			</div>						
