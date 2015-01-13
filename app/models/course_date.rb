@@ -3,10 +3,9 @@ class CourseDate < ActiveRecord::Base
 	has_many :payments
 
 	def valid_dates(course)			
-		if course.dates > Time.now	
-			course
-			course.course.update_attributes(active: true)
-		end
+		if course.dates > Time.now					
+			course.course.update_attributes(active: true)						
+		end		
 	end
 
 end

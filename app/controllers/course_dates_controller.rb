@@ -7,8 +7,8 @@ class CourseDatesController < ApplicationController
 
 	def create 			
 		@course_date = CourseDate.create(params[:course_date].permit(:dates, :course_id, :quantity))	
-		if @course_date.save		
-			redirect_to '/courses'
+		if @course_date.save								
+			redirect_to course_path(@course_date.course.id)
 		else
 			raise "error"
 		end
