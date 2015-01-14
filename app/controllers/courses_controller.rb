@@ -1,4 +1,5 @@
 class CoursesController < ApplicationController
+	
 
 def new
 	@course = Course.new	
@@ -6,7 +7,7 @@ def new
 	@course.course_addresses.build
 	3.times {@course.need_to_wears.build}
 	3.times {@course.brings.build}  
-  authorize! :update, @course
+  # authorize! :update, @course
 end
 
 def create 		

@@ -50,28 +50,32 @@
 			</th>
 		</tr>
 	</thead>
-	<tbody>
-		<% @courses.each do |course| %>
+	<tbody>	
+
+		<% @user.courses.each do |course| %>
+			<% course.course_dates.each do |course_dates| %>
+
 			<tr>
 				<td style="text-align:center">
 					1
 				</td>
 				<td style="text-align:center">
-					<%= course.course.name %>
+					<%= course_dates.course.name %>					
 				</td>
 				<td style="text-align:center">
-					<%= course.dates.strftime("%m/%d/%Y") %>
+					<%= course_dates.dates.strftime("%m/%d/%Y") %>
 				</td>
 				<td style="text-align:center">
-					<%= course.quantity %>						
+					<%= course_dates.quantity %>						
 				</td>
 				<td style="text-align:center">
-					<%= course.payments.count %>
+					<%= course_dates.payments.count %>
 				</td>
 				<td>
 					<%= link_to('course', course_course_details_path(course.id)) %>
 				</td>
 			</tr>			
+			<% end %>
 		<% end %>
 	</tbody>
 
