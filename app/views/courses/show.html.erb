@@ -1,6 +1,6 @@
-<% if can? :update, @course %>
+
 	<%= link_to('add date',  new_course_course_date_path(@course.id))  %>
-<% end %>
+
 <%= @course.name %>
 <h1>£<%= @course.price %></h1>
 <br>

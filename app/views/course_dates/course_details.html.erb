@@ -1,0 +1,6 @@
+<%= @course_date.dates %>
+<br>
+
+<% @course_date.payments.each do |booking| %>
+	<%= booking.user.first_name %>
+<% end %>

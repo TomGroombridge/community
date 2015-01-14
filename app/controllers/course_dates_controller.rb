@@ -14,4 +14,9 @@ class CourseDatesController < ApplicationController
 		end
 	end
 
+	def course_details		
+		@course_date = CourseDate.find(params[:id])
+
+	end
+
 end

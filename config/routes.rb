@@ -4,10 +4,11 @@ Rails.application.routes.draw do
   root "courses#index"
   
   resources :courses do 
-    put "update_quantity" => 'courses#update_quantity'
-    get "course_details" => 'dashboard#course_details'
+    put "update_quantity" => 'courses#update_quantity'   
     resources :course_dates do 
-      
+      member do
+        get 'course_details'
+      end
     end
   end
 
@@ -26,7 +27,7 @@ Rails.application.routes.draw do
   
   resources :users, :only => [:show, :edit, :update, :index] do 
     member do
-      get 'view'      
+      get 'dashboard'      
     end
     resources :dashboard, :only => [:index] do 
       # resources :courses , :only => [:show]

@@ -53,7 +53,34 @@
 	<tbody>	
 
 		<% @user.courses.each do |course| %>
-			<%= course.name %>
+			<tr>
+				<td>
+					<%= course.name %>
+				</td>
+				<td>
+			 		<%= link_to('ADD NEW DATES', new_course_course_date_path(course.id),:class => "logged-in-buttons dashboard") %>
+				</td>
+			</tr>
+			<tr>
+			<th style="width:50px">	
+				#
+			</th>
+			<th style="width:163px">
+				course name
+			</th>
+			<th style="width:163px">
+				Date
+			</th>
+			<th style="width:119px">
+				spaces left
+			</th>
+			<th style="width:137px">
+				payments taken
+			</th>
+			<th style="width:115px">
+				booked people
+			</th>
+		</tr>
 			<% course.course_dates.each do |course_dates| %>
 
 			<tr>
@@ -72,9 +99,9 @@
 				<td style="text-align:center">
 					<%= course_dates.payments.count %>
 				</td>
-				<td>
-					<%= link_to('course', course_course_details_path(course.id)) %>
-				</td>
+				<td>											
+					<%= link_to('course', course_details_course_course_date_path(course_dates.course.id, course_dates.id)) %>
+				</td>				
 			</tr>			
 			<% end %>
 		<% end %>
