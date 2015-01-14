@@ -1,4 +1,5 @@
 class CourseDatesController < ApplicationController
+	load_and_authorize_resource 
 
 	def new	
 		@course = Course.find(params[:course_id])
@@ -16,7 +17,6 @@ class CourseDatesController < ApplicationController
 
 	def course_details		
 		@course_date = CourseDate.find(params[:id])
-
 	end
 
 end

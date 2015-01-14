@@ -3,7 +3,7 @@ class Ability
 
   def initialize(user)
     user ||= User.new    
-    can [:update, :dashboard, :edit], User, :id => user.id      
+    can [:update, :dashboard, :edit], User, :id => user.id     
     if user.admin?      
     else
       can :read, :all
