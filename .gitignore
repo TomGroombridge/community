@@ -17,3 +17,5 @@
 config/initializers/stripe.rb
 
 *.jpg
+
+config/secrets.yml

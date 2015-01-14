@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
 	def update	
 		@user = User.find(params[:id])	
-		@user.update_attributes(params[:user].permit(:first_name, :last_name, :contact_number, :company_name, :description, :facebook, :twitter, :instagram, :google, :pinterest, :admin))
+		@user.update_attributes(params[:user].permit(:first_name, :last_name, :contact_number, :company_name, :description, :facebook, :twitter, :instagram, :google, :pinterest, :admin, :email))
 		redirect_to current_user	
 	end
 
