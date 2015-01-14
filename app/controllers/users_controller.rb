@@ -31,6 +31,7 @@ end
 
 def view	
 	@user = User.find(params[:id])
+	authorize! :read, @user
 end
 
 end
