@@ -44,6 +44,8 @@ gem 'foundation-rails'
 
 gem 'ckeditor'
 
+gem 'cancancan', '~> 1.10'
+
 group :test, :development do
   gem 'rspec-rails'
   gem 'capybara'
