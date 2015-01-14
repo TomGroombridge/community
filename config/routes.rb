@@ -25,6 +25,9 @@ Rails.application.routes.draw do
   get 'users/course_providers', :to => 'users#course_providers_index'
   
   resources :users, :only => [:show, :edit, :update, :index] do 
+    member do
+      get 'view'      
+    end
     resources :dashboard, :only => [:index] do 
       # resources :courses , :only => [:show]
       get "course_details" => 'dashboard#course_details'

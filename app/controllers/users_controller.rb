@@ -29,4 +29,8 @@ def course_providers_index
 	@course_providers
 end
 
+def view	
+	@user = User.find(params[:id])
+end
+
 end
