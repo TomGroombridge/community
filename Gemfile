@@ -33,10 +33,11 @@ gem 'jbuilder', '~> 1.2'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc',          group: :doc, require: false
 
-
-
+gem 'delayed_job_active_record'
 
 gem 'devise'
+
+gem 'sidekiq'
 
 gem 'stripe'
 

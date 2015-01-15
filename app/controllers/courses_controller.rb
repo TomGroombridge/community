@@ -14,7 +14,7 @@ class CoursesController < ApplicationController
 		@course = Course.create(params[:course].permit(:name, :description, :price, :user_id, :image, :blurb, :benefits, course_addresses_attributes:[:id, :postcode], need_to_wears_attributes: [:id, :name], brings_attributes: [:id, :name]))
 		if @course.save
 			@user =  @course.user
-			UserMailer.welcome_email(@user).deliver		
+			UserMailer.delay_for(0.003.hours).welcome_email(@user)	
 	    redirect_to '/courses'
 	  else
 		  format.html { render action: 'new' }	  
