@@ -25,10 +25,13 @@ class CoursesController < ApplicationController
 		@courses = []
 		@all_courses = Course.all
 		@all_courses.each do |course|
-			if course.active == true
-				@courses << course
+			course.course_dates.each do |date| 
+				if date.active? 
+					@courses << course
+					break
+				end				
 			end
-		end
+		end	
 		@courses
 	end
 
