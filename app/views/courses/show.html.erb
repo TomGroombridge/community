@@ -38,6 +38,7 @@
 <% @course.course_dates.each do |date|%>		
 	<%if date.valid_dates(date)%>		
 		<%= date.dates.strftime("%m/%d/%Y/%I:%M%p") %>	
+		
 			<% if date.quantity > 0 %>	
 				<%= link_to "Book Course", new_payment_path(:id => date.id) %>	
 			<% else %>
