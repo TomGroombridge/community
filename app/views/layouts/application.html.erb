@@ -17,9 +17,9 @@
           <% if signed_in? %>
           <div class=""><%= image_tag current_user.avatar.url(:thumb), :class => "profile-pic" %></div>          
           <div class="username"><%= current_user.first_name%> <%= current_user.last_name%></div>     
-          <% if current_user.admin? %>
+          
             <%= link_to('DASHBOARD', dashboard_user_path(current_user ),:class => "logged-in-buttons dashboard")%>
-          <% end %>
+          
           <%= link_to('LOG OUT', destroy_user_session_path, :method => :delete, :class => "logged-in-buttons logout") %>
           <% else %>
             <%= link_to('LOG IN', new_user_session_path,:class => "account-buttons login") %>          
