@@ -1,14 +1,17 @@
 class Payment < ActiveRecord::Base
 	belongs_to :course_date
+	belongs_to :course
 	belongs_to :user		
 	after_create :send_new_payment_email
 	after_create :send_reminder
 	attr_accessor :stripe_card_token
 
-	def save_with_payment
-	  if valid?
+	def save_with_payment			
+		@amount = self.course_date.course.price		
+	  if valid?	  	
 	    customer = Stripe::Customer.create(card: stripe_card_token)
-	    self.stripe_customer_token = customer.id
+	    self.stripe_customer_token = customer.id	  	      	    	    
+	    Stripe::Charge.create(amount: @amount, currency: "gbp", customer: customer.id)
 	    save!	    
 	  end
 		rescue Stripe::InvalidRequestError => e

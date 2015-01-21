@@ -42,12 +42,7 @@ Signing up for <%= @payment.inspect %>
   <%= f.hidden_field :user_id %>  
 
 
-  <%= f.fields_for @user do |ff| %>  
-    <div class="field">
-      <%= ff.label :email %>
-      <%= ff.text_field :email %>
-    </div>
-  <% end %>  
+   
 
   
   
