@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   root "courses#index"
   
   resources :courses do 
-    put "update_quantity" => 'courses#update_quantity'   
     resources :course_dates do 
       member do
         get 'course_details'
