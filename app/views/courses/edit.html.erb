@@ -1,0 +1,48 @@
+<%= form_for @course do  |form| %>	
+	<%= form.label :name %>
+	<%= form.text_field :name %>
+	<br>
+	<%= form.label :description %>
+	<%= form.cktext_area :description %>
+	<br>
+	<%= form.label :price %>
+	<%= form.text_field :price %>
+	<br>
+	<%= form.label :image %>
+	<%= form.file_field :image %>
+	<br>
+	<%= form.label :blurb %>
+	<%= form.text_field :blurb %>
+	<br>
+	<%= form.label :benefits %>
+	<%= form.text_field :benefits %>
+	<br>
+	<%= form.fields_for :need_to_wears do |ing| %>	
+		<%= ing.label :name, "What to Wear" %>
+		<%= ing.text_field :name %>	
+	<% end %>	
+	<br>
+	<%= form.fields_for :brings do |ing| %>			
+	 	<%= ing.label :name, "What to Bring" %>
+	 	<%= ing.text_field :name %>	
+	<% end %>
+	<br>
+	<%= form.fields_for :course_addresses do |addresses_form| %>
+		<%= addresses_form.label :address1, 'Address Line 1' %>				
+    <%= addresses_form.text_field :address1 %>
+    <br>
+    <%= addresses_form.label :address2, 'Address Line 2' %>
+    <%= addresses_form.text_field :address2 %>
+    <br>
+    <%= addresses_form.label :city %>
+    <%= addresses_form.text_field :city %>
+    <br>
+    <%= addresses_form.label :county %>
+    <%= addresses_form.text_field :county %>
+    <br>
+    <%= addresses_form.label :postcode %>
+    <%= addresses_form.text_field :postcode %>
+	<% end %>
+	<br>
+	<%= form.submit %>
+<% end %>
