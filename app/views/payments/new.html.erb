@@ -15,7 +15,10 @@ Signing up for <%= @payment.inspect %>
 
   
   <%= f.hidden_field :stripe_card_token %>
-  
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
   <% if @payment.stripe_card_token.present? %>
     Credit card has been provided.
   <% else %>

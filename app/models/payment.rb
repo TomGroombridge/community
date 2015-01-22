@@ -6,12 +6,16 @@ class Payment < ActiveRecord::Base
 	after_create :send_reminder
 	attr_accessor :stripe_card_token
 
+
 	def save_with_payment			
-		@amount = self.course_date.course.price		
+		@amount = self.course_date.course.price			
+			@email = self.email
+		else
+
 	  if valid?	  	
 	    customer = Stripe::Customer.create(card: stripe_card_token)
 	    self.stripe_customer_token = customer.id	  	      	    	    
-	    Stripe::Charge.create(amount: @amount, currency: "gbp", customer: customer.id)
+	    Stripe::Charge.create(amount: @amount, currency: "gbp", customer: customer.id, description: @email)
 	    save!	    
 	  end
 		rescue Stripe::InvalidRequestError => e
