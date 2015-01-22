@@ -2,5 +2,6 @@
 <br>
 
 <% @course_date.payments.each do |booking| %>
-	<%= booking.user.first_name %>
+	<%= booking.user.inspect %>
+	<br>
 <% end %>

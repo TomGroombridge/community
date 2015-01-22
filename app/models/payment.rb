@@ -8,10 +8,8 @@ class Payment < ActiveRecord::Base
 
 
 	def save_with_payment			
-		@amount = self.course_date.course.price			
-			@email = self.email
-		else
-
+		@amount = self.course_date.course.price	
+		@email = self.email			
 	  if valid?	  	
 	    customer = Stripe::Customer.create(card: stripe_card_token)
 	    self.stripe_customer_token = customer.id	  	      	    	    
