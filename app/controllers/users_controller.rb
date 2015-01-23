@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	load_and_authorize_resource :except => [:index, :show]
+	load_and_authorize_resource :except => [:index, :show, :course_providers_index]
 
 	def show
 	  @user = User.find(params[:id])

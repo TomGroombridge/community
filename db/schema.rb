@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150122131402) do
+ActiveRecord::Schema.define(version: 20150123163620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,14 +24,14 @@ ActiveRecord::Schema.define(version: 20150122131402) do
   end
 
   create_table "course_addresses", force: true do |t|
-    t.string   "postcode"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "course_id"
     t.string   "address1"
     t.string   "address2"
     t.string   "city"
     t.string   "county"
+    t.string   "postcode"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "course_id"
   end
 
   create_table "course_dates", force: true do |t|
@@ -71,10 +71,10 @@ ActiveRecord::Schema.define(version: 20150122131402) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "course_id"
+    t.string   "email"
     t.integer  "user_id"
     t.string   "stripe_customer_token"
     t.integer  "course_date_id"
-    t.string   "email"
   end
 
   create_table "plans", force: true do |t|
