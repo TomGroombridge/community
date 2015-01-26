@@ -3,7 +3,7 @@ class Payment < ActiveRecord::Base
 	belongs_to :course
 	belongs_to :user		
 	after_create :send_new_payment_email
-	after_create :send_reminder
+	# after_create :send_reminder
 	attr_accessor :stripe_card_token
 
 
@@ -26,10 +26,10 @@ class Payment < ActiveRecord::Base
 	end
 
 	def send_reminder				
-		PaymentMailer.delay_until(course_date.dates - 24.hours).reminder(self, user)
+		PaymentMailer.delay_until(course_date.dates - 24.hours).reminder(self)
 	end
 
 	def send_new_payment_email
-		PaymentMailer.new_payment(self, user).deliver! if user
+		PaymentMailer.new_payment(self).deliver!
 	end
 end
