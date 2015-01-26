@@ -2,7 +2,7 @@ class PaymentMailer < ActionMailer::Base
   default from: "tom@example.com"
 
   def new_payment(payment)    
-    mail to: payment.email, subject: "Thanks for the post!"
+    mail to: payment.email, subject: "Payment Confirmation Email"
   end
 
   def reminder(payment)
