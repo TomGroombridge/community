@@ -1,3 +1,133 @@
 // Place all the styles related to the payments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+	margin: 0px;
+	font-family: 'Lato', sans-serif;
+}
+
+.sidebar {
+  position: fixed;
+  width: 15%;
+  height: 900px;
+  background: #101617;     
+	.logo{
+		width: 100%;
+		height: 5%;
+		position: relative;
+		background: green;
+	}
+	.account-bar{
+		width: 100%;
+		height: 5%;
+		position: relative;	
+		.login{
+			width: 44%;
+			height: 50%;
+			position: relative;	
+			top: 25%;
+			margin-left: 2%;
+			display: inline-block;		
+			.login-text{
+				font-size: 0.9vw;
+				text-align: center;
+				position: absolute;
+				left: 0;
+				right: 0;
+				width: 100%;
+				margin: 0 auto;
+				border-radius: 50px;
+				color: white;
+				background: none;
+				border: none;
+				padding: 5%;
+				cursor: pointer;
+				&:hover{
+					background: #413a4d;
+				}
+			}	
+		}
+	}
+	.course-list{
+		list-style: none;
+		padding: 0px;
+		font-size: 0.9vw;
+		color: white;	
+		top: 5%;
+		position: relative;
+		.course-item{
+			padding: 4%;	
+			.course-type-logo{
+				width: 19%; 
+				top: 30%; 
+				position: relative;
+			}	
+			.course-title{
+				margin-left: 6%;
+				position: absolute;
+				margin-top: 5%;
+			}
+		}
+	}
+	.course-provider{		
+		width: 75%;
+		position: relative;
+		margin: auto;
+		border-radius: 50px;
+		border: 1px solid white;
+		top: 8.5%;
+		.provider-link{
+			text-align: center;
+			color: white;
+			font-size: 1.1vw;
+			margin: 2%;
+		}
+	}	
+	.social-networks{
+		width: 100%;		
+		background: #182123;
+		top: 12%;
+		position: relative;
+		.social-button{
+			width: 28%;
+			padding: 5%;
+			margin-left: 3%;
+		}
+	}
+	.footer{
+		columns: 2;
+	  -webkit-columns: 2;
+	  -moz-columns: 2;
+	  position: relative;
+		top: 12%;
+		padding: 0px;
+		color: white;
+		font-size: 0.8vw;
+		margin: 10%;
+		height: 8%;
+		.footer-item{
+			line-height: 21px;
+		}
+	}
+}
+
+.content {
+  margin-left: 15%;
+  height: 1000px;
+  width: 85%;
+  position: relative;
+  background: #d2ca72;
+  overflow: auto;
+  z-index: 1;
+}
+
+
+
+
+
+
+
+
+
+
