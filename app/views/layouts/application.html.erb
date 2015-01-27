@@ -9,9 +9,14 @@
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>  
 </head>
 <body>
+  <!-- This is the whole sidenav -->
   <div class="sidebar">
+
+    <!-- For the logo when we have one -->
     <div class="logo">
     </div>
+
+    <!-- This is the sign in and sign up buttons at the top of the nav -->
     <div class="account-bar">
       <div class="login">
         <a class="login-text">LOG IN</a>
@@ -20,6 +25,9 @@
         <a class="login-text">SIGN UP</a>
       </div>
     </div>
+
+
+    <!-- This is where the list of catergories in the side nav begins -->
     <ul class="course-list">
       <li class="course-item" style="color:#df819b">
         <%= image_tag 'icon-burger.png', :class => "course-type-logo"%>        
@@ -46,14 +54,24 @@
         <span class="course-title">UNCATEGORIZED</span>
       </li>
     </ul>
+
+
+
+    <!-- This is the button to view a list of all the course providers -->
     <div class="course-provider">
       <h5 class="provider-link">Course Providers</h5>
     </div>
+
+
+    <!-- This is the overlay for the 3 social networks -->
     <div class="social-networks">
       <%= image_tag 'instagram-white.png', :class => "social-button"%>
       <%= image_tag 'twitter-white.png', :class => "social-button"%>
       <%= image_tag 'facebook-white.png', :class => "social-button"%>            
     </div>
+
+
+    <!-- This is the footer for all the links that need to be available to users -->
     <ul class="footer">
       <li class="footer-item">About us</li>
       <li class="footer-item">Contact us</li>
@@ -63,8 +81,10 @@
       <li class="footer-item">FAQ</li>
     </ul>
   </div>
+
+  <!-- All the content that isnt sidenav is wrapped in the content class -->
   <div class="content">
-	 <%= yield %>	      
+	  <%= yield %>	      
   </div>	          
 </body>
 </html>
