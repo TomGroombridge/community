@@ -56,17 +56,23 @@ body{
 		color: white;	
 		top: 5%;
 		position: relative;
+		margin: 0;
 		.course-item{
 			padding: 4%;	
-			.course-type-logo{
-				width: 19%; 
-				top: 30%; 
-				position: relative;
-			}	
-			.course-title{
-				margin-left: 6%;
-				position: absolute;
-				margin-top: 5%;
+			a{
+				width: 100%;
+				display: block;
+				color: inherit;
+				.course-type-logo{
+					width: 19%; 
+					top: 30%; 
+					position: relative;
+				}	
+				.course-title{
+					position: absolute;
+					padding: 3%;
+					margin-left: 7%;
+				}
 			}
 		}
 	}
