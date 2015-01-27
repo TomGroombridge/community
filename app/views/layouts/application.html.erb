@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CommunityMarketplace</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "https://js.stripe.com/v1/", "application", "data-turbolinks-track" => true %>
+	<%= tag :meta, :name => "stripe-key", :content => Rails.application.secrets.stripe_public_key %>
+  <%= csrf_meta_tags %> 
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>  
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">
+    </div>
+    <div class="account-bar">
+      <div class="login">
+        <a class="login-text">LOG IN</a>
+      </div>
+      <div class="login">
+        <a class="login-text">SIGN UP</a>
+      </div>
+    </div>
+    <ul class="course-list">
+      <li class="course-item" style="color:#df819b">
+        <%= image_tag 'icon-burger.png', :class => "course-type-logo"%>        
+        <span class="course-title">FOOD & DRINKS</span>
+      </li>
+      <li class="course-item" style="color:#6bb4b8">
+        <%= image_tag 'icon-notes.png', :class => "course-type-logo"%>      
+        <span class="course-title">MUSIC</span>
+      </li>
+      <li class="course-item" style="color:#f6b181">
+        <%= image_tag 'icon-camera.png', :class => "course-type-logo"%>              
+        <span class="course-title">PHOTOGRAPHY</span>
+      </li>
+      <li class="course-item" style="color:#b3ffc1">
+        <%= image_tag 'icon-scissors.png', :class => "course-type-logo"%>              
+        <span class="course-title">ARTS & CRAFTS</span>
+      </li>
+      <li class="course-item" style="color:#ac8cc8">
+        <%= image_tag 'icon-lotus.png', :class => "course-type-logo"%>              
+        <span class="course-title">WELLBEING</span>
+      </li>
+      <li class="course-item" style="color:#d2cb6c">
+        <%= image_tag 'icon-directions.png', :class => "course-type-logo"%>              
+        <span class="course-title">UNCATEGORIZED</span>
+      </li>
+    </ul>
+    <div class="course-provider">
+      <h5 class="provider-link">Course Providers</h5>
+    </div>
+    <div class="social-networks">
+      <%= image_tag 'instagram-white.png', :class => "social-button"%>
+      <%= image_tag 'twitter-white.png', :class => "social-button"%>
+      <%= image_tag 'facebook-white.png', :class => "social-button"%>            
+    </div>
+    <ul class="footer">
+      <li class="footer-item">About us</li>
+      <li class="footer-item">Contact us</li>
+      <li class="footer-item">Pricing</li>
+      <li class="footer-item">Terms & Privacy</li>
+      <li class="footer-item">The Team</li>
+      <li class="footer-item">FAQ</li>
+    </ul>
+  </div>
+  <div class="content">
+	 <%= yield %>	      
+  </div>	          
+</body>
+</html>
