@@ -17,14 +17,27 @@
     </div>
 
     <!-- This is the sign in and sign up buttons at the top of the nav -->
-    <div class="account-bar">
-      <div class="login">
-        <a class="login-text">LOG IN</a>
+    <% if signed_in? %>
+      <div class="account-bar">
+        <div class="login">
+          <!-- <a class="login-text">LOG IN</a> -->
+          <%= link_to('DASHBOARD', dashboard_user_path(current_user ),:class => "login-text")%>
+        </div>
+        <div class="login">
+          <!-- <a class="login-text">SIGN UP</a> -->
+          <%= link_to('LOG OUT', destroy_user_session_path, :method => :delete, :class => "login-text") %>
+        </div>
       </div>
-      <div class="login">
-        <a class="login-text">SIGN UP</a>
+    <% else %>
+      <div class="account-bar">
+        <div class="login">                  
+          <%= link_to('LOG IN', new_user_session_path,:class => "login-text") %>          
+        </div>
+        <div class="login">
+          <%= link_to('SIGN UP', new_user_registration_path,:class => "login-text") %>                     
+        </div>
       </div>
-    </div>
+    <% end %>
 
 
     <!-- This is where the list of catergories in the side nav begins -->
@@ -71,7 +84,7 @@
 
     <!-- This is the button to view a list of all the course providers -->
     <div class="course-provider">
-      <h5 class="provider-link">Course Providers</h5>
+       <%= link_to('Course Providers', users_course_providers_path, :class => "provider-link") %>      
     </div>
 
 
