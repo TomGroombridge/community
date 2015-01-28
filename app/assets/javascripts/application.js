@@ -12,8 +12,37 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
+// Loads all Semantic javascripts
+//= require semantic-ui
 //= require_tree .
 //= require ckeditor/init
 
-$(function(){ $(document).foundation(); });
+
+
+$(document)
+  .ready(function() {
+
+    $('.filter.menu .item')
+      .tab()
+    ;
+
+    $('.ui.rating')
+      .rating({
+        clearable: true
+      })
+    ;
+
+    $('.ui.sidebar')
+      .sidebar('attach events', '.launch.button')
+    ;
+
+    $('.ui.dropdown')
+      .dropdown()
+    ;
+
+    $('.standard.test.modal')
+ 			 .modal('show')
+		;
+
+  })
+;
