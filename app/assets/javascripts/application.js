@@ -124,6 +124,10 @@ $(function(){
     },
   }
 
-  $('.ui.form').form(validation)
+  var settings = {
+    inline: true
+  }
+
+  $('.ui.form').form(validation, settings)
 });
 
