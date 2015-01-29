@@ -1,40 +1,114 @@
-	<div class="ui segment orange raised">
-	<%= form_for @course, remote: true, :html => {:class => 'ui form fluid'} do |form|  %>
+<div class="ui segment orange raised" id="form-task">
+	<%= form_for @course, remote: true, :html => {:class => 'ui form fluid '} do |form|  %>
 
-	<div class="fields inline">
-
-		<div class="field six wide">	
-			<button id="upload_button" class="ui primary button">Upload Image</button>
-			<input  id="course_image" name="your_name" type="file"/>
-
-			<script>
-				
-			</script>
-			<!-- <a href="#" onclick="document.getElementById('course_image').click(); return false;" />
-				<i class="upload icon"></i> 
-				<input class="ui primary button" type="file">Upload Image</input>
-			</a>
-			<input type="file" id="course_image" name="course[image]"/> -->
-
-			
-		</div>		
-
-		<div class="field four wide">			
-			<div class="ui label pointing below red"><i class="icon asterisk"></i> Name </div>
-			<%= form.text_field :name %>			
-		</div>
-
-		<div class="field twelve wide">			
-			<div class="ui label pointing below blue"><i class="icon asterisk"></i> Blurb </div>
-			<%= form.text_field :blurb %>			
-		</div>
-
-		<div class="field ten wide">
-			<div class="ui label pointing below blue"><i class="icon asterisk"></i> Description </div>
-			<%= form.text_area :description %>			
-		</div>
-
+	<div class="ui error icon message">
 	</div>
+	<div class="fields">
 
+		<div class="ui field six wide" style="height: 300px; display:table">    
+			<div class="buttons" style="display:table-cell; vertical-align:middle; text-align:center">
+				<button id="upload_button" class="ui primary button" >Upload Image</button>
+				<input  id="course_image" name="your_name" type="file"/>								
+			</div>
+    </div>  
+
+
+		<div class="field ten wide">	
+			<div class="field">										
+				<div class="ui input">
+					<%= form.text_field :name, :placeholder => 'Name' %>	
+					<div class="ui corner label">
+						<i class="asterisk icon"></i>
+					</div>				
+				</div>
+			</div>
+			<div class="field">										
+				<div class="ui input">
+					<%= form.text_field :blurb, :placeholder => 'Tweetable Description' %>	
+					<div class="ui corner label">
+						<i class="asterisk icon"></i>
+					</div>				
+				</div>
+			</div>
+
+			<div class="field">
+				<div class="ui label pointing below blue"><i class="icon asterisk"></i> Description </div>
+				<%= form.text_area :description %>			
+			</div>
+		</div>
+
+		<%= form.fields_for :course_addresses, remote: true do |addresses_form| %>
+			<div class="field six wide">
+				<label>Course Address</label>			
+				<div class="field twelve wide">										
+					<div class="ui input">
+						<%= addresses_form.text_field :address1, :placeholder => 'Addres Line 1' %>	
+						<div class="ui corner label">
+							<i class="asterisk icon"></i>
+						</div>				
+					</div>
+				</div>
+				<div class="field twelve wide">										
+					<div class="ui input">
+						<%= addresses_form.text_field :address2, :placeholder => 'Addres Line 2' %>	
+						<div class="ui corner label">
+							<i class="asterisk icon"></i>
+						</div>				
+					</div>
+				</div>
+				<div class="field twelve wide">										
+					<div class="ui input">
+						<%= addresses_form.text_field :city, :placeholder => 'City' %>	
+						<div class="ui corner label">
+							<i class="asterisk icon"></i>
+						</div>				
+					</div>
+				</div>
+				<div class="field twelve wide">										
+					<div class="ui input">					
+						<%= render 'list_of_counties' %>
+					</div>
+				</div>
+				<div class="field twelve wide">
+					<div class="ui input">
+						<%= addresses_form.text_field :postcode, :placeholder => 'Postcode' %>
+						<div class="ui corner label">
+							<i class="asterisk icon"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		<% end %>
+		<div class="field six wide">
+			<label>What will you learn</label>			
+			<div class="field fourteen wide">			
+			 	<%= form.text_field :benefits %>
+			</div>
+			<div class="field fourteen wide">			
+			 	<%= form.text_field :benefits %>
+			</div>
+			<div class="field fourteen wide">			
+			 	<%= form.text_field :benefits %>
+			</div>			
+		</div>
+		<div class="field four wide">
+			<label>What to wear?</label>
+			<%= form.fields_for :need_to_wears, remote: true  do |ing| %>	
+				<div class="field twelve wide">			
+			 		<%= ing.text_field :name %>				 	
+			 	</div>
+			<% end %>
+		</div>
+
+		<div class="field">
+			<label>Price</label>			
+			<div class="field twelve wide">			
+		 		<%= form.text_field :price, :placeholder => "£50.00"%>				 	
+		 	</div>			
+		</div>
+		<div class="field fifteen wide">
+			<%= form.submit :style =>"float:right" %>
+		</div>
+	</div>
 	<% end %>
 </div>
