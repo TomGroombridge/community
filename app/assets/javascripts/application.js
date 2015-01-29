@@ -125,7 +125,11 @@ $(function(){
   }
 
   var settings = {
-    inline: true
+    inline: true,
+    onFailure: function(){
+      console.log("failed");
+      return false
+    }
   }
 
   $('.ui.form').form(validation, settings)
