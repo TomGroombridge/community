@@ -48,5 +48,23 @@ $(document)
 		  .checkbox()
 		;
 
+
+    var button = document.getElementById('upload_button');
+    var input  = document.getElementById('course_image');
+
+    // Making input invisible, but leaving shown fo graceful degradation
+    input.style.display = 'none';
+    button.style.display = 'initial';
+
+    button.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        input.click();
+    });
+
+    input.addEventListener('change', function () {
+       button.innerText = this.value; 
+    });
+
   })
 ;
