@@ -44,5 +44,9 @@ $(document)
  			 .modal('show')
 		;
 
+		$('.ui.checkbox')
+		  .checkbox()
+		;
+
   })
 ;

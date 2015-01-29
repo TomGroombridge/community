@@ -10,7 +10,7 @@ class Course < ActiveRecord::Base
   accepts_nested_attributes_for :need_to_wears
   has_many :brings
   accepts_nested_attributes_for :brings
-	
+  validates_presence_of :name	
 
 
  	def check_last_bookings
