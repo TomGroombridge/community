@@ -69,7 +69,8 @@ $(document).ready(function() {
 
 
 $(function(){
-  $('.ui.form').form({
+
+  var validation = {
     name: {
       identifier: 'course-name',
       rules: [
@@ -121,6 +122,8 @@ $(function(){
         { type: 'empty', prompt: "Please add an price to the course"}              
       ]
     },
-  })
+  }
+
+  $('.ui.form').form(validation)
 });
 
