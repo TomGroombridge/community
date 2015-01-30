@@ -69,7 +69,8 @@ $('.ui.checkbox')
 
 
 $(function(){
-  $('.ui.form').form({
+
+  var validation = {
     name: {
       identifier: 'course[name]',
       rules: [
@@ -121,5 +122,12 @@ $(function(){
         { type: 'empty', prompt: "Please add an price to the course"}              
       ]
     },
-  })
+  }
+
+  var settings = {
+    inline: true,
+  }
+
+
+  $('.ui.form').form(validation, settings)
 });
