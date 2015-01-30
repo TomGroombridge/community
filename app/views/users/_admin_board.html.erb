@@ -1,5 +1,17 @@
 <% @user.courses.each do |course| %>			
 	<%= course.name %>
 	<%= link_to('add date', new_course_course_date_path(course.id)) %>
-	<br>	
+	<div class="ui modal" id="course-<%= course.id -%>">
+	  <i class="close icon"></i>
+	  <div class="header">
+	    <%= course.name %>
+	    <br>
+	    <%= course.id %>
+	  </div>
+	  <div class="content">	    
+	  </div>
+	  <div class="actions">	    
+	  </div>
+	</div>
+	<br>
 <% end %>
