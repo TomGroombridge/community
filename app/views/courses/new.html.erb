@@ -16,7 +16,7 @@
 		<div class="field ten wide">	
 			<div class="field">										
 				<div class="ui input">
-					<%= form.text_field :name, :placeholder => 'Name', :name => "course-name" %>	
+					<%= form.text_field :name, :placeholder => 'Name'%>	
 					<div class="ui corner label">
 						<i class="asterisk icon"></i>
 					</div>				
@@ -24,7 +24,7 @@
 			</div>
 			<div class="field">										
 				<div class="ui input">
-					<%= form.text_field :blurb, :placeholder => 'Tweetable Description', :name => "course-blurb" %>	
+					<%= form.text_field :blurb, :placeholder => 'Tweetable Description'%>	
 					<div class="ui corner label">
 						<i class="asterisk icon"></i>
 					</div>				
@@ -33,7 +33,7 @@
 
 			<div class="field">
 				<div class="ui label pointing below blue"><i class="icon asterisk"></i> Description </div>
-				<%= form.text_area :description, :name => "course-description"%>			
+				<%= form.text_area :description %>			
 			</div>
 		</div>
 
@@ -42,7 +42,7 @@
 				<label>Course Address</label>			
 				<div class="field twelve wide">										
 					<div class="ui input">
-						<%= addresses_form.text_field :address1, :placeholder => 'Addres Line 1', :name => "address1" %>	
+						<%= addresses_form.text_field :address1, :placeholder => 'Addres Line 1'%>	
 						<div class="ui corner label">
 							<i class="asterisk icon"></i>
 						</div>				
@@ -71,7 +71,7 @@
 				</div>
 				<div class="field twelve wide">
 					<div class="ui input">
-						<%= addresses_form.text_field :postcode, :placeholder => 'Postcode', :name => "postcode" %>
+						<%= addresses_form.text_field :postcode, :placeholder => 'Postcode'%>
 						<div class="ui corner label">
 							<i class="asterisk icon"></i>
 						</div>
@@ -103,7 +103,7 @@
 		<div class="field">
 			<label>Price</label>			
 			<div class="field twelve wide">			
-		 		<%= form.text_field :price, :placeholder => "£50.00", :name => "course-price" %>				 	
+		 		<%= form.text_field :price, :placeholder => "£50.00"%>				 	
 		 	</div>			
 		</div>
 		<div class="field fifteen wide">

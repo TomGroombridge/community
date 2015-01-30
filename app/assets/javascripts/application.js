@@ -71,7 +71,7 @@ $(document).ready(function() {
 $(function(){
   $('.ui.form').form({
     name: {
-      identifier: 'course-name',
+      identifier: 'course[name]',
       rules: [
         { type: 'empty', prompt: "Fill in a Course Title"},
         { type: 'length[4]', prompt: "The Course Title must be atleast 4 characters long"},
@@ -79,44 +79,44 @@ $(function(){
       ]
     },
     blurb: {
-      identifier: 'course-blurb',
+      identifier: 'course[blurb]',
       rules: [
         { type: 'empty', prompt: "Fill in a Tweetable Description"},        
         { type: 'maxLength[120]', prompt: "You cannot go over 120 characters in this Tweet"},        
       ]
     },
     description: {
-      identifier: 'course-description',
+      identifier: 'course[description]',
       rules: [
         { type: 'empty', prompt: "Fill in a Course Description"}              
       ]
     },
-    address1: {
-      identifier: 'address1',
-      rules: [
-        { type: 'empty', prompt: "Please fill in the first line of your address"}              
-      ]
-    },
-    county: {
-      identifier: 'county',
-      rules: [
-        { type: 'empty', prompt: "Please fill in the county of your course"}              
-      ]
-    },
-    postcode: {
-      identifier: 'postcode',
-      rules: [
-        { type: 'empty', prompt: "Please fill in the postcode of your address"}              
-      ]
-    },
-    image: {
-      identifier: 'course-image',
-      rules: [
-        { type: 'empty', prompt: "Please add an image to the course"}              
-      ]
-    },
+    // address1: {
+    //   identifier: 'address1',
+    //   rules: [
+    //     { type: 'empty', prompt: "Please fill in the first line of your address"}              
+    //   ]
+    // },
+    // county: {
+    //   identifier: 'county',
+    //   rules: [
+    //     { type: 'empty', prompt: "Please fill in the county of your course"}              
+    //   ]
+    // },
+    // postcode: {
+    //   identifier: 'postcode',
+    //   rules: [
+    //     { type: 'empty', prompt: "Please fill in the postcode of your address"}              
+    //   ]
+    // },
+    // image: {
+    //   identifier: 'course-image',
+    //   rules: [
+    //     { type: 'empty', prompt: "Please add an image to the course"}              
+    //   ]
+    // },
     price: {
-      identifier: 'course-price',
+      identifier: 'course[price]',
       rules: [
         { type: 'empty', prompt: "Please add an price to the course"}              
       ]
