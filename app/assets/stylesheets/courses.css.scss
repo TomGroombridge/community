@@ -4,5 +4,10 @@
 
 
 div.ui.shape{
-	display: block !important;
+	display: block;
+	width: 100% !important;	
+}
+
+div.ui.shape .sides, div.ui.shape .side{
+	width: 100%;
 }
