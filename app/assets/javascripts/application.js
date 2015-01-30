@@ -40,12 +40,12 @@ $(document).ready(function() {
     ;
 
     $('.standard.test.modal')
- 			 .modal('show')
-		;
+   .modal('show')
+;
 
-		$('.ui.checkbox')
-		  .checkbox()
-		;
+$('.ui.checkbox')
+ .checkbox()
+;
 
 
     var button = document.getElementById('upload_button');
@@ -123,4 +123,3 @@ $(function(){
     },
   })
 });
-
