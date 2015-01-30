@@ -113,9 +113,23 @@
 			</div>
 		</div>
 		<div class="ui segment">
-			<div class="field">
-				<%= form.submit :style =>"float:right" %>
-			</div>
+			<div class="ui shape">
+				<div class="sides">
+					<div class="active side">
+						<div class="field">
+							<%= form.submit :style =>"float:right" %>					
+						</div>
+					</div>
+					<div class="side">
+						<div class="ui segment inverted green center aligned">
+							<h1 class="ui header">
+								<i class="icon checkmark sign"></i>
+								Thank You!
+							</h1>
+						</div>
+					</div>
+				</div>
+			</div>			
 		</div>
 	<% end %>
 </div>
