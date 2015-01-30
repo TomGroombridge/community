@@ -1,4 +1,9 @@
 <div class="ui segment orange raised" id="form-task">
+	<div id="formdimmer" class="ui inverted dimmer">
+		<div class="ui text loader large">
+			Loading ...
+		</div>
+	</div>
 	<%= form_for @course, remote: true, :html => {:class => 'ui form fluid '} do |form|  %>
 
 		<div class="ui error icon message">

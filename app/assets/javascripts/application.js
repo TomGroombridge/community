@@ -131,7 +131,8 @@ $(function(){
       return false;
     },
     onSuccess: function(){
-      console.log("Success");      
+      $("#formdimmer").addClass("active");
+      console.log("Success");            
     }
   }
 
