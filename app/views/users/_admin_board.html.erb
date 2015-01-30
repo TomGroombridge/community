@@ -1,6 +1,10 @@
 <% @user.courses.each do |course| %>			
 	<%= course.name %>
 	<%= link_to('add date', new_course_course_date_path(course.id)) %>
+	<div id="newCourse-<%= course.id -%>" class="ui button labeled icon basic">
+		<i class="icon pencil"></i>
+		Add date 
+	</div>
 	<div class="ui modal" id="course-<%= course.id -%>">
 	  <i class="close icon"></i>
 	  <div class="header">
@@ -14,4 +18,7 @@
 	  </div>
 	</div>
 	<br>
+	<script>
+		$("#course-<%= course.id -%>").modal('attach events', '#newCourse-<%= course.id -%>', 'show');
+	</script>
 <% end %>

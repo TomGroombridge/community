@@ -138,6 +138,6 @@ $(function(){
 
 
   $('.ui.form').form(validation, settings);
-  $("#termsAndConditions").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#terms', 'show');
-  
+  $("#termsAndConditions").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#terms', 'show');  
+    
 });
