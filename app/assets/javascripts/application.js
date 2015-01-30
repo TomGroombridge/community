@@ -126,6 +126,13 @@ $(function(){
 
   var settings = {
     inline: true,
+    onFailure: function(){
+      console.log("Failed");
+      return false;
+    },
+    onSuccess: function(){
+      console.log("Success");      
+    }
   }
 
 
