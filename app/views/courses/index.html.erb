@@ -1,20 +1,30 @@
-<ul class="large-block-grid-3" style="margin:10px;">
-	<% @courses.each do |course| %>    
-  	<li>					
-    	<%=link_to image_tag(course.image.url(:medium), :class => "course-pic"), course_path(course) %>
-    	<div class="image-overlay">
-    		<div class="class-info-left">
-    			<%= course.name %>
-    		</div>
-    		<div class="class-info-right">
-    			£<%= course.price %>
-    		</div>
-    		<div class="class-info-left location">
-    		</div>  		
-    	</div>
-  	</li>       
-	<% end %>
-</ul>
-
-
-	    
+<div class="ui pusher">
+    <div class="ui special cards">
+        <% @courses.each do |course| %>   
+            <div class="card">
+                <div class="dimmable image">
+                  <div class="ui dimmer">
+                    <div class="content">
+                      <div class="center">
+                        <div class="ui inverted button"><%= link_to 'Details', course_path(course) %></div>
+                      </div>
+                    </div>
+                  </div>                  
+                  <img src="img/cooking300.png">
+                </div>
+                <div class="content">
+                  <a class="header"><%= course.name %></a>
+                  <div class="meta">
+                    <span class="date">Create in Sep 2014</span>
+                  </div>
+                </div>
+                <div class="extra content">
+                  <a>
+                    <i class="users icon"></i>
+                    2 Members
+                  </a>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

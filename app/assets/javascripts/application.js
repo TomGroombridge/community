@@ -19,7 +19,7 @@
 
 
 
-$(document).ready(function() {
+$(document).ready(function() {    
 
     $('.filter.menu .item')
       .tab()
@@ -47,11 +47,17 @@ $(document).ready(function() {
       .checkbox()
     ;
 
-  $('.ui.accordion')
-    .accordion()
-  ;
+    $('.ui.accordion')
+      .accordion()
+    ;
 
-  $('.gmap').append('<iframe frameborder="0" style="border:0" src="https://maps.google.com/maps?output=embed&iwloc&z=12&t=p&q=London UK"></iframe>');
+    $('.gmap').append('<iframe frameborder="0" style="border:0" src="https://maps.google.com/maps?output=embed&iwloc&z=12&t=p&q=London UK"></iframe>');
+
+    $('.special.cards .image').dimmer({
+      on: 'hover'
+    });
+
+    $("#courseDates").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#course', 'show');  
 
 
 
@@ -71,6 +77,8 @@ $(document).ready(function() {
     input.addEventListener('change', function () {
        button.innerText = this.value; 
     });
+
+
 
 });
 
@@ -146,5 +154,6 @@ $(function(){
 
   $('.ui.form').form(validation, settings);
   $("#termsAndConditions").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#terms', 'show');  
+
     
 });

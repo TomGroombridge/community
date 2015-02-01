@@ -17,4 +17,23 @@
 	<script>
 		$("#courseModal").modal('attach events', '#newCourse-<%= course.id -%>', 'show');
 	</script>
+	<br>
+	<% course.course_dates.each do |course_dates| %>	
+				
+					<%= course_dates.course.name %>					
+				
+				
+					<%= course_dates.dates.strftime("%m/%d/%Y") %>
+				
+				
+					<%= course_dates.quantity %>						
+				
+				
+					<%= course_dates.payments.count %>
+				
+	
+					<%= link_to('course date info', course_details_course_course_date_path(course_dates.course.id, course_dates.id)) %>
+	
+		<br>
+			<% end %>
 <% end %>

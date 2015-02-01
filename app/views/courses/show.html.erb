@@ -1,9 +1,10 @@
 <div class="ui pusher stackable padded grid">
+			<%= render "book_date" %>
         <!-- LEFT CONTENT -->
         <div class="ten wide column __blue">
             <div class="ui items">
-                <h2 class="ui header">CHEF MICHAEL’S ONE DAY BREAD BAKING WORKSHOP</h2>
-                        <br>
+                <h2 class="ui header"><%= @course.name.capitalize %></h2>
+                		<br>
                 <div class="item">
                     <div class="image">
                         <img src="img/cooking300.png">
@@ -28,7 +29,7 @@
                                 <h6 class="secure-spot">SECURE A SPOT IN THIS COURSE</h6>
                             </div>
                         <div class="item">
-                            <a><div class="massive ui button book-now">BOOK NOW</div></a>
+                            <a><div id="course" class="massive ui button book-now">BOOK NOW</div></a>
                         </div>
                     </div> <!-- .content -->
                 </div> <!-- .item -->
@@ -36,9 +37,7 @@
 
             <div class="ui divider"></div>
             <h3 class="ui header">ABOUT THIS COURSE</h3>
-            <p>In the tumultuous business of cutting-in and attending to a whale, there is much running backwards and forwards among the crew. Now hands are wanted here, and then again hands are wanted there. There is no staying in any one place; for at one and the same time everything has to be done everywhere. It is much the same with him who endeavors the description of the scene. </p>
-
-            <p>We must now retrace our way a little. It was mentioned that upon first breaking ground in the whale's back, the blubber-hook was inserted into the original hole there cut by the spades of the mates. But how did so clumsy and weighty a mass as that same hook get fixed in that hole? It was inserted there by my particular friend Queequeg, whose duty it was, as harpooneer, to descend upon the monster's back for the special purpose referred to. </p>
+            <%= @course.description.html_safe%>
         </div> <!-- .column -->
 
         <!-- END OF LEFT CONTENT -->
@@ -110,4 +109,7 @@
                 </div> <!-- .item -->
             </div> <!-- .ui.items -->
         </div> <!-- .column -->
-    </div> <
+    </div> 
+    <script>
+    	
+    </script>
