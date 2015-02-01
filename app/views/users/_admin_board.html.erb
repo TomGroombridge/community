@@ -1,6 +1,6 @@
 <% @user.courses.each do |course| %>			
 	<%= course.name %>
-	<%= link_to('add date', new_course_course_date_path(course.id), remote: true, :class => "ui button labeled icon basic", :id => "newCourse-#{course.id}")%>	
+	<%= link_to('add date', new_course_course_date_path(course.id), :class => "ui button labeled icon basic", :id => "newCourse-#{course.id}")%>	
 	<div class="ui modal" id="courseModal">
 	  <i class="close icon"></i>
 	  <div class="header">

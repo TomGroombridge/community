@@ -40,12 +40,19 @@ $(document).ready(function() {
     ;
 
     $('.standard.test.modal')
-   .modal('show')
-;
+      .modal('show')
+    ;
 
-$('.ui.checkbox')
- .checkbox()
-;
+    $('.ui.checkbox')
+      .checkbox()
+    ;
+
+  $('.ui.accordion')
+    .accordion()
+  ;
+
+  $('.gmap').append('<iframe frameborder="0" style="border:0" src="https://maps.google.com/maps?output=embed&iwloc&z=12&t=p&q=London UK"></iframe>');
+
 
 
     var button = document.getElementById('upload_button');

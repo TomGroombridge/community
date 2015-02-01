@@ -2,3 +2,138 @@
 
 @import "payments";
 @import "courses";
+
+
+
+
+
+.__gold {
+  background-color: #D2CA72;
+}
+
+.__blue {
+  background-color: #70B7BA;
+}
+
+.gmap {
+    width: 100%;
+}
+
+iframe {
+    height:inherit;
+    width:inherit;
+}
+
+.ui.segment.map {
+  padding: 0 0 1rem  0;
+  border: 0;
+  background-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.column.__blue {
+  height: 100vh;
+}
+
+.secure {
+  margin-left: 3rem;
+}
+.secure-spot {
+  margin-bottom: 0.5rem;
+}
+
+
+.ui.massive.button.book-now {
+  font-size: 1.4rem;
+  width: 16rem;
+  padding-top: 1.8rem;
+  padding-bottom: 1.8rem;
+  background: #F5B286;
+  box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.50);
+  border-radius: 2px;
+}
+
+.fixed.launch.button {
+position: fixed;
+top: 40px;
+left: -1px;
+width: 40px;
+height: auto;
+white-space: nowrap;
+overflow: hidden;
+}
+
+
+/*============================
+
+      prov-page.html
+
+============================*/
+
+.ui.grid.prov > .row {
+  padding: 0;
+}
+
+.prov-header {
+  background: url(../img/baking.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; 
+  width: 100%;
+  height: 250px;
+  top: 200px;
+}
+
+#prov-right {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+
+#prov-left {
+  height: 100vh;
+}
+
+
+
+/*============================
+
+  Overriding semantic.css
+
+============================*/
+
+body.pushable > .pusher {
+  background-color: #eee;
+}
+
+.ui.grid > .column:not(.row) {
+padding-top: 2rem;
+}
+
+.ui.grid > .column:not(.row), .ui.grid > .row > .column {
+padding-left: 2rem;
+padding-right: 2rem;
+}
+
+.ui.divider:not(.vertical):not(.horizontal) {
+  border-top: 1px solid rgba(0, 0, 0, 0.6);
+  border-bottom: 0;
+}
+
+.ui.celled.grid, .ui.celled.grid > .row,
+.ui.celled.grid > .row > .column {
+  box-shadow: none;
+}
+
+.ui.attached.header.address {
+  background-color: #D2CA72;
+}
+
+.ui.vertical.menu.__details {
+  background-color: #70B7BA;
+}
+
+.ui.items > .item > .image:not(.ui) {
+width: 200px;
+}
