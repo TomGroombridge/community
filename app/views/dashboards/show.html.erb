@@ -1,5 +1,26 @@
-<% if current_user.admin? %>
-	<%= render 'admin_board' %>
-<% else %>
-	<%= render 'user_board' %>
-<% end %>
+<div class="two column stackable ui grid">
+    <div class="column five wide">
+        <div class="ui segment">
+            <img class="ui medium rounded image" src="/images/wireframe/square-image.png">    
+            <div class="two column stackable ui grid">
+                <div class="column five wide" style="padding-left:0; padding-right:0; text-align:center">   
+                    <p>256</p>
+                    <p>HOURS TAUGHT </p>
+                </div>
+                <div class="column six wide" style="padding-left:0; padding-right:0; text-align:center">
+                    <p>23</p>
+                    <p>CLASSES TAUGHT</p>
+                </div>
+                <div class="column five wide" style="padding-left:0; padding-right:0; text-align:center">    
+                    <p>402</p>
+                    <p>PEOPLE TAUGHT</p>
+                </div>
+            </div>
+        </div>        
+    </div>
+    <div class="column eleven wide">
+        <div class="ui segment">
+           
+        </div>
+    </div>
+</div>
