@@ -13,7 +13,6 @@ class CoursesController < ApplicationController
 	def create 		
 		@course = Course.create(params[:course].permit(:name, :description, :price, :image, :blurb, :benefits, course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county], need_to_wears_attributes: [:id, :name], brings_attributes: [:id, :name]))
 		@course.user = current_user
-
 		if @course.save
 			@user =  @course.user
 			UserMailer.delay_for(0.003.hours).welcome_email(@user)		    

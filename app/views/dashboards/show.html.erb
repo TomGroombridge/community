@@ -133,6 +133,10 @@
     </div>
     <div class="column eleven wide">
         <div class="ui segment">
+            <!-- AT THE MOMENT THIS GRAPH SHOWS YOU THE NUMBER OF COURSES CREATED FROM THE BEGINNING OF THE MONTH -->            
+                <%= line_chart @courses.group_by_day(:created_at, range: Date.today.beginning_of_month..Time.now).count %>
+            <!-- END OF THE GRAPH -->
+            
         </div>
     </div>
 </div>
