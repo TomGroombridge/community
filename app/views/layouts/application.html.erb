@@ -7,6 +7,7 @@
 	<%= tag :meta, :name => "stripe-key", :content => Rails.application.secrets.stripe_public_key %>
   <%= csrf_meta_tags %> 
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>  
+
 </head>
 <body>
   <!-- This is the whole sidenav -->
@@ -22,6 +23,7 @@
         <div class="login">
           <!-- <a class="login-text">LOG IN</a> -->
           <%# link_to('DASHBOARD', dashboard_user_path(current_user ),:class => "login-text")%>
+          <%= link_to( 'DASHBOARD', dashboard_path, :class => "login-text") %>
         </div>
         <div class="login">
           <!-- <a class="login-text">SIGN UP</a> -->
