@@ -4,6 +4,11 @@
     Profile Picture
   </div>
   <div class="content">    
+    <%= form_tag course_tickets_path(@course), id: 'ticket_form' do %>
+      <%= select_tag 'dates', options_from_collection_for_select(@course.course_dates, :id, :pretty_date) %>
+      Quantity: <%= text_field_tag 'quantity', '1' %>
+    <% end %>
+
     <% @course.course_dates.each do |date|%>    
       <%if date.valid_dates(date)%>   
         <%= date.dates.strftime("%m/%d/%Y/%I:%M%p") %>  
@@ -20,9 +25,9 @@
     <div class="ui black button">
       Nope
     </div>
-    <div class="ui positive right labeled icon button">
+    <button type='submit' form='ticket_form' class="ui positive right labeled icon button">
       Yep, that's me
       <i class="checkmark icon"></i>
-    </div>
+    </button>
   </div>
 </div>

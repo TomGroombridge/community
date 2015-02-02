@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
   root "courses#index"
   
-  resources :courses do 
+  resources :courses do
+    resources :tickets
     resources :course_dates do 
       member do
         get 'course_details'
@@ -25,14 +26,18 @@ Rails.application.routes.draw do
   get 'users/course_providers', :to => 'users#course_providers_index'
   
   resources :users, :only => [:show, :edit, :update, :index] do 
-    member do
-      get 'dashboard'      
-    end
-    resources :dashboard, :only => [:index] do 
-      # resources :courses , :only => [:show]
-      get "course_details" => 'dashboard#course_details'
-    end
+    # member do
+    #   get 'dashboard'      
+    # end
+    # resources :dashboard, :only => [:index] do 
+    #   # resources :courses , :only => [:show]
+    #   get "course_details" => 'dashboard#course_details'
+    # end
   end
+
+  resource :dashboard
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

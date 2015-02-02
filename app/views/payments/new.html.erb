@@ -33,6 +33,8 @@ Signing up for <%= @payment.inspect %>
   </div>
   <% if @payment.stripe_card_token.present? %>
     Credit card has been provided.
+  <% elsif @course.course.free? %>
+    No payment needed!
   <% else %>
     <div class="field">
       <%= label_tag :card_number, "Credit Card Number" %>

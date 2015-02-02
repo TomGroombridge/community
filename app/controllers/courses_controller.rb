@@ -11,7 +11,9 @@ class CoursesController < ApplicationController
 	end
 
 	def create 		
-		@course = Course.create(params[:course].permit(:name, :description, :price, :user_id, :image, :blurb, :benefits, course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county], need_to_wears_attributes: [:id, :name], brings_attributes: [:id, :name]))
+		@course = Course.create(params[:course].permit(:name, :description, :price, :image, :blurb, :benefits, course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county], need_to_wears_attributes: [:id, :name], brings_attributes: [:id, :name]))
+		@course.user = current_user
+
 		if @course.save
 			@user =  @course.user
 			UserMailer.delay_for(0.003.hours).welcome_email(@user)		    
@@ -21,21 +23,24 @@ class CoursesController < ApplicationController
 	end
 
 	def index
-		@courses = []
-		@all_courses = Course.all
-		@all_courses.each do |course|
-			course.course_dates.each do |date| 
-				if date.active? 
-					@courses << course
-					break
-				end				
-			end
-		end	
-		@courses
+		@courses = Course.all.includes(:course_dates).select do |course|
+			course.course_dates.any?(&:active?)
+		end
+
+		# @all_courses.each do |course|
+		# 	course.course_dates.each do |date| 
+		# 		if date.active? 
+		# 			@courses << course
+		# 			break
+		# 		end				
+		# 	end
+		# end	
+		# @courses
 	end
 
 	def show
-	  @course = Course.find(params[:id])  
+	  @course = Course.find(params[:id])
+	  render layout: "iframe-#{params[:embed]}" if params[:embed]
 	end
 	
 	def edit 

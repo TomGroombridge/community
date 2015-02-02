@@ -7,12 +7,15 @@ class Payment < ActiveRecord::Base
 	attr_accessor :stripe_card_token
 
 
-	def save_with_payment			
+	def save_with_payment
 		@amount = self.course_date.course.price	
 		@email = self.email			
 		@name = self.full_name		
 		@course_name = self.course_date.course.name
 		@course_date = self.course_date.dates.strftime("%m/%d/%Y")
+
+		save! and return if course.free?
+
 	  if valid?	  	
 	    customer = Stripe::Customer.create(card: stripe_card_token, email: @email, description: @name)
 	    self.stripe_customer_token = customer.id	  	      	    	    

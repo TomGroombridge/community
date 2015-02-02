@@ -18,5 +18,8 @@ class Course < ActiveRecord::Base
  		tomorrow = tomorrow_date.strftime("%m/%d/%Y") 		
  	end
 
+  def free?
+    price == 0
+  end
 end
 

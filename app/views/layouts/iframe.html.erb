@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CommunityMarketplace</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "https://js.stripe.com/v1/", "application", "data-turbolinks-track" => true %>
+	<%= tag :meta, :name => "stripe-key", :content => Rails.application.secrets.stripe_public_key %>
+  <%= csrf_meta_tags %> 
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>  
+</head>
+<body>
+  <!-- This is the whole sidenav -->
+
+  <!-- All the content that isnt sidenav is wrapped in the content class -->
+  <div class="right-side">      
+    <%= yield %>	     
+  </div>	    
+</body>
+</html>

@@ -1,0 +1,5 @@
+<% if current_user.admin? %>
+	<%= render 'admin_board' %>
+<% else %>
+	<%= render 'user_board' %>
+<% end %>
