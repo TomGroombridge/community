@@ -13,7 +13,12 @@
 
   <!-- All the content that isnt sidenav is wrapped in the content class -->
   <div class="right-side">      
-    <%= yield %>	     
+    <%= @course.name %>   
+    <br>
+    <% @course.course_dates.each do |c| %>
+      <%= c.dates %>
+
+    <% end %>
   </div>	    
 </body>
 </html>
