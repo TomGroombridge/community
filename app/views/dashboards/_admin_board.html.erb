@@ -1,6 +1,6 @@
 <% @user.courses.each do |course| %>			
 	<%= course.name %>
-	<%= link_to('add date', new_course_course_date_path(course.id), :class => "ui button labeled icon basic", :id => "newCourse-#{course.id}")%>	
+	<%= link_to('add date', new_course_course_date_path(course.id), remote: true, :class => "ui button labeled icon basic", :id => "newCourse-#{course.id}")%>	
 	<div class="ui modal" id="courseModal">
 	  <i class="close icon"></i>
 	  <div class="header">
@@ -8,7 +8,17 @@
 	    <br>
 	    <%= course.id %>
 	  </div>
-	  <div class="content">	    
+	  <div class="content">	 
+	  	<%= form_for :course_date do |f| %>
+				<%= f.label :dates %>
+				<%= f.datetime_select :dates %>	
+				<br>
+				<%= f.label :quantity %>
+				<%= f.text_field :quantity %>
+				<br>
+				<%= f.hidden_field :course_id %>		
+				<%= f.submit %>
+			<% end %>
 	  </div>
 	  <div class="actions">	    
 	  </div>
@@ -17,23 +27,4 @@
 	<script>
 		$("#courseModal").modal('attach events', '#newCourse-<%= course.id -%>', 'show');
 	</script>
-	<br>
-	<% course.course_dates.each do |course_dates| %>	
-				
-					<%= course_dates.course.name %>					
-				
-				
-					<%= course_dates.dates.strftime("%m/%d/%Y") %>
-				
-				
-					<%= course_dates.quantity %>						
-				
-				
-					<%= course_dates.payments.count %>
-				
-	
-					<%= link_to('course date info', course_details_course_course_date_path(course_dates.course.id, course_dates.id)) %>
-	
-		<br>
-			<% end %>
 <% end %>
