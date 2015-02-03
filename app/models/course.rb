@@ -19,7 +19,7 @@ class Course < ActiveRecord::Base
  	end
 
   def free?
-    price == 0
+    price == nil 
   end
 end
 

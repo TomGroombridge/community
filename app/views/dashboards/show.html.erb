@@ -31,8 +31,9 @@
     <div class="column eleven wide">
         <div class="ui segment">
             <!-- START OF THE TABLE -->
+            <h3 style="margin:0px;">Upcoming Course Dates</h3>
             <table class="ui striped table">
-                <thead>
+                <thead style="display:block">
                     <tr>
                         <th class="one wide">
                             #
@@ -54,38 +55,70 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td class="collapsing">1</td>
-                        <td>Beginners Lovely Laundry Bag</td>
-                        <td class="center aligned">04/03/15</td>
-                        <td class="center aligned">4/20</td>
-                        <td class="center aligned">£49.00</td>
-                        <td class="center aligned">£2540.00</td>
+                <tbody style="display: block; max-height: 208px; overflow-y: auto">
+                    <tr style="display:block">
+                        <td class="one wide collapsing">1</td>
+                        <td class="six wide">Beginners Lovely Laundry Bag</td>
+                        <td class="two wide center aligned">04/03/15</td>
+                        <td class="two wide center aligned">4/20</td>
+                        <td class="two wide center aligned">£49.00</td>
+                        <td class="three wide center aligned">£2540.00</td>
                     </tr>
-                    <tr>
-                        <td class="collapsing">2</td>
-                        <td>Beginners Lovely Laundry Bag</td>
-                        <td class="center aligned">04/03/15</td>
-                        <td class="center aligned">4/20</td>
-                        <td class="center aligned">£49.00</td>
-                        <td class="center aligned">£2540.00</td>
+                    <tr style="display:block">
+                        <td class="one wide collapsing">2</td>
+                        <td class="six wide">Beginners Lovely Laundry Bag</td>
+                        <td class="two wide center aligned">04/03/15</td>
+                        <td class="two wide center aligned">4/20</td>
+                        <td class="two wide center aligned">£49.00</td>
+                        <td class="three wide center aligned">£2540.00</td>
                     </tr>
-                    <tr>
-                        <td class="collapsing">3</td>
-                        <td>Beginners Lovely Laundry Bag</td>
-                        <td class="center aligned">04/03/15</td>
-                        <td class="center aligned">4/20</td>
-                        <td class="center aligned">£49.00</td>
-                        <td class="center aligned">£2540.00</td>
+                    <tr style="display:block">
+                        <td class="one wide collapsing">3</td>
+                        <td class="six wide">Beginners Lovely Laundry Bag</td>
+                        <td class="two wide center aligned">04/03/15</td>
+                        <td class="two wide center aligned">4/20</td>
+                        <td class="two wide center aligned">£49.00</td>
+                        <td class="three wide center aligned">£2540.00</td>
                     </tr>
-                    <tr>
-                        <td class="collapsing">4</td>
-                        <td>Beginners Lovely Laundry Bag</td>
-                        <td class="center aligned">04/03/15</td>
-                        <td class="center aligned">4/20</td>
-                        <td class="center aligned">£49.00</td>
-                        <td class="center aligned">£2540.00</td>
+                    <tr style="display:block">
+                        <td class="one wide collapsing">4</td>
+                        <td class="six wide">Beginners Lovely Laundry Bag</td>
+                        <td class="two wide center aligned">04/03/15</td>
+                        <td class="two wide center aligned">4/20</td>
+                        <td class="two wide center aligned">£49.00</td>
+                        <td class="three wide center aligned">£2540.00</td>
+                    </tr>
+                    <tr style="display:block">
+                        <td class="one wide collapsing">5</td>
+                        <td class="six wide">Beginners Lovely Laundry Bag</td>
+                        <td class="two wide center aligned">04/03/15</td>
+                        <td class="two wide center aligned">4/20</td>
+                        <td class="two wide center aligned">£49.00</td>
+                        <td class="three wide center aligned">£2540.00</td>
+                    </tr>
+                    <tr style="display:block">
+                        <td class="one wide collapsing">6</td>
+                        <td class="six wide">Beginners Lovely Laundry Bag</td>
+                        <td class="two wide center aligned">04/03/15</td>
+                        <td class="two wide center aligned">4/20</td>
+                        <td class="two wide center aligned">£49.00</td>
+                        <td class="three wide center aligned">£2540.00</td>
+                    </tr>
+                    <tr style="display:block">
+                        <td class="one wide collapsing">7</td>
+                        <td class="six wide">Beginners Lovely Laundry Bag</td>
+                        <td class="two wide center aligned">04/03/15</td>
+                        <td class="two wide center aligned">4/20</td>
+                        <td class="two wide center aligned">£49.00</td>
+                        <td class="three wide center aligned">£2540.00</td>
+                    </tr>
+                    <tr style="display:block">
+                        <td class="one wide collapsing">8</td>
+                        <td class="six wide">Beginners Lovely Laundry Bag</td>
+                        <td class="two wide center aligned">04/03/15</td>
+                        <td class="two wide center aligned">4/20</td>
+                        <td class="two wide center aligned">£49.00</td>
+                        <td class="three wide center aligned">£2540.00</td>
                     </tr>
                 </tbody>
             </table>  
@@ -96,7 +129,7 @@
                         <a><div id="course" class="ui button" style="display:block">SEE ALL COURSES</div></a>
                     </div>
                     <div class="column">
-                        <a><div id="course" class="ui button" style="display:block">NEW COURSE</div></a>
+                        <a><div id="course" class="ui button" style="display:block"><%= link_to('NEW COURSE', new_course_path) %></div></a>
                     </div>
                     <div class="column">
                         <a><div id="course" class="ui button" style="display:block">NEW DATE</div></a>
