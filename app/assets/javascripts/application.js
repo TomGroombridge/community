@@ -59,6 +59,8 @@ $(document).ready(function() {
 
     $("#courseDates").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#course', 'show');  
 
+    $("#allCourses").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#course', 'show');  
+
 
 
     var button = document.getElementById('upload_button');
