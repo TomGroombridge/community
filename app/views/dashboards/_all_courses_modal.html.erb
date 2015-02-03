@@ -8,19 +8,21 @@
     <table class="ui celled striped table">
       <thead>
         <tr>
-          <th class="seven wide">Course Name</th>
+          <th class="six wide">Course Name</th>
           <th class="three wide">Dates Created</th>
           <th class="three wide">Active Dates</th>
           <th class="three wide">Payments Taken</th>
+          <th class="one wide">Edit Course</th>
         </tr>
       </thead>
       <tbody>
         <% @courses.each do |course| %>        
           <tr>              
-            <td class="seven wide"><%= course.name.truncate(30) %></td>
-            <td class="three wide"><%= course.course_dates.count %></td>
-            <td class="three wide"><%=course.course_dates(&:active?).count%></td>
-            <td class="three wide"><%= course.course_dates(&:payments?).count %></td>
+            <td ><%= course.name.truncate(30) %></td>
+            <td ><%= course.course_dates.count %></td>
+            <td ><%=course.course_dates(&:active?).count%></td>
+            <td ><%= course.course_dates(&:payments?).count %></td>
+            <td ><%= link_to("<i class='edit icon' style='margin:auto; display:block'></i>".html_safe ,edit_course_path(course.id))%></td>
           </tr>
         <% end %>                  
       </tbody>
@@ -33,7 +35,7 @@
       Nope
     </div>
     <button type='submit' form='ticket_form' class="ui positive right labeled icon button">
-      Yep, that's me
+      Create a new course
       <i class="checkmark icon"></i>
     </button>
   </div>

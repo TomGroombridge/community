@@ -21,7 +21,7 @@
     <!-- This is the sign in and sign up buttons at the top of the nav -->
     <% if signed_in? %>
       <div class="account-bar">
-        <h3><%= @user.email %></h3>
+        <h3><%= current_user.email %></h3>        
         <div class="login">
           <!-- <a class="login-text">LOG IN</a> -->
           <%# link_to('DASHBOARD', dashboard_user_path(current_user ),:class => "login-text")%>
