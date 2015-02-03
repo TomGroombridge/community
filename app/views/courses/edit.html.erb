@@ -1,48 +1,140 @@
-<%= form_for @course do  |form| %>	
-	<%= form.label :name %>
-	<%= form.text_field :name %>
-	<br>
-	<%= form.label :description %>
-	<%= form.cktext_area :description %>
-	<br>
-	<%= form.label :price %>
-	<%= form.text_field :price %>
-	<br>
-	<%= form.label :image %>
-	<%= form.file_field :image %>
-	<br>
-	<%= form.label :blurb %>
-	<%= form.text_field :blurb %>
-	<br>
-	<%= form.label :benefits %>
-	<%= form.text_field :benefits %>
-	<br>
-	<%= form.fields_for :need_to_wears do |ing| %>	
-		<%= ing.label :name, "What to Wear" %>
-		<%= ing.text_field :name %>	
-	<% end %>	
-	<br>
-	<%= form.fields_for :brings do |ing| %>			
-	 	<%= ing.label :name, "What to Bring" %>
-	 	<%= ing.text_field :name %>	
+<div class="ui segment orange raised" id="form-task">
+	<div id="formdimmer" class="ui inverted dimmer">
+		<div class="ui text loader small">
+			Loading ...
+		</div>
+	</div>
+	<%= form_for @course, :html => {:class => 'ui form fluid '} do |form|  %>
+
+		<!-- <div class="ui error icon message">
+		</div> -->
+		<div id="out">	
+			<div class="fields">
+
+				<div class="ui field six wide" style="height: 300px; display:table">    
+					<div class="buttons" style="display:table-cell; vertical-align:middle; text-align:center">
+						<!-- this is the html used to upload the image however it does not attacth it properly, if i make it into a file_field ruby tag it doesnt want to work and I have no idea why, i have tried lots of ways but a lot of the time when i change the code it gets rid of the inline error messages. -->
+						<button id="upload_button" class="ui primary button" >Upload Image</button>
+						<input  id="course_image" name="course-image" type="file"/>
+					</div>
+				</div>  
+
+
+				<div class="field ten wide">
+					<div class="field">
+						<div class="ui input">
+							<%= form.text_field :name, :placeholder => 'Name'%>
+							<div class="ui corner label">
+								<i class="asterisk icon"></i>
+							</div>
+						</div>
+					</div>
+					<div class="field">
+						<div class="ui input">
+							<%= form.text_field :blurb, :placeholder => 'Tweetable Description'%>
+							<div class="ui corner label">
+								<i class="asterisk icon"></i>
+							</div>
+						</div>
+					</div>
+
+					<div class="field">
+						<div class="ui label pointing below blue"><i class="icon asterisk"></i> Description </div>
+						<%= form.text_area :description %>
+					</div>
+				</div>
+
+				<%= form.fields_for :course_addresses do |addresses_form| %>
+					<div class="field six wide">
+						<label>Course Address</label>
+						<div class="field twelve wide">
+							<div class="ui input">
+								<%= addresses_form.text_field :address1, :placeholder => 'Addres Line 1'%>
+								<div class="ui corner label">
+									<i class="asterisk icon"></i>
+								</div>
+							</div>
+						</div>
+						<div class="field twelve wide">
+							<div class="ui input">
+								<%= addresses_form.text_field :address2, :placeholder => 'Addres Line 2' %>
+								<div class="ui corner label">
+									<i class="asterisk icon"></i>
+								</div>
+							</div>
+						</div>
+						<div class="field twelve wide">
+							<div class="ui input">
+								<%= addresses_form.text_field :city, :placeholder => 'City' %>
+								<div class="ui corner label">
+									<i class="asterisk icon"></i>
+								</div>
+							</div>
+						</div>
+						<div class="field twelve wide">
+							<div class="ui input">
+								<%= render 'list_of_counties' %>
+							</div>
+						</div>
+						<div class="field twelve wide">
+							<div class="ui input">
+								<%= addresses_form.text_field :postcode, :placeholder => 'Postcode'%>
+								<div class="ui corner label">
+									<i class="asterisk icon"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				<% end %>
+				<div class="field six wide">
+					<label>What will you learn</label>
+						<div class="field fourteen wide">
+							<%= form.text_field :benefits %>
+						</div>
+						<div class="field fourteen wide">
+							<%= form.text_field :benefits %>
+						</div>
+						<div class="field fourteen wide">
+							<%= form.text_field :benefits %>
+						</div>
+				</div>
+				<div class="field four wide">
+					<label>What to wear?</label>
+					<%= form.fields_for :need_to_wears do |ing| %>
+						<div class="field twelve wide">
+							<%= ing.text_field :name %>
+						</div>
+					<% end %>
+				</div>
+
+				<div class="field">
+					<label>Price</label>
+					<div class="field twelve wide">
+						<%= form.text_field :price, :placeholder => "£50.00"%>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="ui segment">
+			<div class="ui shape">
+				<div class="sides">
+					<div class="active side">
+						<div class="field">
+							<%= form.submit :style =>"float:right" %>					
+						</div>
+					</div>
+					<div class="side">
+						<div class="ui segment inverted green center aligned">
+							<h1 class="ui header">
+								<i class="icon checkmark sign"></i>
+								Thank You!
+							</h1>
+						</div>
+					</div>
+				</div>
+			</div>			
+		</div>
+
 	<% end %>
-	<br>
-	<%= form.fields_for :course_addresses do |addresses_form| %>
-		<%= addresses_form.label :address1, 'Address Line 1' %>				
-    <%= addresses_form.text_field :address1 %>
-    <br>
-    <%= addresses_form.label :address2, 'Address Line 2' %>
-    <%= addresses_form.text_field :address2 %>
-    <br>
-    <%= addresses_form.label :city %>
-    <%= addresses_form.text_field :city %>
-    <br>
-    <%= addresses_form.label :county %>
-    <%= addresses_form.text_field :county %>
-    <br>
-    <%= addresses_form.label :postcode %>
-    <%= addresses_form.text_field :postcode %>
-	<% end %>
-	<br>
-	<%= form.submit %>
-<% end %>
+</div>
