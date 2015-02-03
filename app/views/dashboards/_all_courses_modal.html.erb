@@ -1,12 +1,33 @@
 <div class="ui modal" id="allCourses">
   <i class="close icon"></i>
   <div class="header">
-    Profile Picture
+    All my Courses
   </div>
-  <div class="content">    
+  <div class="content">            
 
-          
+    <table class="ui celled striped table">
+      <thead>
+        <tr>
+          <th class="seven wide">Course Name</th>
+          <th class="three wide">Dates Created</th>
+          <th class="three wide">Active Dates</th>
+          <th class="three wide">Payments Taken</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @courses.each do |course| %>        
+          <tr>              
+            <td class="seven wide"><%= course.name.truncate(30) %></td>
+            <td class="three wide"><%= course.course_dates.count %></td>
+            <td class="three wide"><%=course.course_dates(&:active?).count%></td>
+            <td class="three wide"><%= course.course_dates(&:payments?).count %></td>
+          </tr>
+        <% end %>                  
+      </tbody>
+    </table>
+
   </div>
+
   <div class="actions">
     <div class="ui black button">
       Nope
