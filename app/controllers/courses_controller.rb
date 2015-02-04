@@ -13,7 +13,8 @@ class CoursesController < ApplicationController
 		@course.user = current_user
 		if @course.save
 			@user =  @course.user
-			UserMailer.delay_for(0.003.hours).welcome_email(@user)		    
+			UserMailer.delay_for(0.003.hours).welcome_email(@user)
+			redirect_to dashboard_path		    
 	  else
 		  format.html { render action: 'new' }	  
 		end	

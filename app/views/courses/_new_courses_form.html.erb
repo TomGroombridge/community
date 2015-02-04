@@ -4,7 +4,7 @@
 			Loading ...
 		</div>
 	</div>
-	<%= form_for @course, remote: true, :html => {:class => 'ui form fluid '} do |form|  %>
+	<%= form_for @course, :html => {:class => 'ui form fluid '} do |form|  %>
 
 		<!-- <div class="ui error icon message">
 		</div> -->
@@ -44,7 +44,7 @@
 					</div>
 				</div>
 
-				<%= form.fields_for :course_addresses, remote: true do |addresses_form| %>
+				<%= form.fields_for :course_addresses do |addresses_form| %>
 					<div class="field six wide">
 						<label>Course Address</label>
 						<div class="field twelve wide">
