@@ -5,21 +5,12 @@
   </div>
   <div class="content">    
 
-    <% @course.course_dates.each do |date|%>    
-      <%if date.valid_dates(date)%>   
-        <%= date.start_date.strftime("%m/%d/%Y/%I:%M%p") %>  
-        <% if date.valid_dates(date) %>  
-          <%= link_to "Book Course", new_payment_path(:id => date.id) %>  
-          <%= form_tag course_tickets_path(@course), id: 'ticket_form' do %>
-            <%= select_tag 'start_date', options_from_collection_for_select(@course.course_dates, :id, :pretty_date) %>
-            Quantity: <%= text_field_tag 'quantity', '1' %>
-          <% end %>
-        <% else %>
-          <p> sold out</p>
-        <% end %>
-        <br>    
-      <% end %> 
-    <% end %>    
+       
+          <%= form_tag course_tickets_path(@course), id: 'ticket_form' do %>            
+            <%= select_tag 'start_date', options_from_collection_for_select(@course.course_dates, :id, :pretty_date) %>                
+            Quantity: <%= text_field_tag 'quantity', '0' %>
+          <% end %>        
+     
   </div>
   <div class="actions">
     <div class="ui black button">
