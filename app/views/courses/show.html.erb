@@ -7,20 +7,23 @@
                 		<br>
                 <div class="item">
                     <div class="image">
-                        <img src="img/cooking300.png">
+                        <%= image_tag(@course.image.url(:medium), :class => "ui medium rounded" )%>
                     </div>
                     <div class="content">
                         <div class="ui list">
                             <div class="item">
-                                <a><i class="calendar icon"></i>Sat 23 March 2015</a>
+                                <a>
+                                    <i class="calendar icon"></i><%= @course.upcoming_date.start_date.strftime("%A, %b %d") %>
+                                </a>
                             </div>
                             <div class="item">
-
-                                <a><i class="clock icon"></i>11:00 - 19:00</a>
+                                <a>
+                                    <i class="clock icon"></i><%= @course.upcoming_date.start_date.strftime("%l:%M %p")%> - <%= @course.upcoming_date.start_date.strftime("%l:%M %p")%>
+                                </a>
                             </div>
                             <div class="ui tag labels">
                               <a class="ui label">
-                                £ <%= @course.price.round(2) %>
+                                £ <%= @course.price.round(2) %>                                
                               </a>
                             </div>
                         </div>
@@ -34,7 +37,6 @@
                     </div> <!-- .content -->
                 </div> <!-- .item -->
             </div> <!-- .ui.items -->
-
             <div class="ui divider"></div>
             <h3 class="ui header">ABOUT THIS COURSE</h3>
             <%= @course.description.html_safe%>
@@ -45,36 +47,35 @@
 
         <!-- RIGHT CONTENT -->
         <div class="six wide column">
-            <h5 class="ui top attached header address">23, Cotswold Lane, Notting Hill, London SW1 3GF</h5>
+            <% @course.course_addresses.each do |address|%>
+            <h5 class="ui top attached header address"><%= address.address1 %>, <%= address.address2 %>, <%= address.city %>, <%= address.county %>, <%= address.postcode %></h5>
+            <% end %>
             <div class="ui attached segment map">
               <div class="gmap"></div>
             </div>
             <div class="ui style fluid accordion">
-                <div class="active title __gold">
+                <div class="title __gold">
                     <i class="dropdown icon"></i>
                     WHAT TO BRING?
                 </div>
                 <div class="content">
-                    <p>No extras.</p>
+                    <p><%= @course.what_to_bring %></p>
                 </div>
                 <br>
-                <div class="active title __gold">
+                <div class="title __gold">
                     <i class="dropdown icon"></i>
                     WHAT TO WEAR?
                 </div>
                 <div class="content">
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur.</p>
+                    <p><%= @course.what_to_wear %></p>
                 </div>
                 <br>
-                <div class="active title __gold">
+                <div class="title __gold">
                     <i class="dropdown icon"></i>
-                    WHY SHOULD I ATTEND?
+                    EXPERIANCE NEEDED?
                 </div>
                 <div class="content">
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p><%= @course.experience %></p>
                 </div>
             </div> 
             <!-- END OF ACCORDION -->
