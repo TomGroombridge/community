@@ -8,11 +8,12 @@
     <table class="ui celled striped table">
       <thead>
         <tr>
-          <th class="six wide">Course Name</th>
+          <th class="five wide">Course Name</th>
           <th class="three wide">Dates Created</th>
           <th class="three wide">Active Dates</th>
           <th class="three wide">Payments Taken</th>
           <th class="one wide">Edit Course</th>
+          <th class="one wide">Add Course Date</th>
         </tr>
       </thead>
       <tbody>
@@ -23,6 +24,7 @@
             <td ><%=course.course_dates(&:active?).count%></td>
             <td ><%= course.course_dates(&:payments?).count %></td>
             <td ><%= link_to("<i class='edit icon' style='margin:auto; display:block'></i>".html_safe ,edit_course_path(course.id))%></td>
+            <td ><%= link_to("<i class='add icon' style='margin:auto; display:block'></i>".html_safe, new_course_course_date_path(course.id)) %></td>
           </tr>
         <% end %>                  
       </tbody>

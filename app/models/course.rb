@@ -21,5 +21,13 @@ class Course < ActiveRecord::Base
   def free?
     price == nil 
   end
+
+  def check_price(price)
+    if price.to_s.include? "."
+      raise hello
+    else
+      raise goodbye
+    end
+  end
 end
 

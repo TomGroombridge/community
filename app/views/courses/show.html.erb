@@ -1,7 +1,7 @@
 <div class="ui pusher stackable padded grid">    
 	   <%= render "book_date" %>
         <!-- LEFT CONTENT -->
-        <div class="ten wide column __blue">
+        <div class="ten wide column __blue" style="height:100%;">
             <div class="ui items">
                 <h2 class="ui header"><%= @course.name.capitalize %></h2>
                 		<br>
@@ -20,7 +20,7 @@
                             </div>
                             <div class="ui tag labels">
                               <a class="ui label">
-                                $10.00
+                                £ <%= @course.price.round(2) %>
                               </a>
                             </div>
                         </div>

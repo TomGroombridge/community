@@ -14,8 +14,7 @@
 				<div class="ui field six wide" style="height: 300px; display:table">    
 					<div class="buttons" style="display:table-cell; vertical-align:middle; text-align:center">
 						<!-- this is the html used to upload the image however it does not attacth it properly, if i make it into a file_field ruby tag it doesnt want to work and I have no idea why, i have tried lots of ways but a lot of the time when i change the code it gets rid of the inline error messages. -->
-						<button id="upload_button" class="ui primary button" >Upload Image</button>
-						<input  id="course_image" name="course-image" type="file"/>
+						<%= form.file_field :image, :class => "ui primary button", :style => "display:block !important"%>				
 					</div>
 				</div>  
 

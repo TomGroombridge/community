@@ -48,7 +48,7 @@ class CoursesController < ApplicationController
 	def update 
 		@course = Course.find(params[:id])	
 		@course.update_attributes(params[:course].permit(:name, :description, :price, :user_id, :image, :blurb, :benefits, course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county], need_to_wears_attributes: [:id, :name], brings_attributes: [:id, :name]))
-		redirect_to '/courses'
+		redirect_to dashboard_path
 	end
 	
 

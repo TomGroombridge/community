@@ -7,17 +7,17 @@ class CourseDate < ActiveRecord::Base
 
 
 	def valid_dates(course)			
-		if course.dates > Time.now && course.active?				
+		if course.start_date > Time.now && course.active?				
 			course
 		end		
 	end	
 
 	def invalid		
-		self.delay_until(self.dates - 24.hours).update_attributes(active: false)
+		self.delay_until(self.start_date - 24.hours).update_attributes(active: false)
 	end
 
 	def pretty_date
-		dates.strftime("%m/%d/%Y/%I:%M%p")
+		start_date.strftime("%m/%d/%Y/%I:%M%p")
 	end
 
 	def max_revenue

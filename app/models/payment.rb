@@ -12,7 +12,7 @@ class Payment < ActiveRecord::Base
 		@email = self.email			
 		@name = self.full_name		
 		@course_name = self.course_date.course.name
-		@course_date = self.course_date.dates.strftime("%m/%d/%Y")
+		@course_date = self.course_date.start_date.strftime("%m/%d/%Y")
 
 		save! and return if course.free?
 
@@ -29,7 +29,7 @@ class Payment < ActiveRecord::Base
 	end
 
 	def send_reminder				
-		PaymentMailer.delay_until(course_date.dates - 24.hours).reminder(self)
+		PaymentMailer.delay_until(course_date.start_date - 24.hours).reminder(self)
 	end
 
 	def send_new_payment_email

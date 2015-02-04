@@ -1,8 +1,11 @@
 <%= @course_date.inspect %>
 
 <%= form_for [@course, @course_date] do |f| %>
-	<%= f.label :dates %>
-	<%= f.datetime_select :dates %>	
+	<%= f.label :start_date %>
+	<%= f.datetime_select :start_date %>	
+	<br>
+	<%= f.label :end_date %>
+	<%= f.datetime_select :end_date %>	
 	<br>
 	<%= f.label :quantity %>
 	<%= f.text_field :quantity %>
