@@ -136,7 +136,8 @@ $(function(){
     price: {
       identifier: 'course[price]',
       rules: [
-        { type: 'empty', prompt: "Please add an price to the course"}              
+        { type: 'empty', prompt: "Please add an price to the course"},
+        { type: 'contains[.]', prompt: "Please add a validated price with a decimal place"},                            
       ]
     },
   }

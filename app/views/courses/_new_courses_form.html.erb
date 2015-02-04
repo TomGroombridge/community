@@ -108,10 +108,11 @@
 				</div>
 
 				<div class="field">
-					<label>Price</label>
-					<div class="field twelve wide">
-						<%= form.text_field :price, :placeholder => "£50.00"%>
-					</div>
+					<label>Price (e.g. 75.00)</label>					
+					<div class="inline field">
+			      <label>£</label>
+						<%= form.text_field :price, :placeholder => "£50.00"%>			      
+			    </div>
 				</div>
 			</div>
 		</div>

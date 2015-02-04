@@ -1,5 +1,6 @@
 
-    <%= render "all_courses_modal" %>
+    <%= render "all_courses_modal" %>    
+
 
 <div class="two column stackable ui grid" style="margin:0px;">
     <div class="column sixteen wide">
@@ -41,7 +42,7 @@
                         <th class="one wide">
                             #
                         </th>
-                        <th class="six wide">
+                        <th class="seven wide">
                             Course Title
                         </th>
                         <th class="two wide center aligned">
@@ -50,78 +51,67 @@
                         <th class="two wide center aligned">
                             Subscribers
                         </th>
-                        <th class="two wide center aligned">
-                            Fee
-                        </th>
-                        <th class="three wide center aligned">
+                        <th class="three wide center aligned">                            
                             Max Revenue
+                        </th>
+                        <th class="one wide center aligned">
+                            View 
                         </th>
                     </tr>
                 </thead>
                 <tbody style="display: block; max-height: 208px; overflow-y: auto">
-                    <tr style="display:block">
-                        <td class="one wide collapsing">1</td>
-                        <td class="six wide">Beginners Lovely Laundry Bag</td>
-                        <td class="two wide center aligned">04/03/15</td>
-                        <td class="two wide center aligned">4/20</td>
-                        <td class="two wide center aligned">£49.00</td>
-                        <td class="three wide center aligned">£2540.00</td>
-                    </tr>
+                    <% @active_courses.each do |course|%>
+                        <% course.course_dates.each do |course_date| %>
+                        <tr style="display:block">
+                            <td class="one wide collapsing">1</td>
+                            <td class="seven wide"><%= course_date.course.name %></td>
+                            <td class="two wide left aligned"><%= course_date.dates.strftime("%m/%d/%Y")%></td>
+                            <td class="two wide center aligned"><%= course_date.payments.count %>/<%= course_date.quantity%></td>
+                            <td class="three wide center aligned"><%= course_date.max_revenue %></td>
+                            <td class="one wide center aligned"><i class="bar chart icon"></i></td>
+                        </tr>
+                        <% end %>
+                    <% end %>
+                    <%# end %>
                     <tr style="display:block">
                         <td class="one wide collapsing">2</td>
-                        <td class="six wide">Beginners Lovely Laundry Bag</td>
+                        <td class="seven wide">Beginners Lovely Laundry Bag</td>
                         <td class="two wide center aligned">04/03/15</td>
                         <td class="two wide center aligned">4/20</td>
-                        <td class="two wide center aligned">£49.00</td>
                         <td class="three wide center aligned">£2540.00</td>
+                        <td class="one wide center aligned"><i class="bar chart icon"></i></td>
                     </tr>
                     <tr style="display:block">
                         <td class="one wide collapsing">3</td>
-                        <td class="six wide">Beginners Lovely Laundry Bag</td>
+                        <td class="seven wide">Beginners Lovely Laundry Bag</td>
                         <td class="two wide center aligned">04/03/15</td>
                         <td class="two wide center aligned">4/20</td>
-                        <td class="two wide center aligned">£49.00</td>
                         <td class="three wide center aligned">£2540.00</td>
+                        <td class="one wide center aligned"><i class="bar chart icon"></i></td>
                     </tr>
                     <tr style="display:block">
                         <td class="one wide collapsing">4</td>
-                        <td class="six wide">Beginners Lovely Laundry Bag</td>
+                        <td class="seven wide">Beginners Lovely Laundry Bag</td>
                         <td class="two wide center aligned">04/03/15</td>
                         <td class="two wide center aligned">4/20</td>
-                        <td class="two wide center aligned">£49.00</td>
                         <td class="three wide center aligned">£2540.00</td>
+                        <td class="one wide center aligned"><i class="bar chart icon"></i></td>
                     </tr>
                     <tr style="display:block">
                         <td class="one wide collapsing">5</td>
-                        <td class="six wide">Beginners Lovely Laundry Bag</td>
+                        <td class="seven wide">Beginners Lovely Laundry Bag</td>
                         <td class="two wide center aligned">04/03/15</td>
                         <td class="two wide center aligned">4/20</td>
-                        <td class="two wide center aligned">£49.00</td>
                         <td class="three wide center aligned">£2540.00</td>
+                        <td class="one wide center aligned"><i class="bar chart icon"></i></td>
                     </tr>
                     <tr style="display:block">
                         <td class="one wide collapsing">6</td>
-                        <td class="six wide">Beginners Lovely Laundry Bag</td>
+                        <td class="seven wide">Beginners Lovely Laundry Bag</td>
                         <td class="two wide center aligned">04/03/15</td>
                         <td class="two wide center aligned">4/20</td>
-                        <td class="two wide center aligned">£49.00</td>
                         <td class="three wide center aligned">£2540.00</td>
-                    </tr>
-                    <tr style="display:block">
-                        <td class="one wide collapsing">7</td>
-                        <td class="six wide">Beginners Lovely Laundry Bag</td>
-                        <td class="two wide center aligned">04/03/15</td>
-                        <td class="two wide center aligned">4/20</td>
-                        <td class="two wide center aligned">£49.00</td>
-                        <td class="three wide center aligned">£2540.00</td>
-                    </tr>
-                    <tr style="display:block">
-                        <td class="one wide collapsing">8</td>
-                        <td class="six wide">Beginners Lovely Laundry Bag</td>
-                        <td class="two wide center aligned">04/03/15</td>
-                        <td class="two wide center aligned">4/20</td>
-                        <td class="two wide center aligned">£49.00</td>
-                        <td class="three wide center aligned">£2540.00</td>
+                        <td class="one wide center aligned"><i class="bar chart icon"></i></td>
                     </tr>
                 </tbody>
             </table>  
