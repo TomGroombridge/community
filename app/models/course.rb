@@ -5,11 +5,7 @@ class Course < ActiveRecord::Base
 	has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   has_many :course_addresses
-  has_many :need_to_wears
   accepts_nested_attributes_for :course_addresses
-  accepts_nested_attributes_for :need_to_wears
-  has_many :brings
-  accepts_nested_attributes_for :brings
   validates_presence_of :name	
 
 
@@ -29,5 +25,17 @@ class Course < ActiveRecord::Base
       raise goodbye
     end
   end
+
+  def upcoming_date
+    active_course_dates = self.course_dates.select { |num|  num.active?  } 
+    sort_dates = active_course_dates.sort_by! {|obj| obj.start_date}
+    sort_dates.first
+  end
+
+  def upcoming_dates
+    active_course_dates = self.course_dates.select { |num|  num.active?  } 
+    sort_dates = active_course_dates.sort_by! {|obj| obj.start_date}    
+  end
+  
 end
 
