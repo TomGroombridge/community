@@ -11,17 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150204124549) do
+ActiveRecord::Schema.define(version: 20150204131802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "brings", force: true do |t|
-    t.integer  "course_id"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "course_addresses", force: true do |t|
     t.string   "address1"
@@ -58,13 +51,9 @@ ActiveRecord::Schema.define(version: 20150204124549) do
     t.string   "benefits"
     t.string   "need_to_wear"
     t.float    "price"
-  end
-
-  create_table "need_to_wears", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "name"
-    t.integer  "course_id"
+    t.text     "what_to_wear"
+    t.text     "what_to_bring"
+    t.text     "experience"
   end
 
   create_table "payments", force: true do |t|

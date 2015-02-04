@@ -5,13 +5,11 @@ class CoursesController < ApplicationController
 		@course = Course.new	
 		@course.user = current_user
 		@course.course_addresses.build
-		3.times {@course.need_to_wears.build}
-		3.times {@course.brings.build}  
 	  # authorize! :update, @course
 	end
 
 	def create 		
-		@course = Course.create(params[:course].permit(:name, :description, :price, :image, :blurb, :benefits, course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county], need_to_wears_attributes: [:id, :name], brings_attributes: [:id, :name]))
+		@course = Course.create(params[:course].permit(:name, :description, :price, :image, :blurb, :what_to_wear, :what_to_bring, :experience, course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county]))
 		@course.user = current_user
 		if @course.save
 			@user =  @course.user

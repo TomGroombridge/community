@@ -86,25 +86,24 @@
 						</div>
 					</div>
 				<% end %>
-				<div class="field six wide">
-					<label>What will you learn</label>
-						<div class="field fourteen wide">
-							<%= form.text_field :benefits %>
-						</div>
-						<div class="field fourteen wide">
-							<%= form.text_field :benefits %>
-						</div>
-						<div class="field fourteen wide">
-							<%= form.text_field :benefits %>
-						</div>
+				
+				<div class="field ten wide">
+					<label>What to Wear?</label>					
+					<div class="field sixteen wide">
+						<%= form.text_field :what_to_wear %>
+					</div>					
 				</div>
-				<div class="field four wide">
-					<label>What to wear?</label>
-					<%= form.fields_for :need_to_wears, remote: true  do |ing| %>
-						<div class="field twelve wide">
-							<%= ing.text_field :name %>
-						</div>
-					<% end %>
+				<div class="field ten wide">
+					<label>What to Bring?</label>					
+					<div class="field sixteen wide">
+						<%= form.text_field :what_to_bring %>
+					</div>					
+				</div>
+				<div class="field ten wide">
+					<label>Any Experience Needed?</label>					
+					<div class="field sixteen wide">
+						<%= form.text_field :experience %>
+					</div>					
 				</div>
 
 				<div class="field">
