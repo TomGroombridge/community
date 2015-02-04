@@ -37,7 +37,7 @@ class CoursesController < ApplicationController
 	end
 
 	def show
-	  @course = Course.find(params[:id])
+	  @course = Course.find(params[:id])	  	  
 	  render layout: "iframe-#{params[:embed]}" if params[:embed]
 	end
 	
@@ -47,7 +47,7 @@ class CoursesController < ApplicationController
 
 	def update 
 		@course = Course.find(params[:id])	
-		@course.update_attributes(params[:course].permit(:name, :description, :price, :user_id, :image, :blurb, :benefits, course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county], need_to_wears_attributes: [:id, :name], brings_attributes: [:id, :name]))
+		@course.update_attributes(params[:course].permit(:name, :description, :price, :image, :blurb, :what_to_wear, :what_to_bring, :experience, course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county]))
 		redirect_to dashboard_path
 	end
 	
