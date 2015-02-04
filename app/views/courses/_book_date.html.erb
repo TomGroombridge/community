@@ -7,7 +7,7 @@
 
        
           <%= form_tag course_tickets_path(@course), id: 'ticket_form' do %>            
-            <%= select_tag 'start_date', options_from_collection_for_select(@course.course_dates, :id, :pretty_date) %>                
+            <%= select_tag 'start_date', options_from_collection_for_select(@course.upcoming_dates, :id, :pretty_date) %>                
             Quantity: <%= text_field_tag 'quantity', '0' %>
           <% end %>        
      
