@@ -60,8 +60,8 @@
                     </tr>
                 </thead>
                 <tbody style="display: block; max-height: 208px; overflow-y: auto">
-                    <% @active_courses.each do |course|%>
-                        <% course.course_dates.each do |course_date| %>
+                    <% @courses.each do |course|%>
+                        <% course.upcoming_dates.each do |course_date| %>
                         <tr style="display:block">
                             <td class="one wide collapsing">1</td>
                             <td class="seven wide"><%= course_date.course.name %></td>
