@@ -21,7 +21,7 @@
           <tr>              
             <td ><%= course.name.truncate(30) %></td>
             <td ><%= course.course_dates.count %></td>
-            <td ><%=course.course_dates(&:active?).count%></td>
+            <td ><%=course.upcoming_dates.count%></td>
             <td ><%= course.course_dates(&:payments?).count %></td>
             <td ><%= link_to("<i class='edit icon' style='margin:auto; display:block'></i>".html_safe ,edit_course_path(course.id))%></td>
             <td ><%= link_to("<i class='add icon' style='margin:auto; display:block'></i>".html_safe, new_course_course_date_path(course.id)) %></td>

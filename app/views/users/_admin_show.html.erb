@@ -32,35 +32,7 @@
 			      </a>
 			    </div>
 			  </div>  
-			<% end %>
-			<% @user.courses.each do |course| %>
-			  <div class="card">
-			    <div class="dimmable image">
-			      <div class="ui dimmer">
-			        <div class="content">
-			          <div class="center">
-			            <div class="ui inverted button">Add Friend</div>
-			          </div>
-			        </div>
-			      </div>
-			      <div class="image" style="width: 100%; height: 200px; position: relative; overflow: hidden;">
-			      	<%= image_tag(course.image.url, :class => "ui medium rounded", :style => "position: absolute; display: block; top: 0; left: 0;" )%>
-			      </div>
-			    </div>
-			    <div class="content">
-			      <a class="header"><%= course.name %></a>
-			      <div class="meta">
-			        <span class="date">Create in Sep 2014</span>
-			      </div>
-			    </div>
-			    <div class="extra content">
-			      <a>
-			        <i class="users icon"></i>
-			        2 Members
-			      </a>
-			    </div>
-			  </div>  
-			<% end %>
+			<% end %>			
 		</div>
 	</div>
 </div>
