@@ -1,13 +1,136 @@
 <div class="two column stackable ui grid" style="margin:0px;">
 	<div class="column sixteen wide image-banner" style="height:200px; padding:0px">
-		<%= image_tag(@user.avatar.url, :class => "img-banner", :style => "width:100%;" ) %>		
+		<%= image_tag(@user.avatar.url, :class => "img-banner", :style => "width:100%;" ) %>	
+		
+			<div style="position: absolute; left: 50%; top:20%; z-index:1">
+        <div style="position: relative; left: -50%; border: 1px solid white;">
+            <h1 style="margin:0px; color:white; margin-left: 15px; margin-right: 15px;">Satuday Sewing Sessions</h1>
+        </div>
+        <div class="three column ui grid" style="position: relative; left: -50%; border: 1px solid white; top:10px;">
+        <div class="column" style="padding-left:0px; paddding-right:0px;">
+	        <div class="ui statistic">
+					  <div class="value" style="font-size: 2rem; color:white">
+					    22
+					  </div>
+					  <div class="label" style="color:white">
+					    Breeds of Dog
+					  </div>
+					</div>
+        </div>
+        <div class="column" style="padding-left:0px; paddding-right:0px;">
+        	<div class="ui statistic">
+					  <div class="value" style="font-size: 2rem; color:white;">
+					    22
+					  </div>
+					  <div class="label" style="color:white">
+					    Breeds of Dog
+					  </div>
+					</div>        
+        </div>
+        <div class="column" style="padding-left:0px; paddding-right:0px;">
+        	<div class="ui statistic">
+					  <div class="value" style="font-size: 2rem; color:white">
+					    22
+					  </div>
+					  <div class="label" style="color:white">
+					    Breeds of Dog
+					  </div>
+					</div>
+        </div>            
+      </div>
+    </div>
+		
 	</div>
-	<div class="column seven wide" style="background:#d1ca72">
+	<div class="column seven wide" style="background:#d1ca72; height:100vh; overflow:scroll">
 		<h1 style="text-align:center">About</h1>
 		<%= @user.description %>
 	</div>
-	<div class="column nine wide" style="background:#f2f0dd">
+	<div class="column nine wide" style="background:#f2f0dd; height:100vh; overflow:scroll">
 		<div class="ui two special cards">
+			<% @user.courses.each do |course| %>
+			  <div class="card">
+			    <div class="dimmable image">
+			      <div class="ui dimmer">
+			        <div class="content">
+			          <div class="center">
+			            <div class="ui inverted button">Add Friend</div>
+			          </div>
+			        </div>
+			      </div>
+			      <div class="image" style="width: 100%; height: 200px; position: relative; overflow: hidden;">
+			      	<%= image_tag(course.image.url, :class => "ui medium rounded", :style => "position: absolute; display: block; top: 0; left: 0;" )%>
+			      </div>
+			    </div>
+			    <div class="content">
+			      <a class="header"><%= course.name %></a>
+			      <div class="meta">
+			        <span class="date">Create in Sep 2014</span>
+			      </div>
+			    </div>
+			    <div class="extra content">
+			      <a>
+			        <i class="users icon"></i>
+			        2 Members
+			      </a>
+			    </div>
+			  </div>  
+			<% end %>
+			<% @user.courses.each do |course| %>
+			  <div class="card">
+			    <div class="dimmable image">
+			      <div class="ui dimmer">
+			        <div class="content">
+			          <div class="center">
+			            <div class="ui inverted button">Add Friend</div>
+			          </div>
+			        </div>
+			      </div>
+			      <div class="image" style="width: 100%; height: 200px; position: relative; overflow: hidden;">
+			      	<%= image_tag(course.image.url, :class => "ui medium rounded", :style => "position: absolute; display: block; top: 0; left: 0;" )%>
+			      </div>
+			    </div>
+			    <div class="content">
+			      <a class="header"><%= course.name %></a>
+			      <div class="meta">
+			        <span class="date">Create in Sep 2014</span>
+			      </div>
+			    </div>
+			    <div class="extra content">
+			      <a>
+			        <i class="users icon"></i>
+			        2 Members
+			      </a>
+			    </div>
+			  </div>  
+			<% end %>
+			<% @user.courses.each do |course| %>
+			  <div class="card">
+			    <div class="dimmable image">
+			      <div class="ui dimmer">
+			        <div class="content">
+			          <div class="center">
+			            <div class="ui inverted button">Add Friend</div>
+			          </div>
+			        </div>
+			      </div>
+			      <div class="image" style="width: 100%; height: 200px; position: relative; overflow: hidden;">
+			      	<%= image_tag(course.image.url, :class => "ui medium rounded", :style => "position: absolute; display: block; top: 0; left: 0;" )%>
+			      </div>
+			    </div>
+			    <div class="content">
+			      <a class="header"><%= course.name %></a>
+			      <div class="meta">
+			        <span class="date">Create in Sep 2014</span>
+			      </div>
+			    </div>
+			    <div class="extra content">
+			      <a>
+			        <i class="users icon"></i>
+			        2 Members
+			      </a>
+			    </div>
+			  </div>  
+			<% end %>
 			<% @user.courses.each do |course| %>
 			  <div class="card">
 			    <div class="dimmable image">
