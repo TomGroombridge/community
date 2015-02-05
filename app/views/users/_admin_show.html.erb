@@ -1,9 +1,12 @@
 <div class="two column stackable ui grid" style="margin:0px;">
-	<div class="column sixteen wide" style="background:red; height:200px">
+	<div class="column sixteen wide image-banner" style="height:200px; padding:0px">
+		<%= image_tag(@user.avatar.url, :class => "img-banner", :style => "width:100%;" ) %>		
 	</div>
-	<div class="column seven wide" style="background:blue">
+	<div class="column seven wide" style="background:#d1ca72">
+		<h1 style="text-align:center">About</h1>
+		<%= @user.description %>
 	</div>
-	<div class="column nine wide" style="background:green">
+	<div class="column nine wide" style="background:#f2f0dd">
 		<div class="ui two special cards">
 			<% @user.courses.each do |course| %>
 			  <div class="card">
@@ -32,7 +35,7 @@
 			      </a>
 			    </div>
 			  </div>  
-			<% end %>			
+			<% end %>						
 		</div>
 	</div>
 </div>

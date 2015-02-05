@@ -137,3 +137,21 @@ padding-right: 2rem;
 .ui.items > .item > .image:not(.ui) {
 width: 200px;
 }
+
+
+.image-banner{
+  position: relative;
+  width: 100%;
+  height: 200px;
+  .img-banner{
+    width:100%;
+  }
+}
+  .image-banner:after {
+    content:'\A';
+    position:absolute;
+    width:100%; height:100%;
+    top:0; left:0;
+    background:rgba(0,0,0,0.6);   
+    opacity:1;
+}
