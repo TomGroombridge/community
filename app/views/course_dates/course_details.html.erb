@@ -60,15 +60,16 @@
                     </tr>
                 </thead>
                 <tbody style="display: block; max-height: 208px; overflow-y: auto">   
-                		<%= @course_date.payments.inspect %>                 
-                        <tr style="display:block">
-                            <td class="one wide collapsing">1</td>
-                            <td class="seven wide"><%# course_date.course.name %></td>
-                            <td class="two wide left aligned"><%# course_date.start_date.strftime("%m/%d/%Y")%></td>
-                            <td class="two wide center aligned"><%# course_date.payments.count %>/<%# course_date.quantity%></td>
-                            <td class="three wide center aligned"><%# course_date.max_revenue %></td>
-                            <td class="one wide center aligned"><%# link_to("<i class='bar chart icon'></i>".html_safe, course_details_course_course_date_path(course_date.course_id, course_date.id))%></td>
-                        </tr>                        
+                		<% @course_date.payments.each do |payment| %>                 
+                            <tr style="display:block">
+                                <td class="one wide collapsing">1</td>
+                                <td class="seven wide"><%= payment.full_name %></td>
+                                <td class="two wide left aligned"><%= payment.email %></td>
+                                <td class="two wide center aligned"><%# course_date.payments.count %>/<%# course_date.quantity%></td>
+                                <td class="three wide center aligned"><%# course_date.max_revenue %></td>
+                                <td class="one wide center aligned"><%= payment.created_at.strftime("%m/%d/%Y")%></td>
+                            </tr>  
+                        <% end %>                      
                 </tbody>
             </table>  
             <!-- END OF THE TABLE -->
