@@ -3,9 +3,6 @@ class CourseDate < ActiveRecord::Base
 	has_many :payments	
 	after_create :invalid
 	
-
-
-
 	def valid_dates(course)			
 		if course.start_date > Time.now && course.active?				
 			course
@@ -22,6 +19,11 @@ class CourseDate < ActiveRecord::Base
 
 	def max_revenue
 		quantity * self.course.price
+	end
+
+	def sale_percentage
+		value = self.payments.count.to_f / quantity * 100.00
+		value.to_i
 	end
 
 end

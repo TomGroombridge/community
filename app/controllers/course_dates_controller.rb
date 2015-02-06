@@ -17,6 +17,9 @@ class CourseDatesController < ApplicationController
 
 	def course_details		
 		@course_date = @course.course_dates.find(params[:id])
+		@payments = @course_date.payments				
+		@percentage = @payments.count.to_f / @course_date.quantity.to_f
+		gon.percentage = @percentage
 	end
 
 	private

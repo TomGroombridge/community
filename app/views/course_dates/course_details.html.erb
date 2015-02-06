@@ -85,10 +85,10 @@
     <!-- END OF RIGHT SIDE -->
     <div class="column five wide">
         <div class="ui raised segment">
-            <a class="ui red ribbon label">PAYMENT STATUS</a>
-            <div class="ui teal progress" id="example2" data-attibute="<%= @course_date %>">
+            <a class="ui red ribbon label">PAYMENT STATUS</a>            
+            <div class="ui teal progress" id="example2" data-attibute="<%= @course_date %>" style="margin-top:10px;">
                 <div class="bar"></div>
-                <div class="label">22% Earned</div>
+                <div class="label"><%= @course_date.sale_percentage %>% Full</div>
             </div>
         </div>
     </div>
