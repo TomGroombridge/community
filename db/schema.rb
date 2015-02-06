@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150204140709) do
+ActiveRecord::Schema.define(version: 20150206173542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,8 @@ ActiveRecord::Schema.define(version: 20150204140709) do
     t.string   "stripe_customer_token"
     t.integer  "course_date_id"
     t.string   "full_name"
+    t.string   "mobile_number"
+    t.text     "special_request"
   end
 
   create_table "plans", force: true do |t|
