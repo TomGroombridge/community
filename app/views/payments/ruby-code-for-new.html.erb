@@ -1,0 +1,62 @@
+<%= form_for @payment do |f| %>
+  <% if @payment.errors.any? %>
+    <div class="error_messages">
+      <h2><%= pluralize(@payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
+      <ul>
+      <% @payment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>  
+
+
+  
+  <%= f.hidden_field :stripe_card_token %>  
+  <div class="field">
+    <%= f.label :email %>
+    <% if @user %>
+      <%= f.text_field :email, :value => @user.email %>
+    <% else %>
+      <%= f.text_field :email %>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :full_name %>
+    <% if @user %>
+      <%= f.text_field :full_name, :value => @user.full_name %>
+    <% else %>
+      <%= f.text_field :full_name %>
+    <% end %>
+  </div>
+  <% if @payment.stripe_card_token.present? %>
+    Credit card has been provided.
+  <% elsif @course_date.course.free? %>
+    No payment needed!
+  <% else %>
+    <div class="field">
+      <%= label_tag :card_number, "Credit Card Number" %>
+      <%= text_field_tag :card_number, nil, name: nil %>
+    </div>
+    <div class="field">
+      <%= label_tag :card_code, "Security Code on Card (CVV)" %>
+      <%= text_field_tag :card_code, nil, name: nil %>
+    </div>
+    <div class="field">
+      <%= label_tag :card_month, "Card Expiration" %>
+      <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"} %>
+      <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"} %>
+    </div>
+  <% end %>
+  
+  <div id="stripe_error">
+    <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+  </div>
+  
+  <%= f.hidden_field :course_date_id %>
+  <%= f.hidden_field :user_id %>  
+  
+  <div class="actions">
+    <%= f.submit "Subscribe" %>
+  </div>
+<% end %>
