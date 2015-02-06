@@ -5,14 +5,16 @@
 <div class="two column stackable ui grid" style="margin:0px;">
     <div class="column sixteen wide">
         <div class="ui segment">
-            <h1 style="margin:0px;">SATURDAY SEWING SESSIONS</h1>
+            <h1 style="margin:0px;"><%= @course_date.course.name %></h1>
         </div>
     </div>
     <!-- LEFT SIDE -->
     <div class="column five wide">
         <div class="ui segment">
             <div class="column">
-                <img class="ui medium rounded image" src="/images/wireframe/square-image.png" style="display:block; margin:auto">    
+                <div class="image">
+                    <%= image_tag(@course_date.course.image.url(:medium), :class => "ui medium rounded" )%>
+                </div>
             </div>
             <div class="column">                
                 MAX SUBSCRIBERS: 20
@@ -33,7 +35,7 @@
         <div class="ui segment">
             <!-- START OF THE TABLE -->
             <h3 style="margin:0px;">ATTENDEES</h3>
-            <table class="ui striped table">
+            <table class="ui striped table" style="min-height: 285px;">
                 <thead style="display:block">
                     <tr>
                         <th class="one wide">
@@ -60,7 +62,7 @@
                 		<% @course_date.payments.each do |payment| %>                 
                             <tr style="display:block">
                                 <td class="one wide collapsing">1</td>
-                                <td class="seven wide"><%= payment.full_name %></td>
+                                <td class="seven wide left aligned"><%= payment.full_name %></td>
                                 <td class="two wide left aligned"><%= payment.email %></td>
                                 <td class="two wide center aligned"><%# course_date.payments.count %>/<%# course_date.quantity%></td>
                                 <td class="three wide center aligned"><%# course_date.max_revenue %></td>
@@ -95,7 +97,7 @@
     <div class="column eleven wide">
         <div class="ui segment">
             <!-- AT THE MOMENT THIS GRAPH SHOWS YOU THE NUMBER OF COURSES CREATED FROM THE BEGINNING OF THE MONTH -->            
-                <%# line_chart @courses.group_by_day(:created_at, range: Date.today.beginning_of_month..Time.now).count %>
+                <%= line_chart @course_date.payments.group_by_day(:created_at, range: Date.today.beginning_of_month..Time.now).count %>
             <!-- END OF THE GRAPH -->
             
         </div>
