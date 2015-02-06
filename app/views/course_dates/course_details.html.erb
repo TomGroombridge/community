@@ -14,20 +14,17 @@
             <div class="column">
                 <img class="ui medium rounded image" src="/images/wireframe/square-image.png" style="display:block; margin:auto">    
             </div>
-            <div class="ui three column grid">
-                <div class="column" style="text-align:center; padding-right:0; padding-left:0">
-                    <p>256</p>
-                    <p>HOURS TAUGHT </p>
-                </div>
-                <div class="column" style="text-align:center; padding-right:0; padding-left:0">
-                    <p>256</p>
-                    <p>HOURS TAUGHT </p>
-                </div>
-                <div class="column" style="text-align:center; padding-right:0; padding-left:0">
-                    <p>256</p>
-                    <p>HOURS TAUGHT </p>
-                </div>
-              </div>
+            <div class="column">                
+                MAX SUBSCRIBERS: 20
+            </div>
+            <br>
+            <div class="column">                
+                DATE: 28/04/15
+            </div>
+            <BR>
+            <div class="column">                
+                <a><div id="course" class="ui button" style="display:block">EDIT COURSE DATE</div></a>
+            </div>
         </div>        
     </div>
     <!-- END OF LEFT SIDE -->
@@ -74,15 +71,12 @@
             </table>  
             <!-- END OF THE TABLE -->
             <div class="ui segment">
-                <div class="ui three column grid">
-                    <div class="column">
-                        <a><div id="course" class="ui button" style="display:block">SEE ALL COURSES</div></a>
-                    </div>
-                    <div class="column">
-                        <a><div id="course" class="ui button" style="display:block"><%= link_to('NEW COURSE', new_course_path) %></div></a>
-                    </div>
+                <div class="ui two column grid">                    
                     <div class="column">
                         <a><div id="course" class="ui button" style="display:block">NEW DATE</div></a>
+                    </div>
+                    <div class="column">
+                        <a><div id="course" class="ui button" style="display:block">EMAIL ALL ATTENDEES</div></a>
                     </div>
                 </div>
             </div>
@@ -91,27 +85,11 @@
     <!-- END OF RIGHT SIDE -->
     <div class="column five wide">
         <div class="ui raised segment">
-            <a class="ui red ribbon label">Monthly Summary</a>
-            <table class="ui definition table">
-                <tbody>
-                    <tr>
-                        <td class="ten wide column">Bookings</td>
-                        <td>38</td>
-                    </tr>
-                    <tr>
-                        <td>Revenue</td>
-                        <td>£600.00</td>
-                    </tr>
-                    <tr>
-                        <td>Fee</td>
-                        <td>£28.00</td>
-                    </tr>
-                    <tr>
-                        <td>Net Profit </td>
-                        <td>£762.00</td>
-                    </tr>
-                </tbody>
-            </table>
+            <a class="ui red ribbon label">PAYMENT STATUS</a>
+            <div class="ui teal progress" id="example2" data-attibute="<%= @course_date %>">
+                <div class="bar"></div>
+                <div class="label">22% Earned</div>
+            </div>
         </div>
     </div>
     <div class="column eleven wide">

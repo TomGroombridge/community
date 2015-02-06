@@ -21,6 +21,10 @@
 
 $(document).ready(function() {    
 
+    $('#example2').progress({
+      percent: 22
+    });    
+
     $('.filter.menu .item')
       .tab()
     ;
