@@ -2,9 +2,6 @@ class CourseDate < ActiveRecord::Base
 	belongs_to :course
 	has_many :payments	
 	after_create :invalid
-	
-
-
 
 	def valid_dates(course)			
 		if course.start_date > Time.now && course.active?				

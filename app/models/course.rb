@@ -1,15 +1,16 @@
 class Course < ActiveRecord::Base
 	belongs_to :user
 	has_many :course_dates
-	has_many :users	
-	has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
-  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+	has_many :users		  
   has_many :course_addresses
-  accepts_nested_attributes_for :course_addresses
-  validates_presence_of :name	
+  accepts_nested_attributes_for :course_addresses  
   mount_uploader :avatar, AvatarUploader
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h 
+  after_update :crop_avatar
 
+  def crop_avatar
+    self.avatar.recreate_versions! if crop_x.present? 
+  end
 
  	def check_last_bookings
  		tomorrow_date = DateTime.now + 1

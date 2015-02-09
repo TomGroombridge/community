@@ -17,7 +17,8 @@ class CoursesController < ApplicationController
 			if params[:course][:avatar].present?
 				render :crop
 			else
-				redirect_to dashboard_path
+				# redirect_to course_path(@course)
+				render :preview
 			end
 	  else
 		  format.html { render action: 'new' }	  
@@ -55,7 +56,8 @@ class CoursesController < ApplicationController
 			if params[:course][:avatar].present?
 				render :crop
 			else
-				redirect_to dashboard_path
+				# redirect_to course_path(@course)
+				render :preview
 			end
 		else
 			render :new
