@@ -1,3 +1,4 @@
+
 <div class="ui segment orange raised" id="form-task">
 	<div id="formdimmer" class="ui inverted dimmer">
 		<div class="ui text loader small">
@@ -16,6 +17,10 @@
 						<!-- this is the html used to upload the image however it does not attacth it properly, if i make it into a file_field ruby tag it doesnt want to work and I have no idea why, i have tried lots of ways but a lot of the time when i change the code it gets rid of the inline error messages. -->
 						<%= form.file_field :image, :class => "ui primary button", :style => "display:block !important"%>				
 					</div>
+					<form id="form1" runat="server">
+		        <input type='file' id="imgInp" />
+		        <img id="blah" src="#" alt="your image" />
+		    	</form>
 				</div>  
 
 
@@ -137,3 +142,21 @@
 
 	<% end %>
 </div>
+
+<script>
+	function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#blah').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#imgInp").change(function(){
+        readURL(this);
+    });
+</script>
