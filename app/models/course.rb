@@ -7,6 +7,7 @@ class Course < ActiveRecord::Base
   has_many :course_addresses
   accepts_nested_attributes_for :course_addresses
   validates_presence_of :name	
+  mount_uploader :avatar, AvatarUploader
 
 
  	def check_last_bookings

@@ -50,7 +50,12 @@ gem 'cancancan', '~> 1.10'
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
 
 gem 'groupdate'
+
 gem "chartkick"
+
+gem 'carrierwave'
+
+gem 'rmagick'
 
 group :test, :development do
   gem 'rspec-rails'

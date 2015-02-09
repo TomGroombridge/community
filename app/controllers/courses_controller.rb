@@ -9,12 +9,16 @@ class CoursesController < ApplicationController
 	end
 
 	def create 		
-		@course = Course.create(params[:course].permit(:name, :description, :price, :image, :blurb, :what_to_wear, :what_to_bring, :experience, course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county]))
+		@course = Course.create(params[:course].permit(:name, :description, :price, :avatar, :blurb, :what_to_wear, :what_to_bring, :experience, course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county]))
 		@course.user = current_user
 		if @course.save
 			@user =  @course.user
 			UserMailer.delay_for(0.003.hours).welcome_email(@user)
-			redirect_to dashboard_path		    
+			if params[:course][:avatar].present?
+				render :crop
+			else
+				redirect_to dashboard_path
+			end
 	  else
 		  format.html { render action: 'new' }	  
 		end	
@@ -47,8 +51,15 @@ class CoursesController < ApplicationController
 
 	def update 
 		@course = Course.find(params[:id])	
-		@course.update_attributes(params[:course].permit(:name, :description, :price, :image, :blurb, :what_to_wear, :what_to_bring, :experience, course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county]))
-		redirect_to dashboard_path
+		if @course.update_attributes(params[:course].permit(:name, :description, :price, :avatar, :blurb, :what_to_wear, :what_to_bring, :experience, course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county]))
+			if params[:course][:avatar].present?
+				render :crop
+			else
+				redirect_to dashboard_path
+			end
+		else
+			render :new
+		end
 	end
 	
 
