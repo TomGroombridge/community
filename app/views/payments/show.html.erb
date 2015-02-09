@@ -1,4 +1,25 @@
-<div id="payment">
-  <h1>Your Booked</h1>
-  <p>You have signed up for the <strong><%= @payment.course_date.course.name %></strong> course</p>
+<div class="ui segment">
+  <p></p>
+  <div class="ui orange segment">
+  	<div class="column stackable ui grid">
+	  	<div class="column sixteen wide">
+	  		<h1 class="ui header">THANK YOU </h1>
+	  	</div>	  	
+	  	<div class="column ten wide">
+	  		<div class="ui black message">"<%= @payment.course_date.course.name %>" Booking Confirmed</div>
+	  		<div class="column ten wide">
+	  			<h2 class="header ui">Check you email shortly for a confirmation of your order. Please keep it for your records.</h2>
+	  			<h2 class="header ui">Check you email shortly for a confirmation of your order. Please keep it for your records.</h2>
+	  		</div>
+	  	</div>
+	  	<div class="column six wide">
+	  		<div class="ui black message">YOU PURCHASED</div>
+	  		<div class="column six wide">
+	  			<div class="image">
+	  				<%= image_tag(@payment.course_date.course.image.url(:medium), :class => "ui medium rounded" )%>
+	  			</div>
+	  		</div>	  		
+	  	</div>	  	
+	  </div>
+  </div>
 </div>
