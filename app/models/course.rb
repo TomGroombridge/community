@@ -8,6 +8,7 @@ class Course < ActiveRecord::Base
   accepts_nested_attributes_for :course_addresses
   validates_presence_of :name	
   mount_uploader :avatar, AvatarUploader
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h 
 
 
  	def check_last_bookings

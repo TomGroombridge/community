@@ -1,3 +1,13 @@
 <h1>Crop Avatar</h1>
 
 <%= image_tag @course.avatar_url(:large), id: "cropbox" %>
+
+<%= form_for @course do |f| %>
+	<% %w[x y w h].each do |attribute| %>
+		<%# f.text_field "crop_#{attribute}", id: "crop_#{attribute}"%><br> 
+		<%= f.text_field "crop_#{attribute}" %>
+	<% end %>
+	<div class="actions">
+		<%= f.submit "Crop"%>
+	</div>
+<% end %>
