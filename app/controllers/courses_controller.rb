@@ -9,7 +9,7 @@ class CoursesController < ApplicationController
 	end
 
 	def create 		
-		@course = Course.create(params[:course].permit(:name, :description, :price, :avatar, :blurb, :what_to_wear, :what_to_bring, :experience, course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county]))
+		@course = Course.create(params[:course].permit(:name, :description, :price, :avatar, :crop_x, :crop_y, :crop_w, :crop_h, :blurb, :what_to_wear, :what_to_bring, :experience, course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county]))
 		@course.user = current_user
 		if @course.save
 			@user =  @course.user
@@ -52,7 +52,7 @@ class CoursesController < ApplicationController
 
 	def update 
 		@course = Course.find(params[:id])	
-		if @course.update_attributes(params[:course].permit(:name, :description, :price, :avatar, :blurb, :what_to_wear, :what_to_bring, :experience, course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county]))
+		if @course.update_attributes(params[:course].permit(:name, :description, :price, :avatar, :crop_x, :crop_y, :crop_w, :crop_h, :blurb, :what_to_wear, :what_to_bring, :experience, course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county]))
 			if params[:course][:avatar].present?
 				render :crop
 			else
