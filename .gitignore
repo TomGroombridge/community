@@ -18,4 +18,6 @@ config/initializers/stripe.rb
 
 *.jpg
 
+.env
+
 config/secrets.yml
