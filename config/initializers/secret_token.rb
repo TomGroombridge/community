@@ -1,1 +1,1 @@
-MyApp::Application.config.secret_token = Rails.application.secrets.secret_token
+CommunityMarketplace::Application.config.secret_token = ENV['RAILS_SECRET_TOKEN']
