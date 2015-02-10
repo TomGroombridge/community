@@ -11,7 +11,7 @@
 <%= form_for @course do |f| %>
 	<% %w[x y w h].each do |attribute| %>
 		<%# f.text_field "crop_#{attribute}", id: "crop_#{attribute}"%><br> 
-		<%= f.text_field "crop_#{attribute}" %>
+		<%= f.hidden_field "crop_#{attribute}" %>
 	<% end %>
 	<div class="actions">
 		<%= f.submit "Crop"%>

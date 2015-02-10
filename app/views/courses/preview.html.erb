@@ -1,1 +1,113 @@
-<%= image_tag @course.avatar_url(:medium)%>
+<div class="ui pusher stackable padded grid">    
+	   <%# render "book_date" %>
+        <!-- LEFT CONTENT -->
+        <div class="ten wide column __blue" style="height:100%;">
+            <div class="ui items">
+                <h2 class="ui header"><%= @course.name.capitalize %></h2>
+                		<br>
+                <div class="item">
+                    <div class="image">
+                        <%= image_tag(@course.avatar_url(:medium), :class => "ui medium rounded" )%>
+                    </div>
+                    <div class="content">
+                        <div class="ui list">
+                            <div class="item">
+                                <a>
+                                    <i class="calendar icon"></i><%# @course.upcoming_date.start_date.strftime("%A, %b %d") %>
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a>
+                                    <i class="clock icon"></i><%# @course.upcoming_date.start_date.strftime("%l:%M %p")%> - <%# @course.upcoming_date.start_date.strftime("%l:%M %p")%>
+                                </a>
+                            </div>
+                            <div class="ui tag labels">
+                              <a class="ui label">
+                                £ <%# @course.price.round(2) %>                                
+                              </a>
+                            </div>
+                        </div>
+                        <!-- <br> -->
+                        <div class="item secure">
+                            <h6 class="secure-spot">SECURE A SPOT IN THIS COURSE</h6>
+                        </div>
+                        <div class="item">
+                            <a><div id="course" class="massive ui button book-now">BOOK NOW</div></a>
+                        </div>
+                    </div> <!-- .content -->
+                </div> <!-- .item -->
+            </div> <!-- .ui.items -->
+            <div class="ui divider"></div>
+            <h3 class="ui header">ABOUT THIS COURSE</h3>
+            <%= @course.description.html_safe%>
+        </div> <!-- .column -->
+
+        <!-- END OF LEFT CONTENT -->
+
+
+        <!-- RIGHT CONTENT -->
+        <div class="six wide column">
+            <% @course.course_addresses.each do |address|%>
+            <h5 class="ui top attached header address"><%= address.address1 %>, <%= address.address2 %>, <%= address.city %>, <%= address.county %>, <%= address.postcode %></h5>
+            <% end %>
+            <div class="ui attached segment map">
+              <div class="gmap"></div>
+            </div>
+            <div class="ui style fluid accordion">
+                <div class="title __gold">
+                    <i class="dropdown icon"></i>
+                    WHAT TO BRING?
+                </div>
+                <div class="content">
+                    <p><%= @course.what_to_bring %></p>
+                </div>
+                <br>
+                <div class="title __gold">
+                    <i class="dropdown icon"></i>
+                    WHAT TO WEAR?
+                </div>
+                <div class="content">
+                    <p><%= @course.what_to_wear %></p>
+                </div>
+                <br>
+                <div class="title __gold">
+                    <i class="dropdown icon"></i>
+                    EXPERIANCE NEEDED?
+                </div>
+                <div class="content">
+                    <p><%= @course.experience %></p>
+                </div>
+            </div> 
+            <!-- END OF ACCORDION -->
+
+            <div class="ui divider" style="margin-top: 100px"></div>
+            
+            <!-- BROUGHT TO YOU BY -->
+            <div class="ui items">
+                <p><em>BROUGHT TO YOU BY</em></p>
+                <div class="item">
+                    <div class="image">
+                        <img src="img/chef300.png">
+                    </div>
+                    <div class="content">
+                        <a class="header">CHEF MICHAEL’S KITCHEN TIPS & TRICKS</a>
+                        <div class="description">
+                            In the pre-Civil War United States, Solomon Northup, a free black man from upstate New York, is abducted and sold into slavery. 
+                        </div>
+                        <div class="ui tiny statistic">
+                            <div class="value">256</div>
+                            <div class="label">HOURS <br>TAUGHT</div>
+                        </div>
+                        <div class="ui tiny statistic">
+                            <div class="value">23</div>
+                            <div class="label">CLASSES <br>TAUGHT</div>
+                        </div>
+                        <div class="ui tiny statistic">
+                            <div class="value">402</div>
+                            <div class="label">PEOPLE <br>TAUGHT</div>
+                        </div>
+                    </div> <!-- .content -->
+                </div> <!-- .item -->
+            </div> <!-- .ui.items -->
+        </div> <!-- .column -->
+    </div> 

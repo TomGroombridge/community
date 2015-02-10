@@ -85,7 +85,7 @@ $(function(){
       rules: [
         { type: 'empty', prompt: "Fill in a Course Title"},
         { type: 'length[4]', prompt: "The Course Title must be atleast 4 characters long"},
-        { type: 'maxLength[30]', prompt: "You cannot go over 30 characters in the Course Title"},        
+        { type: 'maxLength[50]', prompt: "You cannot go over 30 characters in the Course Title"},        
       ]
     },
     blurb: {
