@@ -57,6 +57,8 @@ gem 'carrierwave'
 
 gem 'rmagick'
 
+gem 'gon'
+
 
 group :test, :development do
   gem 'rspec-rails'

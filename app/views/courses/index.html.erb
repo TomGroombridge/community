@@ -9,10 +9,8 @@
                         <div class="ui inverted button"><%= link_to 'Details', course_path(course) %></div>
                       </div>
                     </div>
-                  </div>                  
-                  <div class="image">
-                    <%= image_tag(course.image.url) %>
-                  </div>
+                  </div>   
+                  <%= image_tag course.avatar_url(:large)%>                                 
                 </div>
                 <div class="content">
                   <a class="header"><%= course.name %></a>
