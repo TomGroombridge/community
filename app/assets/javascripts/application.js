@@ -71,22 +71,7 @@ $(document).ready(function() {
 
 
     var button = document.getElementById('upload_button');
-    var input  = document.getElementById('course_image');
-
-    // Making input invisible, but leaving shown fo graceful degradation
-    input.style.display = 'none';
-    button.style.display = 'initial';
-
-    button.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        input.click();
-    });
-
-    input.addEventListener('change', function () {
-       button.innerText = this.value; 
-    });
-
+    var input  = document.getElementById('course_image');               
 
 
 });
@@ -163,7 +148,7 @@ $(function(){
 
 
   $('.ui.form').form(validation, settings);
-  $("#termsAndConditions").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#terms', 'show');  
+  $("#termsAndConditions").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#terms', 'show');    
 
     
 });
