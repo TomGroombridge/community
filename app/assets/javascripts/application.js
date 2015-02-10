@@ -101,30 +101,30 @@ $(function(){
         { type: 'empty', prompt: "Fill in a Course Description"}              
       ]
     },
-    // address1: {
-    //   identifier: 'address1',
-    //   rules: [
-    //     { type: 'empty', prompt: "Please fill in the first line of your address"}              
-    //   ]
-    // },
+    address1: {
+      identifier: 'course[course_addresses_attributes][0][address1]',
+      rules: [
+        { type: 'empty', prompt: "Please fill in the first line of your address"}              
+      ]
+    },
     // county: {
     //   identifier: 'county',
     //   rules: [
     //     { type: 'empty', prompt: "Please fill in the county of your course"}              
     //   ]
     // },
-    // postcode: {
-    //   identifier: 'postcode',
-    //   rules: [
-    //     { type: 'empty', prompt: "Please fill in the postcode of your address"}              
-    //   ]
-    // },
-    // image: {
-    //   identifier: 'course-image',
-    //   rules: [
-    //     { type: 'empty', prompt: "Please add an image to the course"}              
-    //   ]
-    // },
+    postcode: {
+      identifier: 'course[course_addresses_attributes][0][postcode]',
+      rules: [
+        { type: 'empty', prompt: "Please fill in the postcode of your address"}              
+      ]
+    },
+    image: {
+      identifier: 'course-image',
+      rules: [
+        { type: 'empty', prompt: "Please add an image to the course"}              
+      ]
+    },
     price: {
       identifier: 'course[price]',
       rules: [
