@@ -29,16 +29,6 @@ class CoursesController < ApplicationController
 		@courses = Course.all.includes(:course_dates).select do |course|
 			course.course_dates.any?(&:active?)
 		end
-
-		# @all_courses.each do |course|
-		# 	course.course_dates.each do |date| 
-		# 		if date.active? 
-		# 			@courses << course
-		# 			break
-		# 		end				
-		# 	end
-		# end	
-		# @courses
 	end
 
 	def show

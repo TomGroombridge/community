@@ -39,6 +39,14 @@ class Course < ActiveRecord::Base
     active_course_dates = self.course_dates.select { |num|  num.active?  } 
     sort_dates = active_course_dates.sort_by! {|obj| obj.start_date}    
   end
+
+  def address    
+    course = ""
+    course_addresses.each do |address|
+      course << address.address1 + ', ' + address.address2  + ', ' + address.postcode
+    end   
+    course 
+  end
   
 end
 

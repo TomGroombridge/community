@@ -1,7 +1,105 @@
-<%= @course_date.start_date %>
-<br>
 
-<% @course_date.payments.each do |booking| %>
-	<%= booking.user.inspect %>
-	<br>
-<% end %>
+<%# render "all_courses_modal" %>    
+
+
+<div class="two column stackable ui grid" style="margin:0px;">
+    <div class="column sixteen wide">
+        <div class="ui segment">
+            <h1 style="margin:0px;"><%= @course_date.course.name %></h1>
+        </div>
+    </div>
+    <!-- LEFT SIDE -->
+    <div class="column five wide">
+        <div class="ui segment">
+            <div class="column">
+                <div class="image">
+                    <%= image_tag(@course_date.course.image.url(:medium), :class => "ui medium rounded" )%>
+                </div>
+            </div>
+            <div class="column">                
+                MAX SUBSCRIBERS: 20
+            </div>
+            <br>
+            <div class="column">                
+                DATE: 28/04/15
+            </div>
+            <BR>
+            <div class="column">                
+                <a><div id="course" class="ui button" style="display:block">EDIT COURSE DATE</div></a>
+            </div>
+        </div>        
+    </div>
+    <!-- END OF LEFT SIDE -->
+    <!-- RIGHT SIDE -->
+    <div class="column eleven wide">
+        <div class="ui segment">
+            <!-- START OF THE TABLE -->
+            <h3 style="margin:0px;">ATTENDEES</h3>
+            <table class="ui striped table" style="min-height: 285px;">
+                <thead style="display:block">
+                    <tr>
+                        <th class="one wide">
+                            #
+                        </th>
+                        <th class="seven wide">
+                            Name
+                        </th>
+                        <th class="two wide center aligned">
+                            Email
+                        </th>
+                        <th class="two wide center aligned">
+                            Telephone
+                        </th>
+                        <th class="three wide center aligned">                            
+                            Tickets
+                        </th>
+                        <th class="one wide center aligned">
+                            Paid on 
+                        </th>
+                    </tr>
+                </thead>
+                <tbody style="display: block; max-height: 208px; overflow-y: auto">   
+                		<% @course_date.payments.each do |payment| %>                 
+                            <tr style="display:block">
+                                <td class="one wide collapsing">1</td>
+                                <td class="seven wide left aligned"><%= payment.full_name %></td>
+                                <td class="two wide left aligned"><%= payment.email %></td>
+                                <td class="two wide center aligned"><%# course_date.payments.count %>/<%# course_date.quantity%></td>
+                                <td class="three wide center aligned"><%# course_date.max_revenue %></td>
+                                <td class="one wide center aligned"><%= payment.created_at.strftime("%m/%d/%Y")%></td>
+                            </tr>  
+                        <% end %>                      
+                </tbody>
+            </table>  
+            <!-- END OF THE TABLE -->
+            <div class="ui segment">
+                <div class="ui two column grid">                    
+                    <div class="column">
+                        <a><div id="course" class="ui button" style="display:block">NEW DATE</div></a>
+                    </div>
+                    <div class="column">
+                        <a><div id="course" class="ui button" style="display:block">EMAIL ALL ATTENDEES</div></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END OF RIGHT SIDE -->
+    <div class="column five wide">
+        <div class="ui raised segment">
+            <a class="ui red ribbon label">PAYMENT STATUS</a>            
+            <div class="ui teal progress" id="example2" data-attibute="<%= @course_date %>" style="margin-top:10px;">
+                <div class="bar"></div>
+                <div class="label"><%= @course_date.sale_percentage %>% Full</div>
+            </div>
+        </div>
+    </div>
+    <div class="column eleven wide">
+        <div class="ui segment">
+            <!-- AT THE MOMENT THIS GRAPH SHOWS YOU THE NUMBER OF COURSES CREATED FROM THE BEGINNING OF THE MONTH -->            
+                <%= line_chart @course_date.payments.group_by_day(:created_at, range: Date.today.beginning_of_month..Time.now).count %>
+            <!-- END OF THE GRAPH -->
+            
+        </div>
+    </div>
+</div>

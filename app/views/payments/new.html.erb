@@ -1,69 +1,132 @@
-Signing up for <%= @payment.inspect %>
-
-<%= form_for @payment do |f| %>
-  <% if @payment.errors.any? %>
-    <div class="error_messages">
-      <h2><%= pluralize(@payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
-      <ul>
-      <% @payment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<div class="two column stackable ui grid" style="margin:0px;">
+  <div class="column twelve wide">
+    <div class="ui segment">
+      <%= form_for @payment do |f| %>
+        <%= f.hidden_field :course_date_id %>
+        <%= f.hidden_field :user_id %>  
+        <%= f.hidden_field :stripe_card_token %>  
+        <a class="ui teal ribbon label"><i class="shop icon"></i>Secure Checkout</a>
+        <div class="ui segment">      
+          <a class="ui blue ribbon label">Ticket Information</a>
+          <div class="three column stackable ui grid">
+            <div class="column sixteen wide">          
+              <%= @payment.course_date.course.name %>
+            </div>
+            <div class="column">          
+              <%= @payment.course_date.course.address %> 
+            </div>
+            <div class="column">          
+              <%= @payment.course_date.start_date.strftime("%m/%d/%Y") %>
+              <br>
+              <%= @payment.course_date.start_date.strftime("%l:%M %p") %>
+            </div>
+            <div class="column">          
+              £<%= @payment.course_date.course.price %>  x
+            </div>
+          </div>                
+        </div>
+        <div class="ui segment">
+          <a class="ui blue ribbon label">Registration Information</a>
+          <div class="ui segment" style="width: 80%; margin: auto; margin-top: 20px">
+            <div class="ui form">
+              <div class="inline field required">
+                <label style="width:30%">Email Address</label>              
+                <% if @user %>
+                  <%= f.text_field :email, :value => @user.email, :style => "width: 60%;" %>
+                <% else %>
+                  <%= f.text_field :email, :style => "width: 60%;" %>
+                <% end %>
+              </div>
+              <div class="inline field required">
+                <label style="width:30%">First & Last Name</label>              
+                <% if @user %>
+                  <%= f.text_field :full_name, :value => @user.full_name, :style => "width: 60%;" %>
+                <% else %>
+                  <%= f.text_field :full_name, :style => "width: 60%;" %>
+                <% end %>
+              </div>
+              <div class="inline field required">
+                <label style="width:30%">Mobile Number</label>              
+                <% if @user %>
+                  <%= f.text_field :mobile_number, :value => @user.contact_number, :style => "width: 60%;" %>
+                <% else %>
+                  <%= f.text_field :mobile_number, :style => "width: 60%;" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="ui segment" style="width: 80%; margin: auto; margin-top: 20px">
+            <div class="ui form">
+              <div class="inline field">
+                <label style="width:30%">Special Requests?</label>
+                <%= f.text_area :special_request, :style => "width: 60%;" %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ui segment">   
+          <a class="ui blue ribbon label">Billing & Payment Information</a>
+          <div class="ui segment" style="width: 80%; margin: auto; margin-top: 20px">
+            <% if @payment.stripe_card_token.present? %>
+              Credit card has been provided.
+            <% elsif @course_date.course.free? %>
+              No payment needed!
+            <% else %>
+              <div class="ui form">              
+                <div class="inline field">
+                  <label style="width:30%; font-weight:lighter;">Payment Information</label>
+                </div>
+                <br>
+                <div class="inline required field">
+                  <label style="width:30%">Name on Card</label>
+                  <input type="text" style="width: 60%;">
+                </div>
+                <div class="inline required field">
+                  <label style="width:30%">Card Number</label>
+                  <%= text_field_tag :card_number, nil, name: nil, :style => "width:60%" %>
+                </div>
+                <div class="inline required field">
+                  <label style="width:30%">Expiry Date</label>
+                  <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month", :class =>"ui dropdown"} %>
+                  <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year", :class =>"ui dropdown", :style => "width:50%"} %>
+                </div>
+                <div class="inline required field">
+                  <label style="width:30%">Security Code</label>
+                  <%= text_field_tag :card_code, nil, name: nil, :style => "width:30%" %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <%= f.submit("Send Payment", :class => "ui green button", :style => 'float:right') %>
+      <% end %>            
     </div>
-  <% end %>  
-
-
-  
-  <%= f.hidden_field :stripe_card_token %>  
-  <div class="field">
-    <%= f.label :email %>
-    <% if @user %>
-      <%= f.text_field :email, :value => @user.email %>
-    <% else %>
-      <%= f.text_field :email %>
-    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :full_name %>
-    <% if @user %>
-      <%= f.text_field :full_name, :value => @user.full_name %>
-    <% else %>
-      <%= f.text_field :full_name %>
-    <% end %>
-  </div>
-  <% if @payment.stripe_card_token.present? %>
-    Credit card has been provided.
-  <% elsif @course.course.free? %>
-    No payment needed!
-  <% else %>
-    <div class="field">
-      <%= label_tag :card_number, "Credit Card Number" %>
-      <%= text_field_tag :card_number, nil, name: nil %>
+  <div class="column four wide">
+    <div class="ui segment">
+      <a class="ui teal ribbon label"><i class="ticket icon"></i> Booking Information</a>      
+      <div class="column">
+        <div class="ui header" style="margin-top:10px;">          
+          <div style="text-align:left" class="content">
+            <h4 class="ui header" style=" border-bottom: 1px solid rgba(39, 41, 43, 0.15);">Course</h4>
+            <div class="sub header">
+              <p style="font-size: 0.9em;"><%= @payment.course_date.course.name %></p>
+              <p style="font-size: 0.8em;">Offered by "company name"</p>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <div class="column">
+        <div class="ui header" style="margin-top:10px;">          
+          <div style="text-align:left" class="content">
+            <h4 class="ui header" style=" border-bottom: 1px solid rgba(39, 41, 43, 0.15);">Tickets</h4>
+            <div class="sub header">
+              <p style="font-size: 0.9em;">ticket quantity @ <span style="font-weight:bold; color:black">£<%= @payment.course_date.course.price %></span></p>              
+            </div>
+          </div>
+        </div>
+      </div>      
     </div>
-    <div class="field">
-      <%= label_tag :card_code, "Security Code on Card (CVV)" %>
-      <%= text_field_tag :card_code, nil, name: nil %>
-    </div>
-    <div class="field">
-      <%= label_tag :card_month, "Card Expiration" %>
-      <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"} %>
-      <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"} %>
-    </div>
-  <% end %>
-  
-  <div id="stripe_error">
-    <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
   </div>
-  
-  <%= f.hidden_field :course_date_id %>
-  <%= f.hidden_field :user_id %>  
+</div>
 
-
-   
-
-  
-  
-  <div class="actions">
-    <%= f.submit "Subscribe" %>
-  </div>
-<% end %>

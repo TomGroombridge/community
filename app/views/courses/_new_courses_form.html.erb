@@ -1,10 +1,11 @@
+
 <div class="ui segment orange raised" id="form-task">
 	<div id="formdimmer" class="ui inverted dimmer">
 		<div class="ui text loader small">
 			Loading ...
 		</div>
 	</div>
-	<%= form_for @course, :html => {:class => 'ui form fluid '} do |form|  %>
+	<%= form_for @course, :multipart => true, :html => {:class => 'ui form fluid '} do |form|  %>
 
 		<!-- <div class="ui error icon message">
 		</div> -->
@@ -139,3 +140,21 @@
 
 	<% end %>
 </div>
+
+<script>
+	function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#blah').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#imgInp").change(function(){
+        readURL(this);
+    });
+</script>

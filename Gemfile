@@ -57,6 +57,7 @@ gem 'carrierwave'
 
 gem 'rmagick'
 
+
 group :test, :development do
   gem 'rspec-rails'
   gem 'capybara'

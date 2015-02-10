@@ -21,4 +21,9 @@ class CourseDate < ActiveRecord::Base
 		quantity * self.course.price
 	end
 
+	def sale_percentage
+		value = self.payments.count.to_f / quantity * 100.00
+		value.to_i
+	end
+
 end

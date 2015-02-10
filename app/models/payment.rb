@@ -8,18 +8,18 @@ class Payment < ActiveRecord::Base
 
 
 	def save_with_payment
-		@amount = self.course_date.course.price	
+		@amount = self.course_date.course.price * 100
 		@email = self.email			
 		@name = self.full_name		
 		@course_name = self.course_date.course.name
-		@course_date = self.course_date.start_date.strftime("%m/%d/%Y")
+		@course_date = self.course_date.start_date.strftime("%m/%d/%Y")		
 
-		save! and return if course.free?
+		save! and return if course_date.course.free?
 
-	  if valid?	  	
-	    customer = Stripe::Customer.create(card: stripe_card_token, email: @email, description: @name)
-	    self.stripe_customer_token = customer.id	  	      	    	    
-	    Stripe::Charge.create(amount: @amount, currency: "gbp", customer: customer.id, description: "this is a payment for the #{@course_name} course on the #{@course_date}" )
+	  if valid?		    	
+	    customer = Stripe::Customer.create(card: stripe_card_token, email: @email, description: @name)	    
+	    self.stripe_customer_token = customer.id	    	    
+	    Stripe::Charge.create(amount: @amount.to_i, currency: "gbp", customer: customer.id, description: "this is a payment for the #{@course_name} course on the #{@course_date}" )
 	    save!	    
 	  end
 		rescue Stripe::InvalidRequestError => e
