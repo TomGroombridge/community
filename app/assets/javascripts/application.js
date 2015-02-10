@@ -106,7 +106,7 @@ $(function(){
       rules: [
         { type: 'empty', prompt: "Please fill in the first line of your address"}              
       ]
-    },
+    },    
     // county: {
     //   identifier: 'county',
     //   rules: [
@@ -120,7 +120,7 @@ $(function(){
       ]
     },
     image: {
-      identifier: 'course-image',
+      identifier: 'course[avatar]',
       rules: [
         { type: 'empty', prompt: "Please add an image to the course"}              
       ]
