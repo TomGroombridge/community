@@ -1,3 +1,4 @@
+<%= render "book_date" %>
 <div class="ui pusher stackable padded grid">    
 	   <%# render "book_date" %>
         <!-- LEFT CONTENT -->
@@ -6,9 +7,9 @@
                 <h2 class="ui header"><%= @course.name.capitalize %></h2>
                 		<br>
                 <div class="item">
-                    
+                    <div class="image">
                         <%= image_tag(@course.avatar_url(:medium), :class => "ui medium rounded" )%>
-                    
+                    </div>
                     <div class="content">
                         <div class="ui list">
                             <div class="item">
@@ -23,7 +24,7 @@
                             </div>
                             <div class="ui tag labels">
                               <a class="ui label">
-                                £ <%# @course.price.round(2) %>                                
+                                £ <%= @course.price.round(2) %>                                
                               </a>
                             </div>
                         </div>

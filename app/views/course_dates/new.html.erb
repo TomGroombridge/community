@@ -1,15 +1,25 @@
-<%= @course_date.inspect %>
-
-<%= form_for [@course, @course_date] do |f| %>
-	<%= f.label :start_date %>
-	<%= f.datetime_select :start_date %>	
-	<br>
-	<%= f.label :end_date %>
-	<%= f.datetime_select :end_date %>	
-	<br>
-	<%= f.label :quantity %>
-	<%= f.text_field :quantity %>
-	<br>
-	<%= f.hidden_field :course_id %>		
-	<%= f.submit %>
-<% end %>
+<div class="two column stackable ui grid" style="margin:0px;">
+  <div class="column twelve wide">
+    <div class="ui segment">
+		<%= form_for [@course, @course_date] do |f| %>		
+		
+		
+			<%= f.label :start_date %>
+			<%= f.datetime_select :start_date %>	
+			
+			<br>
+			
+			<%= f.label :end_date %>
+			<%= f.datetime_select :end_date %>	
+			
+		</div>
+			<br>
+			<%= f.label :quantity %>
+			<%= f.text_field :quantity %>
+			<br>
+			<%= f.hidden_field :course_id %>		
+			<%= f.submit %>
+		<% end %>
+		</div>
+	</div>
+</div>
