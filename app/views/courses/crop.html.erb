@@ -2,6 +2,12 @@
 
 <%= image_tag @course.avatar_url(:large), id: "cropbox" %>
 
+<!-- preview is not working correctly yet -->
+<!-- <h4>Preview</h4>
+<div style="width:100px; height:100px; overflow:hidden">
+	<%# image_tag @course.avatar_url(:large), :id => "preview" %>
+</div> -->
+
 <%= form_for @course do |f| %>
 	<% %w[x y w h].each do |attribute| %>
 		<%# f.text_field "crop_#{attribute}", id: "crop_#{attribute}"%><br> 

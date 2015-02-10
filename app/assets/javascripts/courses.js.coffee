@@ -19,3 +19,5 @@ class AvatarCropper
 		$('#course_crop_y').val(coords.y)
 		$('#course_crop_w').val(coords.w)
 		$('#course_crop_h').val(coords.h)
+
+ 
