@@ -8,10 +8,10 @@ body{
 }
 
 .sidebar {
-  position: fixed;
-  width: 15%;
-  height: 900px;
-  background: #101617;     
+  // position: fixed;
+  // width: 15%;
+  // height: 900px;
+  // background: #101617;     
 	.logo{
 		width: 100%;
 		height: 5%;
@@ -120,8 +120,8 @@ body{
 }
 
 .right-side {
-  margin-left: 15%;  
-  width: 85%;
+  // margin-left: 15%;  
+  width: 100%;
   position: relative;  
   overflow: auto;
   z-index: 1;

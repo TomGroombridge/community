@@ -39,7 +39,10 @@ $(document).ready(function() {
     ;
 
     $('.ui.sidebar')
-      .sidebar('attach events', '.launch.button')
+      .sidebar({
+        context: $('.bottom.segment')
+      })
+      .sidebar('attach events', ' .menu .item')
     ;
 
     $('.ui.dropdown')

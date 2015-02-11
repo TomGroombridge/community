@@ -13,108 +13,36 @@
 </head>
 <body>
   <!-- This is the whole sidenav -->
-  <div class="sidebar">
-
-    <!-- For the logo when we have one -->
-    <div class="logo">
-    </div>
-
-    <!-- This is the sign in and sign up buttons at the top of the nav -->
-    <% if signed_in? %>
-      <div class="account-bar">
-        <h3><%= current_user.email %></h3>        
-        <div class="login">
-          <!-- <a class="login-text">LOG IN</a> -->
-          <%# link_to('DASHBOARD', dashboard_user_path(current_user ),:class => "login-text")%>
-          <%= link_to( 'DASHBOARD', dashboard_path, :class => "login-text") %>
-        </div>
-        <div class="login">
-          <!-- <a class="login-text">SIGN UP</a> -->
-          <%= link_to('LOG OUT', destroy_user_session_path, :method => :delete, :class => "login-text") %>
-        </div>
-      </div>
-    <% else %>
-      <div class="account-bar">
-        <div class="login">                  
-          <%= link_to('LOG IN', new_user_session_path,:class => "login-text") %>          
-        </div>
-        <div class="login">
-          <%= link_to('SIGN UP', new_user_registration_path,:class => "login-text") %>                     
-        </div>
-      </div>
-    <% end %>
-
-
-    <!-- This is where the list of catergories in the side nav begins -->
-    <ul class="course-list">
-      <li class="course-item" style="color:#df819b">
-        <a href="/courses">
-          <%= image_tag 'icon-burger.png', :class => "course-type-logo"%>        
-          <span class="course-title">FOOD & DRINKS</span>
-        </a>
-      </li>
-      <li class="course-item" style="color:#6bb4b8">
-        <a href="/courses">
-          <%= image_tag 'icon-notes.png', :class => "course-type-logo"%>      
-          <span class="course-title">MUSIC</span>
-        </a>
-      </li>
-      <li class="course-item" style="color:#f6b181">
-        <a href="/courses">
-          <%= image_tag 'icon-camera.png', :class => "course-type-logo"%>              
-          <span class="course-title">PHOTOGRAPHY</span>
-        </a>
-      </li>
-      <li class="course-item" style="color:#b3ffc1">
-        <a href="/courses">
-          <%= image_tag 'icon-scissors.png', :class => "course-type-logo"%>              
-          <span class="course-title">ARTS & CRAFTS</span>
-        </a>
-      </li>
-      <li class="course-item" style="color:#ac8cc8">
-        <a href="/courses">
-          <%= image_tag 'icon-lotus.png', :class => "course-type-logo"%>              
-          <span class="course-title">WELLBEING</span>
-        </a>
-      </li>
-      <li class="course-item" style="color:#d2cb6c">
-        <a href="/courses">
-          <%= image_tag 'icon-directions.png', :class => "course-type-logo"%>              
-          <span class="course-title">UNCATEGORIZED</span>
-        </a>
-      </li>
-    </ul>
-
-
-
-    <!-- This is the button to view a list of all the course providers -->
-    <div class="course-provider">
-       <%= link_to('Course Providers', users_course_providers_path, :class => "provider-link") %>      
-    </div>
-
-
-    <!-- This is the overlay for the 3 social networks -->
-    <div class="social-networks">
-      <%= image_tag 'instagram-white.png', :class => "social-button"%>
-      <%= image_tag 'twitter-white.png', :class => "social-button"%>
-      <%= image_tag 'facebook-white.png', :class => "social-button"%>            
-    </div>
-
-
-    <!-- This is the footer for all the links that need to be available to users -->
-    <ul class="footer">
-      <li class="footer-item">About us</li>
-      <li class="footer-item">Contact us</li>
-      <li class="footer-item">Pricing</li>
-      <li class="footer-item">Terms & Privacy</li>
-      <li class="footer-item">The Team</li>
-      <li class="footer-item">FAQ</li>
-    </ul>
+ <div class="ui top attached demo menu">
+    <a class="item">
+      <i class="sidebar icon"></i>
+      Menu
+    </a>
   </div>
+<div class="ui bottom attached segment">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu" style="width:260px;">
+      <a class="item">
+        <i class="home icon"></i>
+        Home
+      </a>
+      <a class="item">
+        <i class="block layout icon"></i>
+        Topics
+      </a>
+      <a class="item">
+        <i class="smile icon"></i>
+        Friends
+      </a>
+      <a class="item">
+        <i class="calendar icon"></i>
+        History
+      </a>
+    </div>
 
   <!-- All the content that isnt sidenav is wrapped in the content class -->
-  <div class="right-side" style="height:100%;">      
-    <%= yield %>	     
-  </div>	    
+    <div class="pusher right-side" style="height:100%;">
+      <%= yield %>             
+    </div>
+  </div>
 </body>
 </html>
