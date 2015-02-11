@@ -1,16 +1,16 @@
-<div class="ui modal" id="courseDates">
+<div class="ui small modal" id="courseDates">
   <i class="close icon"></i>
-  <div class="header">
-    Profile Picture
-  </div>
+  
+    <a class="ui blue label" style="margin-bottom:20px"><h4 class="ui header" style="color:white">ABOUT THIS COURSE</h4></a> 
+  
   <div class="content">    
-
-       
-          <%= form_tag course_tickets_path(@course), id: 'ticket_form' do %>            
-            <%= select_tag 'start_date', options_from_collection_for_select(@course.upcoming_dates, :id, :pretty_date) %>                
-            Quantity: <%= text_field_tag 'quantity', '0' %>
-          <% end %>        
-     
+    <h3><%= @course.name%></h3>       
+    <div class="ui segment">
+      <%= form_tag course_tickets_path(@course), id: 'ticket_form' do %>            
+        <%= select_tag 'start_date', options_from_collection_for_select(@course.upcoming_dates, :id, :pretty_date) %>                
+        Quantity: <%= text_field_tag 'quantity', '0' %>
+      <% end %>           
+    </div>  
   </div>
   <div class="actions">
     <div class="ui black button">

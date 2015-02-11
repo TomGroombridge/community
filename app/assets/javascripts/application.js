@@ -49,7 +49,7 @@ $(document).ready(function() {
       .dropdown()
     ;
 
-    $('.standard.test.modal')
+    $('.small.test.modal')
       .modal('show')
     ;
 
