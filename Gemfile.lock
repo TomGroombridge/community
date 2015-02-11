@@ -91,6 +91,7 @@ GEM
     foundation-rails (5.4.5.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
+    geocoder (1.2.7)
     gon (5.2.3)
       actionpack (>= 2.3.0)
       json
@@ -240,6 +241,7 @@ DEPENDENCIES
   devise
   factory_girl_rails
   foundation-rails
+  geocoder
   gon
   groupdate
   jbuilder (~> 1.2)

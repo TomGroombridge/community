@@ -65,6 +65,8 @@ gem 'redis'
 
 gem 'jquery-ui-rails'
 
+gem 'geocoder'
+
 
 group :test, :development do
   gem 'rspec-rails'
