@@ -85,9 +85,28 @@
 									<i class="asterisk icon"></i>
 								</div>
 							</div>
-						</div>
+						</div>						
 					</div>
 				<% end %>
+
+				<%= form.fields_for :course_dates do |course_date_form| %>
+						<div class="field six wide">
+							<%= course_date_form.label :start_date %>
+							<%= course_date_form.text_field :start_date %>				
+							<%= course_date_form.time_select :start_time %>				
+							
+							<br>
+							
+							<%= course_date_form.label :end_date %>
+							<%= course_date_form.text_field :end_date %>	
+							<%= course_date_form.time_select :end_time %>				
+													
+							<br>
+							<%= course_date_form.label :quantity %>
+							<%= course_date_form.text_field :quantity %>
+							<br>
+						</div>
+					<% end %>
 				
 				<div class="field ten wide">
 					<label>What to Wear?</label>					

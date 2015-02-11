@@ -21,7 +21,11 @@
 
 
 
-$(document).ready(function() {          
+$(document).ready(function() { 
+
+  $('#course_course_dates_attributes_0_end_date').datepicker(
+    dateFormat: 'yy-mm-dd');
+
 
     $('#example2')
       .progress({
