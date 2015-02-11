@@ -61,6 +61,7 @@ gem 'rmagick'
 
 gem 'gon'
 
+gem 'redis'
 
 group :test, :development do
   gem 'rspec-rails'
