@@ -9,6 +9,8 @@ jQuery ->
 	$('#course_course_dates_attributes_0_start_date').datepicker(
     dateFormat: 'yy-mm-dd');
 
+	$('#course_course_dates_attributes_0_end_date').datepicker(
+    dateFormat: 'yy-mm-dd');  
   
 
 
