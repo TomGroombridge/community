@@ -42,7 +42,7 @@ $(document).ready(function() {
       .sidebar({
         context: $('.bottom.segment')
       })
-      .sidebar('attach events', ' .menu .item')
+      .sidebar('attach events', ' .menu .open_item')
     ;
 
     $('.ui.dropdown')
