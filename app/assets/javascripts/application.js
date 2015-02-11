@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui/datepicker
 //= require jquery.Jcrop
 // Loads all Semantic javascripts
 //= require semantic-ui
@@ -67,9 +68,13 @@ $(document).ready(function() {
       on: 'hover'
     });
 
+    
+
+      
     $("#courseDates").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#course', 'show');  
 
-    $("#allCourses").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#course', 'show');  
+    
+
 
 
 

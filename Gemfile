@@ -63,6 +63,9 @@ gem 'gon'
 
 gem 'redis'
 
+gem 'jquery-ui-rails'
+
+
 group :test, :development do
   gem 'rspec-rails'
   gem 'capybara'

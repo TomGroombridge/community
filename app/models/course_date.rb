@@ -14,7 +14,7 @@ class CourseDate < ActiveRecord::Base
 	end
 
 	def pretty_date
-		start_date.strftime("%m/%d/%Y/%I:%M%p")
+		start_date.strftime("%m/%d/%Y/") + start_time.strftime("%I:%M%p") 
 	end
 
 	def max_revenue
@@ -24,6 +24,10 @@ class CourseDate < ActiveRecord::Base
 	def sale_percentage
 		value = self.payments.count.to_f / quantity * 100.00
 		value.to_i
+	end
+
+	def start_date_time		
+		@time = DateTime.parse("#{self.start_date} #{self.start_time}:00")					
 	end
 
 end

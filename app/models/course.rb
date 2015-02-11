@@ -31,13 +31,13 @@ class Course < ActiveRecord::Base
 
   def upcoming_date
     active_course_dates = self.course_dates.select { |num|  num.active?  } 
-    sort_dates = active_course_dates.sort_by! {|obj| obj.start_date}
+    sort_dates = active_course_dates.sort_by! {|obj| obj.start_date_time}
     sort_dates.first
   end
 
   def upcoming_dates
     active_course_dates = self.course_dates.select { |num|  num.active?  } 
-    sort_dates = active_course_dates.sort_by! {|obj| obj.start_date}    
+    sort_dates = active_course_dates.sort_by! {|obj| obj.start_date_time}    
   end
 
   def address    

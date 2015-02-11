@@ -14,12 +14,12 @@
                         <div class="ui list">
                             <div class="item">
                                 <a>
-                                    <i class="calendar icon"></i><%= @course.upcoming_date.start_date.strftime("%A, %b %d") %>
+                                    <i class="calendar icon"></i><%= @course.upcoming_date.start_date_time.strftime("%A, %b %d") %>
                                 </a>
                             </div>
                             <div class="item">
                                 <a>
-                                    <i class="clock icon"></i><%= @course.upcoming_date.start_date.strftime("%l:%M %p")%> - <%= @course.upcoming_date.start_date.strftime("%l:%M %p")%>
+                                    <i class="clock icon"></i><%= @course.upcoming_date.start_time.strftime("%l:%M %p")%> - <%= @course.upcoming_date.end_time.strftime("%l:%M %p")%>
                                 </a>
                             </div>
                             <div class="ui tag labels">
