@@ -12,7 +12,12 @@ class UsersController < ApplicationController
 	def update	
 		@user = User.find(params[:id])	
 		@user.update_attributes(params[:user].permit(:first_name, :last_name, :contact_number, :company_name, :description, :facebook, :twitter, :instagram, :google, :pinterest, :admin, :email, :avatar))
-		redirect_to current_user	
+		if params[:user][:avatar].present?
+			render :crop
+		else
+			# redirect_to course_path(@course)
+			render :preview
+		end
 	end
 
 	def index

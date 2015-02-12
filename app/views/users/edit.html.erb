@@ -55,8 +55,10 @@
 				</div>
 			  <!-- start date time and end date time  -->		  
 			  <div class="field">		 
-			  	<h3>Upload image</h3> 				  		  	
+			  	<h3>Upload image</h3> 				  		  		      	
 	      	<img id="blah" src="#" alt="" class="ui small bordered image" style="display:inline-block" />
+	      	<%= form.file_field :avatar, :id => "imgInp"%>	
+	      	<%= form.hidden_field :avatar_cache %>
 	      	<%# form.file_field :avatar, :id => "imgInp"%>	
 	      	<%# form.hidden_field :avatar_cache %>     		      				    
 			  </div>		  
