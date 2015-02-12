@@ -66,7 +66,7 @@ $(document).ready(function() {
 
     $('.special.cards .image').dimmer({
       on: 'hover'
-    });      
+    });         
       
     $("#courseDates").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#course', 'show');
 
