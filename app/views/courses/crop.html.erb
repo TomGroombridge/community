@@ -1,19 +1,127 @@
-<h1>Crop Avatar</h1>
+<%= render "crop_image_modal" %>
+<div class="ui segment">    
+    <div id="cropModal" class="ui inverted green button" style="float:right; width:150px">Save</div>   
+    <div class="ui inverted orange button" style="float:right; width:150px">Preivew</div>
+    <div class="ui inverted blue button" style="float:right; width:150px">Crop</div>
+</div>
+<div class="ui segment" style="background: #fafafa">
+<%# render "book_date" %>
+<div class="ui pusher stackable padded grid">    
+	   <%# render "book_date" %>
+        <!-- LEFT CONTENT -->
+        <div class="ten wide column" style="height:100%;">
+            <div class="ui segment items">                            
+                <a class="ui blue ribbon label"><h3 class="ui header" style="color:white"><%= @course.name.capitalize %></h3></a>                  		
+                <div class="item">
+                    <div class="image">
+                        <div style="width:200px; height:200px; overflow:hidden;">
+                            <%= image_tag @course.avatar_url(:large), :id => "preview" %>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="ui list">
+                            <div class="item">
+                                <a>
+                                    <i class="calendar icon"></i><%# @course.upcoming_date.start_date.strftime("%A, %b %d") %>
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a>
+                                    <i class="clock icon"></i><%# @course.upcoming_date.start_time.strftime("%l:%M %p")%> - <%# @course.upcoming_date.end_time.strftime("%l:%M %p")%>
+                                </a>
+                            </div>
+                            <div class="ui tag labels">
+                              <a class="ui label">
+                                £ <%= @course.price.round(2) %>                                
+                              </a>
+                            </div>
+                        </div>
+                        <!-- <br> -->
+                        <div class="item secure">
+                            <h6 class="secure-spot">SECURE A SPOT IN THIS COURSE</h6>
+                        </div>
+                        <div class="item">
+                            <a><div id="course" class="massive ui button book-now positive">BOOK NOW</div></a>
+                        </div>
+                    </div> <!-- .content -->
+                </div> <!-- .item -->
+            </div> <!-- .ui.items -->
+            <div class="ui divider"></div>
+            <div class="ui segment items">
+                <a class="ui blue ribbon label" style="margin-bottom:20px"><h3 class="ui header" style="color:white">ABOUT THIS COURSE</h3></a>                
+                <%= @course.description.html_safe%>
+            </div>
+        </div> <!-- .column -->
 
-<%= image_tag @course.avatar_url(:large), id: "cropbox" %>
+        <!-- END OF LEFT CONTENT -->
 
-<!-- preview is not working correctly yet -->
-<!-- <h4>Preview</h4>
-<div style="width:100px; height:100px; overflow:hidden">
-	<%# image_tag @course.avatar_url(:large), :id => "preview" %>
-</div> -->
 
-<%= form_for @course do |f| %>
-	<% %w[x y w h].each do |attribute| %>
-		<%# f.text_field "crop_#{attribute}", id: "crop_#{attribute}"%><br> 
-		<%= f.hidden_field "crop_#{attribute}" %>
-	<% end %>
-	<div class="actions">
-		<%= f.submit "Crop"%>
-	</div>
-<% end %>
+        <!-- RIGHT CONTENT -->
+        <div class="six wide column">
+            <div class="ui segment">
+                <% @course.course_addresses.each do |address|%>
+                <h5 class="ui top attached header address"><%= address.address1 %>, <%= address.address2 %>, <%= address.city %>, <%= address.county %>, <%= address.postcode %></h5>
+                <div class="ui attached segment map">            
+                  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{address.latitude}%2C#{address.longitude}", :class => "map_style" %>                 
+                </div>
+                <% end %>
+                <div class="ui style fluid accordion">
+                    <div class="title blue" style="background:#57be6f; border-radius:5px">
+                        <i class="dropdown icon"></i>
+                        WHAT TO BRING?
+                    </div>
+                    <div class="content">
+                        <p><%= @course.what_to_bring %></p>
+                    </div>
+                    <br>
+                    <div class="title" style="background:#57be6f; border-radius:5px">
+                        <i class="dropdown icon"></i>
+                        WHAT TO WEAR?
+                    </div>
+                    <div class="content">
+                        <p><%= @course.what_to_wear %></p>
+                    </div>
+                    <br>
+                    <div class="title" style="background:#57be6f; border-radius:5px">
+                        <i class="dropdown icon"></i>
+                        EXPERIANCE NEEDED?
+                    </div>
+                    <div class="content">
+                        <p><%= @course.experience %></p>
+                    </div>
+                </div> 
+            </div>
+            <!-- END OF ACCORDION -->
+
+            <div class="ui divider" style="margin-top: 20px"></div>
+            
+            <!-- BROUGHT TO YOU BY -->
+            <div class="ui items segment">
+                <a class="ui blue ribbon label">BROUGHT TO YOU BY</a>                
+                <div class="item">
+                    <div class="image">
+                        <img src="img/chef300.png">
+                    </div>
+                    <div class="content">
+                        <a class="header">CHEF MICHAEL’S KITCHEN TIPS & TRICKS</a>
+                        <div class="description">
+                            In the pre-Civil War United States, Solomon Northup, a free black man from upstate New York, is abducted and sold into slavery. 
+                        </div>
+                        <div class="ui tiny statistic">
+                            <div class="value">256</div>
+                            <div class="label">HOURS <br>TAUGHT</div>
+                        </div>
+                        <div class="ui tiny statistic">
+                            <div class="value">23</div>
+                            <div class="label">CLASSES <br>TAUGHT</div>
+                        </div>
+                        <div class="ui tiny statistic">
+                            <div class="value">402</div>
+                            <div class="label">PEOPLE <br>TAUGHT</div>
+                        </div>
+                    </div> <!-- .content -->
+                </div> <!-- .item -->
+            </div> <!-- .ui.items -->
+        </div> <!-- .column -->
+    </div> 
+</div>

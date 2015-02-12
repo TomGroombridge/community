@@ -1,0 +1,15 @@
+<div class="ui small modal" id="cropImage">
+  <i class="close icon"></i>
+  
+    <a class="ui blue label" style="margin-bottom:20px"><h4 class="ui header" style="color:white">ABOUT THIS COURSE</h4></a> 
+  
+  <div class="content">    
+    <%= image_tag @course.avatar_url(:large), id: "cropbox"%> 
+  </div>
+  <div class="actions">    
+    <button type='submit' form='ticket_form' class="ui positive right labeled icon button">
+      That will do
+      <i class="checkmark icon"></i>
+    </button>
+  </div>
+</div>

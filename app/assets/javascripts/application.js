@@ -68,7 +68,9 @@ $(document).ready(function() {
       on: 'hover'
     });      
       
-    $("#courseDates").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#course', 'show');  
+    $("#courseDates").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#course', 'show');
+
+    $("#cropImage").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#cropModal', 'show');  
 
     $("#normalUserModal").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#user', 'show');  
 

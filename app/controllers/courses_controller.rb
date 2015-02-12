@@ -16,7 +16,7 @@ class CoursesController < ApplicationController
 			@user =  @course.user
 			UserMailer.delay_for(0.003.hours).welcome_email(@user)
 			if params[:course][:avatar].present?
-				render :crop
+				render :crop				
 			else
 				# redirect_to course_path(@course)
 				render :preview
@@ -43,7 +43,7 @@ class CoursesController < ApplicationController
 
 	def update 
 		@course = Course.find(params[:id])	
-		if @course.update_attributes(params[:course].permit(:name, :description, :price, :avatar, :crop_x, :crop_y, :crop_w, :crop_h, :blurb, :what_to_wear, :what_to_bring, :experience, course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county, :longitude, :latitude], course_dates_attributes:[:id, :start_time, :end_time, :start_date, :end_date, :quantity]))
+		if @course.update_attributes(params[:course].permit(:name, :description, :price, :avatar, :crop_x, :crop_y, :crop_w, :crop_h, :blurb, :what_to_wear, :what_to_bring, :experience, course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county, :longitude, :latitude]))
 			if params[:course][:avatar].present?
 				render :crop
 			else
