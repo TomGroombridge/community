@@ -27,10 +27,7 @@
         <i class="user icon"></i>
         Sign in 
       </a>
-      <a class="item" style="float:right">      
-        <i class="sign in icon"></i>
-        Sign up
-      </a>
+      <%= link_to("<i class='sign in icon'></i>Sign up".html_safe, new_user_registration_path, :class => "item", :style => "float:right") %>               
     <% end %>
   </div>
 <div class="ui bottom attached segment">
