@@ -23,7 +23,6 @@
 
 $(document).ready(function() {  
 
-
     $('#example2')
       .progress({
         percent: gon.percentage
@@ -67,13 +66,13 @@ $(document).ready(function() {
 
     $('.special.cards .image').dimmer({
       on: 'hover'
-    });
-
-    
-
+    });      
       
     $("#courseDates").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#course', 'show');  
 
+    $("#normalUser").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#user', 'show');  
+
+    $("#companyUserModal").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#companyUser', 'show');  
     
 
 
