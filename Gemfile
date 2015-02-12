@@ -69,6 +69,7 @@ gem 'geocoder'
 
 gem "combined_time_select", "~> 1.0.1"
 
+gem 'simple_form'
 
 group :test, :development do
   gem 'rspec-rails'
