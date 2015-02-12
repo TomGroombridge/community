@@ -14,13 +14,8 @@ class CoursesController < ApplicationController
 		@course.user = current_user
 		if @course.save
 			@user =  @course.user
-			UserMailer.delay_for(0.003.hours).welcome_email(@user)
-			if params[:course][:avatar].present?
-				render :crop				
-			else
-				# redirect_to course_path(@course)
-				render :preview
-			end
+			UserMailer.delay_for(0.003.hours).welcome_email(@user)			
+				render :crop							
 	  else
 		  format.html { render action: 'new' }	  
 		end	
@@ -43,13 +38,8 @@ class CoursesController < ApplicationController
 
 	def update 
 		@course = Course.find(params[:id])	
-		if @course.update_attributes(params[:course].permit(:name, :description, :price, :avatar, :crop_x, :crop_y, :crop_w, :crop_h, :blurb, :what_to_wear, :what_to_bring, :experience, course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county, :longitude, :latitude]))
-			if params[:course][:avatar].present?
-				render :crop
-			else
-				# redirect_to course_path(@course)
-				render :preview
-			end
+		if @course.update_attributes(params[:course].permit(:name, :description, :price, :avatar, :crop_x, :crop_y, :crop_w, :crop_h, :blurb, :what_to_wear, :what_to_bring, :experience, course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county, :longitude, :latitude]))			
+			redirect_to dashboard_path			
 		else
 			render :new
 		end

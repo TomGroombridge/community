@@ -1,8 +1,14 @@
 <%= render "crop_image_modal" %>
-<div class="ui segment">    
-    <div id="cropModal" class="ui inverted green button" style="float:right; width:150px">Save</div>   
-    <div class="ui inverted orange button" style="float:right; width:150px">Preivew</div>
-    <div class="ui inverted blue button" style="float:right; width:150px">Crop</div>
+<div class="ui segment"> 
+    <%= form_for @course do |f| %>
+        <% %w[x y w h].each do |attribute| %>
+            <%# f.text_field "crop_#{attribute}", id: "crop_#{attribute}"%><br> 
+            <%= f.hidden_field "crop_#{attribute}" %>
+        <% end %>
+            <%= f.submit "Save", :class => "ui inverted green button", :style =>"float:right; width:150px"%>
+    <% end %>   
+    <div id="cropModal" class="ui inverted blue button" style="float:right; width:150px">Crop</div>    
+    <%= link_to("Edit Text", edit_course_path(@course.id), :class => "ui inverted orange button", :style =>"float:right; width:150px") %>
 </div>
 <div class="ui segment" style="background: #fafafa">
 <%# render "book_date" %>
