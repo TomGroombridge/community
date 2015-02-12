@@ -70,7 +70,7 @@ $(document).ready(function() {
       
     $("#courseDates").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#course', 'show');  
 
-    $("#normalUser").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#user', 'show');  
+    $("#normalUserModal").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#user', 'show');  
 
     $("#companyUserModal").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#companyUser', 'show');  
 
