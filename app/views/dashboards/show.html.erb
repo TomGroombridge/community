@@ -64,7 +64,7 @@
                         <tr style="display:block">
                             <td class="one wide collapsing">1</td>
                             <td class="seven wide"><%= course_date.course.name %></td>
-                            <td class="two wide left aligned"><%= course_date.start_date.strftime("%m/%d/%Y")%></td>
+                            <td class="two wide left aligned"><%= course_date.start_date.strftime("%d/%m/%Y")%></td>
                             <td class="two wide center aligned"><%= course_date.payments.count %>/<%= course_date.quantity%></td>
                             <td class="three wide center aligned"><%= course_date.max_revenue %></td>
                             <td class="one wide center aligned"><%= link_to("<i class='bar chart icon'></i>".html_safe, course_details_course_course_date_path(course_date.course_id, course_date.id))%></td>

@@ -13,15 +13,15 @@
         <div class="ui segment">
             <div class="column">
                 <div class="image">
-                    <%= image_tag(@course_date.course.avatar_url(:thumb))%>
+                    <%= image_tag(@course_date.course.avatar_url(:medium))%>
                 </div>
             </div>
             <div class="column">                
-                MAX SUBSCRIBERS: 20
+                MAX SUBSCRIBERS: <%= @course_date.quantity %>
             </div>
             <br>
             <div class="column">                
-                DATE: 28/04/15
+                DATE: <%= @course_date.start_date.strftime('%d/%m/%Y') %>
             </div>
             <BR>
             <div class="column">                
@@ -66,7 +66,7 @@
                                 <td class="two wide left aligned"><%= payment.email %></td>
                                 <td class="two wide center aligned"><%# course_date.payments.count %>/<%# course_date.quantity%></td>
                                 <td class="three wide center aligned"><%# course_date.max_revenue %></td>
-                                <td class="one wide center aligned"><%= payment.created_at.strftime("%m/%d/%Y")%></td>
+                                <td class="one wide center aligned"><%= payment.created_at.strftime("%d/%m/%Y")%></td>
                             </tr>  
                         <% end %>                      
                 </tbody>

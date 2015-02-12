@@ -12,7 +12,7 @@ class Payment < ActiveRecord::Base
 		@email = self.email			
 		@name = self.full_name		
 		@course_name = self.course_date.course.name
-		@course_date = self.course_date.start_date.strftime("%m/%d/%Y")		
+		@course_date = self.course_date.start_date.strftime("%d/%m/%Y")		
 
 		save! and return if course_date.course.free?
 
