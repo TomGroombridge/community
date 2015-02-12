@@ -11,14 +11,14 @@
 
   </style>
 </head>
-<body>
+<body style="min-width: 100%;">
   
   <div class="ui inverted teal vertical segment">
     <div class="ui page grid">
-      <div class="column" style="text-align:center; padding-right:0px">
-        <i class="calendar icon" style="font-size: 3em"></i>    
+      <div class="column" style="text-align:center;">
+        <i class="calendar icon" style="font-size: 2em"></i>    
         <div class="" style="display:inline-block">
-          <h4 class="ui inverted header" style="display:inline-block">Next Session</h4>
+          <h4 class="ui inverted header" style="display:inline-block; margin-bottom:0px;">Next Session</h4>
           <br>
           <p style="display:inline-block"><%= @course.upcoming_date.start_date.strftime("%A, %b %d") %></p>
         </div>
@@ -38,13 +38,15 @@
   <div class="ui vertical segment">
     <div class="ui page grid">
       <div class="column" style="text-align:center; padding-top: 1rem;">        
-        <button type='submit' form='ticket_form' class="ui positive right labeled icon button" style="font-size:1.3rem">
+        <button type='submit' form='ticket_form' class="ui positive right labeled icon button">
           Book Date
           <i class="checkmark icon"></i>
         </button>
       </div>
     </div>
-  </div>  
+  </div>
+
+  <iframe style="width:260px;" frameborder="0" src="http://localhost:3000/courses/99?embed=small"></iframe>
 
   <!-- <iframe style="width:900px; height:900px" frameborder="0" src="http://semantic-ui.com/elements/segment.html"></iframe>     -->
   
