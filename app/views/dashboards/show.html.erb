@@ -11,7 +11,9 @@
     <div class="column five wide">
         <div class="ui segment">
             <div class="column">
-                <img class="ui medium rounded image" src="/images/wireframe/square-image.png" style="display:block; margin:auto">    
+                <div class="image" style="text-align:center">
+                    <%= image_tag(@user.avatar_url(:medium), :class => "ui medium rounded" )%>
+                </div>
             </div>
             <div class="ui three column grid">
                 <div class="column" style="text-align:center; padding-right:0; padding-left:0">
