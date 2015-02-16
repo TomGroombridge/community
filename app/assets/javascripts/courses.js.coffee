@@ -100,6 +100,34 @@ $ ->
           prompt: 'Please add a validated price with a decimal place'
         }
       ]
+    start_date: 
+      identifier: 'course[course_dates_attributes][0][start_date]'
+      rules: [
+        {
+          type: 'empty'
+          prompt: 'Please add the start date of the course'
+        }
+      ]
+    end_date: 
+      identifier: 'course[course_dates_attributes][0][end_date]'
+      rules: [
+        {
+          type: 'empty'
+          prompt: 'Please add the end date of the course'
+        }
+      ]
+    quantity: 
+      identifier: 'course[course_dates_attributes][0][quantity]'
+      rules: [
+        {
+          type: 'empty'
+          prompt: 'Please add the amount of places available on this course'
+        }
+        {
+          type: 'integer'
+          prompt: 'Course places must be a integer'
+        }
+      ]      
   settings = 
     inline: true
     onFailure: ->
