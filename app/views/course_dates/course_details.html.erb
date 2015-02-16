@@ -17,15 +17,16 @@
                 </div>
             </div>
             <div class="column">                
-                MAX SUBSCRIBERS: <%= @course_date.quantity %>
+                SPACES LEFT: <%= @course_date.quantity %>
             </div>
             <br>
             <div class="column">                
                 DATE: <%= @course_date.start_date.strftime('%d/%m/%Y') %>
             </div>
             <BR>
-            <div class="column">                
-                <a><div id="course" class="ui button" style="display:block">EDIT COURSE DATE</div></a>
+            <div class="column">
+                <%= link_to("Edit Text", edit_course_course_date_path(@course_date.course.id, @course_date.id), :class => "ui button", :style =>"display:block") %>                      
+                <!-- <a><div id="course" class="ui button" style="display:block">EDIT COURSE DATE</div></a> -->
             </div>
         </div>        
     </div>

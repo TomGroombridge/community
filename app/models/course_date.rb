@@ -30,4 +30,8 @@ class CourseDate < ActiveRecord::Base
 		@time = DateTime.parse("#{self.start_date} #{self.start_time}:00")					
 	end
 
+	# def edit_course_date
+	# 	start_date - 24.hours
+	# end
+
 end
