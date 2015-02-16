@@ -31,3 +31,36 @@ payment =
     else
       $('#stripe_error').text(response.error.message)
       $('input[type=submit]').attr('disabled', false)
+
+$ ->
+  PaymentValidation = 
+    email:
+      identifier: 'payment[email]'
+      rules: [
+        {
+          type: 'empty'
+          prompt: 'Fill in your email address'
+        }
+        {
+          type: 'email'
+          prompt: 'Invalid email'
+        }                
+      ]
+    full_name:
+      identifier: 'payment[full_name]'
+      rules: [
+        {
+          type: 'empty'
+          prompt: 'Fill in your name'
+        }        
+      ]      
+  settings = 
+    inline: true
+    onFailure: ->
+      console.log 'Failed'
+      false
+    onSuccess: ->
+      console.log 'Success'
+      return
+
+  $('.ui.form.payment').form PaymentValidation, settings
