@@ -97,6 +97,7 @@
     </div>
     <div class="column eleven wide">
         <div class="ui segment">
+            <h1 style="margin: 0px; text-align: center">Payments</h1>
             <!-- AT THE MOMENT THIS GRAPH SHOWS YOU THE NUMBER OF COURSES CREATED FROM THE BEGINNING OF THE MONTH -->            
                 <%= line_chart @course_date.payments.group_by_day(:created_at, range: Date.today.beginning_of_month..Time.now).count %>
             <!-- END OF THE GRAPH -->

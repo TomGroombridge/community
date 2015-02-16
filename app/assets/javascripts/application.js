@@ -64,8 +64,9 @@ $(document).ready(function() {
 
     $('.gmap').append('<iframe frameborder="0" style="border:0" src="https://maps.google.com/maps?output=embed&iwloc&z=12&t=p&q=London UK"></iframe>');
 
-    $('.special.cards .image').dimmer({
-      on: 'hover'
+    $('.special.cards.image.course')
+      .dimmer({
+        on: 'hover'
     });         
       
     $("#courseDates").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#course', 'show');

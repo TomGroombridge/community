@@ -26,6 +26,15 @@ class CourseDatesController < ApplicationController
 		gon.percentage = @percentage
 	end
 
+	def update 
+		@course_date = CourseDate.find(params[:id])		
+		if @course_date.update_attributes(params[:course_date].permit(:start_date, :start_time, :end_date, :end_time, :course_id, :quantity))							
+			redirect_to course_details_course_course_date_path(@course_date.course_id, @course_date.id)
+		else
+			render :edit
+		end
+	end
+
 	private
 
 	def fetch_and_authorize_course
