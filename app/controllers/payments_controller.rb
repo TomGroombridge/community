@@ -8,7 +8,7 @@ class PaymentsController < ApplicationController
   end
 
   def create          
-    @payment = Payment.new(params[:payment].permit(:course_date_id, :email, :course_id, :stripe_card_token, :full_name, :mobile_number, :special_request))
+    @payment = Payment.new(params[:payment].permit(:course_date_id, :email, :course_id, :stripe_card_token, :full_name, :mobile_number, :special_request, :quantity))
     @course = @payment.course_date.course    
     @payment.user = current_user
 
