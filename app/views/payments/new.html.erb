@@ -83,16 +83,16 @@
                 </div>
                 <div class="inline required field">
                   <label style="width:30%">Card Number</label>
-                  <%= text_field_tag :card_number, nil, name: nil, :style => "width:60%" %>
+                  <%= text_field_tag :card_number, nil, :style => "width:60%" %>
                 </div>
                 <div class="inline required field">
                   <label style="width:30%">Expiry Date</label>
-                  <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month", :class =>"ui dropdown"} %>
-                  <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year", :class =>"ui dropdown", :style => "width:50%"} %>
+                  <%= select_month nil, {add_month_numbers: true}, {id: "card_month", :class =>"ui dropdown"} %>
+                  <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {id: "card_year", :class =>"ui dropdown", :style => "width:50%"} %>
                 </div>
                 <div class="inline required field">
                   <label style="width:30%">Security Code</label>
-                  <%= text_field_tag :card_code, nil, name: nil, :style => "width:30%" %>
+                  <%= text_field_tag :card_code, nil, :style => "width:30%" %>
                 </div>
               </div>
             <% end %>

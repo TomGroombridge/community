@@ -53,7 +53,15 @@ $ ->
           type: 'empty'
           prompt: 'Fill in your name'
         }        
-      ]      
+      ]
+    mobile_number:
+      identifier: 'payment[mobile_number]'
+      rules: [
+        {
+          type: 'empty'
+          prompt: 'Fill in your mobile number'
+        }        
+      ]            
   settings = 
     inline: true
     onFailure: ->
