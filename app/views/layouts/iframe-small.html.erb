@@ -29,7 +29,7 @@
     <div class="ui page grid">
       <div class="column" style="padding-top: 1rem">
         <h3 style="text-align:center; margin:0px;">Course Date:</h3>        
-        <%= form_tag course_tickets_path(@course), id: 'ticket_form', :style => "text-align:center" do %>            
+        <%= form_tag course_tickets_path(@course), id: 'ticket_form', :target => "_blank", :style => "text-align:center" do %>            
           <%= select_tag 'start_date', options_from_collection_for_select(@course.upcoming_dates, :id, :pretty_date) %>                          
         <% end %> 
       </div>
