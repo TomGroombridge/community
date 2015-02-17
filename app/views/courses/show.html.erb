@@ -4,14 +4,16 @@
 	   <%# render "book_date" %>
         <!-- LEFT CONTENT -->
         <div class="ten wide column" style="height:100%;">
-            <div class="ui segment items">                            
-                <a class="ui blue ribbon label"><h3 class="ui header" style="color:white"><%= @course.name.capitalize %></h3></a>                  		
+            <div class="ui segment items">                                                       	
                 <div class="item">
-                    <div class="image">
+                    <div class="image" style="width:300px;">
                         <%= image_tag(@course.avatar_url(:medium), :class => "ui medium rounded" )%>
                     </div>
                     <div class="content">
                         <div class="ui list">
+                            <div class="item">
+                                <a><h3 class="ui header"><%= @course.name.capitalize %></h3></a>
+                            </div>
                             <div class="item">
                                 <a>
                                     <i class="calendar icon"></i><%= @course.upcoming_date.start_date.strftime("%A, %b %d") %>
