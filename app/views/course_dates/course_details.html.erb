@@ -4,7 +4,7 @@
 
 <div class="two column stackable ui grid" style="margin:0px;">
     <div class="column sixteen wide">
-        <div class="ui segment">
+        <div class="ui segment" style="padding:1rem">
             <h1 style="margin:0px;"><%= @course_date.course.name %></h1>
         </div>
     </div>
@@ -25,7 +25,7 @@
             </div>
             <BR>
             <div class="column">
-                <%= link_to("Edit Text", edit_course_course_date_path(@course_date.course.id, @course_date.id), :class => "ui button", :style =>"display:block") %>                      
+                <%= link_to("Edit Date", edit_course_course_date_path(@course_date.course.id, @course_date.id), :class => "ui button", :style =>"display:block") %>                      
                 <!-- <a><div id="course" class="ui button" style="display:block">EDIT COURSE DATE</div></a> -->
             </div>
         </div>        
