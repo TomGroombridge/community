@@ -4,8 +4,8 @@
 <div class="two column stackable ui grid" style="margin:0px;">
     <div class="column sixteen wide">
         <div class="ui segment" style="padding:1rem; display:block">
-            <h1 style="margin:0px; display:inline-block"><%= @user.company_name %></h1>
-            <div  style ="float:right; width:250px; display:inline-block;", class ="ui inverted green button">Edit Company Details</div>
+            <h1 style="margin:0px; display:inline-block"><%= @user.company_name %></h1>            
+            <%= link_to('Edit Company Details', edit_user_path(@user.id), :class => "ui inverted green button", :style => "float:right; width:250px; display:inline-block;") %>
         </div>
     </div>
     <!-- LEFT SIDE -->
