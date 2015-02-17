@@ -13,21 +13,21 @@
 </head>
 <body>
   <!-- This is the whole sidenav -->
- <div class="ui top attached demo menu">
-    <a class="open_item item">
+ <div class="ui top attached demo menu" style="background:#1B1B1B">
+    <a class="open_item item" style="color: rgba(255, 255, 255, 0.8);">
       <i class="sidebar icon"></i>
       Menu
     </a>
     <% if signed_in? %>      
-      <%= link_to("<i class='sign in icon'></i>Log out".html_safe, destroy_user_session_path, :method => :delete, :class => "item", :style => "float:right ") %>      
+      <%= link_to("<i class='sign in icon'></i>Log out".html_safe, destroy_user_session_path, :method => :delete, :class => "item", :style => "float:right; color: rgba(255, 255, 255, 0.8);") %>      
               
-      <%= link_to( "<i class='user icon'></i>Dashboard".html_safe, dashboard_path, :class => "item", :style => "float:right") %>      
+      <%= link_to( "<i class='user icon'></i>Dashboard".html_safe, dashboard_path, :class => "item", :style => "float:right; color: rgba(255, 255, 255, 0.8);") %>      
     <% else %>
       <a class="item" style="float:right" id="signIn">      
         <i class="user icon"></i>
         Sign in 
       </a>
-      <%= link_to("<i class='sign in icon'></i>Sign up".html_safe, new_user_registration_path, :class => "item", :style => "float:right") %>               
+      <%= link_to("<i class='sign in icon'></i>Sign up".html_safe, new_user_registration_path, :class => "item", :style => "float:right; color: rgba(255, 255, 255, 0.8);") %>               
     <% end %>
   </div>
 <div class="ui bottom attached segment">

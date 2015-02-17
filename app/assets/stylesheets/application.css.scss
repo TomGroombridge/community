@@ -9,6 +9,13 @@
 @import "payments";
 @import "courses";
 
+.ui.ribbon.label{
+  left: -3rem 
+}
+
+.ui.segment{
+  padding: 2em 2em
+}
 
 .map_style{
   width: 100%; 
@@ -117,12 +124,12 @@ body.pushable > .pusher {
 }
 
 .ui.grid > .column:not(.row) {
-padding-top: 2rem;
+padding-top: 1rem;
 }
 
 .ui.grid > .column:not(.row), .ui.grid > .row > .column {
-padding-left: 2rem;
-padding-right: 2rem;
+padding-left: 1rem;
+padding-right: 1rem;
 }
 
 .ui.divider:not(.vertical):not(.horizontal) {

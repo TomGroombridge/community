@@ -1,4 +1,4 @@
-<div class="ui segment" style="background: #fafafa;">
+<div class="ui segment" style="background: #BFE0F0; padding: 1rem 1rem;">
 <%= render "book_date" %>
 <div class="ui pusher stackable padded grid">    
 	   <%# render "book_date" %>
@@ -11,21 +11,21 @@
                     </div>
                     <div class="content">
                         <div class="ui list">
-                            <div class="item">
-                                <a><h3 class="ui header"><%= @course.name.capitalize %></h3></a>
+                            <div class="item" style="max-height:65px; height: 65px;">
+                                <a><h3 class="ui header" style="font-size:2rem"><%= @course.name.capitalize %></h3></a>
                             </div>
-                            <div class="item">
-                                <a>
+                            <div class="item" style="padding: 0.72em 0em;">
+                                <a style="font-size:1.5rem">
                                     <i class="calendar icon"></i><%= @course.upcoming_date.start_date.strftime("%A, %b %d") %>
                                 </a>
                             </div>
-                            <div class="item">
-                                <a>
+                            <div class="item" style="padding: 0.72em 0em;">
+                                <a style="font-size:1.5rem">
                                     <i class="clock icon"></i><%= @course.upcoming_date.start_time.strftime("%l:%M %p")%> - <%= @course.upcoming_date.end_time.strftime("%l:%M %p")%>
                                 </a>
                             </div>
-                            <div class="ui tag labels">
-                              <a class="ui label">
+                            <div class="item" style="padding: 0.38em 0em;">
+                              <a style="font-size:1.5rem; margin-left: 8px;">
                                 £ <%= @course.price.round(2) %>                                
                               </a>
                             </div>
@@ -39,10 +39,9 @@
                         </div>
                     </div> <!-- .content -->
                 </div> <!-- .item -->
-            </div> <!-- .ui.items -->
-            <div class="ui divider"></div>
+            </div> <!-- .ui.items -->            
             <div class="ui segment items">
-                <a class="ui blue ribbon label" style="margin-bottom:20px"><h3 class="ui header" style="color:white">ABOUT THIS COURSE</h3></a>                
+                <h3 class="ui header">ABOUT THIS COURSE</h3>
                 <%= @course.description.html_safe%>
             </div>
         </div> <!-- .column -->
@@ -60,7 +59,7 @@
                 </div>
                 <% end %>
                 <div class="ui style fluid accordion">
-                    <div class="title blue" style="background:#57be6f; border-radius:5px">
+                    <div class="title" style="border-bottom: 1px solid black">
                         <i class="dropdown icon"></i>
                         WHAT TO BRING?
                     </div>
@@ -68,7 +67,7 @@
                         <p><%= @course.what_to_bring %></p>
                     </div>
                     <br>
-                    <div class="title" style="background:#57be6f; border-radius:5px">
+                    <div class="title" style="border-bottom: 1px solid black">
                         <i class="dropdown icon"></i>
                         WHAT TO WEAR?
                     </div>
@@ -76,7 +75,7 @@
                         <p><%= @course.what_to_wear %></p>
                     </div>
                     <br>
-                    <div class="title" style="background:#57be6f; border-radius:5px">
+                    <div class="title" style="border-bottom: 1px solid black">
                         <i class="dropdown icon"></i>
                         EXPERIANCE NEEDED?
                     </div>
@@ -85,12 +84,9 @@
                     </div>
                 </div> 
             </div>
-            <!-- END OF ACCORDION -->
-
-            <div class="ui divider" style="margin-top: 20px"></div>
-            
+            <!-- END OF ACCORDION -->                    
             <!-- BROUGHT TO YOU BY -->
-            <div class="ui items segment">
+            <div class="ui items segment" style="padding-top:1rem">
                 <a class="ui blue ribbon label">BROUGHT TO YOU BY</a>                
                 <div class="item">
                     <div class="image">
