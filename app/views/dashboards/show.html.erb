@@ -3,17 +3,24 @@
 
 <div class="two column stackable ui grid" style="margin:0px;">
     <div class="column sixteen wide">
-        <div class="ui segment">
-            <h1 style="margin:0px;">SATURDAY SEWING SESSIONS</h1>
+        <div class="ui segment" style="padding:1rem; display:block">
+            <h1 style="margin:0px; display:inline-block"><%= @user.company_name %></h1>
+            <div  style ="float:right; width:250px; display:inline-block;", class ="ui inverted green button">Edit Company Details</div>
         </div>
     </div>
     <!-- LEFT SIDE -->
     <div class="column five wide">
         <div class="ui segment">
             <div class="column">
-                <div class="image" style="text-align:center">
-                    <%= image_tag(@user.avatar_url(:medium), :class => "ui medium rounded" )%>
-                </div>
+                <% if @user.avatar_url.blank? %>
+                    <div class="image" style="text-align:center; width:100%;">
+                        <%= image_tag "placeholder.png", :style =>"width:100%;"%>
+                    </div>
+                <% else %> 
+                    <div class="image" style="text-align:center">
+                        <%= image_tag(@user.avatar_url(:medium), :class => "ui medium rounded" )%>
+                    </div>
+                <% end %>                
             </div>
             <div class="ui three column grid">
                 <div class="column" style="text-align:center; padding-right:0; padding-left:0">
