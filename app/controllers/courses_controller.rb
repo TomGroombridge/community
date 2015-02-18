@@ -15,7 +15,7 @@ class CoursesController < ApplicationController
 		if @course.save
 			@user =  @course.user
 			UserMailer.delay_for(0.003.hours).welcome_email(@user)			
-				render :crop							
+			render :crop								
 	  else
 		  format.html { render action: 'new' }	  
 		end	
@@ -39,7 +39,7 @@ class CoursesController < ApplicationController
 	def update 
 		@course = Course.find(params[:id])	
 		if @course.update_attributes(params[:course].permit(:name, :description, :price, :avatar, :crop_x, :crop_y, :crop_w, :crop_h, :blurb, :what_to_wear, :what_to_bring, :experience, course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county, :longitude, :latitude]))			
-			redirect_to dashboard_path			
+			render :crop
 		else
 			render :new
 		end
