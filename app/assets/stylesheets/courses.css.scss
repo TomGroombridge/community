@@ -5,10 +5,12 @@
 
 .course-info{	
 	background: #BFE0F0 !important;
-	.course-image{
-		margin: auto;
-	}
-	.content.centred{
-		text-align: center;
+	@media only screen and (max-width: 768px) {
+		.course-image{
+			margin: auto;
+		}
+		.content.centred{
+			text-align: center;
+		}
 	}
 }
