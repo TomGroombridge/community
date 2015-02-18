@@ -40,26 +40,25 @@
       </div>
     </div>
       <div style="position: absolute;left: 10px;top: 87%; font-size: 1.3em; color: white; letter-spacing: 0.2px; z-index:1; opacity:0.7">
-          <p>saturdaysewingsession.co.uk</p>
+          <p><%= @user.company_website %></p>
       </div>
       <div style="position:absolute; right:24px; top:92%; font-size:1.3em; color:white;">
           <div class="three column ui grid">
           	<div class="column" style="padding:0px; z-index:1; opacity:0.7">
-          		<i class="facebook square icon" style="font-size: 2em"></i>
+          		<%= link_to("<i class='facebook square icon' style='font-size: 2em'></i>".html_safe, "https://facebook.com/" + @user.facebook, :style => "color:white")%>           		
           	</div>
           	<div class="column" style="padding:0px; z-index:1; opacity:0.7">
-          		<i class="instagram icon" style="font-size: 2em"></i>
+          		<%= link_to("<i class='twitter square icon' style='font-size: 2em'></i>".html_safe, "https://twitter.com/" + @user.twitter, :style => "color:white") %>
           	</div>
           	<div class="column" style="padding:0px; z-index:1; opacity:0.7">
-          		<i class="twitter square icon" style="font-size: 2em"></i>
+          		<%= link_to("<i class='instagram icon' style='font-size: 2em'></i>".html_safe, "http://instagram.com/" + @user.instagram, :style => "color:white") %>          		
           	</div>
           </div>
-      </div>
-		
+      </div>		
 	</div>
 	<div class="column seven wide" style="background:#d1ca72; height:100vh; overflow:scroll">
 		<h1 style="text-align:center">About</h1>
-		<%= @user.description %>
+		<%= @user.description.html_safe %>
 	</div>
 	<div class="column nine wide" style="background:#f2f0dd; height:100vh; overflow:scroll">
 		<div class="ui two special cards">
