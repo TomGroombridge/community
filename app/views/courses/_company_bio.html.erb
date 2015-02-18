@@ -3,18 +3,18 @@
     <div class="item">
         <div class="image">
             <!-- <img src="img/chef300.png"> -->
-            <%= image_tag(@user.avatar_url(:medium), :class => "ui medium rounded" )%>
+            <%= image_tag(@user.avatar_url(:medium), :class => "ui medium rounded course-image" )%>
         </div>
     </div>
     <div class="item">
-        <div class="content">
+        <div class="content centred">
             <a class="header"><%= @user.company_name %></a>
             <div class="description">
                 <%# truncate(@user.description.html_safe, :length => 150)%>
             </div>
         </div>
     </div>
-    <div class="item">
+    <div class="item content centred">
         <div class="ui tiny statistic">
             <div class="value">256</div>
             <div class="label">HOURS <br>TAUGHT</div>
