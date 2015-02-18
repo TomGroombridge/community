@@ -3,11 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-div.ui.shape{
-	display: block;
-	width: 100% !important;	
-}
-
-div.ui.shape .sides, div.ui.shape .side{
-	width: 100%;
+.course-info{	
+	background: #BFE0F0 !important;
+	.course-image{
+		margin: auto;
+	}
+	.content.centred{
+		text-align: center;
+	}
 }

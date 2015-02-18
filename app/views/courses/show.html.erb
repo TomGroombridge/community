@@ -1,4 +1,4 @@
-<div class="ui segment" style="background: #BFE0F0; padding: 1rem 1rem;">
+<div class="ui segment course-info">
 <%= render "book_date" %>
 <div class="ui pusher stackable padded grid">    
 	   <%# render "book_date" %>
@@ -7,9 +7,9 @@
             <div class="ui segment items">                                                       	
                 <div class="item">
                     <div class="image" style="width:300px;">
-                        <%= image_tag(@course.avatar_url(:medium), :class => "ui medium rounded" )%>
+                        <%= image_tag(@course.avatar_url(:medium), :class => "ui medium rounded course-image" )%>
                     </div>
-                    <div class="content">
+                    <div class="content centred">
                         <div class="ui list">
                             <div class="item" style="max-height:65px; height: 65px;">
                                 <a><h3 class="ui header" style="font-size:2rem"><%= @course.name.capitalize %></h3></a>
@@ -40,7 +40,7 @@
                     </div> <!-- .content -->
                 </div> <!-- .item -->
             </div> <!-- .ui.items -->            
-            <div class="ui segment items">
+            <div class="ui segment items" style="margin-bottom: 1.5em !important;">
                 <h3 class="ui header">ABOUT THIS COURSE</h3>
                 <%= @course.description.html_safe%>
             </div>
