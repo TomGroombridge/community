@@ -1,19 +1,110 @@
-<h1>Crop Avatar</h1>
-
-<%= image_tag @user.avatar_url(:large), id: "cropbox" %>
-
-<!-- preview is not working correctly yet -->
-<!-- <h4>Preview</h4>
-<div style="width:100px; height:100px; overflow:hidden">
-	<%# image_tag @course.avatar_url(:large), :id => "preview" %>
-</div> -->
-
-<%= form_for @user do |f| %>
-	<% %w[x y w h].each do |attribute| %>
-		<%# f.text_field "crop_#{attribute}", id: "crop_#{attribute}"%><br> 
-		<%= f.hidden_field "crop_#{attribute}" %>
-	<% end %>
-	<div class="actions">
-		<%= f.submit "Crop"%>
+<div class="ui segment"> 
+    <%= form_for @user do |f| %>
+        <% %w[x y w h].each do |attribute| %>
+            <%# f.text_field "crop_#{attribute}", id: "crop_#{attribute}"%><br> 
+            <%= f.hidden_field "crop_#{attribute}" %>
+        <% end %>
+            <%= f.submit "Save", :class => "ui inverted green button", :style =>"float:right; width:150px"%>
+    <% end %>   
+    <!-- <div id="cropModal" class="ui inverted blue button" style="float:right; width:150px">Crop</div>     -->
+    <%= link_to("Edit Text", edit_user_path(@user.id), :class => "ui inverted orange button", :style =>"float:right; width:150px") %>
+</div>
+<div class="two column stackable ui grid" style="margin:0px;">
+	<div class="column sixteen wide image-banner" style="height:200px; padding:0px">
+		<%# image_tag(@user.avatar.url, :class => "img-banner", :style => "width:100%;" ) %>	
+		<div style="width:100%; height:200px; overflow:hidden;">
+			<%= image_tag @user.avatar_url(:large) ,:class => "img-banner", :id => "preview", :style => "width:100%;" %>
+		</div>
+		
+			<div style="position: absolute; left: 50%; top:20%; z-index:1">
+        <div style="position: relative; left: -50%; border: 1px solid white;">
+            <h1 style="margin:0px; color:white; margin-left: 15px; margin-right: 15px; font-weight: 100; letter-spacing: 2px;"><%= @user.company_name %></h1>
+        </div>
+        <div class="three column ui grid" style="position: relative; left: -50%; top:10px; width: 270px; margin: auto;">
+        <div class="column" style="padding-left:0px; paddding-right:0px; padding-top: 0px;">
+	        <div class="ui statistic">
+					  <div class="value" style="font-size: 2rem; color:white">
+					    22
+					  </div>
+					  <div class="label" style="color:white">
+					    Breeds of Dog
+					  </div>
+					</div>
+        </div>
+        <div class="column" style="padding-left:0px; paddding-right:0px; padding-top: 0px;">
+        	<div class="ui statistic">
+					  <div class="value" style="font-size: 2rem; color:white;">
+					    22
+					  </div>
+					  <div class="label" style="color:white">
+					    Breeds of Dog
+					  </div>
+					</div>        
+        </div>
+        <div class="column" style="padding-left:0px; paddding-right:0px; padding-top: 0px;">
+        	<div class="ui statistic">
+					  <div class="value" style="font-size: 2rem; color:white">
+					    22
+					  </div>
+					  <div class="label" style="color:white">
+					    Breeds of Dog
+					  </div>
+					</div>
+        </div>            
+      </div>
+    </div>
+      <div style="position: absolute;left: 10px;top: 87%; font-size: 1.3em; color: white; letter-spacing: 0.2px; z-index:1; opacity:0.7">
+          <p><%= @user.company_website %></p>
+      </div>
+      <div style="position:absolute; right:24px; top:92%; font-size:1.3em; color:white;">
+          <div class="three column ui grid">
+          	<div class="column" style="padding:0px; z-index:1; opacity:0.7">
+          		<%= link_to("<i class='facebook square icon' style='font-size: 2em'></i>".html_safe, "https://facebook.com/" + @user.facebook, :style => "color:white")%>           		
+          	</div>
+          	<div class="column" style="padding:0px; z-index:1; opacity:0.7">
+          		<%= link_to("<i class='twitter square icon' style='font-size: 2em'></i>".html_safe, "https://twitter.com/" + @user.twitter, :style => "color:white") %>
+          	</div>
+          	<div class="column" style="padding:0px; z-index:1; opacity:0.7">
+          		<%= link_to("<i class='instagram icon' style='font-size: 2em'></i>".html_safe, "http://instagram.com/" + @user.instagram, :style => "color:white") %>          		
+          	</div>
+          </div>
+      </div>
+		
 	</div>
-<% end %>
+	<div class="column seven wide" style="background:#d1ca72; height:100vh; overflow:scroll">
+		<h1 style="text-align:center">About</h1>
+		<%= @user.description %>
+	</div>
+	<div class="column nine wide" style="background:#f2f0dd; height:100vh; overflow:scroll">
+		<div class="ui two special cards">
+			<% @user.courses.each do |course| %>
+			  <div class="card">
+			    <div class="dimmable image">
+			      <div class="ui dimmer">
+			        <div class="content">
+			          <div class="center">
+			            <div class="ui inverted button">Add Friend</div>
+			          </div>
+			        </div>
+			      </div>
+			      <div class="image" style="width: 100%; height: 200px; position: relative; overflow: hidden;">
+			      	<%= image_tag(course.avatar_url, :class => "ui medium rounded", :style => "position: absolute; display: block; top: 0; left: 0;" )%>
+			      </div>
+			    </div>
+			    <div class="content">
+			      <a class="header"><%= course.name %></a>
+			      <div class="meta">
+			        <span class="date">Create in Sep 2014</span>
+			      </div>
+			    </div>
+			    <div class="extra content">
+			      <a>
+			        <i class="users icon"></i>
+			        2 Members
+			      </a>
+			    </div>
+			  </div>  
+			<% end %>									
+		</div>
+	</div>
+</div>
