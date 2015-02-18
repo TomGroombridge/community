@@ -163,7 +163,21 @@ $ ->
           type: 'empty'
           prompt: 'Please add a image to a user'
         }
-      ]      
+      ]  
+    contact_number:
+      identifier: 'user[contact_number]'
+      rules: [ {
+        type: 'empty'
+        prompt: 'Fill in a contact number'
+      } ]    
+    company_name:
+      identifier: 'user[company_name]'
+      rules: [
+        {
+          type: 'empty'
+          prompt: 'Please enter a company name'
+        }        
+      ]        
   settings = 
     inline: true
     onFailure: ->
