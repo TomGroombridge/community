@@ -73,7 +73,7 @@
 	</div>
 	<div class="column seven wide" style="background:#d1ca72; height:100vh; overflow:scroll">
 		<h1 style="text-align:center">About</h1>
-		<%= @user.description %>
+		<%= @user.description.html_safe %>
 	</div>
 	<div class="column nine wide" style="background:#f2f0dd; height:100vh; overflow:scroll">
 		<div class="ui two special cards">
