@@ -109,16 +109,28 @@
                         <td><%= @payments.count %></td>
                     </tr>
                     <tr>
-                        <td>Revenue</td>                        
-                        <td>£<%= @revenue %></td>
+                        <td>Revenue</td> 
+                        <% if @payments.blank? %>                       
+                            <td>None so far</td>
+                        <% else %>
+                            <td>£<%= @revenue %></td>
+                        <% end %>
                     </tr>
                     <tr>
                         <td>Fee</td>
-                        <td>£<%= @revenue * 0.04%></td>
+                        <% if @payments.blank? %>                       
+                            <td>None so far</td>
+                        <% else %>
+                            <td>£<%= @revenue * 0.04%></td>
+                        <% end %>
                     </tr>
                     <tr>
                         <td>Net Profit </td>
-                        <td><%= @revenue -  @revenue * 0.04%></td>
+                        <% if @payments.blank? %>                       
+                            <td>None so far</td>
+                        <% else %>
+                            <td>£<%= @revenue -  @revenue * 0.04%></td>
+                        <% end %>
                     </tr>
                 </tbody>
             </table>
