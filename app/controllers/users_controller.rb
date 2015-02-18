@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 			render :crop
 		else
 			# redirect_to course_path(@course)
-			render :new
+			render :edit
 		end
 	end
 
