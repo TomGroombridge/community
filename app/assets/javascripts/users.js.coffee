@@ -50,7 +50,7 @@ $ ->
         type: 'empty'
         prompt: 'password confirmation does not match'
       } ]
-    price:
+    company_name:
       identifier: 'user[company_name]'
       rules: [
         {
