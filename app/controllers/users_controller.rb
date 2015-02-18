@@ -11,8 +11,7 @@ class UsersController < ApplicationController
 
 	def update	
 		@user = User.find(params[:id])	
-		@user.update_attributes(params[:user].permit(:first_name, :last_name, :contact_number, :company_name, :description, :facebook, :twitter, :instagram, :google, :pinterest, :admin, :email, :avatar))
-		if params[:user][:avatar].present?
+		if @user.update_attributes(params[:user].permit(:first_name, :last_name, :contact_number, :company_name, :description, :facebook, :twitter, :instagram, :google, :pinterest, :admin, :email, :avatar))		
 			render :crop
 		else
 			# redirect_to course_path(@course)
