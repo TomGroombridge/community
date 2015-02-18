@@ -6,6 +6,7 @@
   <div class="content"> 
     <div class="ui form">  
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:id => "new_user", :class => "ui form noraml user"}) do |f| %>   
+        <%= f.hidden_field :admin, :value => false %> 
         <div class="two fields">
           <div class="field">       
             <%= f.text_field :first_name, :placeholder => 'First Name *' %>
