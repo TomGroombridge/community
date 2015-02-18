@@ -196,6 +196,10 @@ width: 200px;
 
 
 @media only screen and (max-width: 768px) {
+
+  .ui.grid{
+    margin-top: 0rem;
+  }
   
   .ui.form .inline.field > label,{
     display: block !important; 
