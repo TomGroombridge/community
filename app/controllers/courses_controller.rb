@@ -28,7 +28,8 @@ class CoursesController < ApplicationController
 	end
 
 	def show
-	  @course = Course.find(params[:id])	  	  
+	  @course = Course.find(params[:id])
+	  @user = @course.user	  	  
 	  render layout: "iframe-#{params[:embed]}" if params[:embed]
 	end
 	
