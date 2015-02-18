@@ -9,6 +9,20 @@
 @import "payments";
 @import "courses";
 
+body{
+  margin: 0px;
+  font-family: 'Lato', sans-serif;
+}
+
+
+.right-side {
+  // margin-left: 15%;  
+  width: 100%;
+  position: relative;  
+  overflow: auto;
+  z-index: 1;
+}
+
 .ui.ribbon.label{
   left: -3rem 
 }
@@ -170,4 +184,16 @@ width: 200px;
     top:0; left:0;
     background:rgba(0,0,0,0.6);   
     opacity:1;
+}
+
+.no-box-shadow{
+  box-shadow: none !important;
+}
+
+
+@media only screen and (max-width: 768px) {
+  
+  .ui.form .inline.field > label,{
+    display: block !important; 
+  }
 }

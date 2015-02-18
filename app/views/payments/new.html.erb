@@ -1,4 +1,4 @@
-<div class="two column stackable ui grid" style="margin:0px;">
+<div class="two column stackable ui grid new-payment">
   <div class="column twelve wide">
     <div class="ui segment">
       <%= form_for @payment, :html => {:class => 'ui form payment fluid '} do |f| %>
@@ -27,72 +27,68 @@
         </div>
         <div class="ui segment">
           <a class="ui blue ribbon label">Registration Information</a>
-          <div class="ui segment" style="width: 80%; margin: auto; margin-top: 20px">
+          <div class="ui segment user-details no-box-shadow">
             <div class="ui form">
               <div class="inline field required">
-                <label style="width:30%">Email Address</label>              
+                <label class="input-label">Email Address</label>              
                 <% if @user %>
-                  <%= f.text_field :email, :value => @user.email, :style => "width: 60%;" %>
+                  <%= f.text_field :email, :value => @user.email, :class => "payment-fields"%>
                 <% else %>
-                  <%= f.text_field :email, :style => "width: 60%;" %>
+                  <%= f.text_field :email, :class => "payment-fields" %>
                 <% end %>
               </div>
               <div class="inline field required">
-                <label style="width:30%">First & Last Name</label>              
+                <label class="input-label">First & Last Name</label>              
                 <% if @user %>
-                  <%= f.text_field :full_name, :value => @user.full_name, :style => "width: 60%;" %>
+                  <%= f.text_field :full_name, :value => @user.full_name, :class => "payment-fields" %>
                 <% else %>
-                  <%= f.text_field :full_name, :style => "width: 60%;" %>
+                  <%= f.text_field :full_name, :class => "payment-fields" %>
                 <% end %>
               </div>
               <div class="inline field required">
-                <label style="width:30%">Mobile Number</label>              
+                <label class="input-label">Mobile Number</label>              
                 <% if @user %>
-                  <%= f.text_field :mobile_number, :value => @user.contact_number, :style => "width: 60%;" %>
+                  <%= f.text_field :mobile_number, :value => @user.contact_number, :class => "payment-fields" %>
                 <% else %>
-                  <%= f.text_field :mobile_number, :style => "width: 60%;" %>
+                  <%= f.text_field :mobile_number, :class => "payment-fields" %>
                 <% end %>
               </div>
             </div>
           </div>
-          <div class="ui segment" style="width: 80%; margin: auto; margin-top: 20px">
+          <div class="ui segment user-details no-box-shadow" >
             <div class="ui form">
               <div class="inline field">
-                <label style="width:30%">Special Requests?</label>
-                <%= f.text_area :special_request, :style => "width: 60%;" %>
+                <label class="input-label">Special Requests?</label>
+                <%= f.text_area :special_request, :class => "payment-fields" %>
               </div>
             </div>
           </div>
         </div>
         <div class="ui segment">   
           <a class="ui blue ribbon label">Billing & Payment Information</a>
-          <div class="ui segment" style="width: 80%; margin: auto; margin-top: 20px">
+          <div class="ui segment no-box-shadow billing-info">
             <% if @payment.stripe_card_token.present? %>
               Credit card has been provided.
             <% elsif @course_date.course.free? %>
               No payment needed!
             <% else %>
-              <div class="ui form">              
-                <div class="inline field">
-                  <label style="width:30%; font-weight:lighter;">Payment Information</label>
-                </div>
-                <br>
+              <div class="ui form">                                              
                 <div class="inline required field">
-                  <label style="width:30%">Name on Card</label>
-                  <input type="text" style="width: 60%;">
+                  <label class="input-label">Name on Card</label>
+                  <input class="full-width" type="text">
                 </div>
                 <div class="inline required field">
-                  <label style="width:30%">Card Number</label>
-                  <%= text_field_tag :card_number, nil, :style => "width:60%" %>
+                  <label class="input-label">Card Number</label>
+                  <%= text_field_tag :card_number, nil, :class => "full-width" %>
                 </div>
                 <div class="inline required field">
-                  <label style="width:30%">Expiry Date</label>
+                  <label class="input-label">Expiry Date</label>
                   <%= select_month nil, {add_month_numbers: true}, {id: "card_month", :class =>"ui dropdown"} %>
-                  <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {id: "card_year", :class =>"ui dropdown", :style => "width:50%"} %>
+                  <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {id: "card_year", :class =>"ui dropdown"} %>
                 </div>
                 <div class="inline required field">
-                  <label style="width:30%">Security Code</label>
-                  <%= text_field_tag :card_code, nil, :style => "width:30%" %>
+                  <label class="input-label">Security Code</label>
+                  <%= text_field_tag :card_code, nil %>
                 </div>
               </div>
             <% end %>
