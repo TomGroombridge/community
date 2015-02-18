@@ -25,8 +25,8 @@
                                 </a>
                             </div>
                             <div class="item" style="padding: 0.38em 0em;">
-                              <a style="font-size:1.5rem; margin-left: 8px;">
-                                £ <%= @course.price.round(2) %>                                
+                              <a style="font-size:1.5rem; margin-left: 8px;">                              
+                                <%= number_to_currency(@course.price, :precision => 2, :unit => "£")  %>
                               </a>
                             </div>
                         </div>

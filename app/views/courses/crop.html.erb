@@ -38,7 +38,7 @@
                             </div>
                             <div class="ui tag labels">
                               <a class="ui label">
-                                £ <%= @course.price.round(2) %>                                
+                                <%= number_to_currency(@course.price, :precision => 2, :unit => "£")  %>
                               </a>
                             </div>
                         </div>
