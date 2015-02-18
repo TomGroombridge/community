@@ -20,8 +20,9 @@
     </a>
     <% if signed_in? %>      
       <%= link_to("<i class='sign in icon'></i>Log out".html_safe, destroy_user_session_path, :method => :delete, :class => "item", :style => "float:right; color: rgba(255, 255, 255, 0.8);") %>      
-              
-      <%= link_to( "<i class='user icon'></i>Dashboard".html_safe, dashboard_path, :class => "item", :style => "float:right; color: rgba(255, 255, 255, 0.8);") %>      
+      <% if current_user.admin? %>      
+        <%= link_to( "<i class='user icon'></i>Dashboard".html_safe, dashboard_path, :class => "item", :style => "float:right; color: rgba(255, 255, 255, 0.8);") %>      
+      <% end %>
     <% else %>
       <a class="item" style="float:right; color: rgba(255, 255, 255, 0.8);" id="signIn">      
         <i class="user icon"></i>
