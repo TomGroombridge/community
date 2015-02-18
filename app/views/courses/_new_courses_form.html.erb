@@ -23,6 +23,18 @@
 			    <label>Course description</label>
 			    <%= form.cktext_area :description %>
 			  </div>
+			  <div class="field">
+			    <label>Course summary</label>
+			    <%= form.text_field :what_to_wear %>
+			  </div>
+			  <div class="field">
+			    <label>Course summary</label>
+			    <%= form.text_field :what_to_bring %>
+			  </div>
+			  <div class="field">
+			    <label>Course summary</label>
+			    <%= form.text_field :experience %>
+			  </div>
 			  <%= form.fields_for :course_addresses do |addresses_form| %>
 				  <div class="two fields">
 				  	<h3>Location</h3>
