@@ -196,4 +196,14 @@ width: 200px;
   .ui.form .inline.field > label,{
     display: block !important; 
   }
+
+  .ui.stackable.grid{
+    margin-left: 0px !important;
+    margin-right: 0px !important;    
+  }
+
+  .ui.stackable.grid > .wide.column, {
+    padding: 0px !important;
+  }
+
 }
