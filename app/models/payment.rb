@@ -14,6 +14,10 @@ class Payment < ActiveRecord::Base
 		end
 	end
 
+	def price 
+		course_date.course.price
+	end
+
 	def save_with_payment
 		@amount = self.course_date.course.price * 100
 		@email = self.email			

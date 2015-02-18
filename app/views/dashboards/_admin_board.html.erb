@@ -106,19 +106,19 @@
                 <tbody>
                     <tr>
                         <td class="ten wide column">Bookings</td>
-                        <td>38</td>
+                        <td><%= @payments.count %></td>
                     </tr>
                     <tr>
-                        <td>Revenue</td>
-                        <td>£600.00</td>
+                        <td>Revenue</td>                        
+                        <td>£<%= @revenue %></td>
                     </tr>
                     <tr>
                         <td>Fee</td>
-                        <td>£28.00</td>
+                        <td>£<%= @revenue * 0.04%></td>
                     </tr>
                     <tr>
                         <td>Net Profit </td>
-                        <td>£762.00</td>
+                        <td><%= @revenue -  @revenue * 0.04%></td>
                     </tr>
                 </tbody>
             </table>
