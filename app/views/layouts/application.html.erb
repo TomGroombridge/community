@@ -8,8 +8,8 @@
 	<%= tag :meta, :name => "stripe-key", :content => Rails.application.secrets.stripe_public_key %>
   <%= csrf_meta_tags %> 
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>  
-  <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>   
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+  <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>     
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />  
 </head>
 <body>
   <!-- This is the whole sidenav -->
