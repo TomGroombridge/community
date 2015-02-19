@@ -31,24 +31,24 @@
             <div class="ui form">
               <div class="inline field required">
                 <label class="input-label">Email Address</label>              
-                <% if @user %>
-                  <%= f.text_field :email, :value => @user.email, :class => "payment-fields"%>
+                <% if signed_in? %>      
+                  <%= f.text_field :email, :value => current_user.email, :class => "payment-fields"%>
                 <% else %>
                   <%= f.text_field :email, :class => "payment-fields" %>
                 <% end %>
               </div>
               <div class="inline field required">
                 <label class="input-label">First & Last Name</label>              
-                <% if @user %>
-                  <%= f.text_field :full_name, :value => @user.full_name, :class => "payment-fields" %>
+                <% if signed_in? %>      
+                  <%= f.text_field :full_name, :value => current_user.full_name, :class => "payment-fields" %>
                 <% else %>
                   <%= f.text_field :full_name, :class => "payment-fields" %>
                 <% end %>
               </div>
               <div class="inline field required">
                 <label class="input-label">Mobile Number</label>              
-                <% if @user %>
-                  <%= f.text_field :mobile_number, :value => @user.contact_number, :class => "payment-fields" %>
+                <% if signed_in? %>      
+                  <%= f.text_field :mobile_number, :value => current_user.contact_number, :class => "payment-fields" %>
                 <% else %>
                   <%= f.text_field :mobile_number, :class => "payment-fields" %>
                 <% end %>

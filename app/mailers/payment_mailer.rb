@@ -10,4 +10,9 @@ class PaymentMailer < ActionMailer::Base
   	mail to: payment.email, subject: "Reminder that your course is in 24 hours"
   end
 
+  def notification(payment)
+  	@course = payment.course_date.course
+  	mail to: @course.user.email, subject: "Someone has joined a class"
+  end
+
 end
