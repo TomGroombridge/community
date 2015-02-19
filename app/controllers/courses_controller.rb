@@ -22,9 +22,12 @@ class CoursesController < ApplicationController
 	end
 
 	def index
-		@courses = Course.all.includes(:course_dates).select do |course|
+		@active_courses = Course.all.includes(:course_dates).select do |course|
 			course.course_dates.any?(&:active?)
 		end
+		@courses = @active_courses.sort_by! do |course|
+			course.upcoming_date.start_date
+		end 
 	end
 
 	def show
