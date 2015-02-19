@@ -26,7 +26,7 @@ class CoursesController < ApplicationController
 			course.course_dates.any?(&:active?)
 		end
 		@courses = @active_courses.sort_by! do |course|
-			course.upcoming_date.start_date
+			course.upcoming_date.start_date_time
 		end 
 	end
 

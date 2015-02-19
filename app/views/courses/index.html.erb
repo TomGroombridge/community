@@ -2,14 +2,8 @@
     <div class="ui special cards" style="margin:0px;">
         <% @courses.each do |course| %>   
             <div class="card">
-                <div class="dimmable image">
-                  <div class="ui dimmer">
-                    <div class="content">
-                      <div class="center">
-                        <div class="ui inverted button"><%= link_to 'Details', course_path(course) %></div>
-                      </div>
-                    </div>
-                  </div>   
+                <div class="image">                  
+                  <%# link_to image_tag(course.avatar_url(:medium)), course_path(course) %>
                   <%= image_tag course.avatar_url(:medium)%>                                 
                 </div>
                 <div class="content">

@@ -5,17 +5,23 @@ class CourseDate < ActiveRecord::Base
 	after_create :send_course_info
 
 	def send_course_info
-		CourseDateMailer.delay_until(self.start_date - 24.hours).course_info(self)		
+		CourseDateMailer.delay_until(self.start_date_time - 24.hours).course_info(self)		
 	end
 
 	def valid_dates(course)			
-		if course.start_date > Time.now && course.active?				
+		if course.start_date_time > Time.now && course.active?				
 			course
 		end		
 	end	
 
+	def start_date_time
+		d = start_date
+		t = start_time
+		dt = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec, t.zone)
+	end
+
 	def invalid		
-		self.delay_until(self.start_date - 24.hours).update_attributes(active: false)
+		self.delay_until(self.start_date_time - 24.hours).update_attributes(active: false)
 	end
 
 	def pretty_date
@@ -29,11 +35,7 @@ class CourseDate < ActiveRecord::Base
 	def sale_percentage
 		value = self.payments.count.to_f / quantity * 100.00
 		value.to_i
-	end
-
-	def start_date_time		
-		@time = DateTime.parse("#{self.start_date} #{self.start_time}:00")					
-	end
+	end	
 
 	# def edit_course_date
 	# 	start_date - 24.hours
