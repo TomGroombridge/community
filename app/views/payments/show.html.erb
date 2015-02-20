@@ -1,25 +1,62 @@
-<div class="ui segment">
-  <p></p>
-  <div class="ui orange segment">
-  	<div class="column stackable ui grid">
-	  	<div class="column sixteen wide">
-	  		<h1 class="ui header">THANK YOU </h1>
-	  	</div>	  	
-	  	<div class="column ten wide">
-	  		<div class="ui black message">"<%= @payment.course_date.course.name %>" Booking Confirmed</div>
-	  		<div class="column ten wide">
-	  			<h2 class="header ui">Check you email shortly for a confirmation of your order. Please keep it for your records.</h2>
-	  			<h2 class="header ui">Check you email shortly for a confirmation of your order. Please keep it for your records.</h2>
-	  		</div>
-	  	</div>
-	  	<div class="column six wide">
-	  		<div class="ui black message">YOU PURCHASED</div>
-	  		<div class="column six wide">
-	  			<div class="image">
-	  				<%= image_tag(@payment.course_date.course.avatar_url(:medium), :class => "ui medium rounded" )%>
-	  			</div>
-	  		</div>	  		
-	  	</div>	  	
-	  </div>
-  </div>
+<div class="ui segment confirmation" style="padding-top:10px;">	
+		<div class="header">
+			<h1 style="margin-bottom:0px;">Thank-you for booking with courseiam </h1>
+			<h3 style="font-weight:100; margin-top:0px;">a confirmation email has been sent to <%= @payment.email %></h3>
+		</div>	
+	<div class="ui segment no-box-shadow-web" style="margin:0px; padding-top:0em">
+		<div class="header">
+			<h3 style="border-bottom: 1px solid black; text-align: left; margin-bottom: 20px; margin-top:0px;">PREVIEW</h3>
+		</div>
+		<div class="two column stackable ui grid">
+			<div class="column four wide" style="padding-top:0px;">
+				<div class="image">
+					<%= image_tag(@payment.course_date.course.avatar_url(:medium), :class => "ui medium rounded" ,:style =>"width:100%")%>
+				</div>
+			</div>
+			<div class="column twelve wide" >
+				<h1 style="margin:0px;"><%= @payment.course_date.course.name.capitalize %></h1>				
+				<h3 style="margin-top:0px;"><%= @payment.course_date.course.blurb %><h4><%=@payment.course_date.course.user.company_website %></h4></h3>				
+				<div class="ui segment no-box-shadow-web" style="padding-left:0px; padding-top:0px;">
+					<div class="two column stackable ui grid">
+						<div class="column" style="padding-left:0px;">
+							<p><strong>date of course:</strong> <%= @payment.course_date.start_date_time.strftime("%e %b %Y %H:%M%p") %></p>
+							<p><strong>amount paid:</strong> <%= number_to_currency(@payment.course_date.course.price, :precision => 2, :unit => "£")  %></p>							
+						</div>
+						<div class="column" >
+							<p><strong>Course Address</strong></p>
+							<% @payment.course_date.course.course_addresses.each do |address| %>
+								<p><%= address.address1 %></p>
+								<p><%= address.address2 %></p>
+								<p><%= address.city %></p>
+								<p><%= address.county %></p>
+								<p><%= address.postcode %></p>
+							<% end %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ui segment no-box-shadow-web">
+		<div class="three column stackable ui grid">
+			<div class="column">
+				<div class="ui facebook button" style="width:100%;">
+				  <i class="facebook icon"></i>
+				  Facebook
+				</div>
+			</div>
+			<div class="column">
+				<div class="ui twitter button" style="width:100%;">
+				  <i class="twitter icon"></i>
+				  Twitter
+				</div>
+			</div>
+			<div class="column">
+				<div class="ui instagram button" style="width:100%;">
+				  <i class="mail outline icon"></i>
+				  Email
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
