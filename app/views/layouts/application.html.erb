@@ -18,6 +18,7 @@
       <i class="sidebar icon"></i>
       Menu
     </a>
+    <%= link_to("about", about_path, :class => "item", :style => "color: rgba(255, 255, 255, 0.8);") %>
     <% if signed_in? %>      
       <%= link_to("<i class='sign in icon'></i>Log out".html_safe, destroy_user_session_path, :method => :delete, :class => "item", :style => "float:right; color: rgba(255, 255, 255, 0.8);") %>      
       <% if current_user.admin? %>      
@@ -32,7 +33,7 @@
       <%= link_to("<i class='sign in icon'></i>Sign up".html_safe, new_user_registration_path, :class => "item", :style => "float:right; color: rgba(255, 255, 255, 0.8);") %>               
     <% end %>
   </div>
-<div class="ui bottom attached segment">
+<div class="ui bottom attached segment" >
     <div class="ui inverted labeled icon left inline vertical sidebar menu" style="width:260px;">
       <a class="open_item item" href="/">
         <i class="home icon"></i>
@@ -54,7 +55,9 @@
   <!-- All the content that isnt sidenav is wrapped in the content class -->
     <div class="pusher right-side" style="background: #BFE0F0">      
       <%= render "devise/sessions/sign_in" %>
-      <%= yield %>            
+      <%= yield %>         
+      <%= render "templates/footer" %>
+      
     </div>
   </div>
 </body>

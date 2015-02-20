@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-
+  
   root "courses#index"
   
   resources :courses do
@@ -37,6 +37,11 @@ Rails.application.routes.draw do
 
   resource :dashboard
 
+  
+
+  get '/about', :to => 'pages#about'
+  get '/faq', :to => 'pages#faq'
+  get '/sales_and_refunds', :to => 'pages#sales_and_refunds'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
