@@ -71,7 +71,6 @@ gem "combined_time_select", "~> 1.0.1"
 
 gem 'simple_form'
 
-gem 'shareable'
 
 group :test, :development do
   gem 'rspec-rails'
