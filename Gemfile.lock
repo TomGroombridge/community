@@ -190,6 +190,9 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    shareable (1.1.4)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     sidekiq (2.16.1)
       celluloid (>= 0.15.2)
       connection_pool (>= 1.0.0)
@@ -262,6 +265,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.0.rc1)
   sdoc
   semantic-ui-sass!
+  shareable
   sidekiq
   simple_form
   stripe
