@@ -1,12 +1,7 @@
 class CourseDate < ActiveRecord::Base
 	belongs_to :course
 	has_many :payments	
-	after_create :invalid
-	after_create :send_course_info
-
-	def send_course_info
-		CourseDateMailer.delay_until(self.start_date_time - 24.hours).course_info(self)		
-	end
+	after_create :invalid	
 
 	def valid_dates(course)			
 		if course.start_date_time > Time.now && course.active?				
@@ -22,6 +17,7 @@ class CourseDate < ActiveRecord::Base
 
 	def invalid		
 		self.delay_until(self.start_date_time - 24.hours).update_attributes(active: false)
+		CourseDateMailer.delay_until(self.start_date_time - 24.hours).course_info(self)		
 	end
 
 	def pretty_date
