@@ -63,13 +63,7 @@ $ ->
           type: 'maxLength[120]'
           prompt: 'You cannot go over 120 characters in this Tweet'
         }
-      ]
-    description:
-      identifier: 'course[description]'
-      rules: [ {
-        type: 'empty'
-        prompt: 'Fill in a Course Description'
-      } ]
+      ]    
     address1:
       identifier: 'course[course_addresses_attributes][0][address1]'
       rules: [ {
