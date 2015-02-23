@@ -20,27 +20,21 @@ class Payment < ActiveRecord::Base
 	end
 
 	def save_with_payment
-		@amount = self.course_date.course.price * 100
-		@email = self.email			
-		@name = self.full_name		
-		@course_name = self.course_date.course.name
-		@course_date = self.course_date.start_date.strftime("%d/%m/%Y")		
-
-		if course_date.course.free?
-			save! and return true
-		end
-
-	  if valid?
-	  	begin
+			@amount = self.course_date.course.price * 100
+			@email = self.email			
+			@name = self.full_name		
+			@course_name = self.course_date.course.name
+			@course_date = self.course_date.start_date.strftime("%d/%m/%Y")			
+		  if valid?	  	
 	  		customer = Stripe::Customer.create(card: stripe_card_token, email: @email, description: @name)	    
 		    self.stripe_customer_token = customer.id	    	    
 		    Stripe::Charge.create(amount: @amount.to_i, currency: "gbp", customer: customer.id, description: "this is a payment for the #{@course_name} course on the #{@course_date}" )
 		    save!
-  		rescue Stripe::InvalidRequestError => e
-    		logger.error "Stripe error while creating customer: #{e.message}"
+		  end
+	  rescue Stripe::InvalidRequestError => e
+	  		logger.error "Stripe error while creating customer: #{e.message}"
 			  errors.add :base, "There was a problem with your credit card."
-			end	    	
-	  end
+			  false			 
 	end
 
 	def send_reminder				
