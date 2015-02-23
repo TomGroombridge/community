@@ -6,13 +6,13 @@ jQuery ->
   Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'))
   payment.setupForm()
 
+
 payment =
   setupForm: ->
     $('#new_payment').submit ->
       $('input[type=submit]').attr('disabled', true)
       if $('#card_number').length
-        payment.processCard()
-        console.log 'Success payment'
+        payment.processCard()        
         false
       else
         true
@@ -30,6 +30,7 @@ payment =
       $('#payment_stripe_card_token').val(response.id)
       $('#new_payment')[0].submit()
     else
+      console.log 'Success payment'
       $('#stripe_error').text(response.error.message)
       $('input[type=submit]').attr('disabled', false)
 
