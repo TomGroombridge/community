@@ -32,8 +32,7 @@ class Payment < ActiveRecord::Base
 
 	  if valid?
 	  	begin
-	  		customer = Stripe::Customer.create(card: stripe_card_token, email: @email, description: @name)	    
-		    self.stripe_customer_token = customer.id	    	    
+	  		customer = Stripe::Customer.create(card: stripe_card_token, email: @email, description: @name)	    		    
 		    Stripe::Charge.create(amount: @amount.to_i, currency: "gbp", customer: customer.id, description: "this is a payment for the #{@course_name} course on the #{@course_date}" )
 		    save!
   		rescue Stripe::InvalidRequestError => e
