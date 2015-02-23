@@ -3,8 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 jQuery -> 
-  console.log 'Success payment'
   Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'))
+  console.log 'Success payment'
   payment.setupForm()
 
 payment =
