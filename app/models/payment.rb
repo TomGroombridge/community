@@ -6,7 +6,7 @@ class Payment < ActiveRecord::Base
 	after_create :send_reminder
 	after_create :send_notification
 	after_create :check_course_date_active
-	attr_accessor :stripe_card_token
+	cattr_accessor :stripe_card_token
 
 
 	def check_course_date_active
