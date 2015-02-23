@@ -2,7 +2,10 @@ class Payment < ActiveRecord::Base
 	belongs_to :course_date
 	belongs_to :course
 	belongs_to :user		
-	
+	after_create :send_new_payment_email
+	after_create :send_reminder
+	after_create :send_notification
+	after_create :check_course_date_active
 	attr_accessor :stripe_card_token
 
 
@@ -40,7 +43,9 @@ class Payment < ActiveRecord::Base
 	  end
 	end
 
-	
+	def send_reminder				
+		PaymentMailer.delay_until(course_date.start_date - 24.hours).reminder(self)
+	end
 
 	def send_new_payment_email
 		PaymentMailer.new_payment(self).deliver!
