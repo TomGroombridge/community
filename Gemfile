@@ -76,8 +76,8 @@ gem 'simple_form'
 group :test, :development do
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'factory_girl_rails'  
- 
+  gem 'factory_girl_rails'
+  gem 'xray-rails'
 end
 
 group :production do
