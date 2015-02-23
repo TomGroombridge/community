@@ -4,7 +4,6 @@
 
 jQuery -> 
   Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'))
-  console.log 'Success payment'
   payment.setupForm()
 
 payment =
@@ -13,6 +12,7 @@ payment =
       $('input[type=submit]').attr('disabled', true)
       if $('#card_number').length
         payment.processCard()
+        console.log 'Success payment'
         false
       else
         true
