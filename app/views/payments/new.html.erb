@@ -68,9 +68,7 @@
           <a class="ui blue ribbon label">Billing & Payment Information</a>
           <div class="ui segment no-box-shadow-web billing-info">
             <% if @payment.stripe_card_token.present? %>
-              Credit card has been provided.
-            <% elsif @course_date.course.free? %>
-              No payment needed!
+              Credit card has been provided.            
             <% else %>
               <div class="ui form">                                              
                 <div class="inline required field">
