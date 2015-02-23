@@ -32,10 +32,10 @@ class Payment < ActiveRecord::Base
 		    self.stripe_customer_token = customer.id	    	    
 		    Stripe::Charge.create(amount: @amount.to_i, currency: "gbp", customer: customer.id, description: "this is a payment for the #{@course_name} course on the #{@course_date}" )
 		    save!
+		end	    	
   		rescue Stripe::InvalidRequestError => e
     		logger.error "Stripe error while creating customer: #{e.message}"
 			  errors.add :base, "There was a problem with your credit card."
-			end	    	
 	end
 
 	def send_reminder				
