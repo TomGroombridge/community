@@ -29,8 +29,7 @@ payment =
     if status == 200
       $('#payment_stripe_card_token').val(response.id)
       $('#new_payment')[0].submit()
-    else
-      console.log 'Success payment'
+    else      
       $('#stripe_error').text(response.error.message)
       $('input[type=submit]').attr('disabled', false)
 
