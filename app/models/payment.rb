@@ -30,17 +30,17 @@ class Payment < ActiveRecord::Base
 			save! and return true
 		end
 
-	  if valid?
-	  	begin
-	  		customer = Stripe::Customer.create(card: stripe_card_token, email: @email, description: @name)	    
-		    self.stripe_customer_token = customer.id	    	    
-		    Stripe::Charge.create(amount: @amount.to_i, currency: "gbp", customer: customer.id, description: "this is a payment for the #{@course_name} course on the #{@course_date}" )
-		    save!
-  		rescue Stripe::InvalidRequestError => e
-    		logger.error "Stripe error while creating customer: #{e.message}"
-			  errors.add :base, "There was a problem with your credit card."
-			end	    	
-	  end
+		if valid?
+			begin
+				customer = Stripe::Customer.create(card: stripe_card_token, email: @email, description: @name)
+				Stripe::Charge.create(amount: @amount.to_i, currency: "gbp", customer: customer.id, description: "this is a payment for the #{@course_name} course on the #{@course_date}" )
+				self.stripe_customer_token = customer.id
+				self.save
+			rescue Stripe::InvalidRequestError => e
+				logger.error "Stripe error while creating customer: #{e.message}"
+				errors.add :base, "There was a problem with your credit card."
+			end
+		end
 	end
 
 	def send_reminder				

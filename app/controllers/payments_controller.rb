@@ -1,9 +1,9 @@
 class PaymentsController < ApplicationController
 	
 	def new
-    @course_date = CourseDate.find(params[:id])    
-    @payment = @course_date.payments.build        
-		@payment.user = current_user    
+    @course_date = CourseDate.find(params[:id])
+    @payment = @course_date.payments.build
+    @payment.user = current_user
   end
 
   def create          
