@@ -19,7 +19,7 @@ class Payment < ActiveRecord::Base
 		course_date.course.price
 	end
 
-	def save_with_payment
+	def save_with_payment(params)
 		@amount = self.course_date.course.price * 100
 		@email = self.email			
 		@name = self.full_name		
@@ -32,9 +32,12 @@ class Payment < ActiveRecord::Base
 
 		if valid?
 			begin
-				customer = Stripe::Customer.create(card: stripe_card_token, email: @email, description: @name)
-				Stripe::Charge.create(amount: @amount.to_i, currency: "gbp", customer: customer.id, description: "this is a payment for the #{@course_name} course on the #{@course_date}" )
-				self.stripe_customer_token = customer.id
+				Stripe::Charge.create(
+					amount: @amount.to_i, 
+					currency: "gbp", 
+					card: params[:stripe_card_token],
+					description: "this is a payment for the #{@course_name} course on the #{@course_date}")
+				self.course_date.quantity -= 1
 				self.save
 			rescue Stripe::InvalidRequestError => e
 				logger.error "Stripe error while creating customer: #{e.message}"
