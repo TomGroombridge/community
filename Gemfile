@@ -81,7 +81,9 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_girl_rails'
-
+  gem 'xray-rails'
+  gem 'pry-rails'
+  gem 'pry-byebug'
 end
 
 group :production do
