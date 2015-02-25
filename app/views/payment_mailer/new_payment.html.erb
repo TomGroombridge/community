@@ -1,0 +1,20 @@
+<p>Hi <%= @payment.full_name %>,</p>
+<p>This is a confirmation email to confirm that you are going to <%= @payment.course_date.course.name %> on <%= @payment.course_date.start_date.strftime("%d/%m/%Y") %></p>
+<p>Best wishes,</p>
+<p>Tom</p>
+<div style="display:block; width: 100%; height: 100%; padding-top:70px;">
+  <div style="width:40%; display:inline-block; height: 160px">
+    <div style="display:table">
+      <p>Rye House</p>
+      <p>Maces Hill</p>
+      <p>Cirencester</p>
+      <p>GL7 7AB</p>
+    </div>
+  </div>
+  <div style="width:50%; display:inline-block; height: 160px">
+    <!-- <img alt="Staticmap?size=450x300&amp;sensor=false&amp;zoom=16&amp;markers=51.4590911%2c 0" class="map_style" src="http://maps.google.com/maps/api/staticmap?size=450x300&amp;sensor=false&amp;zoom=16&amp;markers=51.4590911%2C-0.2019068"> -->
+    <% @payment.course_date.course.course_addresses.each do |address|%>
+    	<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{address.latitude}%2C#{address.longitude}", :style => "width:100%; height:100%" %>
+    <% end %>
+  </div>
+</div>
