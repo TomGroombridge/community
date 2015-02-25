@@ -25,11 +25,9 @@ class Payment < ActiveRecord::Base
 		@name = self.full_name		
 		@course_name = self.course_date.course.name
 		@course_date = self.course_date.start_date.strftime("%d/%m/%Y")		
-
 		if course_date.course.free?
 			save! and return true
 		end
-
 	  if valid?
 	  	begin
 	  		customer = Stripe::Customer.create(card: stripe_card_token, email: @email, description: @name)	    
