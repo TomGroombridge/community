@@ -1,7 +1,7 @@
-<p>Hi <%= @payment.full_name %>,</p>
-<p>This is a confirmation email to confirm that you are going to <%= @payment.course_date.course.name %> on <%= @payment.course_date.start_date.strftime("%d/%m/%Y") %></p>
-<p>Best wishes,</p>
-<p>Tom</p>
+<p style="color:#666666;font-weight:400;font-size:15px;line-height:18px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">Hi <%= @payment.full_name %>,</p>
+<p style="color:#666666;font-weight:400;font-size:15px;line-height:18px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">This is a confirmation email to confirm that you are going to <%= @payment.course_date.course.name %> on <%= @payment.course_date.start_date.strftime("%d/%m/%Y") %></p>
+<p style="color:#666666;font-weight:400;font-size:15px;line-height:18px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">Best wishes,</p>
+<p style="color:#666666;font-weight:400;font-size:15px;line-height:18px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">Tom</p>
 <tr>
 	<table cellpadding="0" cellspacing="0" border="0" style="width:98%;margin-bottom:12px">
 	  <tbody>
@@ -13,7 +13,7 @@
 		    </td>
 		    <td colspan="2" style="text-align:right;border-bottom:1px dashed #d3d3d3">
 					<div style="color:#666666;font-weight:400;font-size:13px;line-height:18px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
-		        23 February 2015
+		        <%= @payment.created_at.strftime("%d %B, %Y") %>
 					</div>
 		    </td>
 		  </tr>
@@ -51,7 +51,7 @@
 	            <tr>
 	              <td style="padding:12px 0;padding-right:3px">
 									<div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
-	                  Tom Groombridge
+	                  <%= @payment.full_name %>
 									</div>
 	              </td>
 		           	<td style="padding:12px 0;padding-right:3px">
@@ -66,7 +66,7 @@
 		            </td>
 		            <td style="text-align:right;padding:12px 0">
 									<div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
-		                £25.00
+		                <%= number_to_currency(@payment.course_date.course.price, :precision => 2, :unit => "£")  %>
 									</div>
 		            </td>
 		          </tr>
@@ -79,7 +79,7 @@
 		   	<td style="text-align:right;border-top:1px solid #d3d3d3;padding-top:12px;font-weight:700">
 		      TOTAL
 		    </td>
-		    <td style="text-align:right;border-top:1px solid #d3d3d3;padding-top:12px">£25.00</td>
+		    <td style="text-align:right;border-top:1px solid #d3d3d3;padding-top:12px"><%= number_to_currency(@payment.course_date.course.price, :precision => 2, :unit => "£")  %></td>
 	    </tr>
 	  </tbody>
 	</table>
@@ -101,7 +101,7 @@
 							</td>
 							<td width="" height="" align="" valign="" colspan="1">
 								<div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
-                  Tuesday, 24 February 2015 from 10:00 to 17:00 (GMT)
+                  <%= @payment.course_date.start_date.strftime("%A, %e %B %Y") %> from <%= @payment.course_date.start_time.strftime(" %l:%M %p") %> to <%= @payment.course_date.end_time.strftime(" %l:%M %p")%>
 								</div>
 							</td>
 						</tr>
@@ -109,9 +109,11 @@
 							<td width="20" height="" style="vertical-align:top;padding-right:10px" align="" valign="" colspan="1">
 								<img src="https://ci6.googleusercontent.com/proxy/0EyFIZsXl2MqZQQ6aFvuUJTNcprk97pCJebIvMsVIElYkmuBmk9PRurQ4lOmde9CUGy42OT7YGXF3MiKkQ2YswIbCn83g7Iv_c9WOgsIqXOdtkPOxFNWhNQDAVR0lcjQaYTiSwysz2Mn2SFvYXphsWo=s0-d-e1-ft#https://cdn.evbstatic.com/s3-s3/marketing/emails/order_confirmation/location-pin-iconx2.png" title="date" alt="date" style="width:20px;min-height:20px;vertical-align:-4px" border="0" width="20" height="20" class="CToWUd">
 							</td>
-							<td width="" height="" style="padding-bottom:10px" align="" valign="" colspan="1">
-                Business and IP Centre, British Library, 96 Euston Road, London, NW1 2DB
-							</td>
+							<% @payment.course_date.course.course_addresses.each do |address|%>
+								<td width="" height="" style="padding-bottom:10px" align="" valign="" colspan="1">
+									<%= address.address1 %>, <%= address.address2 %>, <%= address.city %>,<%= address.postcode %>
+								</td>
+	            <% end %>
 						</tr>
 						<tr>
 							<td width="20" height="" style="vertical-align:top;padding-right:10px;padding-top:10px" align="" valign="" colspan="1">
