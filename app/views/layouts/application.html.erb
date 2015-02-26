@@ -6,59 +6,48 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "https://js.stripe.com/v1/", "application", "data-turbolinks-track" => true %>
 	<%= tag :meta, :name => "stripe-key", :content => Rails.application.secrets.stripe_public_key %>
-  <%= csrf_meta_tags %> 
-  <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>  
-  <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>     
-  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />  
+  <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+  <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
 </head>
 <body>
   <!-- This is the whole sidenav -->
- <div class="ui top attached demo menu" style="background:#1B1B1B">
-    <a class="open_item item" style="color: rgba(255, 255, 255, 0.8);">
-      <i class="sidebar icon"></i>
-      Menu
-    </a>
-    <%= link_to("about", about_path, :class => "item", :style => "color: rgba(255, 255, 255, 0.8);") %>
-    <% if signed_in? %>      
-      <%= link_to("<i class='sign in icon'></i>Log out".html_safe, destroy_user_session_path, :method => :delete, :class => "item", :style => "float:right; color: rgba(255, 255, 255, 0.8);") %>      
-      <% if current_user.admin? %>      
-        <%= link_to( "<i class='user icon'></i>Dashboard".html_safe, dashboard_path, :class => "item", :style => "float:right; color: rgba(255, 255, 255, 0.8);") %>   
-        <%= link_to( "<i class='user icon'></i>#{current_user.email}".html_safe, dashboard_path, :class => "item", :style => "float:right; color: rgba(255, 255, 255, 0.8);") %>   
-      <% end %>
-    <% else %>
-      <a class="item" style="float:right; color: rgba(255, 255, 255, 0.8);" id="signIn">      
-        <i class="user icon"></i>
-        Sign in 
-      </a>
-      <%= link_to("<i class='sign in icon'></i>Sign up".html_safe, new_user_registration_path, :class => "item", :style => "float:right; color: rgba(255, 255, 255, 0.8);") %>               
-    <% end %>
+  <div class="mobile">
+    <%= render "templates/mobile_header" %>
   </div>
-<div class="ui bottom attached segment" >
+  <div class="web">
+    <%= render "templates/web_header" %>
+  </div>
+
+  <div class="ui bottom attached segment mobile">
     <div class="ui inverted labeled icon left inline vertical sidebar menu" style="width:260px;">
-      <a class="open_item item" href="/">
-        <i class="home icon"></i>
-        Home
-      </a>
-      <% if signed_in? %>                          
-          <%= link_to( "<i class='block layout icon'></i>Dashboard".html_safe , dashboard_path, :class => "open_item") %>          
+      <% if signed_in? %>
+        <%= link_to("<i class='sign in icon'></i>Log out".html_safe, destroy_user_session_path, :method => :delete, :class => "open_item", :style => "color: rgba(255, 255, 255, 0.8);") %>
+        <% if current_user.admin? %>
+          <%= link_to( "<i class='user icon'></i>Dashboard".html_safe, dashboard_path, :class => "open_item item", :style => "color: rgba(255, 255, 255, 0.8);") %>
+        <% end %>
+      <% else %>
+        <a class="open_item item" style="color: rgba(255, 255, 255, 0.8);" id="signIn">
+          <i class="user icon"></i>
+          Sign in
+        </a>
+        <%= link_to("<i class='sign in icon'></i>Sign up".html_safe, new_user_registration_path, :class => "open_item item", :style => "color: rgba(255, 255, 255, 0.8);") %>
       <% end %>
       <a class="open_item item" href="/courses">
         <i class="smile icon"></i>
         Courses
       </a>
-      <a class="open_item item">
-        <i class="calendar icon"></i>
-        History
-      </a>
+      <%= link_to("About", about_path, :class => "open_item item", :style => "color: rgba(255, 255, 255, 0.8);") %>
     </div>
 
   <!-- All the content that isnt sidenav is wrapped in the content class -->
-    <div class="pusher right-side" style="background: #BFE0F0">      
-      <%= render "devise/sessions/sign_in" %>
-      <%= yield %>         
-      <%= render "templates/footer" %>
-      
+      <div class="pusher right-side" style="background: #BFE0F0">
+        <%= render "devise/sessions/sign_in" %>
+        <%= yield %>
+        <%= render "templates/footer" %>
+
+      </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>

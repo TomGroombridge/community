@@ -15,6 +15,14 @@ body{
   overflow-x:hidden;
 }
 
+.mobile{
+  display: none !important;
+}
+
+.web{
+  display: block !important;
+}
+
 .ui.segment[class*="bottom attached"] {
   margin-bottom: 0px;
 }
@@ -204,6 +212,14 @@ width: 200px;
 }
 
 @media only screen and (max-width: 768px) {
+
+  .mobile{
+    display: block !important;
+  }
+
+  .web{
+    display: none !important;
+  }
 
   .no-box-shadow{
     box-shadow: none !important;
