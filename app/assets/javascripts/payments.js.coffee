@@ -9,13 +9,13 @@ jQuery ->
 
 payment =
   setupForm: ->
-    $('#new_payment').submit ->
+    $('#new_payment').submit (e) -> 
+      e.preventDefault()
       $('input[type=submit]').attr('disabled', true)
-      if $('#card_number').length
+      if $('#card_number').val().length
         payment.processCard()        
-        false
-      else
-        true
+        return
+    return
 
   processCard: ->
     card =
@@ -24,14 +24,16 @@ payment =
       expMonth: $('#card_month').val()
       expYear: $('#card_year').val()
     Stripe.createToken(card, payment.handleStripeResponse)
+    return
   
   handleStripeResponse: (status, response) ->
-    if status == 200
+    if response.error
+      console.log 'error :('
+      return
+    else
       $('#payment_stripe_card_token').val(response.id)
       $('#new_payment')[0].submit()
-    else      
-      $('#stripe_error').text(response.error.message)
-      $('input[type=submit]').attr('disabled', false)
+      return
 
 $ ->
   PaymentValidation = 
@@ -62,14 +64,23 @@ $ ->
           type: 'empty'
           prompt: 'Fill in your mobile number'
         }        
-      ]            
+      ]
+    name_on_card:
+      identifier: 'name-on-card'
+      rules: [
+        {
+          type: 'empty'
+          prompt: 'Fill in the full name as it appears on your card'
+        }
+      ]
   settings = 
     inline: true
     onFailure: ->
       console.log 'Failed'
+      $('input[type=submit]').attr('disabled', false)
       false
     onSuccess: ->
       console.log 'Success'
       return
 
-  $('.ui.form.payment').form PaymentValidation, settings
+  $('#new_payment').form PaymentValidation, settings
