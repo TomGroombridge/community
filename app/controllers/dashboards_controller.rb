@@ -2,8 +2,8 @@ class DashboardsController < ApplicationController
 
 	def show
 		@user = current_user
-		@courses = @user.courses
-		@active_courses = @courses.all.includes(:course_dates).select do |course|
+		@all_courses = @user.courses
+		@active_courses = @all_courses.all.includes(:course_dates).select do |course|
 			course.course_dates.any?(&:active?)
 		end
 		@courses = @active_courses.sort_by! do |course|

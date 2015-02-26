@@ -3,7 +3,7 @@
   <div class="header">
     All my Courses
   </div>
-  <div class="content">            
+  <div class="content">
 
     <table class="ui celled striped table">
       <thead>
@@ -17,8 +17,8 @@
         </tr>
       </thead>
       <tbody>
-        <% @courses.each do |course| %>        
-          <tr>              
+        <% @all_courses.each do |course| %>
+          <tr>
             <td ><%= course.name.truncate(30) %></td>
             <td ><%= course.course_dates.count %></td>
             <td ><%=course.upcoming_dates.count%></td>
@@ -26,7 +26,7 @@
             <td ><%= link_to("<i class='edit icon' style='margin:auto; display:block'></i>".html_safe ,edit_course_path(course.id))%></td>
             <td ><%= link_to("<i class='add icon' style='margin:auto; display:block'></i>".html_safe, new_course_course_date_path(course.id)) %></td>
           </tr>
-        <% end %>                  
+        <% end %>
       </tbody>
     </table>
 
