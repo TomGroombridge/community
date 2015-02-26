@@ -64,11 +64,20 @@ $ ->
           type: 'empty'
           prompt: 'Fill in your mobile number'
         }        
-      ]            
+      ]
+    name_on_card:
+      identifier: 'name-on-card'
+      rules: [
+        {
+          type: 'empty'
+          prompt: 'Fill in the full name as it appears on your card'
+        }
+      ]
   settings = 
     inline: true
     onFailure: ->
       console.log 'Failed'
+      $('input[type=submit]').attr('disabled', false)
       false
     onSuccess: ->
       console.log 'Success'
