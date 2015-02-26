@@ -1,25 +1,25 @@
-<div class="ui top attached demo menu" style="background:#1B1B1B">
-  <div class="item logo" style="width: 130px;">
+<div class="ui top attached demo menu web">
+  <div class="item logo">
   </div>
-  <%= link_to("Discover", courses_path, :class => "item", :style => "color: rgba(255, 255, 255, 0.8); font-size: 13px; text-transform: uppercase; letter-spacing: 2px;") %>
-  <%= link_to("Offer", offer_path, :class => "item", :style => "color: rgba(255, 255, 255, 0.8); font-size: 13px; text-transform: uppercase; letter-spacing: 2px;") %>
+  <%= link_to("Discover", courses_path, :class => "item") %>
+  <%= link_to("Offer", offer_path, :class => "item") %>
   <% if signed_in? %>
     <% if current_user.admin? || nil%>
-      <%= link_to( "<i class='user icon'></i>Dashboard".html_safe, dashboard_path, :class => "item", :style => "color: rgba(255, 255, 255, 0.8); font-size: 13px; text-transform: uppercase; letter-spacing: 2px;") %>
+      <%= link_to( "<i class='user icon'></i>Dashboard".html_safe, dashboard_path, :class => "item" ) %>
     <% end %>
-    <%= link_to("<i class='sign in icon'></i>Log out".html_safe, destroy_user_session_path, :method => :delete, :class => "item", :style => "float:right; color: rgba(255, 255, 255, 0.8); font-size: 13px; text-transform: uppercase; letter-spacing: 2px;") %>
+    <%= link_to("<i class='sign in icon'></i>Log out".html_safe, destroy_user_session_path, :method => :delete, :class => "item right") %>
   <% else %>
-    <a class="item" style="float:right; color: rgba(255, 255, 255, 0.8); font-size: 13px; text-transform: uppercase; letter-spacing: 2px;" id="signIn">
+    <a class="item right" id="signIn">
       <i class="user icon"></i>
       Sign in
     </a>
-    <%= link_to("<i class='sign in icon'></i>Sign up".html_safe, new_user_registration_path, :class => "item", :style => "float:right; color: rgba(255, 255, 255, 0.8); font-size: 13px; text-transform: uppercase; letter-spacing: 2px;") %>
-    <div class="ui pointing dropdown link item" style="float:right; color: rgba(255, 255, 255, 0.8); font-size: 13px; text-transform: uppercase; letter-spacing: 2px;">
+    <%= link_to("<i class='sign in icon'></i>Sign up".html_safe, new_user_registration_path, :class => "item right") %>
+  <% end %>
+    <div class="ui pointing dropdown link item" style="float:right ">
       <i class="dropdown icon"></i>
       <span class="text">About</span>
       <div class="menu">
       <%= link_to "About us", about_path ,:class => "item" %>
       </div>
     </div>
-  <% end %>
 </div>
