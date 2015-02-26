@@ -1,0 +1,17 @@
+.ui.inverted.black.footer.vertical.segment {
+	bottom: 0;
+	width: 100%;
+	margin: 0 auto;
+	height: 313px;
+	position: relative;
+	@media only screen and (max-width: 768px) {
+		height: auto;
+	}
+
+	.ui.inverted.divided.link.horizontal.list{
+		width:100%;
+		.item{
+			width: 50%;
+		}
+	}
+}

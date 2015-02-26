@@ -1,10 +1,10 @@
-<div class="ui segment course-info">
+<div class="ui segment course-info" style="margin: 0px;">
 <%= render "book_date" %>
-<div class="ui pusher stackable padded grid">    
+<div class="ui pusher stackable padded grid">
 	   <%# render "book_date" %>
         <!-- LEFT CONTENT -->
         <div class="ten wide column" style="height:100%;">
-            <div class="ui segment items">                                                       	
+            <div class="ui segment items">
                 <div class="item">
                     <div class="image" style="width:300px;">
                         <%= image_tag(@course.avatar_url(:medium), :class => "ui medium rounded course-image" )%>
@@ -25,7 +25,7 @@
                                 </a>
                             </div>
                             <div class="item" style="padding: 0.38em 0em;">
-                              <a style="font-size:1.5rem; margin-left: 8px;">                              
+                              <a style="font-size:1.5rem; margin-left: 8px;">
                                 <%= number_to_currency(@course.price, :precision => 2, :unit => "£")  %>
                               </a>
                             </div>
@@ -39,7 +39,7 @@
                         </div>
                     </div> <!-- .content -->
                 </div> <!-- .item -->
-            </div> <!-- .ui.items -->            
+            </div> <!-- .ui.items -->
             <div class="ui segment items" style="margin-bottom: 1.5em !important;">
                 <h3 class="ui header">ABOUT THIS COURSE</h3>
                 <%= @course.description.html_safe%>
@@ -54,8 +54,8 @@
             <div class="ui segment">
                 <% @course.course_addresses.each do |address|%>
                 <h5 class="ui top attached header address"><%= address.address1 %>, <%= address.address2 %>, <%= address.city %>, <%= address.county %>, <%= address.postcode %></h5>
-                <div class="ui attached segment map">            
-                  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{address.latitude}%2C#{address.longitude}", :class => "map_style" %>                 
+                <div class="ui attached segment map">
+                  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{address.latitude}%2C#{address.longitude}", :class => "map_style" %>
                 </div>
                 <% end %>
                 <div class="ui style fluid accordion">
@@ -82,11 +82,11 @@
                     <div class="content">
                         <p><%= @course.experience %></p>
                     </div>
-                </div> 
+                </div>
             </div>
-            <!-- END OF ACCORDION -->                    
+            <!-- END OF ACCORDION -->
             <!-- BROUGHT TO YOU BY -->
-            <%= render "company_bio" %>            
+            <%= render "company_bio" %>
         </div> <!-- .column -->
-    </div> 
+    </div>
 </div>
