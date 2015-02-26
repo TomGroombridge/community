@@ -53,7 +53,7 @@
         <div class="six wide column">
             <div class="ui segment">
                 <% @course.course_addresses.each do |address|%>
-                <h5 class="ui top attached header address"><%= address.address1 %>, <%= address.address2 %>, <%= address.city %>, <%= address.county %>, <%= address.postcode %></h5>
+                <h5 class="ui top attached header address"><%= address.address1 %>, <%= address.address2 %>, <%= address.city %>, <%= address.postcode %></h5>
                 <div class="ui attached segment map">
                   <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{address.latitude}%2C#{address.longitude}", :class => "map_style" %>
                 </div>
