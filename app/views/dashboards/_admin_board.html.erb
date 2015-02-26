@@ -1,8 +1,8 @@
-<%= render "all_courses_modal" %>    
+<%= render "all_courses_modal" %>
 <div class="two column stackable ui grid" style="margin:0px;">
     <div class="column sixteen wide">
         <div class="ui segment" style="padding:1rem; display:block">
-            <h1 style="margin:0px; display:inline-block"><%= @user.company_name %></h1>            
+            <h1 style="margin:0px; display:inline-block"><%= @user.company_name %></h1>
             <%= link_to('Edit Company Details', edit_user_path(@user.id), :class => "ui inverted green button", :style => "float:right; width:250px; display:inline-block;") %>
         </div>
     </div>
@@ -14,11 +14,11 @@
                     <div class="image" style="text-align:center; width:100%;">
                         <%= image_tag "placeholder.png", :style =>"width:100%;"%>
                     </div>
-                <% else %> 
+                <% else %>
                     <div class="image" style="text-align:center">
                         <%= image_tag(@user.avatar_url(:medium), :class => "ui medium rounded" )%>
                     </div>
-                <% end %>                
+                <% end %>
             </div>
             <div class="ui three column grid">
                 <div class="column" style="text-align:center; padding-right:0; padding-left:0">
@@ -34,7 +34,7 @@
                     <p>HOURS TAUGHT </p>
                 </div>
               </div>
-        </div>        
+        </div>
     </div>
     <!-- END OF LEFT SIDE -->
     <!-- RIGHT SIDE -->
@@ -57,11 +57,11 @@
                         <th class="two wide center aligned">
                             Subscribers
                         </th>
-                        <th class="three wide center aligned">                            
+                        <th class="three wide center aligned">
                             Max Revenue
                         </th>
                         <th class="one wide center aligned">
-                            View 
+                            View
                         </th>
                     </tr>
                 </thead>
@@ -77,9 +77,9 @@
                             <td class="one wide center aligned"><%= link_to("<i class='bar chart icon'></i>".html_safe, course_details_course_course_date_path(course_date.course_id, course_date.id))%></td>
                         </tr>
                         <% end %>
-                    <% end %>                    
+                    <% end %>
                 </tbody>
-            </table>  
+            </table>
             <!-- END OF THE TABLE -->
             <div class="ui segment">
                 <div class="ui three column stackable grid">
@@ -107,27 +107,11 @@
                         <td><%= @payments.count %></td>
                     </tr>
                     <tr>
-                        <td>Revenue</td> 
-                        <% if @payments.blank? %>                       
+                        <td>Revenue</td>
+                        <% if @payments.blank? %>
                             <td>None so far</td>
                         <% else %>
                             <td>£<%= @revenue %></td>
-                        <% end %>
-                    </tr>
-                    <tr>
-                        <td>Fee</td>
-                        <% if @payments.blank? %>                       
-                            <td>None so far</td>
-                        <% else %>
-                            <td>£<%= @revenue * 0.04%></td>
-                        <% end %>
-                    </tr>
-                    <tr>
-                        <td>Net Profit </td>
-                        <% if @payments.blank? %>                       
-                            <td>None so far</td>
-                        <% else %>
-                            <td>£<%= @revenue -  @revenue * 0.04%></td>
                         <% end %>
                     </tr>
                 </tbody>
@@ -136,10 +120,10 @@
     </div>
     <div class="column eleven wide">
         <div class="ui segment">
-            <!-- AT THE MOMENT THIS GRAPH SHOWS YOU THE NUMBER OF COURSES CREATED FROM THE BEGINNING OF THE MONTH -->            
+            <!-- AT THE MOMENT THIS GRAPH SHOWS YOU THE NUMBER OF COURSES CREATED FROM THE BEGINNING OF THE MONTH -->
                 <%# line_chart @courses.group_by_day(:created_at, range: Date.today.beginning_of_month..Time.now).count %>
             <!-- END OF THE GRAPH -->
-            
+
         </div>
     </div>
 </div>
