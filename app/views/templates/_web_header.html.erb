@@ -14,5 +14,12 @@
       Sign in
     </a>
     <%= link_to("<i class='sign in icon'></i>Sign up".html_safe, new_user_registration_path, :class => "item", :style => "float:right; color: rgba(255, 255, 255, 0.8); font-size: 13px; text-transform: uppercase; letter-spacing: 2px;") %>
+    <div class="ui pointing dropdown link item" style="float:right; color: rgba(255, 255, 255, 0.8); font-size: 13px; text-transform: uppercase; letter-spacing: 2px;">
+      <i class="dropdown icon"></i>
+      <span class="text">About</span>
+      <div class="menu">
+      <%= link_to "About us", about_path ,:class => "item" %>
+      </div>
+    </div>
   <% end %>
 </div>
