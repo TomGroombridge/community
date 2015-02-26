@@ -45,7 +45,7 @@ class Payment < ActiveRecord::Base
 	end
 
 	def send_reminder
-		PaymentMailer.delay_until(course_date.start_date - 24.hours).reminder(self)
+		PaymentMailer.delay_until(course_date.start_date_time - 24.hours).reminder(self)
 	end
 
 	def send_new_payment_email
