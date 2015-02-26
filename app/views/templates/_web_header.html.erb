@@ -2,7 +2,7 @@
   <div class="item logo" style="width: 130px;">
   </div>
   <%= link_to("Discover", courses_path, :class => "item", :style => "color: rgba(255, 255, 255, 0.8); font-size: 13px; text-transform: uppercase; letter-spacing: 2px;") %>
-  <%= link_to("Offer", about_path, :class => "item", :style => "color: rgba(255, 255, 255, 0.8); font-size: 13px; text-transform: uppercase; letter-spacing: 2px;") %>
+  <%= link_to("Offer", offer_path, :class => "item", :style => "color: rgba(255, 255, 255, 0.8); font-size: 13px; text-transform: uppercase; letter-spacing: 2px;") %>
   <% if signed_in? %>
     <% if current_user.admin? || nil%>
       <%= link_to( "<i class='user icon'></i>Dashboard".html_safe, dashboard_path, :class => "item", :style => "color: rgba(255, 255, 255, 0.8); font-size: 13px; text-transform: uppercase; letter-spacing: 2px;") %>
