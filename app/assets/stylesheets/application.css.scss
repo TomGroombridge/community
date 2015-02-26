@@ -9,6 +9,7 @@
 @import "payments";
 @import "courses";
 @import "footer";
+@import "offer";
 
 body{
   margin: 0px;
@@ -35,10 +36,8 @@ body{
 
 
 .right-side {
-  // margin-left: 15%;
   width: 100%;
   position: relative;
-  overflow: auto;
   z-index: 1;
 }
 

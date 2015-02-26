@@ -1,0 +1,56 @@
+.ui.segment.offer{
+		padding-right: 0px;
+		padding-left: 0px;
+		background: #fafafa;
+
+	.ui.header{
+		display: block;
+		margin: 0 auto 20px;
+		font-size: 36px;
+		text-align: center;
+		padding: 5rem;
+	}
+
+	.ui.three.column.stackable.grid{
+		padding-top:3rem;
+		background: #f1f1f1;
+
+		.ui.horizontal.segment{
+			text-align: center;
+			font-size: 3rem;
+			padding: 1rem;
+			.label{
+				font-size: 2rem;
+			}
+		}
+	}
+
+	.ui.header.feature{
+		padding-bottom: 1rem;
+	}
+
+	.ui.icon.message.features{
+		width: 50%;
+		margin: auto;
+		text-align: center;
+		margin-bottom: 50px;
+		.column.four.wide{
+			text-align: center;
+			font-size: 2rem;
+			@media only screen and (max-width: 768px) {
+				.inbox.icon{
+					margin-bottom: 20px;
+				}
+			}
+		}
+		.column.twelve.wide{
+			text-align: center;
+		}
+	}
+
+	.ui.card{
+		@media only screen and (max-width: 768px) {
+			margin: auto;
+		}
+	}
+}

@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+
   def about
   end
 
@@ -7,4 +8,8 @@ class PagesController < ApplicationController
 
   def sales_and_refunds
   end
+
+  def offer
+  end
+
 end
