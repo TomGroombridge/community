@@ -1,13 +1,12 @@
 <div class="ui top attached demo menu" style="background:#1B1B1B">
   <div class="item logo" style="width: 130px;">
   </div>
-  <%# link_to("About", about_path, :class => "item", :style => "color: rgba(255, 255, 255, 0.8); font-size: 1.5rem;") %>
   <%= link_to("Discover", courses_path, :class => "item", :style => "color: rgba(255, 255, 255, 0.8); font-size: 13px; text-transform: uppercase; letter-spacing: 2px;") %>
-  <% if current_user.admin? %>
-    <%= link_to( "<i class='user icon'></i>Dashboard".html_safe, dashboard_path, :class => "item", :style => "color: rgba(255, 255, 255, 0.8); font-size: 13px; text-transform: uppercase; letter-spacing: 2px;") %>
-  <% end %>
   <%= link_to("Offer", about_path, :class => "item", :style => "color: rgba(255, 255, 255, 0.8); font-size: 13px; text-transform: uppercase; letter-spacing: 2px;") %>
   <% if signed_in? %>
+    <% if current_user.admin? || nil%>
+      <%= link_to( "<i class='user icon'></i>Dashboard".html_safe, dashboard_path, :class => "item", :style => "color: rgba(255, 255, 255, 0.8); font-size: 13px; text-transform: uppercase; letter-spacing: 2px;") %>
+    <% end %>
     <%= link_to("<i class='sign in icon'></i>Log out".html_safe, destroy_user_session_path, :method => :delete, :class => "item", :style => "float:right; color: rgba(255, 255, 255, 0.8); font-size: 13px; text-transform: uppercase; letter-spacing: 2px;") %>
   <% else %>
     <a class="item" style="float:right; color: rgba(255, 255, 255, 0.8); font-size: 13px; text-transform: uppercase; letter-spacing: 2px;" id="signIn">
