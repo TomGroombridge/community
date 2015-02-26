@@ -1,0 +1,143 @@
+<p style="color:#666666;font-weight:400;font-size:15px;line-height:18px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">Hi <%= @payment.full_name %>,</p>
+<p style="color:#666666;font-weight:400;font-size:15px;line-height:18px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">This is a confirmation email to confirm that you are going to <%= @payment.course_date.course.name %> on <%= @payment.course_date.start_date.strftime("%d/%m/%Y") %></p>
+<p style="color:#666666;font-weight:400;font-size:15px;line-height:18px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">Best wishes,</p>
+<p style="color:#666666;font-weight:400;font-size:15px;line-height:18px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">Tom</p>
+<tr>
+	<table cellpadding="0" cellspacing="0" border="0" style="width:98%;margin-bottom:12px">
+	  <tbody>
+		  <tr>
+		    <td style="border-bottom:1px dashed #d3d3d3">
+					<h2 style="color:#404040;font-weight:300;margin:0 0 12px 0;font-size:24px;line-height:30px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
+		        Order Summary
+		      </h2>
+		    </td>
+		    <td colspan="2" style="text-align:right;border-bottom:1px dashed #d3d3d3">
+					<div style="color:#666666;font-weight:400;font-size:13px;line-height:18px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
+		        <%= @payment.created_at.strftime("%d %B, %Y") %>
+					</div>
+		    </td>
+		  </tr>
+	  	<tr>
+	      <td colspan="3">
+					<p style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif;margin-bottom:18px">
+	        	Order no.: 399721260
+					</p>
+	        <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+	          <thead>
+	            <tr>
+								<th style="border-bottom:1px dashed #d3d3d3;text-align:left;padding-bottom:12px;padding-right:12px">
+									<div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif;font-weight:500">
+	                  Name
+									</div>
+	              </th>
+	              <th style="border-bottom:1px dashed #d3d3d3;text-align:left;padding-bottom:12px;padding-right:12px">
+									<div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif;font-weight:500">
+	                  Type
+									</div>
+	              </th>
+	              <th style="border-bottom:1px dashed #d3d3d3;text-align:left;padding-bottom:12px;padding-right:12px">
+									<div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif;font-weight:500">
+		                Quantity
+									</div>
+	             	</th>
+	              <th style="border-bottom:1px dashed #d3d3d3;text-align:right;padding-bottom:12px;padding-right:0">
+									<div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif;font-weight:500">
+	                  Price
+									</div>
+								</th>
+	            </tr>
+	          </thead>
+	          <tbody>
+	            <tr>
+	              <td style="padding:12px 0;padding-right:3px">
+									<div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
+	                  <%= @payment.full_name %>
+									</div>
+	              </td>
+		           	<td style="padding:12px 0;padding-right:3px">
+									<div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
+		                General Admission
+									</div>
+		            </td>
+		            <td style="padding:12px 0;padding-right:3px">
+									<div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
+		                1
+									</div>
+		            </td>
+		            <td style="text-align:right;padding:12px 0">
+									<div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
+		                <%= number_to_currency(@payment.course_date.course.price, :precision => 2, :unit => "£")  %>
+									</div>
+		            </td>
+		          </tr>
+	          </tbody>
+	        </table>
+	      </td>
+	    </tr>
+	    <tr>
+		    <td></td>
+		   	<td style="text-align:right;border-top:1px solid #d3d3d3;padding-top:12px;font-weight:700">
+		      TOTAL
+		    </td>
+		    <td style="text-align:right;border-top:1px solid #d3d3d3;padding-top:12px"><%= number_to_currency(@payment.course_date.course.price, :precision => 2, :unit => "£")  %></td>
+	    </tr>
+	  </tbody>
+	</table>
+</tr>
+<tr>
+  <td style="font-family:'Helvetica neue',Helvetica,arial,sans-serif;padding:32px 40px;border-radius:0 0 6px 6px">
+	<table cellpadding="0" cellspacing="0" border="0" align="left" style="width:100%;line-height:1.67;font-size:13px">
+    <tbody>
+    	<tr>
+        <td>
+					<h2 style="color:#404040;font-weight:300;margin:0 0 12px 0;font-size:24px;line-height:30px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
+						About this event
+					</h2>
+					<table cellspacing="0" cellpadding="0" width="100%" align="">
+						<tbody>
+						<tr>
+							<td width="20" height="" style="vertical-align:top;padding-right:10px" align="" valign="" colspan="1">
+								<img src="https://ci5.googleusercontent.com/proxy/K5NOKd2qRftFOiSFcKbzG2xIEoT5TsuEhqxZYpsPovzNv3ftZUWB5HHbrXY3_H8siBt0HFXxBev2YpiWh2yQpTzHuHF2GEi_JnCi2AwuMB8Fe65DQGb14F8c9B62BEa86Xil1zU2sPDX=s0-d-e1-ft#https://cdn.evbstatic.com/s3-s3/marketing/emails/order_confirmation/date-iconx2.png" title="date" alt="date" style="width:20px;min-height:20px;vertical-align:-2px" border="0" width="20" height="20" class="CToWUd">
+							</td>
+							<td width="" height="" align="" valign="" colspan="1">
+								<div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
+                  <%= @payment.course_date.start_date.strftime("%A, %e %B %Y") %> from <%= @payment.course_date.start_time.strftime(" %l:%M %p") %> to <%= @payment.course_date.end_time.strftime(" %l:%M %p")%>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td width="20" height="" style="vertical-align:top;padding-right:10px" align="" valign="" colspan="1">
+								<img src="https://ci6.googleusercontent.com/proxy/0EyFIZsXl2MqZQQ6aFvuUJTNcprk97pCJebIvMsVIElYkmuBmk9PRurQ4lOmde9CUGy42OT7YGXF3MiKkQ2YswIbCn83g7Iv_c9WOgsIqXOdtkPOxFNWhNQDAVR0lcjQaYTiSwysz2Mn2SFvYXphsWo=s0-d-e1-ft#https://cdn.evbstatic.com/s3-s3/marketing/emails/order_confirmation/location-pin-iconx2.png" title="date" alt="date" style="width:20px;min-height:20px;vertical-align:-4px" border="0" width="20" height="20" class="CToWUd">
+							</td>
+							<% @payment.course_date.course.course_addresses.each do |address|%>
+								<td width="" height="" style="padding-bottom:10px" align="" valign="" colspan="1">
+									<%= address.address1 %>, <%= address.address2 %>, <%= address.city %>,<%= address.postcode %>
+								</td>
+	            <% end %>
+						</tr>
+						<tr>
+							<td width="20" height="" style="vertical-align:top;padding-right:10px;padding-top:10px" align="" valign="" colspan="1">
+								<img src="https://ci6.googleusercontent.com/proxy/mxXBYATunu3EOSIMILty3zgVnkAdbkhR1uBIk4u59BqOpUc7VIemDqDtoNvbUr89m2Qj8t_Uyx_FFfGoFiVEzxOr-WI0-M3gA-Z2llNdJEN1ykRHw7u9d3UJd4zS8Q_PSOE225Tlj9-_GRwsSemEpd4=s0-d-e1-ft#https://cdn.evbstatic.com/s3-s3/marketing/emails/order_confirmation/add-calendar-iconx2.png" title="date" alt="date" style="width:20px;min-height:20px;vertical-align:-2px" border="0" width="20" height="20" class="CToWUd">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+      </td>
+    </tr>
+	</tbody>
+</table>
+<table cellpadding="0" cellspacing="0" border="0" align="right" style="width:100%;text-align:center;margin-top:16px">
+  <tbody>
+	  <tr>
+	    <td>
+				<% @payment.course_date.course.course_addresses.each do |address|%>
+				<a target="_blank">
+					<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{address.latitude}%2C#{address.longitude}", :style => "width:100%; min-height:160px" %>
+				</a>
+				<% end %>
+	    </td>
+	  </tr>
+	</tbody>
+</table>
+</td>
+</tr>

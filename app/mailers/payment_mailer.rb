@@ -1,7 +1,9 @@
 class PaymentMailer < ActionMailer::Base
   default from: "hello@courseiam"
+  layout 'courseiam_mail'
 
-  def new_payment(payment)    
+  def new_payment(payment)
+    @payment = payment
     mail to: payment.email, subject: "Payment Confirmation Email"
   end
 

@@ -3,50 +3,50 @@
     <div class="ui segment no-padding">
       <%= form_for @payment, :html => {:class => 'ui form payment fluid '} do |f| %>
         <%= f.hidden_field :course_date_id %>
-        <%= f.hidden_field :stripe_card_token %>          
+        <%= f.hidden_field :stripe_card_token %>
         <a class="ui teal ribbon label"><i class="shop icon"></i>Secure Checkout</a>
-        <div class="ui segment">      
+        <div class="ui segment">
           <a class="ui blue ribbon label">Ticket Information</a>
           <div class="four column stackable ui grid">
-            <div class="column">          
+            <div class="column">
               <%= @payment.course_date.course.name %>
             </div>
-            <div class="column">          
-              <%= @payment.course_date.course.address %> 
+            <div class="column">
+              <%= @payment.course_date.course.address %>
             </div>
-            <div class="column">          
+            <div class="column">
               <%= @payment.course_date.start_date.strftime("%d/%m/%Y") %>
               <br>
               <%= @payment.course_date.start_date.strftime("%l:%M %p") %>
             </div>
-            <div class="column">          
+            <div class="column">
               £<%= @payment.course_date.course.price %>  x
             </div>
-          </div>                
+          </div>
         </div>
         <div class="ui segment no-box-shadow">
           <a class="ui blue ribbon label">Registration Information</a>
           <div class="ui segment user-details no-box-shadow-web">
             <div class="ui form">
               <div class="inline field required">
-                <label class="input-label">Email Address</label>              
-                <% if signed_in? %>      
+                <label class="input-label">Email Address</label>
+                <% if signed_in? %>
                   <%= f.text_field :email, :value => current_user.email, :class => "payment-fields"%>
                 <% else %>
                   <%= f.text_field :email, :class => "payment-fields" %>
                 <% end %>
               </div>
               <div class="inline field required">
-                <label class="input-label">First & Last Name</label>              
-                <% if signed_in? %>      
+                <label class="input-label">First & Last Name</label>
+                <% if signed_in? %>
                   <%= f.text_field :full_name, :value => current_user.full_name, :class => "payment-fields" %>
                 <% else %>
                   <%= f.text_field :full_name, :class => "payment-fields" %>
                 <% end %>
               </div>
               <div class="inline field required">
-                <label class="input-label">Mobile Number</label>              
-                <% if signed_in? %>      
+                <label class="input-label">Mobile Number</label>
+                <% if signed_in? %>
                   <%= f.text_field :mobile_number, :value => current_user.contact_number, :class => "payment-fields" %>
                 <% else %>
                   <%= f.text_field :mobile_number, :class => "payment-fields" %>
@@ -63,13 +63,13 @@
             </div>
           </div>
         </div>
-        <div class="ui segment no-box-shadow">   
+        <div class="ui segment no-box-shadow">
           <a class="ui blue ribbon label">Billing & Payment Information</a>
           <div class="ui segment no-box-shadow-web billing-info">
             <% if @course_date.course.free? %>
               No payment needed!
             <% else %>
-              <div class="ui form">                        
+              <div class="ui form">
                 <div class="inline required field">
                   <label class="input-label">Name on Card</label>
                   <input class="full-width" type="text" data-validate="name-on-card">
@@ -92,7 +92,7 @@
           </div>
         </div>
         <%= f.submit("Send Payment", :class => "ui green button", :style => 'float:right') %>
-      <% end %>            
+      <% end %>
     </div>
   </div>
   <%= render 'payments/booking_information' %>
