@@ -6,7 +6,7 @@
 
 
 
-jQuery -> 
+jQuery ->
   new AvatarCropper()
 
 class AvatarCropper
@@ -24,18 +24,18 @@ class AvatarCropper
     $('#course_crop_h').val(coords.h)
     @updatePreview(coords)
 
-  updatePreview: (coords) => 
+  updatePreview: (coords) =>
     $('#preview').css
       width: Math.round(200/coords.w * $('#cropbox').width()) + 'px'
       height: Math.round(200/coords.h * $('#cropbox').height()) + 'px'
       marginLeft: '-' + Math.round(200/coords.w * coords.x) + 'px'
       marginTop: '-' + Math.round(200/coords.h * coords.y) + 'px'
 
- 
+
 
 
 $ ->
-  validation = 
+  validation =
     name:
       identifier: 'course[name]'
       rules: [
@@ -63,12 +63,24 @@ $ ->
           type: 'maxLength[120]'
           prompt: 'You cannot go over 120 characters in this Tweet'
         }
-      ]    
+      ]
     address1:
       identifier: 'course[course_addresses_attributes][0][address1]'
       rules: [ {
         type: 'empty'
         prompt: 'Please fill in the first line of your address'
+      } ]
+    address2:
+      identifier: 'course[course_addresses_attributes][0][address2]'
+      rules: [ {
+        type: 'empty'
+        prompt: 'Please fill in the second line of your address'
+      } ]
+    city:
+      identifier: 'course[course_addresses_attributes][0][city]'
+      rules: [ {
+        type: 'empty'
+        prompt: 'Please fill in the city or town'
       } ]
     postcode:
       identifier: 'course[course_addresses_attributes][0][postcode]'
@@ -94,7 +106,7 @@ $ ->
           prompt: 'Please add a validated price with a decimal place'
         }
       ]
-    start_date: 
+    start_date:
       identifier: 'course[course_dates_attributes][0][start_date]'
       rules: [
         {
@@ -102,7 +114,7 @@ $ ->
           prompt: 'Please add the start date of the course'
         }
       ]
-    end_date: 
+    end_date:
       identifier: 'course[course_dates_attributes][0][end_date]'
       rules: [
         {
@@ -110,7 +122,7 @@ $ ->
           prompt: 'Please add the end date of the course'
         }
       ]
-    quantity: 
+    quantity:
       identifier: 'course[course_dates_attributes][0][quantity]'
       rules: [
         {
@@ -121,8 +133,8 @@ $ ->
           type: 'integer'
           prompt: 'Course places must be a integer'
         }
-      ]      
-  settings = 
+      ]
+  settings =
     inline: true
     onFailure: ->
       console.log 'Failed'
