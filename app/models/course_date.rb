@@ -3,6 +3,7 @@ class CourseDate < ActiveRecord::Base
 	has_many :payments
 	after_create :invalid
 	after_create :send_course_info
+	after_create :send_new_date
 
 	def valid_dates(course)
 		if course.start_date_time > Time.now && course.active?
@@ -35,6 +36,10 @@ class CourseDate < ActiveRecord::Base
 	def sale_percentage
 		value = self.payments.count.to_f / quantity * 100.00
 		value.to_i
+	end
+
+	def send_new_date
+		CourseDateMailer.new_date(self).deliver!
 	end
 
 	# def edit_course_date
