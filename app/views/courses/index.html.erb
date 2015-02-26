@@ -1,17 +1,17 @@
-<div class="ui pusher" style="margin-top:10px;">
+<div class="ui pusher" style="padding-top:10px;">
     <div class="ui special cards" style="margin:0px;">
-        <% @courses.each do |course| %>   
+        <% @courses.each do |course| %>
             <div class="card">
-                <div class="image">                  
+                <div class="image">
                   <%# link_to image_tag(course.avatar_url(:medium)), course_path(course) %>
-                  <%= image_tag course.avatar_url(:medium)%>                                 
+                  <%= image_tag course.avatar_url(:medium)%>
                 </div>
                 <div class="content">
                   <a class="header"><%= link_to course.name, course_path(course) %></a>
                   <div class="meta">
                     <span class="date">Create in Sep 2014</span>
                   </div>
-                </div>                
+                </div>
             </div>
         <% end %>
     </div>
