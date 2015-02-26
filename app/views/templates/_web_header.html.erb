@@ -1,16 +1,19 @@
 <div class="ui top attached demo menu" style="background:#1B1B1B">
-  <%= link_to("about", about_path, :class => "item", :style => "color: rgba(255, 255, 255, 0.8);") %>
+  <div class="item logo" style="width: 130px;">
+  </div>
+  <%# link_to("About", about_path, :class => "item", :style => "color: rgba(255, 255, 255, 0.8); font-size: 1.5rem;") %>
+  <%= link_to("Discover", courses_path, :class => "item", :style => "color: rgba(255, 255, 255, 0.8); font-size: 13px; text-transform: uppercase; letter-spacing: 2px;") %>
+  <% if current_user.admin? %>
+    <%= link_to( "<i class='user icon'></i>Dashboard".html_safe, dashboard_path, :class => "item", :style => "color: rgba(255, 255, 255, 0.8); font-size: 13px; text-transform: uppercase; letter-spacing: 2px;") %>
+  <% end %>
+  <%= link_to("Offer", about_path, :class => "item", :style => "color: rgba(255, 255, 255, 0.8); font-size: 13px; text-transform: uppercase; letter-spacing: 2px;") %>
   <% if signed_in? %>
-    <%= link_to("<i class='sign in icon'></i>Log out".html_safe, destroy_user_session_path, :method => :delete, :class => "item", :style => "float:right; color: rgba(255, 255, 255, 0.8);") %>
-    <% if current_user.admin? %>
-      <%= link_to( "<i class='user icon'></i>Dashboard".html_safe, dashboard_path, :class => "item", :style => "float:right; color: rgba(255, 255, 255, 0.8);") %>
-      <%= link_to( "<i class='user icon'></i>#{current_user.email}".html_safe, dashboard_path, :class => "item", :style => "float:right; color: rgba(255, 255, 255, 0.8);") %>
-    <% end %>
+    <%= link_to("<i class='sign in icon'></i>Log out".html_safe, destroy_user_session_path, :method => :delete, :class => "item", :style => "float:right; color: rgba(255, 255, 255, 0.8); font-size: 13px; text-transform: uppercase; letter-spacing: 2px;") %>
   <% else %>
-    <a class="item" style="float:right; color: rgba(255, 255, 255, 0.8);" id="signIn">
+    <a class="item" style="float:right; color: rgba(255, 255, 255, 0.8); font-size: 13px; text-transform: uppercase; letter-spacing: 2px;" id="signIn">
       <i class="user icon"></i>
       Sign in
     </a>
-    <%= link_to("<i class='sign in icon'></i>Sign up".html_safe, new_user_registration_path, :class => "item", :style => "float:right; color: rgba(255, 255, 255, 0.8);") %>
+    <%= link_to("<i class='sign in icon'></i>Sign up".html_safe, new_user_registration_path, :class => "item", :style => "float:right; color: rgba(255, 255, 255, 0.8); font-size: 13px; text-transform: uppercase; letter-spacing: 2px;") %>
   <% end %>
 </div>

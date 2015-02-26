@@ -20,7 +20,7 @@
     <%= render "templates/web_header" %>
   </div>
 
-  <div class="ui bottom attached segment mobile">
+  <div class="ui bottom attached segment">
     <div class="ui inverted labeled icon left inline vertical sidebar menu" style="width:260px;">
       <% if signed_in? %>
         <%= link_to("<i class='sign in icon'></i>Log out".html_safe, destroy_user_session_path, :method => :delete, :class => "open_item", :style => "color: rgba(255, 255, 255, 0.8);") %>
