@@ -19,8 +19,16 @@ class Payment < ActiveRecord::Base
 		course_date.course.price
 	end
 
+	def booking_fee
+		course_date.course.price * 0.04
+	end
+
+	def overall_price
+		booking_fee + price
+	end
+
 	def save_with_payment(params)
-		@amount = self.course_date.course.price * 100
+		@amount = self.overall_price * 100
 		@email = self.email
 		@name = self.full_name
 		@course_name = self.course_date.course.name

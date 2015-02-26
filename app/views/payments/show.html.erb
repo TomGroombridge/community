@@ -1,8 +1,8 @@
-<div class="ui segment confirmation" style="padding-top:10px;">	
+<div class="ui segment confirmation" style="padding-top:10px;">
 		<div class="header">
 			<h1 style="margin-bottom:0px;">Thank-you for booking with Courseiam </h1>
 			<h3 style="font-weight:100; margin-top:0px;">A confirmation email has been sent to <%= @payment.email %></h3>
-		</div>	
+		</div>
 	<div class="ui segment no-box-shadow-web" style="margin:0px; padding-top:0em">
 		<div class="header">
 			<h3 style="border-bottom: 1px solid black; text-align: left; margin-bottom: 20px; margin-top:0px;">PREVIEW</h3>
@@ -14,13 +14,13 @@
 				</div>
 			</div>
 			<div class="column twelve wide" >
-				<h1 style="margin:0px;"><%= @payment.course_date.course.name.capitalize %></h1>				
-				<h3 style="margin-top:0px;"><%= @payment.course_date.course.blurb %><h4><%=@payment.course_date.course.user.company_website %></h4></h3>				
+				<h1 style="margin:0px;"><%= @payment.course_date.course.name.capitalize %></h1>
+				<h3 style="margin-top:0px;"><%= @payment.course_date.course.blurb %><h4><%=@payment.course_date.course.user.company_website %></h4></h3>
 				<div class="ui segment no-box-shadow-web" style="padding-left:0px; padding-top:0px;">
 					<div class="two column stackable ui grid">
 						<div class="column" style="padding-left:0px;">
 							<p><strong>date of course:</strong> <%= @payment.course_date.start_date_time.strftime("%e %b %Y %H:%M%p") %></p>
-							<p><strong>amount paid:</strong> <%= number_to_currency(@payment.course_date.course.price, :precision => 2, :unit => "£")  %></p>							
+							<p><strong>amount paid:</strong> <%= number_to_currency(@payment.overall_price, :precision => 2, :unit => "£")  %></p>
 						</div>
 						<div class="column" >
 							<p><strong>Course Address</strong></p>
@@ -39,23 +39,23 @@
 	</div>
 	<div class="ui segment no-box-shadow-web">
 		<div class="three column stackable ui grid">
-			<div class="column">				
+			<div class="column">
 			  <a class='ui facebook button' href="https://www.facebook.com/sharer/sharer.php?u=http://www.courseiam.com" class="popup" style="width:100%">
-			  	<i class="facebook icon"></i>            
+			  	<i class="facebook icon"></i>
             Facebook
-        </a>		  				  				
+        </a>
 			</div>
 			<div class="column">
 			  <a class='ui twitter button' href="http://twitter.com/home?status=I have just booked a course with @courseiam at http://www.courseiam.com, check out all the courses available" style="width:100%;">
             <i class="twitter icon"></i>
             Twitter
-        </a>				
+        </a>
 			</div>
 			<div class="column">
-				<div class="" >				  				  
+				<div class="" >
 				  <a class='ui instagram button' href="mailto:?subject=Check these guy's out&body=Hi,I found this website
 and thought you might like it http://www.courseiam.com" style="width:100%;">
-          	<i class="mail outline icon"></i>         
+          	<i class="mail outline icon"></i>
             Email
           </a>
 				</div>
