@@ -3,7 +3,7 @@ class CourseDate < ActiveRecord::Base
 	has_many :payments
 	after_create :invalid
 	after_create :send_course_info
-	after_create :send_new_date
+	# after_create :send_new_date
 	after_create :full
 
 	def valid_dates(course)
