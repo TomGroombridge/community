@@ -1,22 +1,49 @@
 <div class="ui small modal book_date" id="courseDates">
   <i class="close icon"></i>
-  <div class="content">
+  <a class="ui blue label" style="margin-left: -10px; margin-top: 10px;"><h4 class="ui header" style="color:white">Ticket Information</h4></a>
+  <div class="content" style="padding-top:0px;">
     <h3><%= @course.name%></h3>
-    <div class="ui segment">
+    <div class="ui segment" style="padding-top:0px;">
       <%# form_tag course_tickets_path(@course), id: 'ticket_form' do %>
         <%#  select_tag 'start_date', options_from_collection_for_select(@course.upcoming_dates, :id, :pretty_date) %>
         <!-- Quantity: <%# text_field_tag @course.course_date.payment, '0' %> -->
       <%# end %>
-      <ul>
-      <% @course.upcoming_dates.each do |date|%>
-      <li>
-        <%= date.start_date.strftime("%m/%d/%Y") %>
-        <% if date.quantity == date.payments.count %>
-          Sorry this date is sold out.
-        <% else %>
-          <%= link_to "Book Date", new_payment_path(:id => date.id), :class => "ui positive labeled button" %>
-        <% end %>
+      <ul class="course-dates">
+      <li class="header" style="padding-bottom: 0px;">
+        <div class="ui grid">
+          <div class="eight wide column">Date & Location</div>
+          <div class="three wide column center">Price</div>
+          <div class="five wide column center">Book Date</div>
+        </div>
       </li>
+      <% @course.upcoming_dates.each do |date|%>
+      <div class="ui divider"></div>
+      <li>
+        <div class="ui grid">
+          <div class="eight wide column">
+            <i class="calendar icon"></i>
+            <%= date.start_date.strftime("%m/%d/%Y") %>
+            <br>
+            <br>
+            <i class="marker icon"></i>
+            <% date.course.course_addresses.each do |address|%>
+              <%= address.address1 %>, <%= address.address2 %>, <%= address.city %>, <%= address.postcode %>
+            <% end %>
+          </div>
+          <div class="three wide column center">
+            <%= number_to_currency(date.course.price, :precision => 2, :unit => "£")  %>
+          </div>
+          <div class="five wide column center">
+            <% if date.quantity == date.payments.count %>
+              Sorry this date is sold out.
+            <% else %>
+              <%= link_to "Book Date", new_payment_path(:id => date.id), :class => "ui positive labeled button" %>
+            <% end %>
+          </div>
+        </div>
+        <div class="ui divider"></div>
+      </li>
+
       <br>
       <% end %>
       <ul>
