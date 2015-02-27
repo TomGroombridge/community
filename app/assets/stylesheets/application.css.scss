@@ -228,13 +228,36 @@ width: 200px;
 
 .ui.cards > .card,
 .ui.card{
-  width: 260px;
-  @media only screen and (max-width: 768px) {
+  width: 235px;
+  @media only screen and (max-width: 568px) {
     float: none;
     margin: 0em auto 1.5em;
     width: 75%;
   }
 }
+
+.ui.special.cards.container{
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  @media (min-width: 1245px){
+    width: 1245px;
+  }
+  @media (min-width:996px) and (max-width : 1245px ) {
+    width: 996px;
+  }
+  @media (min-width:768px) and (max-width : 996px ) {
+    width: 747px;
+  }
+  @media (min-width:568px) and (max-width : 768px ) {
+    width: 498px;
+  }
+  @media (min-width:498px) and (max-width : 568px ) {
+    width: 100%
+  }
+
+}
+
 
 
 @media only screen and (max-width: 768px) {
