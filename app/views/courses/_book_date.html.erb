@@ -1,18 +1,27 @@
 <div class="ui small modal" id="courseDates">
   <i class="close icon"></i>
-  
-    <a class="ui blue label" style="margin-bottom:20px"><h4 class="ui header" style="color:white">ABOUT THIS COURSE</h4></a> 
-  
-  <div class="content">    
-    <h3><%= @course.name%></h3>       
+
+    <a class="ui blue label" style="margin-bottom:20px"><h4 class="ui header" style="color:white">ABOUT THIS COURSE</h4></a>
+
+  <div class="content">
+    <h3><%= @course.name%></h3>
     <div class="ui segment">
-      <%= form_tag course_tickets_path(@course), id: 'ticket_form' do %>            
-        <%= select_tag 'start_date', options_from_collection_for_select(@course.upcoming_dates, :id, :pretty_date) %>                
+      <%# form_tag course_tickets_path(@course), id: 'ticket_form' do %>
+        <%#  select_tag 'start_date', options_from_collection_for_select(@course.upcoming_dates, :id, :pretty_date) %>
         <!-- Quantity: <%# text_field_tag @course.course_date.payment, '0' %> -->
-      <% end %>           
-    </div>  
+      <%# end %>
+      <ul>
+      <% @course.upcoming_dates.each do |date|%>
+      <li>
+        <%= date.start_date.strftime("%m/%d/%Y") %>
+        <%= link_to "Book Date", new_payment_path(:id => date.id), :class => "ui positive labeled button" %>
+      </li>
+      <br>
+      <% end %>
+      <ul>
+    </div>
   </div>
-  <div class="actions">
+  <!-- <div class="actions">
     <div class="ui black button">
       Nope
     </div>
@@ -20,5 +29,5 @@
       Yep, that's me
       <i class="checkmark icon"></i>
     </button>
-  </div>
+  </div> -->
 </div>
