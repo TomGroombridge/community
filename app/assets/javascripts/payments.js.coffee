@@ -2,18 +2,18 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-jQuery -> 
+jQuery ->
   Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'))
   payment.setupForm()
 
 
 payment =
   setupForm: ->
-    $('#new_payment').submit (e) -> 
+    $('#new_payment').submit (e) ->
       e.preventDefault()
       $('input[type=submit]').attr('disabled', true)
       if $('#card_number').val().length
-        payment.processCard()        
+        payment.processCard()
         return
     return
 
@@ -25,7 +25,7 @@ payment =
       expYear: $('#card_year').val()
     Stripe.createToken(card, payment.handleStripeResponse)
     return
-  
+
   handleStripeResponse: (status, response) ->
     if response.error
       console.log 'error :('
@@ -36,7 +36,7 @@ payment =
       return
 
 $ ->
-  PaymentValidation = 
+  PaymentValidation =
     email:
       identifier: 'payment[email]'
       rules: [
@@ -47,7 +47,7 @@ $ ->
         {
           type: 'email'
           prompt: 'Invalid email'
-        }                
+        }
       ]
     full_name:
       identifier: 'payment[full_name]'
@@ -55,7 +55,7 @@ $ ->
         {
           type: 'empty'
           prompt: 'Fill in your name'
-        }        
+        }
       ]
     mobile_number:
       identifier: 'payment[mobile_number]'
@@ -63,7 +63,7 @@ $ ->
         {
           type: 'empty'
           prompt: 'Fill in your mobile number'
-        }        
+        }
       ]
     name_on_card:
       identifier: 'name-on-card'
@@ -73,7 +73,23 @@ $ ->
           prompt: 'Fill in the full name as it appears on your card'
         }
       ]
-  settings = 
+    card_number:
+      identifier: 'card_number'
+      rules: [
+        {
+          type: 'empty'
+          prompt: 'Fill in the card number as it appears on your card'
+        }
+      ]
+    csv:
+      identifier: 'card_code'
+      rules: [
+        {
+          type: 'empty'
+          prompt: 'Fill in the card csv as it appears on the back of your card'
+        }
+      ]
+  settings =
     inline: true
     onFailure: ->
       console.log 'Failed'
