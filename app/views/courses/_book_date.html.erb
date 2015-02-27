@@ -14,7 +14,11 @@
       <% @course.upcoming_dates.each do |date|%>
       <li>
         <%= date.start_date.strftime("%m/%d/%Y") %>
-        <%= link_to "Book Date", new_payment_path(:id => date.id), :class => "ui positive labeled button" %>
+        <% if date.quantity == date.payments.count %>
+          Sorry this date is sold out.
+        <% else %>
+          <%= link_to "Book Date", new_payment_path(:id => date.id), :class => "ui positive labeled button" %>
+        <% end %>
       </li>
       <br>
       <% end %>
