@@ -21,7 +21,7 @@
 //= require ckeditor/init
 
 
-$(document).ready(function() {  
+$(document).ready(function() {
 
     $('#example2')
       .progress({
@@ -60,34 +60,36 @@ $(document).ready(function() {
 
     $('.ui.accordion')
       .accordion()
-    ;      
+    ;
 
     $('.gmap').append('<iframe frameborder="0" style="border:0" src="https://maps.google.com/maps?output=embed&iwloc&z=12&t=p&q=London UK"></iframe>');
 
     $('.special.cards.image')
       .dimmer({
         on: 'hover'
-    });         
-      
+    });
+
     $("#courseDates").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#course', 'show');
 
-    $("#cropImage").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#cropModal', 'show');  
+    $("#cropImage").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#cropModal', 'show');
 
-    $("#normalUserModal").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#user', 'show');  
+    $("#normalUserModal").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#user', 'show');
 
-    $("#companyUserModal").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#companyUser', 'show');  
+    $("#companyUserModal").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#companyUser', 'show');
 
-    $("#normalUser").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#signIn', 'show');  
-    
+    $("#normalUser").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#signIn', 'show');
+
+    $("#normalUser").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#signInMobile', 'show');
+
 
 
 
 
     var button = document.getElementById('upload_button');
-    var input  = document.getElementById('course_image');      
-      
+    var input  = document.getElementById('course_image');
 
-         
+
+
 
 
 });

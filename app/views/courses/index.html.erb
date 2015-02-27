@@ -4,13 +4,20 @@
             <div class="card">
                 <div class="image">
                   <%# link_to image_tag(course.avatar_url(:medium)), course_path(course) %>
-                  <%= image_tag course.avatar_url(:medium)%>
+                  <%# image_tag course.avatar_url(:medium)%>
+                  <%= link_to (image_tag course.avatar_url(:medium), :style => "width:100%; vertical-align: top;"), course_path(course) %>
                 </div>
                 <div class="content">
                   <a class="header"><%= link_to course.name, course_path(course) %></a>
-                  <div class="meta">
-                    <span class="date">Create in Sep 2014</span>
-                  </div>
+                </div>
+                <div class="extra content">
+                  <span class="left floated like">
+                    <i class="calendar icon"></i>
+                    <%= course.upcoming_date.start_date.strftime("%d, %b, %Y") %>
+                  </span>
+                  <span class="right floated star">
+                    <%= number_to_currency(course.price, :precision => 2, :unit => "£")  %>
+                  </span>
                 </div>
             </div>
         <% end %>
