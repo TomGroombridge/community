@@ -2,9 +2,18 @@
     <div class="ui special cards" style="margin:0px;">
         <% @courses.each do |course| %>
             <div class="card">
-                <div class="image">
-                  <%# link_to image_tag(course.avatar_url(:medium)), course_path(course) %>
-                  <%# image_tag course.avatar_url(:medium)%>
+                <div class="ui fluid image">
+
+                <!-- sold out banner -->
+
+                  <!-- <a class="ui left red corner label" style="font-size: 1.5rem; text-align: left;">
+                    <span style="font-size: 1rem; -webkit-transform: rotate(90deg); -moz-transform: rotate(90deg); -o-transform: rotate(90deg); -ms-transform: rotate(90deg); transform: rotate(315deg); position: inherit; top: 30%;">
+                      Sold out
+                    </span>
+                  </a>                   -->
+
+                <!-- end of sold out banner -->
+
                   <%= link_to (image_tag course.avatar_url(:medium), :style => "width:100%; vertical-align: top;"), course_path(course) %>
                 </div>
                 <div class="content">
