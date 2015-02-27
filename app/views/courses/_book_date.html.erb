@@ -15,9 +15,9 @@
           <div class="three wide column center">Price</div>
           <div class="five wide column center">Book Date</div>
         </div>
+        <div class="ui divider"></div>
       </li>
       <% @course.upcoming_dates.each do |date|%>
-      <div class="ui divider"></div>
       <li>
         <div class="ui grid">
           <div class="eight wide column">
@@ -35,7 +35,7 @@
           </div>
           <div class="five wide column center">
             <% if date.quantity == date.payments.count %>
-              Sorry this date is sold out.
+              Sold Out!
             <% else %>
               <%= link_to "Book Date", new_payment_path(:id => date.id), :class => "ui positive labeled button" %>
             <% end %>
