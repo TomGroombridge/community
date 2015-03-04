@@ -15,15 +15,21 @@
 		</div>
 		<div class="column three wide">
 			<div class="ui segment" style="padding-top: 1em">
-				<div class="ui red label" style="margin-left: -1em;">
+				<div class="ui red label" style="margin-left: -3em;">
 				  <i class="bookmark icon"></i> Quick Links
 				</div>
 				<div class="ui list">
+					<div class="item">
+						<%= link_to "<i class='right triangle icon'></i>Create New Course".html_safe, new_course_path %>
+					</div>
 					<div class="item">
 						<%= link_to "<i class='right triangle icon'></i>My Bookings".html_safe, about_path %>
 					</div>
 					<div class="item">
 						<%= link_to "<i class='right triangle icon'></i>My Transactions".html_safe, faq_path %>
+					</div>
+					<div class="item">
+						<%= link_to "<i class='right triangle icon'></i>Monthly Overview".html_safe, faq_path %>
 					</div>
 				</div>
 			</div>
