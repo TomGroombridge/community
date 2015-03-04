@@ -73,6 +73,30 @@ $(document).ready(function() {
       .tab()
     ;
 
+    $('.button')
+      .popup({
+        inline   : true,
+        hoverable: true,
+        position : 'bottom left',
+        delay: {
+          show: 300,
+          hide: 800
+        }
+      })
+    ;
+
+    $('.date-link')
+      .popup({
+        inline   : true,
+        hoverable: true,
+        position : 'bottom left',
+        delay: {
+          show: 300,
+          hide: 800
+        }
+      })
+    ;
+
     $("#courseDates").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#course', 'show');
 
     $("#cropImage").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#cropModal', 'show');

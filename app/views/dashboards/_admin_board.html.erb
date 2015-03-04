@@ -1,16 +1,16 @@
 <div class="ui segment">
 	<div class="ui top attached tabular menu">
-    <a class="active item" data-tab="first">All Courses (3) </a>
-    <a class="item" data-tab="second">Active Courses (2) </a>
-    <a class="item" data-tab="third">Unactive Courses (1) </a>
+    <a class="active item" data-tab="first">Active Courses (<%= @courses.count %>) </a>
+    <a class="item" data-tab="second">All Courses (<%= @all_courses.count %>) </a>
+    <!-- <a class="item" data-tab="third">Unactive Courses (1) </a> -->
   </div>
 	<div class="ui bottom attached active tab segment" data-tab="first">
-		<%= render "course_list" %>
+	  <%= render "active_course_list" %>
 	</div>
 	<div class="ui bottom attached tab segment" data-tab="second">
-	  Second
+		<%= render "all_course_list" %>
 	</div>
-	<div class="ui bottom attached tab segment" data-tab="third">
+	<!-- <div class="ui bottom attached tab segment" data-tab="third">
 	  Third
-	</div>
+	</div> -->
 </div>

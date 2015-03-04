@@ -6,9 +6,13 @@
 	      <a class="header"><%= course.name %></a>
 	    </div>
 	    <div class="content" style="display: inline-block; vertical-align: top; position: relative; top: 50px;">
-	    	<div class="ui link list">
+	    	<div class="ui link list" style="width:200px;">
 	    		<% course.upcoming_dates.each do |course_date| %>
-				  	<a class="item"  id="course"><i class='calendar icon'></i><%= course_date.start_date.strftime("%d/%m/%Y")%></a>
+				  	<a class="item date-link"  id="course"><i class='calendar icon'></i><%= course_date.start_date.strftime("%d/%m/%Y")%></a>
+				  	<div class="ui popup right">
+						  <div class="header">view course date info</div>
+						</div>
+
 				  	<div class="ui modal" id="allCourses">
 						  <i class="close icon"></i>
 						  <div class="header">
@@ -45,8 +49,17 @@
 	    </div>
       <div class="actions">
       	<div class="ui basic buttons" style="margin-right: 0px; float:right;">
-				  <div class="ui button"><%= link_to("<i class='edit icon'></i>".html_safe ,edit_course_path(course.id))%></div>
-				  <div class="ui button"><%= link_to("<i class='calendar icon'></i>".html_safe, new_course_course_date_path(course.id)) %></div>
+				  <div class="ui button"><%= link_to("<i class='edit icon'></i>".html_safe ,edit_course_path(course.id))%>
+				  </div>
+					<div class="ui popup">
+					  <div class="header">Edit course</div>
+					</div>
+
+				  <div class="ui button"><%= link_to("<i class='calendar icon'></i>".html_safe, new_course_course_date_path(course.id)) %>
+				  </div>
+				  <div class="ui popup">
+					  <div class="header">Add course date</div>
+					</div>
 				</div>
       </div>
 	  </div>
