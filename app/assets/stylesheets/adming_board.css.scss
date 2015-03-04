@@ -1,6 +1,9 @@
 .course-list{
 	max-height: 500px;
 	overflow-y: scroll;
+	@media only screen and (max-width: 768px) {
+		max-height: 100%;
+	}
 	.item{
 		padding-bottom: 0px;
 		.course-image{
