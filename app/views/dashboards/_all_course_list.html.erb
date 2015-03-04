@@ -10,8 +10,17 @@
 	    </div>
       <div class="actions">
       	<div class="ui basic buttons" style="margin-right: 0px; float:right;">
-				  <div class="ui button"><%= link_to("<i class='edit icon'></i>".html_safe ,edit_course_path(course.id))%></div>
-				  <div class="ui button"><%= link_to("<i class='calendar icon'></i>".html_safe, new_course_course_date_path(course.id)) %></div>
+				  <div class="ui button"><%= link_to("<i class='edit icon'></i>".html_safe ,edit_course_path(course.id))%>
+				  </div>
+					<div class="ui popup">
+					  <div class="header">Edit course</div>
+					</div>
+
+				  <div class="ui button"><%= link_to("<i class='calendar icon'></i>".html_safe, new_course_course_date_path(course.id)) %>
+				  </div>
+				  <div class="ui popup">
+					  <div class="header">Add course date</div>
+					</div>
 				</div>
       </div>
 	  </div>
