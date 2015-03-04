@@ -79,8 +79,7 @@ $(document).ready(function() {
         hoverable: true,
         position : 'bottom left',
         delay: {
-          show: 100,
-          hide: 800
+          hide: 300
         }
       })
     ;
@@ -91,8 +90,7 @@ $(document).ready(function() {
         hoverable: true,
         position : 'bottom left',
         delay: {
-          show: 100,
-          hide: 800
+          hide: 300
         }
       })
     ;
@@ -108,6 +106,8 @@ $(document).ready(function() {
     $("#normalUser").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#signIn', 'show');
 
     $("#normalUser").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#signInMobile', 'show');
+
+    $("#monthlySummary").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#monthlySummaryButton', 'show');
 
 
 

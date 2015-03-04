@@ -1,0 +1,24 @@
+<div class="ui small modal" id="monthlySummary">
+  <i class="close icon"></i>
+  <a class="ui blue label" style="margin-bottom:20px; margin-left: 0px;">
+    <h4 class="ui header" style="color:white">ABOUT THIS COURSE</h4>
+  </a>
+  <div class="content">
+    <table class="ui definition table">
+      <tbody>
+        <tr>
+          <td class="ten wide column">Bookings</td>
+          <td><%= @monthly_payments.count %></td>
+        </tr>
+        <tr>
+          <td>Revenue</td>
+          <% if @payments.blank? %>
+              <td>None so far</td>
+          <% else %>
+              <td>£<%= @revenue %></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

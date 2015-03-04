@@ -1,3 +1,4 @@
+<%= render "monthly_summary_modal" %>
 <div class="ui segment">
 	<div class="two column stackable ui grid">
 		<div class="column thirteen wide">
@@ -29,7 +30,10 @@
 						<%= link_to "<i class='right triangle icon'></i>My Transactions".html_safe, faq_path %>
 					</div>
 					<div class="item">
-						<%= link_to "<i class='right triangle icon'></i>Monthly Overview".html_safe, faq_path %>
+						<a id="monthlySummaryButton"><i class='right triangle icon'></i>Monthly Overview</a>
+					</div>
+					<div class="item">
+						<%= link_to "<i class='right triangle icon'></i>Edit Details".html_safe, edit_user_path(@user.id) %>
 					</div>
 				</div>
 			</div>

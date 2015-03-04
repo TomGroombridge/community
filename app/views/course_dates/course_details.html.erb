@@ -1,7 +1,4 @@
-
-<%# render "all_courses_modal" %>    
-
-
+<%# render "all_courses_modal" %>
 <div class="two column stackable ui grid" style="margin:0px;">
     <div class="column sixteen wide">
         <div class="ui segment" style="padding:1rem">
@@ -16,19 +13,19 @@
                     <%= image_tag(@course_date.course.avatar_url(:medium))%>
                 </div>
             </div>
-            <div class="column">                
+            <div class="column">
                 SPACES LEFT: <%= @course_date.quantity %>
             </div>
             <br>
-            <div class="column">                
+            <div class="column">
                 DATE: <%= @course_date.start_date.strftime('%d/%m/%Y') %>
             </div>
             <BR>
             <div class="column">
-                <%= link_to("Edit Date", edit_course_course_date_path(@course_date.course.id, @course_date.id), :class => "ui button", :style =>"display:block") %>                      
+                <%= link_to("Edit Date", edit_course_course_date_path(@course_date.course.id, @course_date.id), :class => "ui button", :style =>"display:block") %>
                 <!-- <a><div id="course" class="ui button" style="display:block">EDIT COURSE DATE</div></a> -->
             </div>
-        </div>        
+        </div>
     </div>
     <!-- END OF LEFT SIDE -->
     <!-- RIGHT SIDE -->
@@ -51,16 +48,16 @@
                         <th class="two wide center aligned">
                             Telephone
                         </th>
-                        <th class="three wide center aligned">                            
+                        <th class="three wide center aligned">
                             Tickets
                         </th>
                         <th class="one wide center aligned">
-                            Paid on 
+                            Paid on
                         </th>
                     </tr>
                 </thead>
-                <tbody style="display: block; max-height: 208px; overflow-y: auto">   
-                		<% @course_date.payments.each do |payment| %>                 
+                <tbody style="display: block; max-height: 208px; overflow-y: auto">
+                		<% @course_date.payments.each do |payment| %>
                             <tr style="display:block">
                                 <td class="one wide collapsing">1</td>
                                 <td class="seven wide left aligned"><%= payment.full_name %></td>
@@ -68,13 +65,13 @@
                                 <td class="two wide center aligned"><%# course_date.payments.count %>/<%# course_date.quantity%></td>
                                 <td class="three wide center aligned"><%# course_date.max_revenue %></td>
                                 <td class="one wide center aligned"><%= payment.created_at.strftime("%d/%m/%Y")%></td>
-                            </tr>  
-                        <% end %>                      
+                            </tr>
+                        <% end %>
                 </tbody>
-            </table>  
+            </table>
             <!-- END OF THE TABLE -->
             <div class="ui segment">
-                <div class="ui two column stackable grid">                    
+                <div class="ui two column stackable grid">
                     <div class="column">
                         <a><div id="course" class="ui button" style="display:block">NEW DATE</div></a>
                     </div>
@@ -88,7 +85,7 @@
     <!-- END OF RIGHT SIDE -->
     <div class="column five wide">
         <div class="ui raised segment">
-            <a class="ui red ribbon label">PAYMENT STATUS</a>            
+            <a class="ui red ribbon label">PAYMENT STATUS</a>
             <div class="ui teal progress" id="example2" data-attibute="<%= @course_date %>" style="margin-top:10px;">
                 <div class="bar"></div>
                 <div class="label"><%= @course_date.sale_percentage %>% Full</div>
@@ -98,10 +95,10 @@
     <div class="column eleven wide">
         <div class="ui segment">
             <h1 style="margin: 0px; text-align: center">Payments</h1>
-            <!-- AT THE MOMENT THIS GRAPH SHOWS YOU THE NUMBER OF COURSES CREATED FROM THE BEGINNING OF THE MONTH -->            
+            <!-- AT THE MOMENT THIS GRAPH SHOWS YOU THE NUMBER OF COURSES CREATED FROM THE BEGINNING OF THE MONTH -->
                 <%= line_chart @course_date.payments.group_by_day(:created_at, range: Date.today.beginning_of_month..Time.now).count %>
             <!-- END OF THE GRAPH -->
-            
+
         </div>
     </div>
 </div>

@@ -1,7 +1,7 @@
-<div class="ui divided list course-list" style="height: 500px; overflow-y: scroll;">
+<div class="ui divided list course-list" style="max-height: 500px; overflow-y: scroll;">
 	<% @all_courses.each do |course|%>
 	  <div class="item" style="padding-bottom:0px;">
-	  	<%= image_tag course.avatar_url(:medium), :style => "width: 240px; padding: 20px;" %>
+	  	<%= image_tag course.avatar_url(:medium), :style => "width: 240px; padding: 20px; padding-bottom: 0px;" %>
 	    <div class="content course-name">
 	      <a class="header"><%= course.name %></a>
 	    </div>
