@@ -1,0 +1,12 @@
+.ui.segment.no-box-shadow-web.faq{
+	margin: 0px;
+	background:none;
+
+	.column.three.wide{
+		float: right;
+		@media only screen and (max-width: 768px) {
+			float: none;
+			margin-bottom: 17px !important;
+		}
+	}
+}

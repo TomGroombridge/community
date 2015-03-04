@@ -1,136 +1,138 @@
-<div class="course-form" style="width: 80%; margin:auto">
-		<%= form_for @course, :multipart => true, :html => {:class => 'ui form fluid '} do |form|  %>
-	<div class="ui segment" style="display:block">
-		<h2 style="display:inline-block">Create a course in 3 easy steps </h2>
-		<%= form.submit :style =>"float:right; width:250px; display:inline-block; margin: 2rem 0em", :class => "ui inverted green button" %>
-		<div class="ui divider" style="margin-top: 50px; margin-bottom: 25px;"></div>
-		<div class="ui circular labels">
-		  <a class="ui label" style="display:inline-block; font-size: 1.8571rem;">
-		    1
-		  </a>
-			<h2 style="display:inline-block">Course details</h2>
-		</div>
-			<div class="ui form" style="max-width: 73%; margin: auto;">
-			  <div class="field">
-			    <label>Course title</label>
-			    <%= form.text_field :name %>
-			  </div>
-			  <div class="field">
-			    <label>Course summary</label>
-			    <%= form.text_field :blurb %>
-			  </div>
-			  <div class="field">
-			    <label>Course description</label>
-			    <%= form.cktext_area :description %>
-			  </div>
-			  <div class="field">
-			    <label>What to wear</label>
-			    <%= form.text_field :what_to_wear %>
-			  </div>
-			  <div class="field">
-			    <label>What to bring</label>
-			    <%= form.text_field :what_to_bring %>
-			  </div>
-			  <div class="field">
-			    <label>Experiance needed</label>
-			    <%= form.text_field :experience %>
-			  </div>
-			  <%= form.fields_for :course_addresses do |addresses_form| %>
-				  <div class="two fields">
-				  	<h3>Location</h3>
-				    <div class="field">
-				      <%= addresses_form.text_field :address1, :placeholder => 'Address 1'%>
-				    </div>
-				    <div class="field">
-				      <%= addresses_form.text_field :address2, :placeholder => 'Addres 2' %>
-				    </div>
-				    <div class="field">
-				      <%= addresses_form.text_field :city, :placeholder => 'City/Town' %>
-				    </div>
-				    <div class="field four wide">
-				      <%= addresses_form.text_field :postcode, :placeholder => 'Postcode'%>
-				    </div>
-				  </div>
-			  <% end %>
-			  <!-- start date time and end date time  -->
-			  <div class="field">
-			  	<h3>Upload image</h3>
-	      	<img id="blah" src="#" alt="" class="ui small bordered image" style="display:inline-block" />
-	      	<%= form.file_field :avatar, :id => "imgInp"%>
-	      	<%= form.hidden_field :avatar_cache %>
-			  </div>
-			  <div class="inline field">
-				  <h3>Price</h3>
-				  <label>£</label>
-				  <%= form.text_field :price, :placeholder => "58.00" %>
-			  </div>
-			</div>
-			<div class="ui divider" style="margin-top: 100px; margin-bottom: 25px;"></div>
+<div class="column thirteen wide">
+	<div class="course-form" style="width: 80%; margin:auto">
+			<%= form_for @course, :multipart => true, :html => {:class => 'ui form fluid '} do |form|  %>
+		<div class="ui segment" style="display:block">
+			<h2 style="display:inline-block">Create a course in 3 easy steps </h2>
+			<%= form.submit :style =>"float:right; width:250px; display:inline-block; margin: 2rem 0em", :class => "ui inverted green button" %>
+			<div class="ui divider" style="margin-top: 50px; margin-bottom: 25px;"></div>
 			<div class="ui circular labels">
 			  <a class="ui label" style="display:inline-block; font-size: 1.8571rem;">
-			    2
+			    1
 			  </a>
-				<h2 style="display:inline-block">Create date</h2>
+				<h2 style="display:inline-block">Course details</h2>
 			</div>
-			<%= form.fields_for :course_dates do |course_date_form| %>
-				<div class="ui form time-select" style="max-width: 85%; margin: auto;">
-					<div class="four fields">
-				  	<h3>Date & time</h3>
-				  	<div class="field four wide">
-				  		<%= course_date_form.text_field :start_date, :placeholder => "11/02/2015"%>
-				  	</div>
-				  	<div class="field four wide">
-				  		<%# course_date_form.time_select :start_time, :placeholder => "19:30" %>
-				  		<%# course_date_form.time_select :start_time, :combined => true, :default => Time.now.change(:hour => 11, :min => 30), :minute_interval => 15, :time_separator => "", :start_hour => 0, :start_minute => 00, :end_hour => 23, :end_minute => 00 %>
+				<div class="ui form" style="max-width: 73%; margin: auto;">
+				  <div class="field">
+				    <label>Course title</label>
+				    <%= form.text_field :name %>
+				  </div>
+				  <div class="field">
+				    <label>Course summary</label>
+				    <%= form.text_field :blurb %>
+				  </div>
+				  <div class="field">
+				    <label>Course description</label>
+				    <%= form.cktext_area :description %>
+				  </div>
+				  <div class="field">
+				    <label>What to wear</label>
+				    <%= form.text_field :what_to_wear %>
+				  </div>
+				  <div class="field">
+				    <label>What to bring</label>
+				    <%= form.text_field :what_to_bring %>
+				  </div>
+				  <div class="field">
+				    <label>Experiance needed</label>
+				    <%= form.text_field :experience %>
+				  </div>
+				  <%= form.fields_for :course_addresses do |addresses_form| %>
+					  <div class="two fields">
+					  	<h3>Location</h3>
+					    <div class="field">
+					      <%= addresses_form.text_field :address1, :placeholder => 'Address 1'%>
+					    </div>
+					    <div class="field">
+					      <%= addresses_form.text_field :address2, :placeholder => 'Addres 2' %>
+					    </div>
+					    <div class="field">
+					      <%= addresses_form.text_field :city, :placeholder => 'City/Town' %>
+					    </div>
+					    <div class="field four wide">
+					      <%= addresses_form.text_field :postcode, :placeholder => 'Postcode'%>
+					    </div>
+					  </div>
+				  <% end %>
+				  <!-- start date time and end date time  -->
+				  <div class="field">
+				  	<h3>Upload image</h3>
+		      	<img id="blah" src="#" alt="" class="ui small bordered image" style="display:inline-block" />
+		      	<%= form.file_field :avatar, :id => "imgInp"%>
+		      	<%= form.hidden_field :avatar_cache %>
+				  </div>
+				  <div class="inline field">
+					  <h3>Price</h3>
+					  <label>£</label>
+					  <%= form.text_field :price, :placeholder => "58.00" %>
+				  </div>
+				</div>
+				<div class="ui divider" style="margin-top: 100px; margin-bottom: 25px;"></div>
+				<div class="ui circular labels">
+				  <a class="ui label" style="display:inline-block; font-size: 1.8571rem;">
+				    2
+				  </a>
+					<h2 style="display:inline-block">Create date</h2>
+				</div>
+				<%= form.fields_for :course_dates do |course_date_form| %>
+					<div class="ui form time-select" style="max-width: 85%; margin: auto;">
+						<div class="four fields">
+					  	<h3>Date & time</h3>
+					  	<div class="field four wide">
+					  		<%= course_date_form.text_field :start_date, :placeholder => "11/02/2015"%>
+					  	</div>
+					  	<div class="field four wide">
+					  		<%# course_date_form.time_select :start_time, :placeholder => "19:30" %>
+					  		<%# course_date_form.time_select :start_time, :combined => true, :default => Time.now.change(:hour => 11, :min => 30), :minute_interval => 15, :time_separator => "", :start_hour => 0, :start_minute => 00, :end_hour => 23, :end_minute => 00 %>
 
-				  		<%= course_date_form.time_select :start_time, :class => "time-select" %>
-				  	</div>
-				  	<div class="field four wide">
-				  		<%= course_date_form.text_field :end_date, :placeholder => "11/02/2015" %>
-				  	</div>
-				  	<div class="field four wide">
-				  		<%# course_date_form.time_select :end_time, :placeholder => "19:30" %>
-				  		<%# course_date_form.time_select :end_time, :combined => true, :default => Time.now.change(:hour => 11, :min => 30), :minute_interval => 15, :time_separator => "", :start_hour => 0, :start_minute => 00, :end_hour => 23, :end_minute => 45 %>
-				  		<%= course_date_form.time_select :end_time %>
-				  	</div>
-				  </div>
-				  <div class="fields">
-				  	<h3>Number of tickets</h3>
-				  	<div class="field three wide">
-				  		<%= course_date_form.text_field :quantity, :placeholder => "20" %>
-				  	</div>
-				  </div>
+					  		<%= course_date_form.time_select :start_time, :class => "time-select" %>
+					  	</div>
+					  	<div class="field four wide">
+					  		<%= course_date_form.text_field :end_date, :placeholder => "11/02/2015" %>
+					  	</div>
+					  	<div class="field four wide">
+					  		<%# course_date_form.time_select :end_time, :placeholder => "19:30" %>
+					  		<%# course_date_form.time_select :end_time, :combined => true, :default => Time.now.change(:hour => 11, :min => 30), :minute_interval => 15, :time_separator => "", :start_hour => 0, :start_minute => 00, :end_hour => 23, :end_minute => 45 %>
+					  		<%= course_date_form.time_select :end_time %>
+					  	</div>
+					  </div>
+					  <div class="fields">
+					  	<h3>Number of tickets</h3>
+					  	<div class="field three wide">
+					  		<%= course_date_form.text_field :quantity, :placeholder => "20" %>
+					  	</div>
+					  </div>
+					</div>
+				<% end %>
+				<div class="ui divider" style="margin-top: 100px; margin-bottom: 25px;"></div>
+				<div class="ui segment">
+					<div id="terms" class="ui button labeled icon basic">
+						<i class="icon pencil"></i>
+						Terms & Conditions
+					</div>
+					<%= form.submit :style =>"float:right; width:250px", :class => "ui inverted green button" %>
 				</div>
 			<% end %>
-			<div class="ui divider" style="margin-top: 100px; margin-bottom: 25px;"></div>
-			<div class="ui segment">
-				<div id="terms" class="ui button labeled icon basic">
-					<i class="icon pencil"></i>
-					Terms & Conditions
-				</div>
-				<%= form.submit :style =>"float:right; width:250px", :class => "ui inverted green button" %>
-			</div>
-		<% end %>
+		</div>
 	</div>
 </div>
 
 
 
 
-<script>
-	  function readURL(input) {
-	    if (input.files && input.files[0]) {
-	        var reader = new FileReader();
+		<script>
+			  function readURL(input) {
+			    if (input.files && input.files[0]) {
+			        var reader = new FileReader();
 
-	        reader.onload = function (e) {
-	            $('#blah').attr('src', e.target.result);
-	        }
+			        reader.onload = function (e) {
+			            $('#blah').attr('src', e.target.result);
+			        }
 
-	        reader.readAsDataURL(input.files[0]);
-	    }
-	}
+			        reader.readAsDataURL(input.files[0]);
+			    }
+			}
 
-	$("#imgInp").change(function(){
-	    readURL(this);
-	});
-</script>
+			$("#imgInp").change(function(){
+			    readURL(this);
+			});
+		</script>

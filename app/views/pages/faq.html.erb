@@ -1,5 +1,20 @@
-<div class="ui segment no-box-shadown-web" style="margin: 0px; background:none;">
+<div class="ui segment no-box-shadow-web faq">
 	<div class="two column stackable ui grid">
+		<div class="column three wide">
+			<div class="ui segment" style="padding-top: 1em">
+				<div class="ui red label" style="margin-left: -1em;">
+				  <i class="bookmark icon"></i> About
+				</div>
+				<div class="ui list">
+					<div class="item">
+						<%= link_to "<i class='right triangle icon'></i>About".html_safe, about_path %>
+					</div>
+					<div class="item">
+						<%= link_to "<i class='right triangle icon'></i>FAQ".html_safe, faq_path %>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="column thirteen wide">
 			<div class="ui segment">
 				<div class="header">
@@ -68,21 +83,6 @@
 					<p>&nbsp;</p>
 					<p><strong>How long can I book my course in advance?</strong></p>
 					<p>Courses can be booked as soon as it is listed up on the website up until the actual course date. Note that some courses have a minimum cut-off time to ensure course providers have adequate time to prepare.</p>
-				</div>
-			</div>
-		</div>
-		<div class="column three wide">
-			<div class="ui segment" style="padding-top: 1em">
-				<div class="ui red label" style="margin-left: -1em;">
-				  <i class="bookmark icon"></i> About
-				</div>
-				<div class="ui list">
-					<div class="item">
-						<%= link_to "<i class='right triangle icon'></i>About".html_safe, about_path %>
-					</div>
-					<div class="item">
-						<%= link_to "<i class='right triangle icon'></i>FAQ".html_safe, faq_path %>
-					</div>
 				</div>
 			</div>
 		</div>
