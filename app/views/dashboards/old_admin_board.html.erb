@@ -1,0 +1,129 @@
+<%= render "all_courses_modal" %>
+<div class="two column stackable ui grid" style="margin:0px;">
+    <div class="column sixteen wide">
+        <div class="ui segment" style="padding:1rem; display:block">
+            <h1 style="margin:0px; display:inline-block"><%= @user.company_name %></h1>
+            <%= link_to('Edit Company Details', edit_user_path(@user.id), :class => "ui inverted green button", :style => "float:right; width:250px; display:inline-block;") %>
+        </div>
+    </div>
+    <!-- LEFT SIDE -->
+    <div class="column five wide">
+        <div class="ui segment">
+            <div class="column">
+                <% if @user.avatar_url.blank? %>
+                    <div class="image" style="text-align:center; width:100%;">
+                        <%= image_tag "placeholder.png", :style =>"width:100%;"%>
+                    </div>
+                <% else %>
+                    <div class="image" style="text-align:center">
+                        <%= image_tag(@user.avatar_url(:medium), :class => "ui medium rounded" )%>
+                    </div>
+                <% end %>
+            </div>
+            <div class="ui three column grid">
+                <div class="column" style="text-align:center; padding-right:0; padding-left:0">
+                    <p>256</p>
+                    <p>HOURS TAUGHT </p>
+                </div>
+                <div class="column" style="text-align:center; padding-right:0; padding-left:0">
+                    <p>256</p>
+                    <p>HOURS TAUGHT </p>
+                </div>
+                <div class="column" style="text-align:center; padding-right:0; padding-left:0">
+                    <p>256</p>
+                    <p>HOURS TAUGHT </p>
+                </div>
+              </div>
+        </div>
+    </div>
+    <!-- END OF LEFT SIDE -->
+    <!-- RIGHT SIDE -->
+    <div class="column eleven wide">
+        <div class="ui segment">
+            <!-- START OF THE TABLE -->
+            <h3 style="margin:0px;">Upcoming Course Dates</h3>
+            <table class="ui striped table" style="min-height: 210px;">
+                <thead style="display:block">
+                    <tr>
+                        <th class="one wide">
+                            #
+                        </th>
+                        <th class="seven wide">
+                            Course Title
+                        </th>
+                        <th class="two wide center aligned">
+                            Date
+                        </th>
+                        <th class="two wide center aligned">
+                            Subscribers
+                        </th>
+                        <th class="three wide center aligned">
+                            Max Revenue
+                        </th>
+                        <th class="one wide center aligned">
+                            View
+                        </th>
+                    </tr>
+                </thead>
+                <tbody style="display: block; max-height: 208px; overflow-y: auto">
+                    <% @courses.each do |course|%>
+                        <% course.upcoming_dates.each do |course_date| %>
+                        <tr style="display:block">
+                            <td class="one wide collapsing">1</td>
+                            <td class="seven wide"><%= course_date.course.name %></td>
+                            <td class="two wide left aligned"><%= course_date.start_date.strftime("%d/%m/%Y")%></td>
+                            <td class="two wide center aligned"><%= course_date.payments.count %>/<%= course_date.quantity%></td>
+                            <td class="three wide center aligned"><%= course_date.max_revenue %></td>
+                            <td class="one wide center aligned"><%= link_to("<i class='bar chart icon'></i>".html_safe, course_details_course_course_date_path(course_date.course_id, course_date.id))%></td>
+                        </tr>
+                        <% end %>
+                    <% end %>
+                </tbody>
+            </table>
+            <!-- END OF THE TABLE -->
+            <div class="ui segment">
+                <div class="ui three column stackable grid">
+                    <div class="column">
+                        <a><div id="course" class="ui button" style="display:block">SEE ALL COURSES</div></a>
+                    </div>
+                    <div class="column">
+                        <a><div id="course" class="ui button" style="display:block"><%= link_to('NEW COURSE', new_course_path) %></div></a>
+                    </div>
+                    <div class="column">
+                        <a><div id="course" class="ui button" style="display:block">NEW DATE</div></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END OF RIGHT SIDE -->
+    <div class="column five wide">
+        <div class="ui raised segment">
+            <a class="ui red ribbon label">Monthly Summary</a>
+            <table class="ui definition table">
+                <tbody>
+                    <tr>
+                        <td class="ten wide column">Bookings</td>
+                        <td><%= @payments.count %></td>
+                    </tr>
+                    <tr>
+                        <td>Revenue</td>
+                        <% if @payments.blank? %>
+                            <td>None so far</td>
+                        <% else %>
+                            <td>£<%= @revenue %></td>
+                        <% end %>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="column eleven wide">
+        <div class="ui segment">
+            <!-- AT THE MOMENT THIS GRAPH SHOWS YOU THE NUMBER OF COURSES CREATED FROM THE BEGINNING OF THE MONTH -->
+                <%# line_chart @active_courses.group_by_day(:created_at, range: Date.today.beginning_of_month..Time.now).count %>
+            <!-- END OF THE GRAPH -->
+
+        </div>
+    </div>
+</div>

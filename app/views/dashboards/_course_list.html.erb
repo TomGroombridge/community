@@ -1,0 +1,54 @@
+<div class="ui divided list course-list">
+	<% @courses.each do |course|%>
+	  <div class="item" style="padding-bottom:0px;">
+	  	<%= image_tag course.avatar_url(:medium), :style => "width: 240px; padding: 20px;" %>
+	    <div class="content course-name">
+	      <a class="header"><%= course.name %></a>
+	    </div>
+	    <div class="content" style="display: inline-block; vertical-align: top; position: relative; top: 50px;">
+	    	<div class="ui link list">
+	    		<% course.upcoming_dates.each do |course_date| %>
+				  	<a class="item"  id="course"><i class='calendar icon'></i><%= course_date.start_date.strftime("%d/%m/%Y")%></a>
+				  	<div class="ui modal" id="allCourses">
+						  <i class="close icon"></i>
+						  <div class="header">
+						    <%= course.name %>
+						  </div>
+						  <div class="content">
+						  	<%= course_date.start_date.strftime("%d/%m/%Y")%>
+						    <table class="ui celled striped table">
+						      <thead>
+						        <tr>
+						          <th class="two wide">Order No.</th>
+						          <th class="four wide">Name</th>
+						          <th class="four wide">Email</th>
+						          <th class="three wide">Mobile</th>
+						          <th class="four wide">Special Requests</th>
+						        </tr>
+						      </thead>
+						      <tbody>
+						        <% course_date.payments.each do |payment| %>
+						          <tr>
+						            <td><%= payment.id %></td>
+						            <td><%= payment.full_name %></td>
+						            <td><%= payment.email %></td>
+						            <td><%= payment.mobile_number %></td>
+						            <td></td>
+						          </tr>
+						        <% end %>
+						      </tbody>
+						    </table>
+						  </div>
+						</div>
+				  <% end %>
+				</div>
+	    </div>
+      <div class="actions">
+      	<div class="ui basic buttons" style="margin-right: 0px; float:right;">
+				  <div class="ui button"><%= link_to("<i class='edit icon'></i>".html_safe ,edit_course_path(course.id))%></div>
+				  <div class="ui button"><%= link_to("<i class='calendar icon'></i>".html_safe, new_course_course_date_path(course.id)) %></div>
+				</div>
+      </div>
+	  </div>
+  <% end %>
+</div>

@@ -69,6 +69,10 @@ $(document).ready(function() {
         on: 'hover'
     });
 
+    $('.menu .item')
+      .tab()
+    ;
+
     $("#courseDates").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#course', 'show');
 
     $("#cropImage").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#cropModal', 'show');

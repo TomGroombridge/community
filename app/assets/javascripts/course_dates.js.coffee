@@ -4,9 +4,9 @@
 
 
 jQuery ->
-	$("#allCourses").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#course', 'show');  
- 
-  
+	$("#allCourses").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#course', 'show');
+
+
 	$('#course_course_dates_attributes_0_start_date').datepicker
     dateFormat: 'yy-mm-dd'
 
