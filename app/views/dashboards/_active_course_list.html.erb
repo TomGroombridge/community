@@ -1,4 +1,4 @@
-<div class="ui divided list course-list">
+<div class="ui divided list course-list" style="height: 500px; overflow-y: scroll;">
 	<% @courses.each do |course|%>
 	  <div class="item" style="padding-bottom:0px;">
 	  	<%= image_tag course.avatar_url(:medium), :style => "width: 240px; padding: 20px;" %>
@@ -8,7 +8,7 @@
 	    <div class="content" style="display: inline-block; vertical-align: top; position: relative; top: 50px;">
 	    	<div class="ui link list" style="width:200px;">
 	    		<% course.upcoming_dates.each do |course_date| %>
-				  	<a class="item date-link"  id="course"><i class='calendar icon'></i><%= course_date.start_date.strftime("%d/%m/%Y")%></a>
+				  	<a class="item date-link"  id="course"><i class='calendar icon'></i><%= course_date.start_date.strftime("%d/%m/%Y")%> (<%= course_date.payments.count%>/<%= course_date.quantity %>)</a>
 				  	<div class="ui popup right">
 						  <div class="header">view course date info</div>
 						</div>

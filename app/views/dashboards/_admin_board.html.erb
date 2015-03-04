@@ -1,16 +1,35 @@
 <div class="ui segment">
-	<div class="ui top attached tabular menu">
-    <a class="active item" data-tab="first">Active Courses (<%= @courses.count %>) </a>
-    <a class="item" data-tab="second">All Courses (<%= @all_courses.count %>) </a>
-    <!-- <a class="item" data-tab="third">Unactive Courses (1) </a> -->
-  </div>
-	<div class="ui bottom attached active tab segment" data-tab="first">
-	  <%= render "active_course_list" %>
-	</div>
-	<div class="ui bottom attached tab segment" data-tab="second">
-		<%= render "all_course_list" %>
-	</div>
+	<div class="two column stackable ui grid">
+		<div class="column thirteen wide">
+			<div class="ui top attached tabular menu">
+		    <a class="active item" data-tab="first">Active Courses (<%= @courses.count %>) </a>
+		    <a class="item" data-tab="second">All Courses (<%= @all_courses.count %>) </a>
+		    <!-- <a class="item" data-tab="third">Unactive Courses (1) </a> -->
+		  </div>
+			<div class="ui bottom attached active tab segment" data-tab="first">
+			  <%= render "active_course_list" %>
+			</div>
+			<div class="ui bottom attached tab segment" data-tab="second">
+				<%= render "all_course_list" %>
+			</div>
+		</div>
+		<div class="column three wide">
+			<div class="ui segment" style="padding-top: 1em">
+				<div class="ui red label" style="margin-left: -1em;">
+				  <i class="bookmark icon"></i> Quick Links
+				</div>
+				<div class="ui list">
+					<div class="item">
+						<%= link_to "<i class='right triangle icon'></i>My Bookings".html_safe, about_path %>
+					</div>
+					<div class="item">
+						<%= link_to "<i class='right triangle icon'></i>My Transactions".html_safe, faq_path %>
+					</div>
+				</div>
+			</div>
+		</div>
 	<!-- <div class="ui bottom attached tab segment" data-tab="third">
 	  Third
 	</div> -->
+	</div>
 </div>
