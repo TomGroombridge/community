@@ -1,12 +1,12 @@
-<div class="ui divided list course-list" style="max-height: 500px; overflow-y: scroll;">
+<div class="ui divided list course-list">
 	<% @courses.each do |course|%>
-	  <div class="item" style="padding-bottom:0px;">
-	  	<%= image_tag course.avatar_url(:medium), :style => "width: 240px; padding: 20px; padding-bottom: 0px;" %>
-	    <div class="content" style="display: inline-block; vertical-align: top; position: relative; top: 20px;">
+	  <div class="item">
+	  	<%= image_tag course.avatar_url(:medium) ,:class => "course-image" %>
+	    <div class="content">
 	      <a class="header"><%= course.name %></a>
-	    	<div class="ui link list" style="width:450px; margin-left: 100px; margin-top: 30px;">
+	    	<div class="ui link list">
 	    		<% course.upcoming_dates.each do |course_date| %>
-				  	<a class="item date-link"  id="course" style="width: 49%; display: inline-block; padding-bottom:20px;"><i class='calendar icon'></i><%= course_date.start_date.strftime("%d/%m/%Y")%> (<%= course_date.payments.count%>/<%= course_date.quantity %>)</a>
+				  	<a class="item date-link"  id="course"><i class='calendar icon'></i><%= course_date.start_date.strftime("%d/%m/%Y")%> (<%= course_date.payments.count%>/<%= course_date.quantity %>)</a>
 				  	<div class="ui popup right">
 						  <div class="header">view course date info</div>
 						</div>
@@ -49,7 +49,7 @@
 				</div>
 	    </div>
       <div class="actions">
-      	<div class="ui basic buttons" style="margin-right: 0px; float:right;">
+      	<div class="ui basic buttons">
 				  <div class="ui button"><%= link_to("<i class='edit icon'></i>".html_safe ,edit_course_path(course.id))%>
 				  </div>
 					<div class="ui popup">
