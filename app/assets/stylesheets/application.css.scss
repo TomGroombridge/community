@@ -256,6 +256,12 @@ width: 200px;
   }
 }
 
+.ui.red.label.quick-links{
+  margin-left: -3em;
+  @media only screen and (max-width: 768px) {
+    margin-left: -2em;
+  }
+}
 
 
 @media only screen and (max-width: 768px) {
