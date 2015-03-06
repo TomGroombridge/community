@@ -24,7 +24,7 @@ class CourseDate < ActiveRecord::Base
 
 	def full
 		@check = self.quantity == self.payments.count
-		self.delay(@check => true).update_attributes(active: false)
+		# self.delay(@check => true).update_attributes(active: false)
 	end
 
 	def send_course_info
