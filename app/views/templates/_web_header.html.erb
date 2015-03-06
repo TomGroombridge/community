@@ -2,7 +2,7 @@
   <div class="item logo">
   </div>
   <%= link_to("Discover", courses_path, :class => "item") %>
-  <%= link_to("Offer", offer_path, :class => "item") %>
+  <%# link_to("Offer", offer_path, :class => "item") %>
   <% if signed_in? %>
     <% if current_user.admin? || nil%>
       <%= link_to( "<i class='user icon'></i>Dashboard".html_safe, dashboard_path, :class => "item" ) %>
