@@ -17,7 +17,7 @@
             <div class="column">
               <%= @payment.course_date.start_date.strftime("%d/%m/%Y") %>
               <br>
-              <%= @payment.course_date.start_date.strftime("%l:%M %p") %>
+              <%= @payment.course_date.start_time.strftime("%l:%M %p") %>
             </div>
             <div class="column">
               £<%= @payment.course_date.course.price %>  x
