@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(version: 20150218145659) do
     t.time     "start_time"
     t.date     "end_date"
     t.time     "end_time"
-    t.integer  "user_id"
   end
 
   create_table "courses", force: true do |t|
@@ -56,15 +55,6 @@ ActiveRecord::Schema.define(version: 20150218145659) do
     t.string   "avatar"
   end
 
-  create_table "locations", force: true do |t|
-    t.string   "address"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "course_id"
-  end
-
   create_table "payments", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -77,8 +67,6 @@ ActiveRecord::Schema.define(version: 20150218145659) do
     t.string   "mobile_number"
     t.text     "special_request"
     t.integer  "quantity"
-    t.string   "express_token"
-    t.string   "express_payer_id"
   end
 
   create_table "plans", force: true do |t|

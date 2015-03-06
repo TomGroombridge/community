@@ -47,7 +47,7 @@ $ ->
     password_confirmation:
       identifier: 'user[password_confirmation]'
       rules: [ {
-        type: 'match[password]'
+        type: 'match[user[password]]'
         prompt: 'password confirmation does not match'
       } ]
     company_name:
@@ -111,7 +111,7 @@ $ ->
       identifier: 'user[password_confirmation]'
       rules: [
       	{
-	        type: 'match[password]'
+	        type: 'match[user[password]]'
 	        prompt: 'password confirmation does not match'
       	}
       ]
