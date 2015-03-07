@@ -5,6 +5,7 @@ class CourseDateMailer < ActionMailer::Base
 	def course_info(course_date)
 		@course_date = course_date
 		@user = @course_date.course.user.email
+		@total = @course_date.payments.count * @course_date.course.price
 		mail to: @user, subject: "List of course attendees"
 	end
 
