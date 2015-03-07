@@ -1,8 +1,11 @@
 class CourseDateMailer < ActionMailer::Base
 	default from: "hello@courseiam"
+	layout 'courseiam_mail'
 
 	def course_info(course_date)
-		mail to: course_date.course.user.email, subject: "List of course attendees"
+		@course_date = course_date
+		@user = @course_date.course.user.email
+		mail to: @user, subject: "List of course attendees"
 	end
 
 	# def new_date(course_date)

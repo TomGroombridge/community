@@ -1,0 +1,95 @@
+<tr>
+  <table cellpadding="0" cellspacing="0" border="0" style="width:100% !important">
+    <tbody>
+      <tr>
+        <td style="border-bottom:1px dashed #d3d3d3">
+          <h2 style="color:#404040;font-weight:300;margin:0 0 12px 0;font-size:24px;line-height:30px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
+            List of Course Attendees (<%= @course_date.start_date_time.strftime("%e %b %Y %H:%M%p") %>)
+          </h2>
+        </td>
+        <td colspan="2" style="text-align:right;border-bottom:1px dashed #d3d3d3">
+          <div style="color:#666666;font-weight:400;font-size:13px;line-height:18px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <p style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif;margin-bottom:18px">
+            <%= @course_date.course.name %>
+          </p>
+          <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+            <thead>
+              <tr>
+                <th style="border-bottom:1px dashed #d3d3d3;text-align:left;padding-bottom:12px;padding-right:12px">
+                  <div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif;font-weight:500">
+                    Name
+                  </div>
+                </th>
+                <th style="border-bottom:1px dashed #d3d3d3;text-align:left;padding-bottom:12px;padding-right:12px">
+                  <div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif;font-weight:500">
+                    Email
+                  </div>
+                </th>
+                <th style="border-bottom:1px dashed #d3d3d3;text-align:left;padding-bottom:12px;padding-right:12px">
+                  <div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif;font-weight:500">
+                    Phone Number
+                  </div>
+                </th>
+                <th style="border-bottom:1px dashed #d3d3d3;text-align:left;padding-bottom:12px;padding-right:12px">
+                  <div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif;font-weight:500">
+                    Special Requests
+                  </div>
+                </th>
+                <th style="border-bottom:1px dashed #d3d3d3;text-align:right;padding-bottom:12px;padding-right:0">
+                  <div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif;font-weight:500">
+                    Paid
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @course_date.payments.each do |payment| %>
+                <tr>
+                  <td style="padding:12px 0;padding-right:3px; width: 20%">
+                    <div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
+                      <%= payment.full_name %>
+                    </div>
+                  </td>
+                  <td style="padding:12px 0;padding-right:3px; width: 20%">
+                    <div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
+                      <%= payment.email %>
+                    </div>
+                  </td>
+                  <td style="padding:12px 0;padding-right:3px; width: 14%">
+                    <div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
+                      <%= payment.mobile_number %>
+                    </div>
+                  </td>
+                  <td style="text-align:right;padding:12px 0; width:36%; ">
+                    <div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
+                      <%= payment.special_request %>
+                    </div>
+                  </td>
+                  <td style="text-align:right;padding:12px 0; width:10%">
+                    <div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
+                      <%= @course_date.course.price %>
+                    </div>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td style="text-align:right;border-top:1px solid #d3d3d3;padding-top:12px;font-weight:700">
+          TOTAL
+        </td>
+        <td style="text-align:right;border-top:1px solid #d3d3d3;padding-top:12px">
+          <%# number_to_currency(@total, :precision => 2, :unit => "£")  %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</tr>

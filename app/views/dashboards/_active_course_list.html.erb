@@ -6,11 +6,11 @@
 	      <a class="header"><%= course.name %></a>
 	    	<div class="ui link list">
 	    		<% course.upcoming_dates.each do |course_date| %>
-				  	<a class="item date-link"  id="course"><i class='calendar icon'></i><%= course_date.start_date.strftime("%d/%m/%Y")%> (<%= course_date.payments.count%>/<%= course_date.quantity %>)</a>
+				  	<a class="item date-link course"><i class='calendar icon'></i><%= course_date.start_date.strftime("%d/%m/%Y")%> (<%= course_date.payments.count%>/<%= course_date.quantity %>)</a>
 				  	<div class="ui popup right">
 						  <div class="header">view course date info</div>
 						</div>
-				  	<div class="ui modal" id="allCourses">
+				  	<div class="ui modal allCourses">
 						  <i class="close icon"></i>
 						  <div class="header">
 						    <%= course.name %>
