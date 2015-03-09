@@ -3,7 +3,7 @@
 			<%= form_for @course, :multipart => true, :html => {:class => 'ui form fluid '} do |form|  %>
 		<div class="ui segment" style="display:block">
 			<h2 style="display:inline-block">Create a course in 3 easy steps </h2>
-			<%= form.submit :style =>"float:right; width:250px; display:inline-block; margin: 2rem 0em", :class => "ui inverted green button" %>
+			<%# form.submit :style =>"float:right; width:250px; display:inline-block; margin: 2rem 0em", :class => "ui inverted green button" %>
 			<div class="ui divider" style="margin-top: 50px; margin-bottom: 25px;"></div>
 			<div class="ui circular labels">
 			  <a class="ui label" style="display:inline-block; font-size: 1.8571rem;">
@@ -110,6 +110,7 @@
 						Terms & Conditions
 					</div>
 					<%= form.submit :style =>"float:right; width:250px", :class => "ui inverted green button" %>
+					<div class="ui error message"></div>
 				</div>
 			<% end %>
 		</div>
