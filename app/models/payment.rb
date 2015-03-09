@@ -42,7 +42,7 @@ class Payment < ActiveRecord::Base
 					amount: @amount.to_i,
 					currency: "gbp",
 					card: params[:stripe_card_token],
-					description: "this is a payment for the #{@course_name} course on the #{@course_date}")
+					description: "this is a payment for the #{@course_name} course on the #{@course_date}  by #{@name}")
 				self.course_date.quantity -= 1
 				self.save
 			rescue Stripe::InvalidRequestError => e
