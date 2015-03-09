@@ -90,7 +90,7 @@ $ ->
         }
       ]
   settings =
-    inline: true
+    on     : 'blur'
     onFailure: ->
       console.log 'Failed'
       $('input[type=submit]').attr('disabled', false)
