@@ -1,56 +1,45 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>CommunityMarketplace</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "https://js.stripe.com/v1/", "application", "data-turbolinks-track" => true %>
-	<%= tag :meta, :name => "stripe-key", :content => Rails.application.secrets.stripe_public_key %>
-  <%= csrf_meta_tags %> 
-  <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>  
-  <style>
-
-  </style>
-</head>
-<body style="min-width: 100%;">
-  
-  <div class="ui inverted teal vertical segment">
-    <div class="ui page grid">
-      <div class="column" style="text-align:center;">
-        <i class="calendar icon" style="font-size: 2em"></i>    
-        <div class="" style="display:inline-block">
-          <h4 class="ui inverted header" style="display:inline-block; margin-bottom:0px;">Next Session</h4>
-          <br>
-          <p style="display:inline-block"><%= @course.upcoming_date.start_date.strftime("%A, %b %d") %></p>
+  <head>
+    <title>CommunityMarketplace</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "https://js.stripe.com/v1/", "application", "data-turbolinks-track" => true %>
+  	<%= tag :meta, :name => "stripe-key", :content => Rails.application.secrets.stripe_public_key %>
+    <%= csrf_meta_tags %>
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+  </head>
+  <body style="min-width: 100%;">
+    <div class="ui inverted teal vertical segment">
+      <div class="ui page grid">
+        <div class="column" style="text-align:center;">
+          <i class="calendar icon" style="font-size: 2em"></i>
+          <div class="" style="display:inline-block">
+            <h4 class="ui inverted header" style="display:inline-block; margin-bottom:0px;">Next Session</h4>
+            <br>
+            <p style="display:inline-block"><%= @course.upcoming_date.start_date.strftime("%A, %b %d") %></p>
+          </div>
         </div>
-      </div>      
-    </div>
-  </div>
-  <div class="ui vertical segment">
-    <div class="ui page grid">
-      <div class="column" style="padding-top: 1rem">
-        <h3 style="text-align:center; margin:0px;">Course Date:</h3>        
-        <%= form_tag course_tickets_path(@course), id: 'ticket_form', :target => "_blank", :style => "text-align:center" do %>            
-          <%= select_tag 'start_date', options_from_collection_for_select(@course.upcoming_dates, :id, :pretty_date) %>                          
-        <% end %> 
       </div>
     </div>
-  </div>
-  <div class="ui vertical segment">
-    <div class="ui page grid">
-      <div class="column" style="text-align:center; padding-top: 1rem;">        
-        <button type='submit' form='ticket_form' class="ui positive right labeled icon button">
-          Book Date
-          <i class="checkmark icon"></i>
-        </button>
+    <div class="ui vertical segment">
+      <div class="ui page grid">
+        <div class="column" style="padding-top: 1rem">
+          <h3 style="text-align:center; margin:0px;">Course Date:</h3>
+          <%= form_tag course_tickets_path(@course), id: 'ticket_form', :target => "_blank", :style => "text-align:center" do %>
+            <%= select_tag 'start_date', options_from_collection_for_select(@course.upcoming_dates, :id, :pretty_date) %>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
-
-  <iframe style="width:260px;" frameborder="0" src="http://localhost:3000/courses/104?embed=small"></iframe>  
-  
-  <%# @course.name %>   
-  <%# @course.course_dates.each do |c| %>
-    <%# c.start_date %>
-  <%# end %>    
-</body>
+    <div class="ui vertical segment">
+      <div class="ui page grid">
+        <div class="column" style="text-align:center; padding-top: 1rem;">
+          <button type='submit' form='ticket_form' class="ui positive right labeled icon button">
+            Book Date
+            <i class="checkmark icon"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
