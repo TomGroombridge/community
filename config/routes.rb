@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :course_dates, :only => [:index]
 
   resources :payments
 

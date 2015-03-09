@@ -1,6 +1,5 @@
 class CourseDatesController < ApplicationController
-
-	before_action :fetch_and_authorize_course
+	before_action :fetch_and_authorize_course, :except => [:index]
 
 	def new
 		@course_date = @course.course_dates.build
@@ -33,6 +32,10 @@ class CourseDatesController < ApplicationController
 		else
 			render :edit
 		end
+	end
+
+	def index
+		@course_dates = CourseDate.where(:active => true).all
 	end
 
 	private

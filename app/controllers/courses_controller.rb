@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-
+	before_action :fetch_and_authorize_course, :except => [:index, :show]
 
 	def new
 		@course = Course.new
@@ -51,6 +51,12 @@ class CoursesController < ApplicationController
 		else
 			render :new
 		end
+	end
+
+	private
+
+	def fetch_and_authorize_course
+		raise 'Unauthorized' unless current_user.admin == true
 	end
 
 
