@@ -271,6 +271,21 @@ width: 200px;
   min-height: 65px;
 }
 
+.edit-option-buttons{
+  display: inline-block;
+  float: right;
+  position: relative;
+  top: 22px;
+  .edit_course{
+    display: inline-block;
+    width: 150px;
+    float: right;
+    height: 35px;
+    top: -72px;
+    position: relative;
+  }
+}
+
 
 @media only screen and (max-width: 768px) {
 

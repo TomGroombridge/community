@@ -179,7 +179,7 @@ $ ->
         }
       ]
   settings =
-    inline: true
+    on     : 'blur'
     onFailure: ->
       console.log 'Failed'
       false

@@ -2,7 +2,7 @@
 		<%= form_for @user, :multipart => true, :html => {:class => 'ui form edit user fluid '} do |form|  %>
 	<div class="ui segment" style="display:block">
 		<h2 style="display:inline-block">Edit Company Information </h2>
-		<%= form.submit :style =>"float:right; width:250px; display:inline-block; margin: 2rem 0em", :class => "ui inverted green button" %>		
+		<%# form.submit :style =>"float:right; width:250px; display:inline-block; margin: 2rem 0em", :class => "ui inverted green button" %>
 		<div class="ui divider" style="margin-top: 50px; margin-bottom: 25px;"></div>
 		<div class="ui circular labels">
 		  <a class="ui label" style="display:inline-block; font-size: 1.8571rem;">
@@ -10,8 +10,8 @@
 		  </a>
 			<h2 style="display:inline-block">Company details</h2>
 		</div>
-			<div class="ui form" style="max-width: 73%; margin: auto;">	
-				<div class="two fields">		
+			<div class="ui form" style="max-width: 73%; margin: auto;">
+				<div class="two fields">
 				  <div class="field">
 				    <label>First Name</label>
 				    <%= form.text_field :first_name %>
@@ -45,7 +45,7 @@
 				  <div class="field">
 				    <label>Twitter Handle</label>
 				    <%= form.text_field :twitter %>
-				  </div>		  
+				  </div>
 				</div>
 				<div class="two fields">
 				  <div class="field">
@@ -55,21 +55,23 @@
 				  <div class="field">
 				    <label>Company Website</label>
 				    <%= form.text_field :company_website %>
-				  </div>				  		 
+				  </div>
 				</div>
-			  <!-- start date time and end date time  -->		  
-			  <div class="field">		 
-			  	<h3>Upload image</h3> 				  		  		      	
+			  <!-- start date time and end date time  -->
+			  <div class="field">
+			  	<h3>Upload image</h3>
 	      	<img id="blah" src="#" alt="" class="ui small bordered image" style="display:inline-block" />
-	      	<%= form.file_field :avatar, :id => "imgInp"%>	
+	      	<%= form.file_field :avatar, :id => "imgInp"%>
 	      	<%= form.hidden_field :avatar_cache %>
-	      	<%# form.file_field :avatar, :id => "imgInp"%>	
-	      	<%# form.hidden_field :avatar_cache %>     		      				    
-			  </div>		  
-			</div>			
+	      	<%# form.file_field :avatar, :id => "imgInp"%>
+	      	<%# form.hidden_field :avatar_cache %>
+			  </div>
+			</div>
 			<div class="ui divider" style="margin-top: 100px; margin-bottom: 25px;"></div>
-			<div class="ui segment">								
-				<%= form.submit :style =>"float:right; width:250px", :class => "ui inverted green button" %>		
+			<div class="ui segment">
+				<%= form.submit :style =>"float:right; width:250px", :class => "ui inverted green button" %>
+				<br>
+				<div class="ui error message"></div>
 			</div>
 		<% end %>
 	</div>
@@ -82,11 +84,11 @@
 	  function readURL(input) {
 	    if (input.files && input.files[0]) {
 	        var reader = new FileReader();
-	        
+
 	        reader.onload = function (e) {
 	            $('#blah').attr('src', e.target.result);
 	        }
-	        
+
 	        reader.readAsDataURL(input.files[0]);
 	    }
 	}
