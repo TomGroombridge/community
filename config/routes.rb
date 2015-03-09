@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  root "courses#index"
+  root "course_dates#index"
 
   resources :courses do
     resources :tickets
