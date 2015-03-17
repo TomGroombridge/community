@@ -33,14 +33,17 @@
 .homepage-category{
 	padding-bottom: 100px;
 	.header{
-		margin-left: 15px;
 	  padding-top: 67px;
-	  margin-bottom: 60px;
 	  color: white;
 	  font-weight: 100;
 	  font-size: 42px;
+	  width: 94%;
+	  margin: auto;
+	  margin-bottom: 60px
 	}
 	.category-content{
+		width: 94%;
+		margin: auto;
 		.category{
 			width: 17%;
 			height: 215px;
