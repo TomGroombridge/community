@@ -1,0 +1,67 @@
+.homepage-banner{
+  width: 100%;
+  display: table;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+  background: red;
+  .content{
+  	display: table-cell;
+  	vertical-align: middle;
+  	text-align: center;
+  }
+}
+
+.sub-content{
+	margin-left: 45px;
+	.about-content{
+		text-transform: uppercase;
+	  color: #4A90E2;
+	  letter-spacing: 1px;
+	  -webkit-font-smoothing: auto;
+	  font-size: 18px;
+	  font-weight: 300;
+	  height: 100%;
+	  padding: 1rem;
+	}
+	.header{
+		font-size: 23px;
+		font-weight: bold;
+	}
+}
+
+.category-content{
+	.category{
+		width: 17%;
+		height: 215px;
+		margin: 1.3%;
+		background-color: #36464f;
+		.visible.content{
+			width:100%;
+			height: 100%;
+		}
+		.hidden.content{
+		  width: 100%;
+		  display: table;
+		  height: 100%;
+		  .category-title{
+		  	vertical-align: middle;
+  			display: table-cell;
+		  }
+		}
+	}
+}
+
+.ui.fade.reveal > .visible.content {
+	opacity: 0;
+}
+
+.ui.fade.reveal:hover > .visible.content {
+	opacity: 1;
+	transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
+}
+
+.ui.fade.reveal:hover > .hidden.content {
+	z-index: 4 !important;
+	color: white;
+}
