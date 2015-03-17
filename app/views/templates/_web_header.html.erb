@@ -1,7 +1,6 @@
 <div class="ui top attached demo menu web">
-  <div class="item logo">
-  </div>
-  <%= link_to("Discover", root_url, :class => "item") %>
+  <%= link_to("Logo", root_url, :class => "item logo") %>
+  <%= link_to("Discover", course_dates_path, :class => "item") %>
   <%# link_to("Offer", offer_path, :class => "item") %>
   <% if signed_in? %>
     <% if current_user.admin? || nil%>
