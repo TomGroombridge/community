@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
 
-  root "course_dates#index"
+  # root "course_dates#index"
+  root "pages#home_page"
 
   resources :courses do
     resources :tickets
@@ -44,6 +45,7 @@ Rails.application.routes.draw do
   get '/faq', :to => 'pages#faq'
   get '/sales_and_refunds', :to => 'pages#sales_and_refunds'
   get '/offer', :to => 'pages#offer'
+  get '/home', :to => 'pages#home_page'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
