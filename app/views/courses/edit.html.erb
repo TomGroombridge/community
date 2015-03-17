@@ -2,15 +2,15 @@
 		<%= form_for @course, :multipart => true, :html => {:class => 'ui form fluid '} do |form|  %>
 	<div class="ui segment" style="display:block">
 		<h2 style="display:inline-block">Edit a course </h2>
-		<%= form.submit :style =>"float:right; width:250px; display:inline-block; margin: 2rem 0em", :class => "ui inverted green button" %>		
+		<%= form.submit :style =>"float:right; width:250px; display:inline-block; margin: 2rem 0em", :class => "ui inverted green button" %>
 		<div class="ui divider" style="margin-top: 50px; margin-bottom: 25px;"></div>
-		<div class="ui circular labels">		  
+		<div class="ui circular labels">
 		  <a class="ui label" style="display:inline-block; font-size: 1.8571rem;">
 		    1
 		  </a>
 			<h2 style="display:inline-block">Course details</h2>
 		</div>
-			<div class="ui form" style="max-width: 73%; margin: auto;">			
+			<div class="ui form" style="max-width: 73%; margin: auto;">
 			  <div class="field">
 			    <label>Course title</label>
 			    <%= form.text_field :name %>
@@ -35,43 +35,47 @@
 			    <label>Experiance needed</label>
 			    <%= form.text_field :experience %>
 			  </div>
+			  <div class="field">
+				    <label>Course Category</label>
+				    <%= form.select :category, ['Arts & Crafts','Food & Drink','Health & Wellbeing', 'Music', 'Other']%>
+				  </div>
 			  <%= form.fields_for :course_addresses do |addresses_form| %>
 				  <div class="two fields">
 				  	<h3>Location</h3>
-				    <div class="field">		     				      
+				    <div class="field">
 				      <%= addresses_form.text_field :address1, :placeholder => 'Address 1'%>
 				    </div>
-				    <div class="field">		      
+				    <div class="field">
 				      <%= addresses_form.text_field :address2, :placeholder => 'Addres 2' %>
 				    </div>
-				    <div class="field">		      
+				    <div class="field">
 				      <%= addresses_form.text_field :city, :placeholder => 'City' %>
 				    </div>
-				    <div class="field four wide">		      
+				    <div class="field four wide">
 				      <%= addresses_form.text_field :postcode, :placeholder => 'Postcode'%>
 				    </div>
-				  </div>	
+				  </div>
 			  <% end %>
-			  <!-- start date time and end date time  -->		  
-			  <div class="field">		 
-			  	<h3>Upload image</h3> 				  		  	
+			  <!-- start date time and end date time  -->
+			  <div class="field">
+			  	<h3>Upload image</h3>
 	      	<img id="blah" src="#" alt="" class="ui small bordered image" style="display:inline-block" />
-	      	<%= form.file_field :avatar, :id => "imgInp"%>	
-	      	<%= form.hidden_field :avatar_cache %>     		      				    
-			  </div>	
+	      	<%= form.file_field :avatar, :id => "imgInp"%>
+	      	<%= form.hidden_field :avatar_cache %>
+			  </div>
 			  <div class="inline field">
 				  <h3>Price</h3>
-				  <label>£</label>				  
-				  	<%= form.text_field :price, :value => number_with_precision(form.object.price, :precision => 2, :placeholder => "58.00") %>     		      				    
-			  </div>	  
-			</div>									
+				  <label>£</label>
+				  	<%= form.text_field :price, :value => number_with_precision(form.object.price, :precision => 2, :placeholder => "58.00") %>
+			  </div>
+			</div>
 			<div class="ui divider" style="margin-top: 100px; margin-bottom: 25px;"></div>
 			<div class="ui segment">
 				<div id="terms" class="ui button labeled icon basic">
 					<i class="icon pencil"></i>
-					Terms & Conditions  
-				</div>				
-				<%= form.submit :style =>"float:right; width:250px", :class => "ui inverted green button" %>		
+					Terms & Conditions
+				</div>
+				<%= form.submit :style =>"float:right; width:250px", :class => "ui inverted green button" %>
 			</div>
 		<% end %>
 	</div>
@@ -84,11 +88,11 @@
 	  function readURL(input) {
 	    if (input.files && input.files[0]) {
 	        var reader = new FileReader();
-	        
+
 	        reader.onload = function (e) {
 	            $('#blah').attr('src', e.target.result);
 	        }
-	        
+
 	        reader.readAsDataURL(input.files[0]);
 	    }
 	}

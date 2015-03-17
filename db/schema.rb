@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150218145659) do
+ActiveRecord::Schema.define(version: 20150317150158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20150218145659) do
     t.time     "start_time"
     t.date     "end_date"
     t.time     "end_time"
+    t.integer  "user_id"
   end
 
   create_table "courses", force: true do |t|
@@ -53,6 +54,7 @@ ActiveRecord::Schema.define(version: 20150218145659) do
     t.text     "what_to_bring"
     t.text     "experience"
     t.string   "avatar"
+    t.string   "category"
   end
 
   create_table "payments", force: true do |t|

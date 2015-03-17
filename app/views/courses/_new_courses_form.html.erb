@@ -36,6 +36,10 @@
 				    <label>Experiance needed</label>
 				    <%= form.text_field :experience %>
 				  </div>
+				  <div class="field">
+				    <label>Course Category</label>
+				    <%= form.select :category, ['Arts & Crafts','Food & Drink','Health & Wellbeing', 'Music', 'Other']%>
+				  </div>
 				  <%= form.fields_for :course_addresses do |addresses_form| %>
 					  <div class="two fields">
 					  	<h3>Location</h3>
