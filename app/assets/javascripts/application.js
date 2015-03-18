@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui/datepicker
-
 //= require jquery.Jcrop
 // Loads all Semantic javascripts
 //= require semantic-ui
