@@ -1,57 +1,56 @@
 <div class="ui pusher" style="padding-top:10px;">
   <div id="filters" class="ui six column stackable grid category-buttons button-group">
-  <div class="column">
-    <button class="ui inverted red button is-checked" data-filter="*">All</button>
-  </div>
-  <div class="column">
-    <button class="ui inverted yellow button" data-filter=".arts">Arts & Crafts</button>
-  </div>
-  <div class="column">
-    <button class="ui inverted blue button" data-filter=".food">Food & Drink</button>
-  </div>
-  <div class="column">
-    <button class="ui inverted orange button" data-filter=".health">Health & Wellbeing</button>
-  </div>
-  <div class="column">
-    <button class="ui inverted green button" data-filter=".music)">Music</button>
-  </div>
-  <div class="column">
-    <button class="ui inverted purple button" data-filter=".other">Other</button>
+    <div class="column">
+      <button class="ui inverted red button is-checked" data-filter="*">All</button>
+    </div>
+    <div class="column">
+      <button class="ui inverted yellow button" data-filter=".arts">Arts & Crafts</button>
+    </div>
+    <div class="column">
+      <button class="ui inverted blue button" data-filter=".food">Food & Drink</button>
+    </div>
+    <div class="column">
+      <button class="ui inverted orange button" data-filter=".health">Health & Wellbeing</button>
+    </div>
+    <div class="column">
+      <button class="ui inverted green button" data-filter=".music)">Music</button>
+    </div>
+    <div class="column">
+      <button class="ui inverted purple button" data-filter=".other">Other</button>
+    </div>
   </div>
 </div>
-    <%# image_tag "test_image.png"%>
-    </div>
-    <div class="ui special cards container isotope">
-        <% @course_dates.each do |course_date| %>
-            <div class="card element-item <%= course_date.course.category %>">
-                <div class="ui fluid image">
+<div class="ui special cards container isotope">
+    <% @course_dates.each do |course_date| %>
+        <div class="card element-item <%= course_date.course.category %>">
+            <div class="ui fluid image">
 
-                <!-- sold out banner -->
+            <!-- sold out banner -->
 
-                  <!-- <a class="ui left red corner label" style="font-size: 1.5rem; text-align: left;">
-                    <span style="font-size: 1rem; -webkit-transform: rotate(90deg); -moz-transform: rotate(90deg); -o-transform: rotate(90deg); -ms-transform: rotate(90deg); transform: rotate(315deg); position: inherit; top: 30%;">
-                      Sold out
-                    </span>
-                  </a>                   -->
+              <!-- <a class="ui left red corner label" style="font-size: 1.5rem; text-align: left;">
+                <span style="font-size: 1rem; -webkit-transform: rotate(90deg); -moz-transform: rotate(90deg); -o-transform: rotate(90deg); -ms-transform: rotate(90deg); transform: rotate(315deg); position: inherit; top: 30%;">
+                  Sold out
+                </span>
+              </a>                   -->
 
-                <!-- end of sold out banner -->
+            <!-- end of sold out banner -->
 
-                  <%= link_to (image_tag course_date.course.avatar_url(:medium), :style => "width:100%; vertical-align: top;"), course_path(course_date.course) %>
-                </div>
-                <div class="content">
-                  <a class="header"><%= link_to course_date.course.name, course_path(course_date.course) %></a>
-                </div>
-                <div class="extra content">
-                  <span class="left floated like">
-                    <i class="calendar icon"></i>
-                    <%= course_date.start_date.strftime("%d, %b, %Y") %>
-                  </span>
-                  <span class="right floated star">
-                    <%= number_to_currency(course_date.course.price, :precision => 2, :unit => "£")  %>
-                  </span>
-                </div>
+              <%= link_to (image_tag course_date.course.avatar_url(:medium), :style => "width:100%; vertical-align: top;"), course_path(course_date.course) %>
             </div>
-        <% end %>
-    </div>
+            <div class="content">
+              <a class="header"><%= link_to course_date.course.name, course_path(course_date.course) %></a>
+            </div>
+            <div class="extra content">
+              <span class="left floated like">
+                <i class="calendar icon"></i>
+                <%= course_date.start_date.strftime("%d, %b, %Y") %>
+              </span>
+              <span class="right floated star">
+                <%= number_to_currency(course_date.course.price, :precision => 2, :unit => "£")  %>
+              </span>
+            </div>
+        </div>
+    <% end %>
 </div>
+
 
