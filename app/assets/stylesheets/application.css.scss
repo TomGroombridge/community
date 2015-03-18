@@ -243,6 +243,7 @@ width: 200px;
 .ui.special.cards.container{
   margin-left: auto !important;
   margin-right: auto !important;
+  min-height: 400px;
 
   @media (min-width: 1245px){
     width: 1245px;
