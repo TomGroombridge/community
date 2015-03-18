@@ -237,6 +237,9 @@ width: 200px;
     float: none;
     margin: 0em auto 1.5em;
     width: 90%;
+    position: relative !important;
+    display: block;
+    top: 0px !important;
   }
 }
 
