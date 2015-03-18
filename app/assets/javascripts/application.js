@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require isotope-docs.min.js
 //= require jquery-ui/datepicker
 //= require jquery.Jcrop
 // Loads all Semantic javascripts
