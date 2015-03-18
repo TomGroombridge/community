@@ -37,7 +37,12 @@
 }
 
 .homepage-category{
-	padding-bottom: 100px;
+	padding-bottom: 0px;
+	width: 100%;
+  display: table;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
 	.header{
 	  padding-top: 67px;
 	  color: white;
@@ -95,3 +100,56 @@
 	z-index: 4 !important;
 	color: white;
 }
+
+.content.how-it-works{
+	.header{
+		padding-top: 67px;
+	  color: #4A90E2;
+	  font-weight: 100;
+	  font-size: 42px;
+	  width: 94%;
+	  margin: auto;
+	  margin-bottom: 60px;
+	  position: relative;
+	}
+	.circles{
+		width: 90%;
+  	margin: auto;
+		.circleBase{
+			border-radius: 50%;
+		}
+		.type1 {
+	    width: 250px;
+	    height: 250px;
+	    background: none;
+	    border: 3px solid #00b5ae;
+	    margin: auto;
+	    display: table;
+	    .circle-title{
+	    	display: table-cell;
+			  vertical-align: middle;
+			  text-align: center;
+			  color: #4A90E2;
+			  font-weight: 100;
+			  font-size: 42px;
+	    }
+		}
+		.short-description{
+		  color: #4A90E2;
+		  font-weight: 100;
+		  font-size: 27px;
+		  text-align: center;
+		  width: 90%;
+		  margin: auto;
+		  margin-top: 17px;
+		}
+	}
+	.button{
+		width: 275px;
+	  margin: auto;
+	  display: block;
+	  margin-top: 56px;
+	  font-size: 2rem;
+	}
+}
+
