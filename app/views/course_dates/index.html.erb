@@ -22,7 +22,11 @@
 </div>
 <div class="ui special cards container isotope">
     <% @course_dates.each do |course_date| %>
+      <% if course_date.course.category == nil %>
+        <div class="card element-item">
+      <% else %>
         <div class="card element-item <%= course_date.course.category %>">
+      <% end %>
             <div class="ui fluid image">
 
             <!-- sold out banner -->
