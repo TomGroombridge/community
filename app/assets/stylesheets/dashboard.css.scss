@@ -26,6 +26,7 @@
 		}
 		.upcoming_dates{
 			padding-top: 5px;
+			padding-bottom: 40px;
 			.upcoming-dates-table{
 				width: 95%;
 				margin: auto;
@@ -33,7 +34,16 @@
 		}
 		.previous_dates{
 			padding-top: 5px;
+			padding-bottom: 40px;
 			.previous-dates-table{
+				width: 95%;
+				margin: auto;
+			}
+		}
+		.course_list{
+			padding-top: 5px;
+			padding-bottom: 40px;
+			.course-list-table{
 				width: 95%;
 				margin: auto;
 			}
@@ -45,6 +55,12 @@
 	  position: inherit;
 	}
 	#content2{
+		width: 96%;
+	  height: 100%;
+	  position: inherit;
+		display: none;
+	}
+	#content3{
 		width: 96%;
 	  height: 100%;
 	  position: inherit;

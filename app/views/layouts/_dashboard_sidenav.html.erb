@@ -1,0 +1,31 @@
+<div class="dash-sidenav">
+	<div class="account">
+    <div class=""><%= image_tag @user.avatar_url(:thumb), :class => "profile-pic"%></div>
+    <div class="username"><%= @user.company_name %></div>
+  </div>
+  <div class="ui divider"></div>
+  <h3 class="summary-title">Booking Summary</h3>
+  <table class="ui table month-summary-table">
+	  <tbody>
+	    <tr>
+	      <td class="title">
+	        <i class="calendar outline icon"></i> Course Dates
+	      </td>
+	      <td class="value">14</td>
+	    </tr>
+	    <tr>
+	      <td>
+	        <i class="ticket icon"></i> Tickets sold
+	      </td>
+	      <td>53</td>
+	    </tr>
+	    <tr>
+	      <td>
+	        <i class="pound icon"></i> Revenue
+	      </td>
+	      <td>£3000.00</td>
+	    </tr>
+	  </tbody>
+	</table>
+	<div class="ui divider"></div>
+</div>

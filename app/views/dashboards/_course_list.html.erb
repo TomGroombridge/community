@@ -1,0 +1,22 @@
+<h1 class="header" style="margin-bottom: 35px;">Course List</h1>
+<table class="ui very basic table course-list-table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Course Dates Created</th>
+      <th>Active Course Dates</th>
+      <th style="text-align: center">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @courses.each do |course|%>
+		    <tr>
+		      <td><%= course.name %></td>
+		      <td><%= course.course_dates.count %></td>
+		      <td><%= course.upcoming_dates.count %></td>
+		      <td style="text-align:center"><%= link_to("Add Date".html_safe, new_course_course_date_path(course.id), :class =>"ui inverted red button")%>
+		      </td>
+		    </tr>
+	   <% end %>
+  </tbody>
+</table>

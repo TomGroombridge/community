@@ -1,0 +1,43 @@
+.column.four.wide{
+	padding-top: 0px !important;
+	.dash-sidenav{
+		background-color: #36464f;
+		height: 100%;
+		padding: 1rem !important;
+		.profile-pic{
+			margin: auto;
+			display: block;
+			border-radius: 100px;
+		}
+		.username{
+			text-align: center;
+			font-size: 20px;
+		}
+		.summary-title{
+			text-align: center;
+			color: white;
+		}
+		.month-summary-table{
+			width: 90%;
+			margin: auto;
+			color: white;
+			background: none;
+			margin-bottom: 30px;
+			.title{
+				width: 70%;
+			}
+			.value{
+				width: 30%;
+			}
+		}
+		.side-buttons{
+			text-align: center;
+		  color: white;
+		  font-size: 1.2rem;
+		  .item{
+		  	line-height: 40px;
+		  	cursor: pointer;
+		  }
+		}
+	}
+}

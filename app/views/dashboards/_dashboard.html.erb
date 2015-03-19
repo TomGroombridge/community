@@ -1,6 +1,6 @@
 <div class="two column stackable ui grid dashboard">
-	<div class="column four wide" style="background:red; height: 500px;">
-
+	<div class="column four wide">
+		<%= render "layouts/dashboard_sidenav" %>
 	</div>
 	<div class="column twelve wide">
 		<div class="row">
@@ -16,7 +16,7 @@
 					<div class="ui black button" id='info2'>Previous Dates</div>
 				</div>
 				<div class="column">
-					<div class="ui black button">Black</div>
+					<div class="ui black button" id='info3'>Course List</div>
 				</div>
 			</div>
 			<div class="ui divider"></div>
@@ -25,6 +25,9 @@
 			</div>
 			<div class="previous_dates" id='content2'>
 				<%= render "previous_dates" %>
+			</div>
+			<div class="course_list" id='content3'>
+				<%= render "course_list" %>
 			</div>
 		</div>
 	</div>

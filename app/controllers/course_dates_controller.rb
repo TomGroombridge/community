@@ -23,6 +23,7 @@ class CourseDatesController < ApplicationController
 		@payments = @course_date.payments
 		@percentage = @payments.count.to_f / @course_date.quantity.to_f
 		gon.percentage = @percentage
+		@user = current_user
 	end
 
 	def update
