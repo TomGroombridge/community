@@ -46,7 +46,8 @@ Rails.application.routes.draw do
   get '/sales_and_refunds', :to => 'pages#sales_and_refunds'
   get '/offer', :to => 'pages#offer'
   get '/home', :to => 'pages#home_page'
-  get '/isotopes', :to => 'pages#isotopes'
+  get '/how_it_works', :to => 'pages#how_it_works'
+  get '/examples', :to => 'pages#examples'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
