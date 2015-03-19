@@ -1,5 +1,6 @@
 <% if current_user.admin? %>
-    <%= render 'admin_board' %>
+    <%# render 'admin_board' %>
+    <%= render 'dashboard' %>
 <% else %>
     <%= render 'user_board' %>
 <% end %>

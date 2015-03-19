@@ -44,6 +44,10 @@ class CourseDate < ActiveRecord::Base
 		value.to_i
 	end
 
+	def revenue
+		value = self.course.price * self.payments.count
+	end
+
 	def send_new_date
 		CourseDateMailer.new_date(self).deliver!
 	end
