@@ -1,0 +1,21 @@
+<h1 class="header" style="margin-bottom: 35px;">Attendees</h1>
+<table class="ui very basic table attendees-table" style="width: 94%; margin: auto;">
+  <thead>
+    <tr>
+      <th>Full name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Paid on</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @course_date.payments.each do |payment| %>
+      <tr>
+        <td><%= payment.full_name %></td>
+        <td><%= payment.email %></td>
+        <td><%= payment.mobile_number %></td>
+        <td><%= payment.created_at.strftime("%d/%m/%Y")%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

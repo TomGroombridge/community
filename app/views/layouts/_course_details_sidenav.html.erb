@@ -29,9 +29,22 @@
 	</table>
 	<div class="ui divider"></div>
 	<div class="ui list side-buttons" style="text-align:center">
-	  <div class="item">Summary</div>
-	  <div class="item">Attendees</div>
-	  <!-- <div class="item"></div> -->
+	  <div class="item" id="summary">Summary</div>
+	  <div class="item" id="attendee">Attendees</div>
 	  <%= link_to( "Back to Dashboard".html_safe, dashboard_path, :class => "item" ) %>
 	</div>
 </div>
+
+
+<script>
+	$("#summary").on('click', function() {
+	  $("#attendeeContent").fadeOut();
+	  $("#summaryContent").fadeIn();
+	});
+
+	$('#attendee').on('click', function() {
+	  $("#summaryContent").fadeOut();
+	  $('#attendeeContent').fadeIn();
+	});
+
+</script>
