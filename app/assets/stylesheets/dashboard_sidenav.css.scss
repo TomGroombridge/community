@@ -38,6 +38,9 @@
 		  	cursor: pointer;
 		  	color: white;
 		  }
+		  .item.selected{
+		  	color: red;
+		  }
 		}
 	}
 }
