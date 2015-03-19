@@ -1,0 +1,35 @@
+<div class="two column stackable ui grid dashboard">
+	<div class="column four wide">
+		<%= render "layouts/course_details_sidenav" %>
+	</div>
+	<div class="column twelve wide">
+		<div class="row">
+			<h1 class="header">Course Management</h1>
+			<h3 class="header sub-heading">Manage your courses and check your event analytics</h3>
+		</div>
+		<div class="row sections">
+			<div class="ui three column stackable grid">
+				<div class="column">
+					<div class="ui black button selected" id='info1'>Upcoming Dates</div>
+				</div>
+				<div class="column">
+					<div class="ui black button" id='info2'>Previous Dates</div>
+				</div>
+				<div class="column">
+					<div class="ui black button" id='info3'>Course List</div>
+				</div>
+			</div>
+			<div class="ui divider"></div>
+			<div class="upcoming_dates" id='content1'>
+				<%# render "upcoming_dates" %>
+			</div>
+			<div class="previous_dates" id='content2'>
+				<%# render "previous_dates" %>
+			</div>
+			<div class="course_list" id='content3'>
+				<%# render "course_list" %>
+			</div>
+		</div>
+	</div>
+</div>
+
