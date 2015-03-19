@@ -34,21 +34,3 @@
 	  <%= link_to( "Back to Dashboard".html_safe, dashboard_path, :class => "item" ) %>
 	</div>
 </div>
-
-
-<script>
-	$("#summary").on('click', function() {
-	  $("#attendeeContent").fadeOut();
-	  $("#summaryContent").fadeIn();
-	  $("#summary").addClass("selected");
-	  $("#attendee").removeClass("selected");
-	});
-
-	$('#attendee').on('click', function() {
-	  $("#summaryContent").fadeOut();
-	  $('#attendeeContent').fadeIn();
-	  $("#summary").removeClass("selected");
-	  $("#attendee").addClass("selected");
-	});
-
-</script>
