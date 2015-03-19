@@ -17,13 +17,13 @@
 	      <td>
 	        <i class="ticket icon"></i> Tickets sold
 	      </td>
-	      <td>53</td>
+	      <td><%# @monthly_payments.count %></td>
 	    </tr>
 	    <tr>
 	      <td>
 	        <i class="pound icon"></i> Revenue
 	      </td>
-	      <td>£3000.00</td>
+	      <td><%# number_to_currency(@revenue , :precision => 2, :unit => "£")  %></td>
 	    </tr>
 	  </tbody>
 	</table>
