@@ -1,0 +1,35 @@
+.how-it-works-banner{
+	min-height:442px;
+	.ui.three.column.stackable.grid{
+		margin-top: 0px;
+		.column{
+			text-align: center;
+			font-size: 6rem;
+			.heart{
+				color: #ff6859;
+			}
+			.map{
+				color: #4A90E2;
+			}
+			h1{
+				font-size: 2rem;
+			}
+		}
+	}
+	.sub-heading{
+		text-align: center;
+		width: 80%;
+  	margin: auto;
+  	margin-top: 30px;
+  	letter-spacing: 1px;
+	  -webkit-font-smoothing: auto;
+	  font-size: 30px;
+	  font-weight: 300;
+	}
+	.buttons{
+		margin-top: 30px;
+		.button{
+			font-size: 2rem;
+		}
+	}
+}
