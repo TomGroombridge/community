@@ -18,11 +18,14 @@
 	}
 	.row.sections{
 		padding-top: 60px;
+		.button.selected{
+			background: red !important;
+		}
 		.column{
 			text-align: center;
 		}
 		.upcoming_dates{
-			padding-top: 40px;
+			padding-top: 5px;
 			.upcoming-dates-table{
 				width: 95%;
 				margin: auto;
@@ -30,6 +33,21 @@
 		}
 		.previous_dates{
 			padding-top: 40px;
+			.previous-dates-table{
+				width: 95%;
+				margin: auto;
+			}
 		}
+	}
+	#content1{
+	  width: 96%;
+	  height: 100%;
+	  position: inherit;
+	}
+	#content2{
+		width: 96%;
+	  height: 100%;
+	  position: inherit;
+		display: none;
 	}
 }

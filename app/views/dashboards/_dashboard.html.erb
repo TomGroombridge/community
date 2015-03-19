@@ -10,22 +10,49 @@
 		<div class="row sections">
 			<div class="ui three column stackable grid">
 				<div class="column">
-					<div class="ui black button">Black</div>
+					<div class="ui black button selected" id='info1'>Upcoming Dates</div>
 				</div>
 				<div class="column">
-					<div class="ui black button">Black</div>
+					<div class="ui black button" id='info2'>Previous Dates</div>
 				</div>
 				<div class="column">
 					<div class="ui black button">Black</div>
 				</div>
 			</div>
 			<div class="ui divider"></div>
-			<div class="upcoming_dates">
+			<div class="upcoming_dates" id='content1'>
 				<%= render "upcoming_dates" %>
 			</div>
-			<div class="previous_dates">
+			<div class="previous_dates" id='content2'>
 				<%= render "previous_dates" %>
 			</div>
 		</div>
 	</div>
 </div>
+
+
+<script>
+	$("#info1").on('click', function() {
+   $("#content2").fadeOut();
+   // $("#content3").fadeOut();
+   $("#content1").fadeIn();
+   $("#info1").addClass("selected");
+   $("#info2").removeClass("selected");
+});
+
+$("#info2").on('click', function() {
+   $("#content1").fadeOut();
+   // $("#content3").fadeOut();
+   $("#content2").fadeIn();
+   $("#info1").removeClass("selected");
+   $("#info2").addClass("selected");
+});
+
+// $("#info3").on('click', function() {
+//    $("#content1").fadeOut();
+//    $("#content2").fadeOut();
+//    $("#content3").fadeIn();
+// });
+
+
+</script>
