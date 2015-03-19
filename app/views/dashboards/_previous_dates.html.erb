@@ -1,0 +1,25 @@
+<table class="ui very basic table upcoming-dates-table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Date</th>
+      <th>Revenue</th>
+      <th>Sold</th>
+      <th style="text-align:center">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @courses.each do |course|%>
+  		<% course.previous_dates.each do |course_date| %>
+		    <tr>
+		      <td><%= course.name %></td>
+		      <td><%= course_date.start_date.strftime("%d/%m/%Y")%></td>
+		      <td><%= number_to_currency(course_date.revenue, :precision => 2, :unit => "£")  %></td>
+		      <td><%= course_date.payments.count%>/<%= course_date.quantity %></td>
+		      <td style="text-align:center"><%= link_to("Manage".html_safe, course_details_course_course_date_path(course_date.course_id, course_date.id), :class =>"ui inverted red button")%>
+		      </td>
+		    </tr>
+	    <% end %>
+	   <% end %>
+  </tbody>
+</table>
