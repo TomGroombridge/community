@@ -8,4 +8,28 @@
 	.button{
 		width: 100%;
 	}
+	.red.button.is-checked{
+		background-color: #ff695e;
+		color: white;
+	}
+	.yellow.button.is-checked{
+		background-color: #ffe21f;;
+		color: black;
+	}
+	.blue.button.is-checked{
+		background-color: #54c8ff;
+		color: white;
+	}
+	.orange.button.is-checked{
+		background-color: #ff851b;
+		color: white;
+	}
+	.green.button.is-checked{
+		background-color: #2ecc40;
+		color: white;
+	}
+	.purple.button.is-checked{
+		background-color: #cdc6ff;
+		color: black;
+	}
 }
