@@ -64,9 +64,10 @@ $(document).ready(function() {
 
     $('.gmap').append('<iframe frameborder="0" style="border:0" src="https://maps.google.com/maps?output=embed&iwloc&z=12&t=p&q=London UK"></iframe>');
 
-    $('.special.cards.image')
-      .dimmer({
-        on: 'hover'
+
+
+    $('.special.cards .image').dimmer({
+      on: 'hover'
     });
 
     $('.menu .item')
