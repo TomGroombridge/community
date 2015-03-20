@@ -3,32 +3,23 @@
 		<%= render "layouts/dashboard_sidenav" %>
 	</div>
 	<div class="column twelve wide" style="height: 100%">
-		<div class="row">
+		<div class="row" style="padding-bottom:30px;">
 			<h1 class="header">Course Management</h1>
 			<h3 class="header sub-heading">Manage your courses and check your event analytics</h3>
 		</div>
-		<div class="row sections">
-			<div class="ui three column stackable grid">
-				<div class="column">
-					<div class="ui black button selected" id='info1'>Upcoming Dates</div>
-				</div>
-				<div class="column">
-					<div class="ui black button" id='info2'>Previous Dates</div>
-				</div>
-				<div class="column">
-					<div class="ui black button" id='info3'>Course List</div>
-				</div>
-			</div>
-			<div class="ui divider"></div>
-			<div class="upcoming_dates" id='content1'>
-				<%= render "upcoming_dates" %>
-			</div>
-			<div class="previous_dates" id='content2'>
-				<%= render "previous_dates" %>
-			</div>
-			<div class="course_list" id='content3'>
-				<%= render "course_list" %>
-			</div>
+		<div class="ui pointing secondary menu">
+	    <a class="active item" data-tab="first" style="width:33.3%; text-align:center;font-size: 18px;">Upcoming Dates</a>
+	    <a class="item" data-tab="second" style="width:33.3%; text-align:center;font-size: 18px;">Previous Dates</a>
+	    <a class="item" data-tab="third" style="width:33.3%; text-align:center;font-size: 18px;">Course List</a>
+	  </div>
+		<div class="ui active tab" data-tab="first">
+		  <%= render "upcoming_dates" %>
+		</div>
+		<div class="ui tab" data-tab="second">
+		  <%= render "previous_dates" %>
+		</div>
+		<div class="ui tab" data-tab="third">
+		  <%= render "course_list" %>
 		</div>
 	</div>
 </div>
