@@ -1,11 +1,12 @@
 <div class="ui top attached demo menu web">
   <%= link_to("Logo", root_url, :class => "item logo") %>
   <%= link_to("Discover", course_dates_path, :class => "item") %>
+  <%= link_to("How it works", how_it_works_path, :class => "item") %>
   <%# link_to("Offer", offer_path, :class => "item") %>
   <% if signed_in? %>
     <% if current_user.admin? || nil%>
-      <%= link_to( "<i class='user icon'></i>Dashboard".html_safe, dashboard_path, :class => "item" ) %>
       <%= link_to("<i class='add square icon'></i>Add Course".html_safe, new_course_path, :class => "item right", :style => "  background-color:#36464f; color:white;") %>
+      <%= link_to( "Dashboard".html_safe, dashboard_path, :class => "item right" ) %>
     <% end %>
     <%# link_to("<i class='sign in icon'></i>Log out".html_safe, destroy_user_session_path, :method => :delete, :class => "item right") %>
   <% else %>
@@ -15,14 +16,17 @@
     </a>
     <%= link_to("<i class='sign in icon'></i>Sign up".html_safe, new_user_registration_path, :class => "item right") %>
   <% end %>
-    <div class="ui pointing dropdown link item" style="float:right ">
+    <div class="ui pointing dropdown link item" style="float:right">
       <!-- <i class="dropdown icon"></i> -->
       <span class="text"><i class="settings icon"></i>settings</span>
       <div class="menu">
         <%= link_to "About us", about_path ,:class => "item" %>
         <%= link_to "FAQ's", faq_path ,:class => "item" %>
         <% if signed_in? %>
-          <%= link_to("<i class='sign in icon'></i>Log out".html_safe, destroy_user_session_path, :method => :delete, :class => "item") %>
+          <% if current_user.admin? || nil %>
+            <%= link_to("Edit Details", edit_user_path(current_user.id), :class => "item") %>
+          <% end %>
+          <%= link_to("Log out".html_safe, destroy_user_session_path, :method => :delete, :class => "item") %>
         <% end %>
       </div>
     </div>

@@ -12,6 +12,7 @@
 		.username{
 			text-align: center;
 			font-size: 20px;
+			color: white;
 		}
 		.summary-title{
 			text-align: center;
@@ -37,9 +38,6 @@
 		  	line-height: 40px;
 		  	cursor: pointer;
 		  	color: white;
-		  }
-		  .item.selected{
-		  	color: red;
 		  }
 		}
 	}

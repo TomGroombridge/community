@@ -12,10 +12,10 @@
       <div class="four wide column">
         <h5 class="ui teal inverted header"></h5>
         <div class="ui inverted link list">
-          <a class="item">About</a>
-          <a class="item">Offer</a>
-          <a class="item">FAQ's</a>
-          <a class="item">How it Works</a>
+          <%= link_to "About", about_path, :class => "item"  %>
+          <%= link_to "Offer", offer_path, :class => "item"  %>
+          <%= link_to "FAQ", faq_path, :class => "item"  %>
+          <%= link_to "How it Works", how_it_works_path, :class => "item"  %>
         </div>
       </div>
       <div class="four wide column">
