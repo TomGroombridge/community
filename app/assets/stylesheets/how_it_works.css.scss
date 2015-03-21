@@ -2,6 +2,7 @@
 	min-height:442px;
 	.ui.three.column.stackable.grid{
 		margin-top: 0px;
+		text-align: center;
 		.column{
 			text-align: center;
 			font-size: 6rem;
@@ -14,6 +15,17 @@
 			h1{
 				font-size: 2rem;
 			}
+			.yellow{
+				color: #ffe400;
+			}
+			.white{
+				color: white;
+			}
+		}
+		.pricing.button{
+			margin-top: 20px;
+		  margin-bottom: 20px;
+		  font-size: 1.5rem;
 		}
 	}
 	.sub-heading{
