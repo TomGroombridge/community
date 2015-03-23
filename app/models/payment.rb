@@ -5,15 +5,15 @@ class Payment < ActiveRecord::Base
 	after_create :send_new_payment_email
 	after_create :send_reminder
 	after_create :send_notification
-	after_create :check_course_date_active
+	# after_create :check_course_date_active
 	attr_accessor :stripe_card_token
 
 
-	def check_course_date_active
-		if course_date.quantity == 0
-			course_date.update_attributes(active: false)
-		end
-	end
+	# def check_course_date_active
+	# 	if course_date.quantity == 0
+	# 		course_date.update_attributes(active: false)
+	# 	end
+	# end
 
 	def price
 		course_date.course.price
