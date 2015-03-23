@@ -1,3 +1,19 @@
+<script>
+  $(".scroller").click(function(event){
+       event.preventDefault();
+       //calculate destination place
+       var dest=0;
+       if($(this.hash).offset().top > $(document).height()-$(window).height()){
+            dest=$(document).height()-$(window).height();
+       }else{
+            dest=$(this.hash).offset().top;
+       }
+       //go to destination
+       $('html,body').animate({scrollTop:dest}, 1000,'swing');
+   });
+</script>
+
+
 <div class="row">
 	<div class="ui top banner test ad how-it-works-banner" data-text="Top Banner">
 		<div class="ui three column stackable grid">
@@ -18,14 +34,18 @@
     <h2 class="sub-heading">At Courseiam, we make it really easy for people to find and book their chosen course, using our integrated booking and administration system for Course Providers.</h2>
 		<div class="ui two column stackable grid buttons">
 			<div class="column" >
-				<div class="ui inverted yellow button" style="float:right">Course Attendee</div>
+				<div class="ui inverted yellow button" style="float:right">
+          <a class="scroller" href="#destination1">Course Attendee</a>
+        </div>
   		</div>
 			<div class="column">
-				<div class="ui inverted green button" style="float:left">Course Provider</div>
+				<div class="ui inverted green button" style="float:left">
+          <a class="scroller" href="#destination2">Course Provider</a>
+        </div>
 			</div>
 		</div>
 	</div>
-  <div class="ui top banner test ad how-it-works-banner" data-text="Top Banner" style="background-color: #36464f; padding-bottom: 50px;">
+  <div class="ui top banner test ad how-it-works-banner" data-text="Top Banner" style="background-color: #36464f; padding-bottom: 50px;" id="destination2">
     <h1 class="sub-heading" style="color:white; padding-top:60px; padding-bottom:20px;">If you're a Course Provider</h1>
     <div class="ui three column stackable grid">
       <div class="column">
@@ -55,7 +75,7 @@
       <div class="ui inverted red pricing button">View Pricing</div>
     </div>
   </div>
-  <div class="ui top banner test ad how-it-works-banner" data-text="Top Banner" style="padding-bottom: 50px;">
+  <div class="ui top banner test ad how-it-works-banner" data-text="Top Banner" style="padding-bottom: 50px;" id="destination1">
     <h1 class="sub-heading" style="padding-top:60px; padding-bottom:20px;">If you're a Course Attendee</h1>
     <div class="ui three column stackable grid">
       <div class="column">
@@ -70,7 +90,12 @@
         <i class="grid layout icon"></i>
         <h1>Find Events by Category</h1>
       </div>
-      <div class="ui inverted red pricing button">Start Discovering</div>
+      <div class="ui inverted red pricing button">
+        <%= link_to("Start Discovering", course_dates_path()) %>
+      </div>
     </div>
   </div>
 </div>
+
+
+

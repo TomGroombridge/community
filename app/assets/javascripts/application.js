@@ -117,10 +117,6 @@ $(document).ready(function() {
     var button = document.getElementById('upload_button');
     var input  = document.getElementById('course_image');
 
-
-
-
-
 });
 
 
