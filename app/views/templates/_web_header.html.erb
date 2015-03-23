@@ -7,6 +7,8 @@
     <% if current_user.admin? || nil%>
       <%= link_to("<i class='add square icon'></i>Add Course".html_safe, new_course_path, :class => "item right", :style => "  background-color:#36464f; color:white;") %>
       <%= link_to( "Dashboard".html_safe, dashboard_path, :class => "item right" ) %>
+    <% else %>
+      <%= link_to("Log out".html_safe, destroy_user_session_path, :method => :delete, :class => "item right") %>
     <% end %>
     <%# link_to("<i class='sign in icon'></i>Log out".html_safe, destroy_user_session_path, :method => :delete, :class => "item right") %>
   <% else %>
@@ -25,8 +27,8 @@
         <% if signed_in? %>
           <% if current_user.admin? || nil %>
             <%= link_to("Edit Details", edit_user_path(current_user.id), :class => "item") %>
+            <%= link_to("Log out".html_safe, destroy_user_session_path, :method => :delete, :class => "item") %>
           <% end %>
-          <%= link_to("Log out".html_safe, destroy_user_session_path, :method => :delete, :class => "item") %>
         <% end %>
       </div>
     </div>
