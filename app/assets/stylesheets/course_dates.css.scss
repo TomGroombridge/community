@@ -7,6 +7,9 @@
 	margin: auto !important;
 	.button{
 		width: 100%;
+		@media only screen and (max-width: 768px) {
+			border-radius: 0px;
+		}
 	}
 	.red.button.is-checked{
 		background-color: #ff695e;
