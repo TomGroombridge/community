@@ -20,10 +20,10 @@
     </div>
   </div>
 </div>
-<div class="ui special cards container isotope">
+<div class="ui special cards container isotope course-dates">
     <% @course_dates.each do |course_date| %>
 
-        <div class="card element-item <%= course_date.course.category %>" style="background-color:#36464f !important;">
+        <div class="card element-item <%= course_date.course.category %>">
 
             <div class="ui dimmable image">
               <div class="ui dimmer">
@@ -32,7 +32,7 @@
                     <div class="item"><i class="user icon"></i><%= course_date.course.user.company_name.truncate(27) %></div>
                     <div class="item"><i class="map icon"></i><%= course_date.course.address.truncate(27) %></div>
                     <div class="item"><i class="tag icon"></i><%= course_date.course.category %></div>
-                    <div class="item center" style="margin-top:25px;">
+                    <div class="item center">
                       <%= link_to("View Details", course_path(course_date.course), :class => "ui inverted button")%>
                     </div>
                   </div>

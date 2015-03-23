@@ -33,3 +33,18 @@
 		color: black;
 	}
 }
+
+.ui.special.cards.container.isotope.course-dates{
+	.element-item{
+		background-color: #36464f !important;
+		.item.center{
+			margin-top: 25px;
+			.ui.inverted.button{
+				color: white !important;
+				&:hover{
+					color: black !important;
+				}
+			}
+		}
+	}
+}
