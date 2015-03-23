@@ -1,8 +1,8 @@
-<div class="two column stackable ui grid dashboard course-details-dash">
+<div class="two column stackable ui grid dashboard course-details-dash" style="background-color: #36464f;">
 	<div class="column four wide">
 		<%= render "layouts/course_details_sidenav" %>
 	</div>
-	<div class="column twelve wide">
+	<div class="column twelve wide" style="background:white; min-height: 420px;">
 		<div class="row" style="padding-bottom: 20px;">
 			<h1 class="header"><%= @course_date.course.name %></h1>
 			<h3 class="header sub-heading"><%= @course_date.start_date_time.strftime("%A, %d %b %Y %l:%M %p") %></h3>
