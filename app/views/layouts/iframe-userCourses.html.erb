@@ -9,41 +9,65 @@
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   </head>
-  <body style="min-width: 100%;">
+  <body style="min-width: 100%; background:white;">
   	<div class="ui grid course-date-user">
-  		<div class="three wide column title center">Date</div>
-  		<div class="four wide column title center top">Time</div>
-  		<div class="six wide column title">Title</div>
-  		<div class="three wide column title center top">Actions</div>
+  		<div class="three wide column">
+  			<div class="ui segment info center">
+  				Date & Time
+  			</div>
+  		</div>
+  		<div class="seven wide column title top">
+  			<div class="ui segment info">
+  				Courses & Events
+  			</div>
+  		</div>
+  		<div class="three wide column title">
+  			<div class="ui segment info center">
+  				Price And Tickets
+  			</div>
+  		</div>
+  		<div class="three wide column">
+  		</div>
+  	</div>
   		<% @user.courses.each do |course| %>
   			<% course.upcoming_dates.each do |date| %>
-			    <div class="three wide column">
-						<div class="ui segment info center">
-						  <i class="calendar icon"></i>
-						  <%= date.start_date.strftime("%d/%m/%Y") %>
-						</div>
-			    </div>
-			    <div class="four wide column top">
-			    	<div class="ui segment info center">
-			    		<i class="wait icon"></i>
-			    		<%= date.start_time.strftime("%l:%M %p") %> - <%= date.end_time.strftime("%l:%M %p") %>
-						</div>
-			    </div>
-			    <div class="six wide column">
-			    	<div class="ui segment info">
-						  <%= date.course.name %>
-						</div>
-			    </div>
-			    <div class="three wide column top center actions">
-						<%= link_to "Book Date", new_payment_path(:id => date.id), :class => "ui blue button", :target => "_blank"%>
-						<i class="info circle icon" id="flip-<%= date.id %>"></i>
-			    </div>
-			    <div id="panel-<%= date.id %>" class="ui segment panel">
-			    	<h3> Description</h3>
-			    	<%= course.description.truncate(300).html_safe %>
-			    	<br>
-			    	<%= link_to "View More Details...", course_path(date.course), :class => "ui blue button", :target => "_blank" %>
-			    </div>
+  			<div class="ui grid course-date-user" style="width: 98%; margin: auto; border: 1px solid #ccc; margin-bottom:15px; border-radius: 6px;">
+				    <div class="three wide column" style="text-align:center; padding-left:0px;">
+				    	<div class="ui segment center" style="box-shadow: none;">
+							  <%= date.start_date.strftime("%A, %d %b %Y") %>
+							  <br>
+				    		<%= date.start_time.strftime("%l:%M %p") %> to <%= date.end_time.strftime("%l:%M %p") %>
+			    		</div>
+				    </div>
+				    <div class="seven wide column top" style="padding-left: 0.5rem;">
+				    	<div class="ui segment" style="background: #f1f2f2; box-shadow: none;">
+							  <p><%= course.name %></p>
+							  <!-- <br> -->
+							  <p><%= course.address %></p>
+							</div>
+				    </div>
+				    <div class="three wide column">
+				    	<div class="ui segment center" style="background:#fff6ca; box-shadow: none;">
+				    		<div class="column" style="display:inline-block; width:47%;">
+					    		<%= number_to_currency(course.price, :precision => 2, :unit => "£")  %>
+					    	</div>
+					    	<div class="column" style="display:inline-block; width:50%;">
+					    		<%= date.places_left %> Left
+					    	</div>
+					    </div>
+				    </div>
+				    <div class="three wide column top actions" style="padding-right:0px;">
+							<%= link_to "BOOK NOW", new_payment_path(:id => date.id), :class => "ui blue button text", :target => "_blank", :style => "width:90%"%>
+							<br>
+							<i class="info circle icon" id="flip-<%= date.id %>" style="float:left; margin-top:2px;"></i>Course Details
+				    </div>
+				    <div id="panel-<%= date.id %>" class="ui segment panel">
+				    	<h3> Description</h3>
+				    	<%= course.description.truncate(300).html_safe %>
+				    	<br>
+				    	<%= link_to "View More Details...", course_path(date.course), :class => "ui blue button", :target => "_blank" %>
+				    </div>
+				  </div>
 			  	<script>
 						$(document).ready(function(){
 						    $("#flip-<%= date.id %>").click(function(){
@@ -63,6 +87,7 @@
 						  margin-right: 14px;
 						  padding-top: 10px;
 						  padding-bottom: 15px;
+						  margin-bottom: 13px;
 						}
 					</style>
 		    <% end %>

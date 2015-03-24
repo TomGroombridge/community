@@ -1,5 +1,8 @@
 .ui.grid.course-date-user{
 	margin:0rem;
+	.segment{
+		padding: 1rem;
+	}
 	.column.title{
 		padding-bottom: 0px;
 	}
@@ -20,7 +23,7 @@
 			padding: 1rem 2rem;
 		}
 		.info.circle{
-			font-size: 1.5rem;
+			font-size: 1rem;
 			vertical-align: middle;
 		}
 	}
