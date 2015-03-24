@@ -3,15 +3,16 @@ class UsersController < ApplicationController
 
 	def show
 	  @user = User.find(params[:id])
+	  render layout: "iframe-#{params[:embed]}" if params[:embed]
 	end
 
 	def edit
-		@user = User.find(params[:id])			
+		@user = User.find(params[:id])
 	end
 
-	def update	
-		@user = User.find(params[:id])	
-		if @user.update_attributes(params[:user].permit(:first_name, :last_name, :contact_number, :company_name, :description, :facebook, :twitter, :instagram, :google, :pinterest, :admin, :email, :avatar))		
+	def update
+		@user = User.find(params[:id])
+		if @user.update_attributes(params[:user].permit(:first_name, :last_name, :contact_number, :company_name, :description, :facebook, :twitter, :instagram, :google, :pinterest, :admin, :email, :avatar))
 			render :crop
 		else
 			# redirect_to course_path(@course)
@@ -23,18 +24,18 @@ class UsersController < ApplicationController
 		@users = User.all
 	end
 
-	def course_providers_index	
-		@course_providers = []	
+	def course_providers_index
+		@course_providers = []
 		User.all.each do |user|
 			if user.admin == true
-				@course_providers << user		
+				@course_providers << user
 			end
-		end 
+		end
 		@course_providers
 	end
 
-	def dashboard	
-		@user = User.find(params[:id])		
+	def dashboard
+		@user = User.find(params[:id])
 	end
 
 end
