@@ -7,35 +7,62 @@
   	<%= tag :meta, :name => "stripe-key", :content => Rails.application.secrets.stripe_public_key %>
     <%= csrf_meta_tags %>
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   </head>
   <body style="min-width: 100%;">
-  	<div class="ui grid" style="margin-top:0rem">
-  		<div class="two wide column">Date</div>
-  		<div class="three wide column">Time</div>
-  		<div class="eight wide column">Title</div>
-  		<div class="three wide column" style="padding-top:1rem!important">Actions</div>
+  	<div class="ui grid" style="margin:0rem">
+  		<div class="three wide column" style="padding-bottom:0px; text-align:center">Date</div>
+  		<div class="four wide column" style="padding-bottom:0px; text-align:center; padding-top: 1rem!important">Time</div>
+  		<div class="six wide column" style="padding-bottom:0px">Title</div>
+  		<div class="three wide column" style="padding-top:1rem!important; padding-bottom:0px; text-align:center">Actions</div>
   		<% @user.courses.each do |course| %>
   			<% course.upcoming_dates.each do |date| %>
-			    <div class="two wide column">
-						<div class="ui segment" style="padding: 1rem 1rem; font-size: 13px; text-align:center">
+			    <div class="three wide column">
+						<div class="ui segment" style="padding: 1rem 1rem; font-size: 13px; text-align:center;background-color: #36464f; color: white;">
 						  <i class="calendar icon"></i>
 						  <%= date.start_date.strftime("%d/%m/%Y") %>
 						</div>
 			    </div>
-			    <div class="three wide column">
-			    	<div class="ui segment" style="padding: 1rem 1rem; font-size: 13px; text-align:center">
-			    		<i class="wait icon" style="float:left;"></i>
+			    <div class="four wide column" style="padding-top:1rem!important">
+			    	<div class="ui segment" style="padding: 1rem 1rem; font-size: 13px; text-align:center;background-color: #36464f; color: white;">
+			    		<i class="wait icon"></i>
 			    		<%= date.start_time.strftime("%l:%M %p") %> - <%= date.end_time.strftime("%l:%M %p") %>
 						</div>
 			    </div>
-			    <div class="eight wide column">
-			    	<div class="ui segment" style="padding: 1rem 1rem; font-size: 13px;">
+			    <div class="six wide column">
+			    	<div class="ui segment" style="padding: 1rem 1rem; font-size: 13px;background-color: #36464f; color: white;">
 						  <%= date.course.name %>
 						</div>
 			    </div>
-			    <div class="three wide column" style="padding-top:1rem!important">
-						<%= link_to "Book Date", new_payment_path(:id => date.id), :class => "ui blue button", :target => "_blank" %>
+			    <div class="three wide column" style="padding-top:1rem!important; text-align:center">
+						<%= link_to "Book Date", new_payment_path(:id => date.id), :class => "ui blue button", :target => "_blank", :style => "padding: 1rem 2rem"%>
+						<i class="info circle icon" style="font-size: 1.5rem; vertical-align: middle;" id="flip-<%= date.id %>"></i>
 			    </div>
+			    <div id="panel-<%= date.id %>" class="ui segment" style="font-size:15px; padding-top:1px; padding-bottom:20px;">
+			    	<h3> Description</h3>
+			    	<%= course.description.truncate(300).html_safe %>
+			    	<br>
+			    	<%= link_to "View More Details", course_path(date.course), :class => "ui blue button", :target => "_blank", :style => "margin-top:20px;" %>
+			    </div>
+			  	<script>
+						$(document).ready(function(){
+						    $("#flip-<%= date.id %>").click(function(){
+						        $("#panel-<%= date.id %>").slideToggle("slow", function() {
+									    // $("#flip-<%= date.id %>").text($(this).is(':visible') ? "Hide" : "Show");
+									  });
+						    });
+						});
+					</script>
+					<style>
+						#panel-<%= date.id %>{
+						  padding: 50px;
+						  display: none;
+						  font-size: 15px;
+						  margin-top: -3px;
+						  margin-left: 14px;
+						  margin-right: 14px;
+						}
+					</style>
 		    <% end %>
 		  <% end %>
   	</div>
