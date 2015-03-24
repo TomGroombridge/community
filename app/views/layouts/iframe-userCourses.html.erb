@@ -70,7 +70,8 @@
 					    </div>
 					    <div id="panel-<%= date.id %>" class="ui segment panel">
 					    	<h3> Description</h3>
-					    	<%= course.description.html_safe %>
+					    	<%# course.description.html_safe %>
+					    	<%= truncate_html course.description, :length => 50 %>
 					    	<br>
 					    	<%= link_to "View More Details...", course_path(date.course), :class => "ui blue panel button", :target => "_blank" %>
 					    </div>

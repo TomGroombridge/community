@@ -76,6 +76,10 @@ gem "fog-aws"
 
 gem "fog"
 
+gem "nokogiri"
+
+gem "htmlentities"
+
 
 group :test, :development do
   gem 'rspec-rails'
