@@ -1,1 +1,43 @@
-hello world
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CommunityMarketplace</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "https://js.stripe.com/v1/", "application", "data-turbolinks-track" => true %>
+  	<%= tag :meta, :name => "stripe-key", :content => Rails.application.secrets.stripe_public_key %>
+    <%= csrf_meta_tags %>
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+  </head>
+  <body style="min-width: 100%;">
+  	<div class="ui grid" style="margin-top:0rem">
+  		<div class="two wide column">Date</div>
+  		<div class="three wide column">Time</div>
+  		<div class="eight wide column">Title</div>
+  		<div class="three wide column" style="padding-top:1rem!important">Actions</div>
+  		<% @user.courses.each do |course| %>
+  			<% course.upcoming_dates.each do |date| %>
+			    <div class="two wide column">
+						<div class="ui segment" style="padding: 1rem 1rem; font-size: 13px; text-align:center">
+						  <i class="calendar icon"></i>
+						  <%= date.start_date.strftime("%d/%m/%Y") %>
+						</div>
+			    </div>
+			    <div class="three wide column">
+			    	<div class="ui segment" style="padding: 1rem 1rem; font-size: 13px; text-align:center">
+			    		<i class="wait icon" style="float:left;"></i>
+			    		<%= date.start_time.strftime("%l:%M %p") %> - <%= date.end_time.strftime("%l:%M %p") %>
+						</div>
+			    </div>
+			    <div class="eight wide column">
+			    	<div class="ui segment" style="padding: 1rem 1rem; font-size: 13px;">
+						  <%= date.course.name %>
+						</div>
+			    </div>
+			    <div class="three wide column" style="padding-top:1rem!important">
+						<%= link_to "Book Date", new_payment_path(:id => date.id), :class => "ui blue button", :target => "_blank" %>
+			    </div>
+		    <% end %>
+		  <% end %>
+  	</div>
+  </body>
+</html>
