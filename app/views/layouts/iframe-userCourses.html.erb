@@ -18,13 +18,13 @@
   		<% @user.courses.each do |course| %>
   			<% course.upcoming_dates.each do |date| %>
 			    <div class="three wide column">
-						<div class="ui segment info">
+						<div class="ui segment info center">
 						  <i class="calendar icon"></i>
 						  <%= date.start_date.strftime("%d/%m/%Y") %>
 						</div>
 			    </div>
 			    <div class="four wide column top">
-			    	<div class="ui segment info">
+			    	<div class="ui segment info center">
 			    		<i class="wait icon"></i>
 			    		<%= date.start_time.strftime("%l:%M %p") %> - <%= date.end_time.strftime("%l:%M %p") %>
 						</div>
@@ -42,7 +42,7 @@
 			    	<h3> Description</h3>
 			    	<%= course.description.truncate(300).html_safe %>
 			    	<br>
-			    	<%= link_to "View More Details", course_path(date.course), :class => "ui blue button", :target => "_blank" %>
+			    	<%= link_to "View More Details...", course_path(date.course), :class => "ui blue button", :target => "_blank" %>
 			    </div>
 			  	<script>
 						$(document).ready(function(){
