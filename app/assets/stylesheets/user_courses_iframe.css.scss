@@ -1,38 +1,59 @@
-.ui.grid.course-date-user{
-	margin:0rem;
-	.segment{
-		padding: 1rem;
-	}
-	.column.title{
-		padding-bottom: 0px;
-	}
-	.column.top{
-		padding-top: 1rem!important;
-	}
-	.center{
-		text-align: center;
-	}
-	.segment.info{
-		padding: 1rem 1rem;
-		font-size: 13px;
-		background-color: #36464f;
-		color: white;
-	}
-	.actions{
-		.button{
-			padding: 1rem 2rem;
+.course-date-list{
+	margin: auto;
+	@media (min-width: 1245px){
+    width: 1245px;
+  }
+  @media (min-width:996px) and (max-width : 1245px ) {
+    width: 996px;
+  }
+  @media (min-width:768px) and (max-width : 996px ) {
+    width: 768px;
+  }
+	.ui.grid.course-date-title{
+		margin:0rem;
+		.segment{
+			padding: 1rem;
+			background: #f1f2f2;
 		}
-		.info.circle{
-			font-size: 1rem;
-			vertical-align: middle;
+		.column.title{
+			padding-bottom: 0px;
+			@media (min-width:768px) and (max-width : 996px ) {
+				font-size: 11px;
+			}
+		}
+		.column.top{
+			padding-top: 1rem!important;
 		}
 	}
-	.panel{
-		font-size: 15px;
-		padding-top: 1px;
-		padding-bottom: 20px;
-		.button{
-			margin-top: 20px;
+		.center{
+			text-align: center;
+		}
+
+	.ui.grid.course-date{
+		width: 98%;
+		margin: auto;
+		border: 1px solid #ccc;
+		margin-bottom:15px;
+		border-radius: 6px;
+		.column{
+			@media (min-width:768px) and (max-width : 996px ) {
+				font-size: 11px;
+			}
+			.button{
+				@media (min-width:768px) and (max-width : 996px ) {
+					font-size: 11px;
+				}
+			}
+		}
+		.segment{
+			padding: 1rem;
+			@media (min-width:768px) and (max-width : 996px ) {
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
+		.panel.button{
+			margin-top: 11px;
 		}
 	}
 }
