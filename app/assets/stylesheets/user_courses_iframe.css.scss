@@ -1,3 +1,11 @@
+.list-body{
+	min-width: 780px;
+	overflow: scroll;
+	@media only screen and (max-width: 768px) {
+		min-width: 200px;
+		overflow: scroll;
+	}
+}
 .course-date-list{
 	margin: auto;
 	@media (min-width: 1245px){
@@ -21,6 +29,11 @@
 				font-size: 11px;
 			}
 		}
+		.column{
+			@media only screen and (max-width: 768px) {
+				width: 100% !important;
+			}
+		}
 		.column.top{
 			padding-top: 1rem!important;
 		}
@@ -38,6 +51,9 @@
 		.column{
 			@media (min-width:768px) and (max-width : 996px ) {
 				font-size: 11px;
+			}
+			@media only screen and (max-width: 768px) {
+				width: 100% !important
 			}
 			.button{
 				@media (min-width:768px) and (max-width : 996px ) {
