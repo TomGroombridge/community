@@ -10,39 +10,39 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   </head>
   <body style="min-width: 100%;">
-  	<div class="ui grid" style="margin:0rem">
-  		<div class="three wide column" style="padding-bottom:0px; text-align:center">Date</div>
-  		<div class="four wide column" style="padding-bottom:0px; text-align:center; padding-top: 1rem!important">Time</div>
-  		<div class="six wide column" style="padding-bottom:0px">Title</div>
-  		<div class="three wide column" style="padding-top:1rem!important; padding-bottom:0px; text-align:center">Actions</div>
+  	<div class="ui grid course-date-user">
+  		<div class="three wide column title center">Date</div>
+  		<div class="four wide column title center top">Time</div>
+  		<div class="six wide column title">Title</div>
+  		<div class="three wide column title center top">Actions</div>
   		<% @user.courses.each do |course| %>
   			<% course.upcoming_dates.each do |date| %>
 			    <div class="three wide column">
-						<div class="ui segment" style="padding: 1rem 1rem; font-size: 13px; text-align:center;background-color: #36464f; color: white;">
+						<div class="ui segment info">
 						  <i class="calendar icon"></i>
 						  <%= date.start_date.strftime("%d/%m/%Y") %>
 						</div>
 			    </div>
-			    <div class="four wide column" style="padding-top:1rem!important">
-			    	<div class="ui segment" style="padding: 1rem 1rem; font-size: 13px; text-align:center;background-color: #36464f; color: white;">
+			    <div class="four wide column top">
+			    	<div class="ui segment info">
 			    		<i class="wait icon"></i>
 			    		<%= date.start_time.strftime("%l:%M %p") %> - <%= date.end_time.strftime("%l:%M %p") %>
 						</div>
 			    </div>
 			    <div class="six wide column">
-			    	<div class="ui segment" style="padding: 1rem 1rem; font-size: 13px;background-color: #36464f; color: white;">
+			    	<div class="ui segment info">
 						  <%= date.course.name %>
 						</div>
 			    </div>
-			    <div class="three wide column" style="padding-top:1rem!important; text-align:center">
-						<%= link_to "Book Date", new_payment_path(:id => date.id), :class => "ui blue button", :target => "_blank", :style => "padding: 1rem 2rem"%>
-						<i class="info circle icon" style="font-size: 1.5rem; vertical-align: middle;" id="flip-<%= date.id %>"></i>
+			    <div class="three wide column top center actions">
+						<%= link_to "Book Date", new_payment_path(:id => date.id), :class => "ui blue button", :target => "_blank"%>
+						<i class="info circle icon" id="flip-<%= date.id %>"></i>
 			    </div>
-			    <div id="panel-<%= date.id %>" class="ui segment" style="font-size:15px; padding-top:1px; padding-bottom:20px;">
+			    <div id="panel-<%= date.id %>" class="ui segment panel">
 			    	<h3> Description</h3>
 			    	<%= course.description.truncate(300).html_safe %>
 			    	<br>
-			    	<%= link_to "View More Details", course_path(date.course), :class => "ui blue button", :target => "_blank", :style => "margin-top:20px;" %>
+			    	<%= link_to "View More Details", course_path(date.course), :class => "ui blue button", :target => "_blank" %>
 			    </div>
 			  	<script>
 						$(document).ready(function(){
@@ -61,6 +61,8 @@
 						  margin-top: -3px;
 						  margin-left: 14px;
 						  margin-right: 14px;
+						  padding-top: 10px;
+						  padding-bottom: 15px;
 						}
 					</style>
 		    <% end %>

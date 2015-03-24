@@ -1,5 +1,36 @@
-.user-courses{
-	.column{
-		background: red;
+.ui.grid.course-date-user{
+	margin:0rem;
+	.column.title{
+		padding-bottom: 0px;
+	}
+	.column.top{
+		padding-top: 1rem!important;
+	}
+	.column.center{
+		text-align: center;
+	}
+	.segment.info{
+		padding: 1rem 1rem;
+		font-size: 13px;
+		text-align:center;
+		background-color: #36464f;
+		color: white;
+	}
+	.actions{
+		.button{
+			padding: 1rem 2rem;
+		}
+		.info.circle{
+			font-size: 1.5rem;
+			vertical-align: middle;
+		}
+	}
+	.panel{
+		font-size: 15px;
+		padding-top: 1px;
+		padding-bottom: 20px;
+		.button{
+			margin-top: 20px;
+		}
 	}
 }
