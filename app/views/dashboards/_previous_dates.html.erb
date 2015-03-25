@@ -16,7 +16,7 @@
 		      <td><%= course.name %></td>
 		      <td><%= course_date.start_date.strftime("%d/%m/%Y")%></td>
 		      <td><%= number_to_currency(course_date.revenue, :precision => 2, :unit => "£")  %></td>
-		      <% if course_date.full == true %>
+		      <% if course_date.full%>
             <td>Sold Out</td>
           <% else %>
             <td><%= course_date.payments.count%>/<%= course_date.quantity %></td>
