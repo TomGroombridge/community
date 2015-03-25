@@ -91,11 +91,21 @@
             <% end %>
           </div>
         </div>
-        <%= f.submit("Send Payment", :class => "ui green button", :style => 'float:right') %>
-        <div class="ui error message" style="margin-top:70px;"></div>
+        <div class="ui segment no-box-shadow">
+          <div class="ui dimmer buttonLoader">
+            <div class="ui indeterminate text loader">Sending Payment</div>
+          </div>
+          <p></p>
+          <!-- <div class="ui green button" style="float:right;" id="test">Test Button</div> -->
+          <%= f.submit("Send Payment", :id => "test", :class => "ui green button", :style => 'float:right') %>
+        </div>
+        <div class="ui segment no-box-shadow-web" style="padding-top:0px;">
+          <div class="ui error message"></div>
+        </div>
       <% end %>
     </div>
   </div>
   <%= render 'payments/booking_information' %>
 </div>
+
 

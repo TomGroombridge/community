@@ -94,9 +94,15 @@ $ ->
     onFailure: ->
       console.log 'Failed'
       $('input[type=submit]').attr('disabled', false)
+      $('.buttonLoader').removeClass('active')
       false
     onSuccess: ->
       console.log 'Success'
       return
 
   $('#new_payment').form PaymentValidation, settings
+
+  $('#test').click ->
+    $('.buttonLoader').addClass 'active'
+    return
+
