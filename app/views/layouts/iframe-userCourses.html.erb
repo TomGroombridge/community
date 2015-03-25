@@ -55,16 +55,15 @@
 					    </div>
 					    <div class="three wide column">
 					    	<div class="ui segment center no-box-shadow-web" style="background:#fff6ca">
-					    		<div class="column" style="display:inline-block; width:47%;">
 						    		<%= number_to_currency(course.price, :precision => 2, :unit => "£")  %>
-						    	</div>
-						    	<div class="column" style="display:inline-block; width:50%; text-align:right">
-						    		<%= date.places_left %> Left
-						    	</div>
 						    </div>
 					    </div>
 					    <div class="three wide column top actions" style="padding-right:0px;">
-								<%= link_to "BOOK NOW", new_payment_path(:id => date.id), :class => "ui blue button text", :target => "_blank", :style => "width:90%"%>
+					    	<% if date.full %>
+					    		<div class="ui red button text", style="width: 90%;">SOLD OUT</div>
+					    	<% else %>
+									<%= link_to "BOOK NOW", new_payment_path(:id => date.id), :class => "ui blue button text", :target => "_blank", :style => "width:90%"%>
+								<% end %>
 								<br>
 								<i class="info circle icon" id="flip-<%= date.id %>" style="float:left; margin-top:2px;"></i>Course Details
 					    </div>
