@@ -54,5 +54,34 @@
     padding-top: 10px;
     padding-bottom: 15px;
     margin-bottom: 13px;
+    .column.offer{
+    	@media (min-width:768px) and (max-width: 900px) {
+    		width: 50% !important;
+    		display: inline-block !important;
+    	}
+    	@media only screen and (max-width: 768px) {
+    		width: 100% !important;
+    	}
+	    .blue{
+	    	background: #b9e5ea;
+	    }
+	    .yellow{
+	    	background: #ffeeb5;
+	    }
+	    .red{
+	    	background: #fbcac5;
+	    }
+	    .darker-blue{
+	    	background: #c5eafc;
+	    }
+	    .segment{
+	    	.content{
+	    		text-align: center;
+	    		h3{
+	    			margin-top:15px
+	    		}
+	    	}
+	    }
+	  }
   }
 }
