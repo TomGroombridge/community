@@ -70,16 +70,15 @@
 										<% end %>
 									</div>
 								</div>
-								<!-- <i class="info circle icon" id="flip-<%= date.id %>" style="float:left; margin-top:2px;"></i>Course Details -->
 					    </div>
 					  </div>
-					    <div id="panel-<%= date.id %>" class="ui segment panel">
-					    	<h3> Description</h3>
-					    	<%= course.description.html_safe %>
-					    	<%# truncate(course.description, :length => 200, :escape => false) %>
-					    	<br>
-					    	<%= link_to "View More Details...", course_path(date.course), :class => "ui blue panel button", :target => "_blank" %>
-					    </div>
+				    <div id="panel-<%= date.id %>" class="ui segment panel">
+				    	<h3> Description</h3>
+				    	<%= course.description.html_safe %>
+				    	<%# truncate(course.description, :length => 200, :escape => false) %>
+				    	<br>
+				    	<%= link_to "View More Details...", course_path(date.course), :class => "ui blue panel button", :target => "_blank" %>
+				    </div>
 				  	<script>
 							$(document).ready(function(){
 							    $("#flip-<%= date.id %>").click(function(){
