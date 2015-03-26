@@ -56,6 +56,9 @@
 				    <label>Company Website</label>
 				    <%= form.text_field :company_website %>
 				  </div>
+				  <div class="field">
+				  	<%= link_to "Change your password", edit_user_registration_path %>
+				  </div>
 				</div>
 			  <!-- start date time and end date time  -->
 			  <div class="field">
@@ -63,8 +66,6 @@
 	      	<img id="blah" src="#" alt="" class="ui small bordered image" style="display:inline-block" />
 	      	<%= form.file_field :avatar, :id => "imgInp"%>
 	      	<%= form.hidden_field :avatar_cache %>
-	      	<%# form.file_field :avatar, :id => "imgInp"%>
-	      	<%# form.hidden_field :avatar_cache %>
 			  </div>
 			</div>
 			<div class="ui divider" style="margin-top: 100px; margin-bottom: 25px;"></div>
