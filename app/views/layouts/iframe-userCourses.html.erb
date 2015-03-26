@@ -8,12 +8,6 @@
     <%= csrf_meta_tags %>
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <style>
-    	body{
-
-    		}
-    	}
-    </style>
   </head>
   <body class="list-body" style="background:white;">
   	<div class="course-date-list">
@@ -30,7 +24,7 @@
 	  		</div>
 	  		<div class="three wide column title">
 	  			<div class="ui segment info center">
-	  				Price And Tickets
+	  				Price
 	  			</div>
 	  		</div>
 	  		<div class="three wide column">
@@ -41,32 +35,44 @@
 	  			<div class="ui grid course-date">
 					    <div class="three wide column center" style="padding-left:0px;">
 					    	<div class="ui segment center no-box-shadow-web">
-								  <%= date.start_date.strftime("%A, %d %b %Y") %>
-								  <br>
-					    		<%= date.start_time.strftime("%l:%M %p") %> to <%= date.end_time.strftime("%l:%M %p") %>
+					    		<div class="algin-middle">
+									  <strong><%= date.start_date.strftime("%A") %></strong>
+									  <br>
+									  <strong><%= date.start_date.strftime("%d %b %Y") %></strong>
+									  <br>
+						    		<%= date.start_time.strftime("%l:%M %p") %> to <%= date.end_time.strftime("%l:%M %p") %>
+						    	</div>
 				    		</div>
 					    </div>
-					    <div class="seven wide column top" style="padding-left: 0.5rem;">
-					    	<div class="ui segment no-box-shadow-web" style="background: #f1f2f2">
-								  <p><%= course.name %></p>
-								  <!-- <br> -->
-								  <p><%= course.address %></p>
+					    <div class="seven wide column top" style="padding:0px;">
+					    	<div class="ui segment no-box-shadow-web" style="background: #f1f2f2;">
+					    		<div class="algin-middle">
+									  <p class="title"><%= course.name %></p>
+									  <p class="address"><%= course.address %></p>
+									  <p><i class="info circle icon" id="flip-<%= date.id %>" style="margin-top:2px;"></i>Course Details</p>
+									</div>
 								</div>
 					    </div>
-					    <div class="three wide column">
-					    	<div class="ui segment center no-box-shadow-web" style="background:#fff6ca">
+					    <div class="three wide column price">
+					    	<div class="ui segment center no-box-shadow-web">
+					    		<div class="algin-middle">
 						    		<%= number_to_currency(course.price, :precision => 2, :unit => "£")  %>
+						    	</div>
 						    </div>
 					    </div>
-					    <div class="three wide column top actions" style="padding-right:0px;">
-					    	<% if date.full %>
-					    		<div class="ui red button text", style="width: 90%;">SOLD OUT</div>
-					    	<% else %>
-									<%= link_to "BOOK NOW", new_payment_path(:id => date.id), :class => "ui blue button text", :target => "_blank", :style => "width:90%"%>
-								<% end %>
-								<br>
-								<i class="info circle icon" id="flip-<%= date.id %>" style="float:left; margin-top:2px;"></i>Course Details
+					    <div class="three wide column top actions">
+					    	<div class="book-button">
+					    		<div class="inside">
+							    	<% if date.full %>
+							    		<div class="ui red button text">SOLD OUT</div>
+							    	<% else %>
+											<%= link_to "BOOK NOW", new_payment_path(:id => date.id), :class => "ui blue button text", :target => "_blank"%>
+										<% end %>
+									</div>
+								</div>
+								<!-- <i class="info circle icon" id="flip-<%= date.id %>" style="float:left; margin-top:2px;"></i>Course Details -->
 					    </div>
+					  </div>
 					    <div id="panel-<%= date.id %>" class="ui segment panel">
 					    	<h3> Description</h3>
 					    	<%= course.description.html_safe %>
@@ -74,7 +80,6 @@
 					    	<br>
 					    	<%= link_to "View More Details...", course_path(date.course), :class => "ui blue panel button", :target => "_blank" %>
 					    </div>
-					  </div>
 				  	<script>
 							$(document).ready(function(){
 							    $("#flip-<%= date.id %>").click(function(){
