@@ -1,5 +1,7 @@
 <div class="ui top attached demo menu web">
-  <%= link_to("Logo", root_url, :class => "item logo") %>
+  <%# link_to("Logo", root_url, :class => "item logo") %>
+  <%# image_tag "Courseiam2-blue.png", :class => "item logo" %>
+  <%= link_to( image_tag( "Courseiam2-blue.png" ), root_url, :class=>"item logo") %>
   <%= link_to("Discover", course_dates_path, :class => "item") %>
   <%= link_to("How it works", how_it_works_path, :class => "item") %>
   <%# link_to("Offer", offer_path, :class => "item") %>
