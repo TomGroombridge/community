@@ -116,12 +116,15 @@
 					</div>
 				<% end %>
 				<div class="ui divider" style="margin-top: 100px; margin-bottom: 25px;"></div>
-				<div class="ui segment">
+				<div class="ui segment no-box-shadow">
+					<div class="ui dimmer courseLoader">
+            <div class="ui indeterminate text loader">Creating Course</div>
+          </div>
 					<div id="terms" class="ui button labeled icon basic">
 						<i class="icon pencil"></i>
 						Terms & Conditions
 					</div>
-					<%= form.submit :style =>"float:right; width:250px", :class => "ui inverted green button" %>
+					<%= form.submit :id => "courseSubmit", :style =>"float:right; width:250px", :class => "ui inverted green button" %>
 					<div class="ui error message"></div>
 				</div>
 			<% end %>
@@ -130,7 +133,11 @@
 </div>
 
 
-
+	<script>
+		$('#courseSubmit').click(function() {
+	  $('.courseLoader').addClass('active');
+	});
+	</script>
 
 		<script>
 			  function readURL(input) {

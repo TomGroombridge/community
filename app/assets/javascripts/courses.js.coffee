@@ -138,6 +138,8 @@ $ ->
     on     : 'blur'
     onFailure: ->
       console.log 'Failed'
+      $('input[type=submit]').attr('disabled', false)
+      $('.courseLoader').removeClass('active')
       false
     onSuccess: ->
       console.log 'Success'
@@ -145,6 +147,10 @@ $ ->
   $('.ui.form').form validation, settings
   $('#termsAndConditions').modal('setting', 'transition', 'horizontal flip').modal 'attach events', '#terms', 'show'
   return
+
+  $('#courseSubmit').click ->
+    $('.courseLoader').addClass 'active'
+    return
 
 
 
