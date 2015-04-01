@@ -52,18 +52,6 @@ $ ->
           prompt: 'You cannot go over 30 characters in the Course Title'
         }
       ]
-    blurb:
-      identifier: 'course[blurb]'
-      rules: [
-        {
-          type: 'empty'
-          prompt: 'Fill in a Tweetable Description'
-        }
-        {
-          type: 'maxLength[120]'
-          prompt: 'You cannot go over 120 characters in this Tweet'
-        }
-      ]
     address1:
       identifier: 'course[course_addresses_attributes][0][address1]'
       rules: [ {
