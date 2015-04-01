@@ -37,4 +37,8 @@
       <%= link_to("How it Works", how_it_works_path, :class => "ui blue button") %>
   	</div>
   </div>
+<% elsif Rails.env.production? %>
+  <h1>Hello world</h1>
+<% else %>
+  <h1>Goodbye</h1>
 <% end %>

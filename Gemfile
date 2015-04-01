@@ -87,7 +87,9 @@ group :test, :development do
 end
 
 
-  gem 'rails_12factor'
+group :production do
+	gem 'rails_12factor'
+end
 
 
 # Use ActiveModel has_secure_password
