@@ -10,6 +10,18 @@ if Rails.env.production?
 	  config.cache_dir = "#{Rails.root}/tmp/uploads"                  # To let CarrierWave work on heroku
 	  config.fog_directory    = "staging-courseima"
 	end
+elsif Rails.env.staging?
+	CarrierWave.configure do |config|
+	  config.fog_credentials = {
+    	:provider              => 'AWS',
+	    :aws_access_key_id     => ENV['AWS_ACCESS_KEY_ID'],
+	    :aws_secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'],
+	    :region                => "eu-west-1",
+	  }
+	  config.storage = :fog
+	  config.cache_dir = "#{Rails.root}/tmp/uploads"                  # To let CarrierWave work on heroku
+	  config.fog_directory    = "staging-courseima"
+	end
 else
 	CarrierWave.configure do |config|
 	  config.fog_credentials = {
