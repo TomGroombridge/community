@@ -30,8 +30,8 @@
 	  		<div class="three wide column">
 	  		</div>
 	  	</div>
-	  		<% @user.courses.each do |course| %>
-	  			<% course.upcoming_dates.each do |date| %>
+	  		<% @course_dates.each do |date|%>
+  				<%# course.upcoming_dates.each do |date| %>
 	  			<div class="ui grid course-date">
 					    <div class="three wide column center" style="padding-left:0px;">
 					    	<div class="ui segment center no-box-shadow-web">
@@ -47,8 +47,8 @@
 					    <div class="seven wide column top" style="padding:0px;">
 					    	<div class="ui segment no-box-shadow-web" style="background: #f1f2f2;">
 					    		<div class="algin-middle">
-									  <p class="title"><%= course.name %></p>
-									  <p class="address"><%= course.address %></p>
+									  <p class="title"><%= date.course.name %></p>
+									  <p class="address"><%= date.course.address %></p>
 									  <p><i class="info circle icon" id="flip-<%= date.id %>" style="margin-top:2px;"></i>Course Details</p>
 									</div>
 								</div>
@@ -56,7 +56,7 @@
 					    <div class="three wide column price">
 					    	<div class="ui segment center no-box-shadow-web">
 					    		<div class="algin-middle">
-						    		<%= number_to_currency(course.price, :precision => 2, :unit => "£")  %>
+						    		<%= number_to_currency(date.course.price, :precision => 2, :unit => "£")  %>
 						    	</div>
 						    </div>
 					    </div>
@@ -74,7 +74,7 @@
 					  </div>
 				    <div id="panel-<%= date.id %>" class="ui segment panel">
 				    	<h3> Description</h3>
-				    	<%= course.description.html_safe %>
+				    	<%= date.course.description.html_safe %>
 				    	<br>
 				    	<%= link_to "View More Details...", course_path(date.course), :class => "ui blue panel button", :target => "_blank" %>
 				    </div>
@@ -100,7 +100,7 @@
 							  margin-bottom: 13px;
 							}
 						</style>
-			    <% end %>
+					<%# end %>
 			  <% end %>
 	  	</div>
 	  </div>

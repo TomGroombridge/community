@@ -3,10 +3,14 @@ class UsersController < ApplicationController
 
 	def show
 	  @user = User.find(params[:id])
-	  render layout: "iframe-#{params[:embed]}" if params[:embed]
 	  @courses = @user.courses
-	  @course_dates = @courses.upcoming_dates
-	  @upcoming_dates
+	  @course_dates = []
+	  @courses.each {|c| c.course_dates.each {|cd| @course_dates << cd}}
+	  @active_course_dates = @course_dates.select {|c| c.valid_dates(c)}
+	  @course_dates = @active_course_dates.sort_by do |course_date|
+			course_date.start_date_time
+		end
+	  render layout: "iframe-#{params[:embed]}" if params[:embed]
 	end
 
 	def edit
