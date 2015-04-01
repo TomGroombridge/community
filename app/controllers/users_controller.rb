@@ -4,6 +4,9 @@ class UsersController < ApplicationController
 	def show
 	  @user = User.find(params[:id])
 	  render layout: "iframe-#{params[:embed]}" if params[:embed]
+	  @courses = @user.courses
+	  @course_dates = @courses.upcoming_dates
+	  @upcoming_dates
 	end
 
 	def edit
