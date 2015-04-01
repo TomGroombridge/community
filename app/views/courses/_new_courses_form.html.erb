@@ -124,7 +124,8 @@
 						<i class="icon pencil"></i>
 						Terms & Conditions
 					</div>
-					<%= form.submit :id => "courseSubmit", :style =>"float:right; width:250px", :class => "ui inverted green button" %>
+					<div class="ui inverted green button" id="courseSubmit">test</div>
+					<%# form.submit :id => "courseSubmit", :style =>"float:right; width:250px", :class => "ui inverted green button" %>
 					<div class="ui error message"></div>
 				</div>
 			<% end %>
@@ -135,8 +136,8 @@
 
 	<script>
 		$('#courseSubmit').click(function() {
-	  $('.courseLoader').addClass('active');
-	});
+		  $('.courseLoader').addClass('active');
+		});
 	</script>
 
 		<script>
