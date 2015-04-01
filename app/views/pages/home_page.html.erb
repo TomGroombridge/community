@@ -1,38 +1,40 @@
-<div class="row">
-	<%= render "homepage_banner" %>
-</div>
-<div class="row">
-	<div class="sub-content">
-		<h1 class="about-content header">Discover the best courses around you</h1>
-		<h1 class="about-content">We have everything you need to list, discover and book your courses</h1>
-	</div>
-</div>
-<div class="row">
-	<%# render "homepage_categories" %>
-</div>
-<div class="row">
-	<div class="content how-it-works" style="width: 100%; height:100%; padding-bottom:100px;">
-		<h1 class="header">Why use us?</h1>
-    <div class="ui three column stackable grid circles">
-      <div class="column">
-  			<div class="circleBase type1">
-  				<h3 class="circle-title">Discover Courses</h3>
-  			</div>
-  			<h3 class="short-description">Get personalised course suggestions based on your location, personal preferences and social cues.</h3>
+<% if Rails.env.production? %>
+  <div class="row">
+  	<%= render "homepage_banner" %>
+  </div>
+  <div class="row">
+  	<div class="sub-content">
+  		<h1 class="about-content header">Discover the best courses around you</h1>
+  		<h1 class="about-content">We have everything you need to list, discover and book your courses</h1>
+  	</div>
+  </div>
+  <div class="row">
+  	<%# render "homepage_categories" %>
+  </div>
+  <div class="row">
+  	<div class="content how-it-works" style="width: 100%; height:100%; padding-bottom:100px;">
+  		<h1 class="header">Why use us?</h1>
+      <div class="ui three column stackable grid circles">
+        <div class="column">
+    			<div class="circleBase type1">
+    				<h3 class="circle-title">Discover Courses</h3>
+    			</div>
+    			<h3 class="short-description">Get personalised course suggestions based on your location, personal preferences and social cues.</h3>
+        </div>
+        <div class="column">
+        	<div class="circleBase type1">
+        		<h3 class="circle-title">Book With Ease</h3>
+        	</div>
+        	<h3 class="short-description">Book in seconds with are quick and secure booking system.</h3>
+        </div>
+        <div class="column">
+        	<div class="circleBase type1">
+        		<h3 class="circle-title">Manage without hassle</h3>
+        	</div>
+        	<h3 class="short-description">The easiest and most efficient way to host and manage courses with are fully automated system</h3>
+        </div>
       </div>
-      <div class="column">
-      	<div class="circleBase type1">
-      		<h3 class="circle-title">Book With Ease</h3>
-      	</div>
-      	<h3 class="short-description">Book in seconds with are quick and secure booking system.</h3>
-      </div>
-      <div class="column">
-      	<div class="circleBase type1">
-      		<h3 class="circle-title">Manage without hassle</h3>
-      	</div>
-      	<h3 class="short-description">The easiest and most efficient way to host and manage courses with are fully automated system</h3>
-      </div>
-    </div>
-    <%= link_to("How it Works", how_it_works_path, :class => "ui blue button") %>
-	</div>
-</div>
+      <%= link_to("How it Works", how_it_works_path, :class => "ui blue button") %>
+  	</div>
+  </div>
+<% end %>
