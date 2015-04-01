@@ -15,7 +15,7 @@ class Course < ActiveRecord::Base
 
  	def check_last_bookings
  		tomorrow_date = DateTime.now + 1
- 		tomorrow = tomorrow_date.strftime("%m/%d/%Y")
+ 		tomorrow = tomorrow_date.strftime("%d/%m/%Y")
  	end
 
   def free?
