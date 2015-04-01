@@ -1,9 +1,10 @@
 .homepage-banner{
   width: 100%;
   display: table;
-  height: 480px;
   overflow: hidden;
   position: relative;
+  background: url("ingredient.png") no-repeat fixed center;
+  height: 500px;
   .content{
   	z-index: 2;
 	  color: black;
