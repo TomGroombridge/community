@@ -6,6 +6,6 @@ class UserMailer < ActionMailer::Base
     @user = user
     @course = course
     @url  = 'http://example.com/login'
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+    mail(to: @user.email, subject: 'Course has been created')
   end
 end
