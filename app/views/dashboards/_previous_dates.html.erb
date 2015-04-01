@@ -10,7 +10,7 @@
     </tr>
   </thead>
   <tbody>
-  	<% @courses.each do |course|%>
+  	<% @all_courses.each do |course|%>
   		<% course.previous_dates.each do |course_date| %>
 		    <tr>
 		      <td><%= course.name %></td>
