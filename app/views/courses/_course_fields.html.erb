@@ -1,0 +1,49 @@
+<div class="ui form" style="max-width: 73%; margin: auto;">
+  <div class="field">
+    <label>Course title</label>
+    <%= form.text_field :name %>
+  </div>
+  <div class="field">
+    <label>Course description</label>
+    <%= form.cktext_area :description %>
+  </div>
+  <div class="field">
+    <label>What to wear</label>
+    <%= form.text_field :what_to_wear %>
+  </div>
+  <div class="field">
+    <label>What to bring</label>
+    <%= form.text_field :what_to_bring %>
+  </div>
+  <div class="field">
+    <label>Experience needed</label>
+    <%= form.text_field :experience %>
+  </div>
+  <div class="field">
+    <label>Course Category</label>
+    <%= form.select :category, options_for_select([["Arts & Crafts", "arts"], ["Food & Drink","food"],["Health & Wellbeing", "health"],["Music", "music"],["Other", "other"]])%>
+  </div>
+  <%= form.fields_for :course_addresses do |addresses_form| %>
+	  <div class="field four wide">
+	  	<h3>Location</h3>
+	    <div class="field">
+	      <%= addresses_form.text_field :address1, :placeholder => 'Address 1'%>
+	    </div>
+	    <div class="field">
+	      <%= addresses_form.text_field :address2, :placeholder => 'Addres 2' %>
+	    </div>
+	    <div class="field">
+	      <%= addresses_form.text_field :city, :placeholder => 'City/Town' %>
+	    </div>
+	    <div class="field four wide">
+	      <%= addresses_form.text_field :postcode, :placeholder => 'Postcode'%>
+	    </div>
+	  </div>
+  <% end %>
+  <div class="field">
+  	<h3>Upload image</h3>
+  	<img id="blah" src="#" alt="" class="ui small bordered image" style="display:inline-block"/>
+  	<%= form.file_field :avatar, :id => "imgInp"%>
+  	<%= form.hidden_field :avatar_cache %>
+  </div>
+</div>

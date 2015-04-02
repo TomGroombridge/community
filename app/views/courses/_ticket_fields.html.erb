@@ -1,16 +1,27 @@
-<div class="ui form">
-  <div class="fields">
-    <div class="five wide field">
-      <%= form.label :name, "Ticket" %>
-	  	<%= form.text_field :name %>
-    </div>
-    <div class="four wide field">
-      <%= form.label :price, "Price" %>
-	  	<%= form.text_field :price %>
-    </div>
-    <div class="four wide field">
-      <%= form.label :quantity, "Quantity" %>
-	  	<%= form.text_field :quantity %>
-    </div>
-  </div>
-</div>
+<table class="ui celled table">
+  <thead>
+    <tr>
+      <th>Ticket name</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th style="text-align: center;">More</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border-bottom: 1px solid #d4d4d5"><%= form.text_field :name, :placeholder => "Early Bird, First Release" %></td>
+      <td style="border-bottom: 1px solid #d4d4d5"><%= form.text_field :quantity, :placeholder => "20.00" %></td>
+      <td style="border-bottom: 1px solid #d4d4d5"><%= form.text_field :price, :placeholder => "100" %></td>
+      <td style="  border-left:none;text-align:center;font-size:1.6rem;padding: 1rem; border-bottom: 1px solid #d4d4d5"><i class="setting icon"></i></td>
+    </tr>
+  </tbody>
+  <tfoot class="full-width">
+    <tr>
+      <th>
+        <div class="ui small  button">
+          Add Ticket
+        </div>
+      </th>
+    </tr>
+  </tfoot>
+</table>
