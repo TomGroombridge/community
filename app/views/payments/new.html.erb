@@ -2,25 +2,25 @@
   <div class="column twelve wide">
     <div class="ui segment no-padding">
       <%= form_for @payment, :html => {:class => 'ui form payment fluid '} do |f| %>
-        <%= f.hidden_field :course_date_id %>
+        <%= f.hidden_field :ticket_id %>
         <%= f.hidden_field :stripe_card_token %>
         <a class="ui teal ribbon label"><i class="shop icon"></i>Secure Checkout</a>
         <div class="ui segment">
           <a class="ui blue ribbon label">Ticket Information</a>
           <div class="four column stackable ui grid">
             <div class="column">
-              <%= @payment.course_date.course.name %>
+              <%= @payment.ticket.course_date.course.name %>
             </div>
             <div class="column">
-              <%= @payment.course_date.course.address %>
+              <%= @payment.ticket.course_date.course.address %>
             </div>
             <div class="column">
-              <%= @payment.course_date.start_date.strftime("%d/%m/%Y") %>
+              <%= @payment.ticket.course_date.start_date.strftime("%d/%m/%Y") %>
               <br>
-              <%= @payment.course_date.start_time.strftime("%l:%M %p") %>
+              <%= @payment.ticket.course_date.start_time.strftime("%l:%M %p") %>
             </div>
             <div class="column">
-              £<%= @payment.course_date.course.price %>
+              £<%= @payment.ticket.price %>
             </div>
           </div>
         </div>
@@ -66,9 +66,9 @@
         <div class="ui segment no-box-shadow">
           <a class="ui blue ribbon label">Billing & Payment Information</a>
           <div class="ui segment no-box-shadow-web billing-info">
-            <% if @course_date.course.free? %>
+            <%# if @course_date.course.free? %>
               No payment needed!
-            <% else %>
+            <%# else %>
               <div class="ui form">
                 <div class="inline required field">
                   <label class="input-label">Name on Card</label>
@@ -88,7 +88,7 @@
                   <%= text_field_tag :card_code, nil %>
                 </div>
               </div>
-            <% end %>
+            <%# end %>
           </div>
         </div>
         <div class="ui segment no-box-shadow">

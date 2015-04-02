@@ -10,21 +10,21 @@
 		<div class="two column stackable ui grid">
 			<div class="column four wide" style="padding-top:0px;">
 				<div class="image">
-					<%= image_tag(@payment.course_date.course.avatar_url(:medium), :class => "ui medium rounded" ,:style =>"width:100%")%>
+					<%= image_tag(@payment.ticket.course_date.course.avatar_url(:medium), :class => "ui medium rounded" ,:style =>"width:100%")%>
 				</div>
 			</div>
 			<div class="column twelve wide" >
-				<h1 style="margin:0px;"><%= @payment.course_date.course.name.capitalize %></h1>
-				<h4><%=@payment.course_date.course.user.company_website %></h4>
+				<h1 style="margin:0px;"><%= @payment.ticket.course_date.course.name.capitalize %></h1>
+				<h4><%=@payment.ticket.course_date.course.user.company_website %></h4>
 				<div class="ui segment no-box-shadow-web" style="padding-left:0px; padding-top:0px;">
 					<div class="two column stackable ui grid">
 						<div class="column" style="padding-left:0px;">
-							<p><strong>date of course:</strong> <%= @payment.course_date.start_date_time.strftime("%e %b %Y %H:%M%p") %></p>
+							<p><strong>date of course:</strong> <%= @payment.ticket.course_date.start_date_time.strftime("%e %b %Y %H:%M%p") %></p>
 							<p><strong>amount paid:</strong> <%= number_to_currency(@payment.overall_price, :precision => 2, :unit => "£")  %></p>
 						</div>
 						<div class="column" >
 							<p><strong>Course Address</strong></p>
-							<% @payment.course_date.course.course_addresses.each do |address| %>
+							<% @payment.ticket.course_date.course.course_addresses.each do |address| %>
 								<p><%= address.address1 %></p>
 								<p><%= address.address2 %></p>
 								<p><%= address.city %></p>

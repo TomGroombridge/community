@@ -9,13 +9,13 @@ class PaymentMailer < ActionMailer::Base
 
   def reminder(payment)
     @payment = payment
-    @course_date = payment.course_date
-    @course = payment.course_date.course
+    @course_date = payment.ticket.course_date
+    @course = payment.ticket.course_date.course
   	mail to: payment.email, subject: "Reminder that your course is in 24 hours"
   end
 
   def notification(payment)
-  	@course = payment.course_date.course
+  	@course = payment.ticket.course_date.course
     @payment = payment
   	mail to: @course.user.email, subject: "Someone has joined a class"
   end

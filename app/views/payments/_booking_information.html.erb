@@ -6,7 +6,7 @@
           <div style="text-align:left" class="content">
             <h4 class="ui header" style=" border-bottom: 1px solid rgba(39, 41, 43, 0.15);">Course</h4>
             <div class="sub header">
-              <p style="font-size: 0.9em;"><%= @payment.course_date.course.name %></p>
+              <p style="font-size: 0.9em;"><%= @payment.ticket.course_date.course.name %></p>
               <p style="font-size: 0.8em;">Offered by "company name"</p>
             </div>
           </div>
@@ -17,9 +17,9 @@
           <div style="text-align:left" class="content">
             <h4 class="ui header" style=" border-bottom: 1px solid rgba(39, 41, 43, 0.15);">Tickets</h4>
             <div class="sub header">
-              <p style="font-size: 0.9em;">Ticket price: <%= number_to_currency(@payment.course_date.course.price , :precision => 2, :unit => "£")  %></p>
-              <p>Booking fee: <%= number_to_currency(@payment.booking_fee , :precision => 2, :unit => "£")  %></p>
-              <p>Overall Price:  <span style="font-weight:bold; color:black"><%= number_to_currency(@payment.overall_price , :precision => 2, :unit => "£")  %></span></p>
+              <p style="font-size: 0.9em;">Ticket price: <%= number_to_currency(@payment.ticket.price , :precision => 2, :unit => "£")  %></p>
+              <p>Booking fee: <%# number_to_currency(@payment.booking_fee , :precision => 2, :unit => "£")  %></p>
+              <p>Overall Price:  <span style="font-weight:bold; color:black"><%# number_to_currency(@payment.overall_price , :precision => 2, :unit => "£")  %></span></p>
             </div>
           </div>
         </div>

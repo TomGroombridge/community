@@ -33,16 +33,19 @@
               <%= address.address1 %>, <%= address.address2 %>, <%= address.city %>, <%= address.postcode %>
             <% end %>
           </div>
-          <div class="three wide column center">
-            <%= number_to_currency(date.course.price, :precision => 2, :unit => "£")  %>
-          </div>
-          <div class="five wide column center">
-            <% if date.quantity == date.payments.count %>
-              Sold Out!
-            <% else %>
-              <%= link_to "Book Date", new_payment_path(:id => date.id), :class => "ui positive labeled button" %>
-            <% end %>
-          </div>
+          <% date.tickets.each do |ticket| %>
+            <div class="three wide column center">
+              <%= number_to_currency(ticket.price, :precision => 2, :unit => "£")  %>
+            </div>
+            <div class="five wide column center">
+              <%= link_to(ticket.name , new_payment_path(:id => ticket.id), :class => "ui positive labeled button" )%>
+            <%# if date.quantity == date.payments.count %>
+              <!-- Sold Out! -->
+            <%# else %>
+              <%# link_to "Book Date", new_payment_path(:id => date.id), :class => "ui positive labeled button" %>
+            <%# end %>
+            </div>
+          <% end %>
         </div>
         <div class="ui divider"></div>
       </li>
