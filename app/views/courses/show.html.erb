@@ -15,14 +15,24 @@
                                 <a><h3 class="ui header" style="font-size:2rem"><%= @course.name.capitalize %></h3></a>
                             </div>
                             <div class="item" style="padding: 0.72em 0em;">
+                                <% if @course.upcoming_date == nil %>
+                                    <a style="font-size:1.5rem">
+                                        <i class="calendar icon"></i>No upcoming dates
+                                    </a>
+                                <% else %>
                                 <a style="font-size:1.5rem">
                                     <i class="calendar icon"></i><%= @course.upcoming_date.start_date.strftime("%A, %b %d") %>
                                 </a>
+                                <% end %>
                             </div>
                             <div class="item" style="padding: 0.72em 0em;">
-                                <a style="font-size:1.5rem">
-                                    <i class="clock icon"></i><%= @course.upcoming_date.start_time.strftime("%l:%M %p")%> - <%= @course.upcoming_date.end_time.strftime("%l:%M %p")%>
-                                </a>
+                                <% if @course.upcoming_date == nil %>
+
+                                <% else %>
+                                    <a style="font-size:1.5rem">
+                                        <i class="clock icon"></i><%= @course.upcoming_date.start_time.strftime("%l:%M %p")%> - <%= @course.upcoming_date.end_time.strftime("%l:%M %p")%>
+                                    </a>
+                                <% end %>
                             </div>
                             <div class="item" style="padding: 0.38em 0em;">
                               <a style="font-size:1.5rem; margin-left: 8px;">

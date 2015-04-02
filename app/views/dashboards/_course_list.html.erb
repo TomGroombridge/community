@@ -11,7 +11,8 @@
   <tbody>
   	<% @all_courses.each do |course|%>
 		    <tr>
-		      <td><%= course.name %></td>
+		      <td><%= link_to(course.name, course_path(course)) %></td>
+          <%# link_to(course_date.course.name, course_path(course_date.course), :class => "header text", :style => "color: white; font-size: 1em;") %>
 		      <td><%= course.course_dates.count %></td>
 		      <td><%= course.upcoming_dates.count %></td>
 		      <td style="text-align:center"><%= link_to("Add Date".html_safe, new_course_course_date_path(course.id), :class =>"ui inverted red button")%>

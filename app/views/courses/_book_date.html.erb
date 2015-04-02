@@ -17,6 +17,9 @@
         </div>
         <div class="ui divider"></div>
       </li>
+      <% if @course.upcoming_date == nil %>
+        <h3>There are no course dates available for this course yet</h3>
+      <% else %>
       <% @course.upcoming_dates.each do |date|%>
       <li>
         <div class="ui grid">
@@ -45,6 +48,7 @@
       </li>
 
       <br>
+      <% end %>
       <% end %>
       <ul>
     </div>
