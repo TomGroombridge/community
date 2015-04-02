@@ -11,4 +11,5 @@ class Ticket < ActiveRecord::Base
   	tickets = self.quantity
   	tickets - payments
   end
+
 end

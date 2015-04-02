@@ -37,13 +37,19 @@
             <% date.tickets.each do |ticket| %>
               <div class="three wide column center">
                 <%= number_to_currency(ticket.price, :precision => 2, :unit => "£")  %>
-                <%= ticket.quantity %> left
+                <br>
+                <%= ticket.places_left %> left
               </div>
-              <div class="five wide column center">
-                <%= link_to(ticket.name , new_payment_path(:id => ticket.id), :class => "ui positive labeled button" )%>
-              </div>
+              <% if ticket.places_left <= 0%>
+                <div class="five wide column center">
+                  Sold Out!
+                </div>
+              <% else %>
+                <div class="five wide column center">
+                  <%= link_to(ticket.name , new_payment_path(:id => ticket.id), :class => "ui positive labeled button" )%>
+                </div>
+              <% end %>
             <% end %>
-
             <!-- <div class="three wide column center">
               <%# number_to_currency(date.course.price, :precision => 2, :unit => "£")  %>
             </div>
