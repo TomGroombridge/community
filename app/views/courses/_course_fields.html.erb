@@ -24,7 +24,7 @@
     <%= form.select :category, options_for_select([["Arts & Crafts", "arts"], ["Food & Drink","food"],["Health & Wellbeing", "health"],["Music", "music"],["Other", "other"]])%>
   </div>
   <%= form.fields_for :course_addresses do |addresses_form| %>
-	  <div class="field four wide">
+	  <div class="two fields">
 	  	<h3>Location</h3>
 	    <div class="field">
 	      <%= addresses_form.text_field :address1, :placeholder => 'Address 1'%>

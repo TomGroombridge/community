@@ -17,15 +17,14 @@
 				<%= form.fields_for :course_dates do |builder| %>
 			    <%= render 'course_date_fields', form: builder %>
 			  <% end %>
-				<div class="ui divider" style="margin-top: 100px; margin-bottom: 25px;"></div>
 				<div class="ui segment no-box-shadow">
 					<div class="ui dimmer courseLoader">
             <div class="ui indeterminate text loader">Creating Course</div>
           </div>
-					<div id="terms" class="ui button labeled icon basic">
+					<!-- <div id="terms" class="ui button labeled icon basic">
 						<i class="icon pencil"></i>
 						Terms & Conditions
-					</div>
+					</div> -->
 					<%= form.submit :id => "courseSubmit", :style =>"float:right; width:250px", :class => "ui inverted green button" %>
 					<div class="ui error message"></div>
 				</div>
