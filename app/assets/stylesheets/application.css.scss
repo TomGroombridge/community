@@ -52,6 +52,11 @@ body{
   display: inline-block;
 }
 
+.ui.form.edit-date select{
+  display: inline-block !important;
+  width: 45% !important;
+}
+
 
 .right-side {
   width: 100%;

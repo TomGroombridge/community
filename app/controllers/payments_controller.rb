@@ -21,6 +21,13 @@ class PaymentsController < ApplicationController
     @payment = Payment.find(params[:id])
   end
 
+  def destroy
+    @payment = Payment.find(params[:id])
+    @payment.destroy
+    session[:return_to] ||= request.referer
+    redirect_to session.delete(:return_to)
+  end
+
   private
   def payment_params
     params.require(:payment).permit(:course_date_id, :email, :course_id, :stripe_card_token, :full_name, :mobile_number, :special_request, :quantity)
