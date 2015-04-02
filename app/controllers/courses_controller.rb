@@ -7,12 +7,10 @@ class CoursesController < ApplicationController
 		@course.course_addresses.build
 		course_dates = @course.course_dates.build
 		4.times {course_dates.tickets.build}
-	  # authorize! :update, @course
 	end
 
 	def create
 		@course = Course.new(course_params)
-		# @course = Course.create(params[:course].permit(:name, :description, :price, :avatar, :crop_x, :crop_y, :crop_w, :crop_h, :what_to_wear, :what_to_bring, :experience, :category, course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county, :longitude, :latitude], course_dates_attributes:[:id, :start_time, :end_time, :start_date, :end_date, :quantity, :course_id], tickets_attributes:[:id, :name, :course_date_id]))
 		@course.user = current_user
 		if @course.save
 			@user =  @course.user

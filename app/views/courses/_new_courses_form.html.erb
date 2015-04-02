@@ -85,10 +85,9 @@
 				  </a>
 					<h2 style="display:inline-block">Create date</h2>
 				</div>
-				<%= form.fields_for :course_dates do |course_date_form| %>
-					<%= render "course_dates" , :form => course_date_form%>
-
-				<% end %>
+				<%= form.fields_for :course_dates do |builder| %>
+			    <%= render 'course_date_fields', form: builder %>
+			  <% end %>
 				<div class="ui divider" style="margin-top: 100px; margin-bottom: 25px;"></div>
 				<div class="ui segment no-box-shadow">
 					<div class="ui dimmer courseLoader">
