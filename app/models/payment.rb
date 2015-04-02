@@ -28,12 +28,18 @@ class Payment < ActiveRecord::Base
 		booking_fee + price
 	end
 
+	def reduce_quantity
+		test = self
+		test.ticket.quantity = test.ticket.quantity -= 1
+	end
+
 	def save_with_payment(params)
 		@amount = self.overall_price * 100
 		@email = self.email
 		@name = self.full_name
 		@course_name = self.ticket.course_date.course.name
 		@course_date = self.ticket.course_date.start_date.strftime("%d/%m/%Y")
+		@quantity = self.ticket.quantity
 		if ticket.free?
 			save! and return true
 		end

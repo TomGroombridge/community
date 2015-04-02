@@ -13,6 +13,10 @@ class CourseDate < ActiveRecord::Base
 		end
 	end
 
+	# def places_left
+	# 	payments = self.payments.count
+	# end
+
 	def start_date_time
 		d = start_date
 		t = start_time
@@ -53,9 +57,9 @@ class CourseDate < ActiveRecord::Base
 		CourseDateMailer.new_date(self).deliver!
 	end
 
-	def places_left
-		quantity - self.payments.count
-	end
+	# def places_left
+	# 	quantity - self.payments.count
+	# end
 
 	# def edit_course_date
 	# 	start_date - 24.hours
