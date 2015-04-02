@@ -1,4 +1,16 @@
-<fieldset>
-  <%= form.label :name, "Ticket" %>
-  <%= form.text_field :name %>
-</fieldset>
+<div class="ui form">
+  <div class="fields">
+    <div class="five wide field">
+      <%= form.label :name, "Ticket" %>
+	  	<%= form.text_field :name %>
+    </div>
+    <div class="four wide field">
+      <%= form.label :price, "Price" %>
+	  	<%= form.text_field :price %>
+    </div>
+    <div class="four wide field">
+      <%= form.label :quantity, "Quantity" %>
+	  	<%= form.text_field :quantity %>
+    </div>
+  </div>
+</div>
