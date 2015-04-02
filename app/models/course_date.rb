@@ -1,10 +1,11 @@
 class CourseDate < ActiveRecord::Base
-	belongs_to :course
 	has_many :payments
 	after_create :invalid
 	after_create :send_course_info
-	# after_create :send_new_date
 	after_create :full
+	belongs_to :course
+  has_many :tickets
+  accepts_nested_attributes_for :tickets
 
 	def valid_dates(course)
 		if course.start_date_time > Time.now && course.active?

@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   root "pages#home_page"
 
   resources :courses do
-    resources :tickets
     resources :course_dates do
       member do
         get 'course_details'
       end
+      resources :tickets
     end
   end
 

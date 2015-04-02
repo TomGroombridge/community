@@ -1,13 +1,15 @@
 class Course < ActiveRecord::Base
 	belongs_to :user
-	has_many :course_dates
+
 	has_many :users
   has_many :course_addresses
   accepts_nested_attributes_for :course_addresses
-  accepts_nested_attributes_for :course_dates
+
   mount_uploader :avatar, AvatarUploader
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   after_update :crop_avatar
+  has_many :course_dates
+  accepts_nested_attributes_for :course_dates
 
   def crop_avatar
     self.avatar.recreate_versions! if crop_x.present?
