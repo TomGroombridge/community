@@ -3,8 +3,6 @@ class PaymentsController < ApplicationController
   def new
     @ticket = Ticket.find(params[:id])
     @payment = @ticket.payments.build
-    # @course_date = CourseDate.find(params[:id])
-    # @payment = @course_date.payments.build
     @payment.user = current_user
   end
 

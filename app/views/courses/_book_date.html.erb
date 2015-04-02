@@ -17,6 +17,7 @@
         </div>
         <div class="ui divider"></div>
       </li>
+
       <% if @course.upcoming_date == nil %>
         <h3>There are no course dates available for this course yet</h3>
       <% else %>
@@ -33,19 +34,27 @@
               <%= address.address1 %>, <%= address.address2 %>, <%= address.city %>, <%= address.postcode %>
             <% end %>
           </div>
-          <% date.tickets.each do |ticket| %>
-            <div class="three wide column center">
-              <%= number_to_currency(ticket.price, :precision => 2, :unit => "£")  %>
+            <% date.tickets.each do |ticket| %>
+              <div class="three wide column center">
+                <%= number_to_currency(ticket.price, :precision => 2, :unit => "£")  %>
+                <%= ticket.quantity %> left
+              </div>
+              <div class="five wide column center">
+                <%= link_to(ticket.name , new_payment_path(:id => ticket.id), :class => "ui positive labeled button" )%>
+              </div>
+            <% end %>
+
+            <!-- <div class="three wide column center">
+              <%# number_to_currency(date.course.price, :precision => 2, :unit => "£")  %>
             </div>
-            <div class="five wide column center">
-              <%= link_to(ticket.name , new_payment_path(:id => ticket.id), :class => "ui positive labeled button" )%>
-            <%# if date.quantity == date.payments.count %>
-              <!-- Sold Out! -->
+            <%#if date.quantity == date.payments.count %>
+              <div class="five wide column center">
+                Sold Out!
+              </div>
             <%# else %>
-              <%# link_to "Book Date", new_payment_path(:id => date.id), :class => "ui positive labeled button" %>
-            <%# end %>
-            </div>
-          <% end %>
+              <div class="five wide column center">
+                <%# link_to "Book Date", new_payment_path(:id => date.id), :class => "ui positive labeled button" %>
+              </div> -->
         </div>
         <div class="ui divider"></div>
       </li>
