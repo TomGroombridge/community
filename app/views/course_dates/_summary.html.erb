@@ -2,7 +2,7 @@
 	<h2 class="header" style="margin-bottom: 44px;">Course Date Summary</h2>
 	<div class="ui two column stackable grid">
     <div class="column six wide">
-    	<h3 class="header sub-heading" style="margin-top:0px;">Tickets sold: <%= @course_date.payments.count%>/<%= @course_date.quantity %></h3>
+    	<h3 class="header sub-heading" style="margin-top:0px;">Tickets sold: <%= @course_date.tickets_left %></h3>
     </div>
     <div class="column ten wide">
     	<div class="ui teal progress" id="example2" data-attibute="<%= @course_date %>" style="width: 75%;">
@@ -11,7 +11,7 @@
     </div>
   </div>
   <div class="column">
-  	<h3 class="header sub-heading">Revenue: <%= number_to_currency(@course_date.revenue, :precision => 2, :unit => "£")  %></h3>
+  	<h3 class="header sub-heading">Revenue: <%# number_to_currency(@course_date.revenue, :precision => 2, :unit => "£")  %></h3>
 
   </div>
 </div>

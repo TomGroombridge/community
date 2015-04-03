@@ -11,8 +11,9 @@
       <ul class="course-dates">
       <li class="header" style="padding-bottom: 0px;">
         <div class="ui grid">
-          <div class="eight wide column">Date & Location</div>
-          <div class="three wide column center">Price</div>
+          <div class="five wide column">Date & Location</div>
+          <div class="four wide column center" style="padding-top:1rem !important">Ticket</div>
+          <div class="two wide column center">Price</div>
           <div class="five wide column center">Book Date</div>
         </div>
         <div class="ui divider"></div>
@@ -24,32 +25,27 @@
       <% @course.upcoming_dates.each do |date|%>
       <li>
         <div class="ui grid">
-          <div class="eight wide column">
+          <div class="five wide column">
             <i class="calendar icon"></i>
             <%= date.start_date.strftime("%d/%m/%Y") %>
             <br>
             <br>
             <i class="marker icon"></i>
-            <% date.course.course_addresses.each do |address|%>
-              <%= address.address1 %>, <%= address.address2 %>, <%= address.city %>, <%= address.postcode %>
+            <%= date.course.address.truncate(10) %>
+          </div>
+          <div class="eleven wide column center" style="padding: 0px; padding-top: 1rem;">
+            <% date.tickets.each do |ticket| %>
+              <div class="row" style="display: block; width: 100%; min-height: 50px; margin-bottom: 10px;">
+                <p style="text-transform:lowercase;display:inline-block;float:left;width:34%;max-width: 34%;"><%= ticket.name %></p>
+                <p style="text-transform:lowercase;display:inline-block;float:left;width:25%;max-width: 25%;"><%= number_to_currency(ticket.price, :precision => 2, :unit => "£")%></p>
+                <% if ticket.places_left <= 0%>
+                  Sold Out!
+                <% else %>
+                  <%= link_to("Book Now", new_payment_path(:id => ticket.id, :course_date_id => date.id), :class => "ui positive labeled button", :style => "display:inline-block;float: right; width:37%; max-width:37%;" )%>
+                <% end %>
+              </div>
             <% end %>
           </div>
-            <% date.tickets.each do |ticket| %>
-              <div class="three wide column center">
-                <%= number_to_currency(ticket.price, :precision => 2, :unit => "£")  %>
-                <br>
-                <%= ticket.places_left %> left
-              </div>
-              <% if ticket.places_left <= 0%>
-                <div class="five wide column center">
-                  Sold Out!
-                </div>
-              <% else %>
-                <div class="five wide column center">
-                  <%= link_to(ticket.name , new_payment_path(:id => ticket.id), :class => "ui positive labeled button" )%>
-                </div>
-              <% end %>
-            <% end %>
             <!-- <div class="three wide column center">
               <%# number_to_currency(date.course.price, :precision => 2, :unit => "£")  %>
             </div>

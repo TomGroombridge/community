@@ -57,6 +57,16 @@ class CourseDate < ActiveRecord::Base
 		CourseDateMailer.new_date(self).deliver!
 	end
 
+	def max_tickets
+		@tickets = []
+		self.tickets.each {|ticket| @tickets <<  ticket.quantity}
+		@tickets.inject(:+)
+	end
+
+	def tickets_left
+		self.payments.count.to_s  + "/" + self.max_tickets.to_s
+	end
+
 	# def places_left
 	# 	quantity - self.payments.count
 	# end

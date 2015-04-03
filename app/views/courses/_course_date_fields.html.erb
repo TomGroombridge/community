@@ -25,3 +25,4 @@
 <%= form.fields_for :tickets do |builder| %>
   <%= render 'ticket_fields', form: builder %>
 <% end %>
+<%= link_to_add_fields "Add Question", form, :tickets %>

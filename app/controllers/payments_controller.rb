@@ -2,10 +2,11 @@ class PaymentsController < ApplicationController
 
   def new
     @ticket = Ticket.find(params[:id])
-    # @course_date = CourseDate.find(params[:id])
+    @course_date = CourseDate.find(params[:id])
     @payment = @ticket.payments.build
-    # @payment.ticket_id = @ticket.id
     @payment.user = current_user
+    @payment.company_id = @course_date.course.user.id
+    @payment.course_date_id = @ticket.course_date.id
   end
 
   def create
