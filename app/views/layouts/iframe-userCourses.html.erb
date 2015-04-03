@@ -56,18 +56,28 @@
 					    <div class="three wide column price">
 					    	<div class="ui segment center no-box-shadow-web">
 					    		<div class="algin-middle">
-						    		<%= number_to_currency(date.course.price, :precision => 2, :unit => "£")  %>
+						    		<% date.tickets.each do |ticket| %>
+							    		<%= number_to_currency(ticket.price, :precision => 2, :unit => "£")  %>
+							    		<br>
+							    	<% end %>
 						    	</div>
 						    </div>
 					    </div>
 					    <div class="three wide column top actions">
 					    	<div class="book-button">
 					    		<div class="inside">
-							    	<% if date.full %>
-							    		<div class="ui red button text">SOLD OUT</div>
-							    	<% else %>
-											<%= link_to "BOOK NOW", new_payment_path(:id => date.id), :class => "ui blue button text", :target => "_blank"%>
+					    		<%# if date.tickets.count <= 1 %>
+							    	<% date.tickets.each do |ticket| %>
+								    	<% if ticket.places_left <= 0%>
+								    		<div class="ui red button text">SOLD OUT</div>
+								    	<% else %>
+												<%= link_to "BOOK NOW", new_payment_path(:id => ticket.id), :class => "ui blue button text", :target => "_blank"%>
+												<br>
+											<% end %>
 										<% end %>
+									<%# else %>
+										<%# link_to "BOOK NOW", course_path(date.course), :class => "ui blue button text", :target => "_blank"%>
+									<%# end %>
 									</div>
 								</div>
 					    </div>

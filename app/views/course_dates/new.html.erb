@@ -1,40 +1,40 @@
 <div class="course-form" style="width: 80%; margin:auto">
 	<div class="ui segment" style="display:block">
 	  <div class="column twelve wide">
-				<div class="ui form time-select" style="max-width: 85%; margin: auto;">
-					<%= form_for [@course, @course_date] do |form| %>
-						<div class="four fields">
-					  	<h3>Date & time</h3>
-					  	<div class="field four wide">
-					  		<%= form.text_field :start_date, :placeholder => "11/02/2015"%>
-					  	</div>
-					  	<div class="field four wide">
-					  		<%= form.time_select :start_time, :class => "time-select" %>
-					  	</div>
-					  	<div class="field four wide">
-					  		<%= form.text_field :end_date, :placeholder => "11/02/2015" %>
-					  	</div>
-					  	<div class="field four wide">
-					  		<%= form.time_select :end_time %>
-					  	</div>
-					  </div>
-				  	<%= form.fields_for :tickets do |builder| %>
-					  	<% render 'ticket_fields_new', form: builder %>
-				  	<% end %>
-						<%= link_to_add_tickets "Add Other Tickets", form, :tickets %>
-				  	<div class="ui segment no-box-shadow" style="margin-top: 40px;">
-							<div class="ui dimmer courseLoader">
-		            <div class="ui indeterminate text loader">Creating Course</div>
-		          </div>
-							<!-- <div id="terms" class="ui button labeled icon basic">
-								<i class="icon pencil"></i>
-								Terms & Conditions
-							</div> -->
-							<%= form.submit :id => "courseSubmit", :style =>"float:right; width:250px", :class => "ui inverted green button" %>
-							<div class="ui error message" style="margin-top:50px;"></div>
-						</div>
-					<% end %>
-				</div>
+			<div class="ui form time-select" style="max-width: 100%; margin: auto;">
+				<%= form_for [@course, @course_date] do |form| %>
+					<div class="four fields">
+				  	<h3>Date & time</h3>
+				  	<div class="field four wide">
+				  		<%= form.text_field :start_date, :placeholder => "11/02/2015"%>
+				  	</div>
+				  	<div class="field four wide">
+				  		<%= form.time_select :start_time, :class => "time-select" %>
+				  	</div>
+				  	<div class="field four wide">
+				  		<%= form.text_field :end_date, :placeholder => "11/02/2015" %>
+				  	</div>
+				  	<div class="field four wide">
+				  		<%= form.time_select :end_time %>
+				  	</div>
+				  </div>
+			  	<%= form.fields_for :tickets do |builder| %>
+				  	<% render 'ticket_fields_new', form: builder %>
+			  	<% end %>
+					<%# link_to_add_tickets "Add Other Tickets", form, :tickets %>
+			  	<div class="ui segment no-box-shadow" style="margin-top: 40px;">
+						<div class="ui dimmer courseLoader">
+	            <div class="ui indeterminate text loader">Creating Course</div>
+	          </div>
+						<!-- <div id="terms" class="ui button labeled icon basic">
+							<i class="icon pencil"></i>
+							Terms & Conditions
+						</div> -->
+						<%= form.submit :id => "courseSubmit", :style =>"float:right; width:250px", :class => "ui inverted green button" %>
+						<div class="ui error message" style="margin-top:50px;"></div>
+					</div>
+				<% end %>
+			</div>
 		</div>
 	</div>
 </div>
