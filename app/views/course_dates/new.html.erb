@@ -23,9 +23,17 @@
 					  	<% render 'ticket_fields_new', form: builder %>
 				  	<% end %>
 						<%= link_to_addd_fields "Add Tickets", form, :tickets %>
-				  	<div class="field thirteen wide">
-				  		<%= form.submit %>
-				  	</div>
+				  	<div class="ui segment no-box-shadow" style="margin-top: 40px;">
+							<div class="ui dimmer courseLoader">
+		            <div class="ui indeterminate text loader">Creating Course</div>
+		          </div>
+							<!-- <div id="terms" class="ui button labeled icon basic">
+								<i class="icon pencil"></i>
+								Terms & Conditions
+							</div> -->
+							<%= form.submit :id => "courseSubmit", :style =>"float:right; width:250px", :class => "ui inverted green button" %>
+							<div class="ui error message" style="margin-top:50px;"></div>
+						</div>
 					<% end %>
 				</div>
 			</div>
