@@ -22,7 +22,7 @@
 				  	<%= form.fields_for :tickets do |builder| %>
 					  	<% render 'ticket_fields_new', form: builder %>
 				  	<% end %>
-						<%= link_to_addd_fields "Add Tickets", form, :tickets %>
+						<%= link_to_add_tickets "Add Tickets", form, :tickets %>
 				  	<div class="ui segment no-box-shadow" style="margin-top: 40px;">
 							<div class="ui dimmer courseLoader">
 		            <div class="ui indeterminate text loader">Creating Course</div>
