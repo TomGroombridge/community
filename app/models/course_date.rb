@@ -49,10 +49,6 @@ class CourseDate < ActiveRecord::Base
 		value.to_i
 	end
 
-	def revenue
-		value = self.course.price * self.payments.count
-	end
-
 	def send_new_date
 		CourseDateMailer.new_date(self).deliver!
 	end
@@ -65,6 +61,15 @@ class CourseDate < ActiveRecord::Base
 
 	def tickets_left
 		self.payments.count.to_s  + "/" + self.max_tickets.to_s
+	end
+
+	def revenue
+		@ticket_ammount = []
+		@revenue = []
+		self.tickets.each do |ticket|
+			@revenue <<  ticket.bookings * ticket.price
+		end
+		@revenue.inject(:+)
 	end
 
 	# def places_left

@@ -12,4 +12,8 @@ class Ticket < ActiveRecord::Base
   	tickets - payments
   end
 
+  def bookings
+    payments = self.payments.count
+  end
+
 end

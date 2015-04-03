@@ -11,7 +11,7 @@
     </div>
   </div>
   <div class="column">
-  	<h3 class="header sub-heading">Revenue: <%# number_to_currency(@course_date.revenue, :precision => 2, :unit => "£")  %></h3>
+  	<h3 class="header sub-heading">Revenue: <%= number_to_currency(@course_date.revenue, :precision => 2, :unit => "£")  %></h3>
 
   </div>
 </div>
