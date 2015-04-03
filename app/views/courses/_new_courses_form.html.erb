@@ -17,7 +17,7 @@
 				<%= form.fields_for :course_dates do |builder| %>
 			    <%= render 'course_date_fields', form: builder %>
 			  <% end %>
-				<div class="ui segment no-box-shadow">
+				<div class="ui segment no-box-shadow" style="margin-top: 40px;">
 					<div class="ui dimmer courseLoader">
             <div class="ui indeterminate text loader">Creating Course</div>
           </div>
@@ -26,7 +26,7 @@
 						Terms & Conditions
 					</div> -->
 					<%= form.submit :id => "courseSubmit", :style =>"float:right; width:250px", :class => "ui inverted green button" %>
-					<div class="ui error message"></div>
+					<div class="ui error message" style="margin-top:50px;"></div>
 				</div>
 			<% end %>
 		</div>

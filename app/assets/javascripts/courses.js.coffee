@@ -130,6 +130,38 @@ $ ->
           prompt: 'Course places must be a integer'
         }
       ]
+    ticket_name:
+      identifier: 'course[course_dates_attributes][0][tickets_attributes][0][name]'
+      rules: [
+        {
+          type: 'empty'
+          prompt: 'Please add the name of the ticket'
+        }
+      ]
+    ticket_price:
+      identifier: 'course[course_dates_attributes][0][tickets_attributes][0][quantity]'
+      rules: [
+        {
+          type: 'empty'
+          prompt: 'Please add an price to the ticket'
+        }
+        {
+          type: 'contains[.]'
+          prompt: 'Please add a validated price with a decimal place'
+        }
+      ]
+    ticket_quantity:
+      identifier: 'course[course_dates_attributes][0][tickets_attributes][0][price]'
+      rules: [
+        {
+          type: 'empty'
+          prompt: 'Please add the quantity of tickets'
+        }
+        {
+          type: 'integer'
+          prompt: 'Ticket quantity must be a number'
+        }
+      ]
   settings =
     on     : 'blur'
     onFailure: ->

@@ -3,53 +3,28 @@
 	  <div class="column twelve wide">
 	    <div class="ui segment">
 				<div class="ui form time-select" style="max-width: 85%; margin: auto;">
-					<%= form_for [@course, @course_date] do |course_date_form| %>
+					<%= form_for [@course, @course_date] do |form| %>
 						<div class="four fields">
 					  	<h3>Date & time</h3>
 					  	<div class="field four wide">
-					  		<%= course_date_form.text_field :start_date, :placeholder => "11/02/2015"%>
+					  		<%= form.text_field :start_date, :placeholder => "11/02/2015"%>
 					  	</div>
 					  	<div class="field four wide">
-					  		<%= course_date_form.time_select :start_time, :class => "time-select" %>
+					  		<%= form.time_select :start_time, :class => "time-select" %>
 					  	</div>
 					  	<div class="field four wide">
-					  		<%= course_date_form.text_field :end_date, :placeholder => "11/02/2015" %>
+					  		<%= form.text_field :end_date, :placeholder => "11/02/2015" %>
 					  	</div>
 					  	<div class="field four wide">
-					  		<%= course_date_form.time_select :end_time %>
+					  		<%= form.time_select :end_time %>
 					  	</div>
 					  </div>
-				  	<%= course_date_form.fields_for :tickets do |builder| %>
-				  		<table class="ui celled table">
-							  <thead>
-							    <tr>
-							      <th>Ticket name</th>
-							      <th>Price</th>
-							      <th>Quantity</th>
-							      <th style="text-align: center;">More</th>
-							    </tr>
-							  </thead>
-							  <tbody>
-							    <tr>
-							      <td style="border-bottom: 1px solid #d4d4d5"><%= builder.text_field :name, :placeholder => "Early Bird, First Release" %></td>
-							      <td style="border-bottom: 1px solid #d4d4d5"><%= builder.text_field :quantity, :placeholder => "20.00" %></td>
-							      <td style="border-bottom: 1px solid #d4d4d5"><%= builder.text_field :price, :placeholder => "100" %></td>
-							      <td style="  border-left:none;text-align:center;font-size:1.6rem;padding: 1rem; border-bottom: 1px solid #d4d4d5"><i class="setting icon"></i></td>
-							    </tr>
-							  </tbody>
-							  <tfoot class="full-width">
-							    <tr>
-							      <th style="border-top:0px;">
-							        <div class="ui small  button">
-							          Add Ticket
-							        </div>
-							      </th>
-							    </tr>
-							  </tfoot>
-							</table>
+				  	<%= form.fields_for :tickets do |builder| %>
+					  	<% render 'ticket_fields_new', form: builder %>
 				  	<% end %>
+						<%= link_to_addd_fields "Add Tickets", form, :tickets %>
 				  	<div class="field thirteen wide">
-				  		<%= course_date_form.submit %>
+				  		<%= form.submit %>
 				  	</div>
 					<% end %>
 				</div>
