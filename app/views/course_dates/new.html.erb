@@ -1,7 +1,6 @@
 <div class="course-form" style="width: 80%; margin:auto">
 	<div class="ui segment" style="display:block">
 	  <div class="column twelve wide">
-	    <div class="ui segment">
 				<div class="ui form time-select" style="max-width: 85%; margin: auto;">
 					<%= form_for [@course, @course_date] do |form| %>
 						<div class="four fields">
@@ -22,7 +21,7 @@
 				  	<%= form.fields_for :tickets do |builder| %>
 					  	<% render 'ticket_fields_new', form: builder %>
 				  	<% end %>
-						<%= link_to_add_tickets "Add Tickets", form, :tickets %>
+						<%= link_to_add_tickets "Add Other Tickets", form, :tickets %>
 				  	<div class="ui segment no-box-shadow" style="margin-top: 40px;">
 							<div class="ui dimmer courseLoader">
 		            <div class="ui indeterminate text loader">Creating Course</div>
@@ -36,7 +35,6 @@
 						</div>
 					<% end %>
 				</div>
-			</div>
 		</div>
 	</div>
 </div>
