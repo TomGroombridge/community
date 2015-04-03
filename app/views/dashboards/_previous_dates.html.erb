@@ -19,7 +19,7 @@
 		      <% if course_date.full%>
             <td>Sold Out</td>
           <% else %>
-            <td><%= course_date.payments.count%>/<%= course_date.quantity %></td>
+            <td><%= course_date.tickets_left %></td>
           <% end %>
 		      <td style="text-align:center"><%= link_to("Manage".html_safe, course_details_course_course_date_path(course_date.course_id, course_date.id), :class =>"ui inverted red button")%>
 		      </td>
