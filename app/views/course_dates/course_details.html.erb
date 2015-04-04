@@ -5,7 +5,7 @@
 	<div class="column twelve wide" style="background:white; min-height: 420px;">
 		<div class="row" style="padding-bottom: 20px;">
 			<h1 class="header"><%= @course_date.course.name %></h1>
-			<%# link_to("Edit Date", edit_course_course_date_path(@course_date.course.id, @course_date.id), :class => "ui inverted green button edit") %>
+			<%= link_to("Edit Date", edit_course_course_date_path(@course_date.course.id, @course_date.id), :class => "ui inverted green button edit") %>
 			<h3 class="header sub-heading"><%= @course_date.start_date_time.strftime("%A, %d %b %Y %l:%M %p") %></h3>
 		</div>
 		<div class="ui pointing secondary menu">

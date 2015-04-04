@@ -28,12 +28,9 @@
 			  		<%= course_date_form.time_select :end_time %>
 			  	</div>
 			  </div>
-			  <div class="fields">
-			  	<h3>Number of tickets left</h3>
-			  	<div class="field three wide">
-			  		<%= course_date_form.text_field :quantity, :placeholder => "20" %>
-			  	</div>
-			  </div>
+			  <%= course_date_form.fields_for :tickets do |builder| %>
+			  	<% render 'ticket_fields_new', form: builder %>
+		  	<% end %>
 			</div>
 			<div class="ui divider" style="margin-top: 100px; margin-bottom: 25px;"></div>
 			<div class="ui segment">
