@@ -29,7 +29,7 @@ class CourseDatesController < ApplicationController
 
 	def update
 		@course_date = CourseDate.find(params[:id])
-		if @course_date.update_attributes(params[:course_date].permit(:start_date, :start_time, :end_date, :end_time, :course_id, :quantity))
+		if @course_date.update_attributes(params[:course_date].permit(:start_date, :start_time, :end_date, :end_time, :course_id, :quantity, tickets_attributes:[:id, :name, :course_date_id, :price, :quantity]))
 			redirect_to course_details_course_course_date_path(@course_date.course_id, @course_date.id)
 		else
 			render :edit
