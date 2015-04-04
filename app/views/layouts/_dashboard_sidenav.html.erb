@@ -4,15 +4,9 @@
     <div class="username"><%= @user.company_name %></div>
   </div>
   <div class="ui divider"></div>
-  <h3 class="summary-title">Booking Summary</h3>
-  <table class="ui table month-summary-table">
+  <!-- <h3 class="summary-title">Booking Summary</h3> -->
+  <!-- <table class="ui table month-summary-table">
 	  <tbody>
-	    <!-- <tr>
-	      <td class="title">
-	        <i class="calendar outline icon"></i> Course Dates
-	      </td>
-	      <td class="value">14</td>
-	    </tr> -->
 	    <tr>
 	      <td>
 	        <i class="ticket icon"></i> Tickets sold
@@ -23,10 +17,10 @@
 	      <td>
 	        <i class="pound icon"></i> Revenue
 	      </td>
-	      <td><%= number_to_currency(@revenue , :precision => 2, :unit => "£")  %></td>
+	      <td><%# number_to_currency(@revenue , :precision => 2, :unit => "£")  %></td>
 	    </tr>
 	  </tbody>
-	</table>
+	</table> -->
 	<div class="ui divider"></div>
 	<div class="ui list">
 	  <%= link_to("Edit Company Details", edit_user_path(@user.id), :class => "item", :style => "text-align:center; color:white;") %>
