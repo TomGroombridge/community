@@ -146,20 +146,20 @@ $ ->
           prompt: 'Please add an price to the ticket'
         }
         {
-          type: 'contains[.]'
-          prompt: 'Please add a validated price with a decimal place'
+          type: 'integer'
+          prompt: 'Ticket quantity must be a number'
         }
       ]
     ticket_quantity:
       identifier: 'course[course_dates_attributes][0][tickets_attributes][0][price]'
       rules: [
         {
-          type: 'empty'
-          prompt: 'Please add the quantity of tickets'
+          type: 'contains[.]'
+          prompt: 'Please add a validated price with a decimal place'
         }
         {
-          type: 'integer'
-          prompt: 'Ticket quantity must be a number'
+          type: 'empty'
+          prompt: 'Please add the quantity of tickets'
         }
       ]
   settings =
