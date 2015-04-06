@@ -1,7 +1,6 @@
 class PaymentsController < ApplicationController
 
   def new
-    # @payment = Payment.new
     @ticket = Ticket.find(params[:id])
     @payment = @ticket.payments.build
     @payment.user = current_user
