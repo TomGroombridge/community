@@ -9,7 +9,9 @@ Rails.application.routes.draw do
       member do
         get 'course_details'
       end
-      resources :tickets
+      resources :tickets do
+        resources :entries
+      end
     end
   end
 
