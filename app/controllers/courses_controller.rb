@@ -6,7 +6,7 @@ class CoursesController < ApplicationController
 		@course.user = current_user
 		@course.course_addresses.build
 		course_dates = @course.course_dates.build
-		raise course_dates.inspect
+		# raise course_dates.inspect
 		course_dates.tickets.build
 	end
 
