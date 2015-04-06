@@ -2,9 +2,11 @@ class CourseDatesController < ApplicationController
 	before_action :fetch_and_authorize_course, :except => [:index]
 
 	def new
+		raise @course.inspect
 		@course_date = @course.course_dates.build
 		# raise @course_date.inspect
 		@course_date.tickets.build
+		# raise @course.course_dates.inspect
 	end
 
 	def create

@@ -5,6 +5,14 @@ class PaymentsController < ApplicationController
     @payment = @ticket.payments.build
     @payment.user = current_user
     @payment.course_date_id = @ticket.course_date.id
+    # @payment.id = 12
+    # raise @payment.inspect
+    @entry = @ticket.entries.build
+    raise @entry.inspect
+    3.times{@entry.entry_selections.build}
+    raise @entry.entry_selections.inspect
+    # raise @entry.inspect
+
     # if @ticket.number_of_dates > 1
     #   @entry = @ticket.entries.build
     #   raise @entry.inspect
@@ -13,6 +21,8 @@ class PaymentsController < ApplicationController
 
   def create
     @payment = Payment.new(payment_params)
+    @entry = Entry.create(params[:entry])
+    raise @entry.inspect
     # raise @date_selections.inspect
     @payment.company_id = @payment.ticket.course_date.course.user_id
     @payment.course_date_id = @payment.ticket.course_date.id

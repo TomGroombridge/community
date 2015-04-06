@@ -1,5 +1,9 @@
-<%= @entry.inspect %>
 
-<%= fields_for :entry do |form| %>
+<%= form_for [@ticket, @entry] do |form|%>
+
 	<%= form.text_field :ticket_id %>
+	<%# form.fields_for :entry_selections do |builder| %>
+		<%# builder.text_field :course_date_id %>
+	<%# end %>
+	<%= form.submit %>
 <% end %>
