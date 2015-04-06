@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150405174736) do
+ActiveRecord::Schema.define(version: 20150406110444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,13 @@ ActiveRecord::Schema.define(version: 20150405174736) do
     t.string   "category"
   end
 
+  create_table "date_selections", force: true do |t|
+    t.integer  "ticket_id"
+    t.integer  "course_date_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "payments", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -99,7 +106,8 @@ ActiveRecord::Schema.define(version: 20150405174736) do
     t.integer  "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "absorb_fee",     default: false
+    t.boolean  "absorb_fee",      default: false
+    t.integer  "number_of_dates", default: 1
   end
 
   create_table "users", force: true do |t|
