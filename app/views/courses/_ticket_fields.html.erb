@@ -13,7 +13,12 @@
       <td style="border-bottom: 1px solid #d4d4d5"><%= form.text_field :name, :placeholder => "Early Bird, First Release" %></td>
       <td style="border-bottom: 1px solid #d4d4d5"><%= form.text_field :price, :placeholder => "20.00" %></td>
       <td style="border-bottom: 1px solid #d4d4d5"><%= form.text_field :quantity, :placeholder => "100" %></td>
-      <td style="border-bottom: 1px solid #d4d4d5"><%= form.check_box :absorb_fee %></td>
+      <td style="border-bottom: 1px solid #d4d4d5">
+        <div class="ui toggle checkbox">
+          <%= form.check_box :absorb_fee, :type =>"radio" %>
+          <label><b>Absorb</b></label>
+        </div>
+      </td>
       <!-- <td style="  border-left:none;text-align:center;font-size:1.6rem;padding: 1rem; border-bottom: 1px solid #d4d4d5"><i class="setting icon"></i></td> -->
     </tr>
   </tbody>
