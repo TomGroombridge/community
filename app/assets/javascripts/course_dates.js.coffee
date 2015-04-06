@@ -61,3 +61,32 @@ jQuery ->
   $('#course_date_end_date').datepicker
     dateFormat: 'yy-mm-dd'
 
+$ ->
+  validation =
+    name:
+      identifier: 'course_date[tickets_attributes][0][name]'
+      rules: [
+        {
+          type: 'empty'
+          prompt: 'Fill in a Course Title'
+        }
+        {
+          type: 'length[4]'
+          prompt: 'The Course Title must be atleast 4 characters long'
+        }
+        {
+          type: 'maxLength[50]'
+          prompt: 'You cannot go over 30 characters in the Course Title'
+        }
+      ]
+  settings =
+    on     : 'blur'
+    onFailure: ->
+      console.log 'Failed'
+
+      false
+    onSuccess: ->
+      console.log 'Success'
+      return
+  $('.ui.form').form validation, settings
+
