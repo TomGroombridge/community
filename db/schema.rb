@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(version: 20150406161354) do
     t.time     "start_time"
     t.date     "end_date"
     t.time     "end_time"
-    t.integer  "user_id"
   end
 
   create_table "courses", force: true do |t|
@@ -112,8 +111,7 @@ ActiveRecord::Schema.define(version: 20150406161354) do
     t.integer  "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "absorb_fee",      default: false
-    t.integer  "number_of_dates", default: 1
+    t.boolean  "absorb_fee",     default: false
   end
 
   create_table "users", force: true do |t|
