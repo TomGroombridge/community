@@ -2,10 +2,12 @@ class Payment < ActiveRecord::Base
 	belongs_to :course_date
 	belongs_to :course
 	belongs_to :ticket
+	belongs_to :entry
 	belongs_to :user
 	after_create :send_new_payment_email
 	after_create :send_reminder
 	after_create :send_notification
+
 	# after_create :check_course_date_active
 	attr_accessor :stripe_card_token
 
