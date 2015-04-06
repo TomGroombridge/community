@@ -96,6 +96,17 @@ $(document).ready(function() {
       })
     ;
 
+    $('.circular.absorb_info')
+      .popup({
+        inline   : true,
+        hoverable: true,
+        position : 'bottom left',
+        delay: {
+          hide: 300
+        }
+      })
+    ;
+
     $("#courseDates").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#course', 'show');
 
     $("#cropImage").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#cropModal', 'show');
