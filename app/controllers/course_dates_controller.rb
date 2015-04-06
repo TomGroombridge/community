@@ -9,6 +9,11 @@ class CourseDatesController < ApplicationController
 
 	def create
 		@course_date = @course.course_dates.create(params[:course_date].permit(:start_date, :start_time, :end_date, :end_time, :course_id, :quantity, tickets_attributes:[:id, :name, :course_date_id, :price, :quantity, :absorb_fee, :number_of_dates]))
+		# @course_date.tickets.each do |ticket|
+		# 	if ticket.number_of_dates > 1
+		# 		ticket.entries.create(params[:entry])
+		# 	end
+		# end
 		if @course_date.save
 			redirect_to dashboard_path(@course_date.course.user.id)
 		else
