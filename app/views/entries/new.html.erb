@@ -1,0 +1,5 @@
+<%= @entry.inspect %>
+
+<%= fields_for :entry do |form| %>
+	<%= form.text_field :ticket_id %>
+<% end %>
