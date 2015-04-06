@@ -3,17 +3,15 @@ class CourseDatesController < ApplicationController
 
 	def new
 		@course_date = @course.course_dates.build
+		# raise @course_date.inspect
 		@course_date.tickets.build
 	end
 
 	def create
-
-		@course_date = @course.course_dates.create(params[:course_date].permit(:start_date, :start_time, :end_date, :end_time, :course_id, :quantity, tickets_attributes:[:id, :name, :course_date_id, :price, :quantity, :absorb_fee, :number_of_dates, date_selections_attributes:[:ticket_id, :course_date_id]]))
+		@course_date = @course.course_dates.create(params[:course_date].permit(:start_date, :start_time, :end_date, :end_time, :course_id, :quantity, tickets_attributes:[:id, :name, :course_date_id, :price, :quantity, :absorb_fee, :number_of_dates]))
 		@course_date.tickets.each do |ticket|
-			ticket.number_of_dates.times{@selection = ticket.date_selections.build}
-			ticket.date_selections.create(params[:date_selection])
+			@date_selections = ticket.number_of_dates.times{ticket.date_selections.create(params[:date_selection])}
 		end
-
 		if @course_date.save
 			redirect_to dashboard_path(@course_date.course.user.id)
 		else
