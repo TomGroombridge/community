@@ -2,7 +2,7 @@
 	<div class="ui segment" style="display:block">
 	  <div class="column twelve wide">
 			<div class="ui form time-select" style="max-width: 100%; margin: auto;">
-				<%= form_for [@course, @course_date] do |form| %>
+				<%= form_for [@course, @course_date], :multipart => true do |form| %>
 					<div class="four fields">
 				  	<h3>Date & time</h3>
 				  	<div class="field four wide">
