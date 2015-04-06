@@ -10,9 +10,15 @@ class DashboardsController < ApplicationController
 			course.upcoming_date.start_date_time
 		end
 		@payments = Payment.all.select{|payment| payment.company_id == @user.id }
-		@monthly_payments = @payments.select {|p| p.created_at >= Date.today.beginning_of_month}
-		@price = @monthly_payments.map {|p| p.price}
-		@revenue = @price.inject {|sum, n| sum += n }
+		if @payments.count > 0
+			@monthly_payments = @payments.select {|p| p.created_at >= Date.today.beginning_of_month}
+			@price = @monthly_payments.map {|p| p.price}
+			@revenue = @price.inject {|sum, n| sum += n }
+		else
+			@revenue = 0
+			@monthly_payments = []
+		end
+		# raise @price.inspect
 	end
 
 end
