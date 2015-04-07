@@ -2,28 +2,21 @@ class PaymentsController < ApplicationController
 
   def new
     @ticket = Ticket.find(params[:id])
-    @payment = @ticket.payments.build
+    if @ticket.number_of_dates > 1
+      @entry = Entry.find(params[:entry_id])
+      @payment = @entry.payments.build
+      @payment.ticket_id = @entry.ticket_id
+      raise @payment.ticket.inspect
+    else
+      @payment = @ticket.payments.build
+    end
     @payment.user = current_user
     @payment.course_date_id = @ticket.course_date.id
-    # @payment.id = 12
     # raise @payment.inspect
-    @entry = @ticket.entries.build
-    raise @entry.inspect
-    3.times{@entry.entry_selections.build}
-    raise @entry.entry_selections.inspect
-    # raise @entry.inspect
-
-    # if @ticket.number_of_dates > 1
-    #   @entry = @ticket.entries.build
-    #   raise @entry.inspect
-    # end
   end
 
   def create
     @payment = Payment.new(payment_params)
-    @entry = Entry.create(params[:entry])
-    raise @entry.inspect
-    # raise @date_selections.inspect
     @payment.company_id = @payment.ticket.course_date.course.user_id
     @payment.course_date_id = @payment.ticket.course_date.id
     @course = @payment.ticket.course_date.course
@@ -48,7 +41,7 @@ class PaymentsController < ApplicationController
 
   private
   def payment_params
-    params.require(:payment).permit(:course_date_id, :email, :course_id, :stripe_card_token, :full_name, :mobile_number, :special_request, :quantity, :ticket_id, :course_date_id, :company_id)
+    params.require(:payment).permit(:course_date_id, :email, :course_id, :stripe_card_token, :full_name, :mobile_number, :special_request, :quantity, :ticket_id, :course_date_id, :company_id, :entry_id)
   end
 
 

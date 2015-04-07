@@ -9,7 +9,12 @@ class EntriesController < ApplicationController
 
 	def create
 		@entry = @ticket.entries.create(params[:entry].permit(:ticket_id, entry_selections_attributes:[:course_date_id, :entry_id]))
-		raise @entry.entry_selections.inspect
+		# raise @entry.entry_selections.inspect
+		if @entry.save
+			redirect_to new_payment_path(:id => @ticket.id, :course_date_id => @ticket.course_date.id, :entry_id => @entry.id)
+		else
+			raise "error"
+		end
 	end
 
 	private

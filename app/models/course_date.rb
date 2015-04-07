@@ -67,6 +67,7 @@ class CourseDate < ActiveRecord::Base
 	def revenue
 		@ticket_ammount = []
 		@revenue = []
+		# raise self.tickets.inspect
 		self.tickets.each do |ticket|
 			@revenue <<  ticket.bookings * ticket.price
 		end
