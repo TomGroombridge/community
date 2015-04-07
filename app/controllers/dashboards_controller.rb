@@ -11,8 +11,13 @@ class DashboardsController < ApplicationController
 		end
 		@payments = Payment.all.select{|payment| payment.company_id == @user.id }
 		if @payments.count > 0
-			@monthly_payments = @payments.select {|p| p.created_at >= Date.today.beginning_of_month}
-			@price = @monthly_payments.map {|p| p.price}
+			@price = @payments.map do |p|
+				if p.manually_added == false
+					p.price
+				else
+					0
+				end
+			end
 			@revenue = @price.inject {|sum, n| sum += n }
 		else
 			@revenue = 0
