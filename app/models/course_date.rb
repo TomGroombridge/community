@@ -41,6 +41,10 @@ class CourseDate < ActiveRecord::Base
 		start_date.strftime("%m/%d/%Y/") + start_time.strftime("%I:%M%p")
 	end
 
+	def select_date
+		start_date_time.strftime("%A, %d %b %Y %l:%M %p")
+	end
+
 	def max_revenue
 		quantity * self.course.price
 	end

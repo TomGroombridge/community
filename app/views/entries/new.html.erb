@@ -1,10 +1,21 @@
-
-<%= form_for [@ticket, @entry] do |form|%>
-
-	<%= form.text_field :ticket_id %>
-	<%= form.fields_for :entry_selections do |selection| %>
-		<%# selection.select :course_date_id, options_for_select(@course_dates) %>
-		<%= selection.select :course_date_id, options_from_collection_for_select(@course_datess, :id, :start_date) %>
+<div class="ui form">
+	<%= form_for [@ticket, @entry] do |form|%>
+		<%= form.fields_for(:entry_selections) do |selection| %>
+			<div class="two fields">
+				<div class="field">
+				  <label>Select Date</label>
+				  <%# select_tag selection, options_from_collection_for_select(@course_dates, "id", "select_date")%>
+				   <%= selection.select :course_date_id, options_from_collection_for_select(@course_dates, :id,"select_date"), { :include_blank=>true }, {:class => 'ui dropdown'} %>
+				</div>
+			</div>
+			<%# @course_dates.each do |sel| %>
+				<%# selected = @entry.entry_selections.map(&:course_date_id).include?(sel.id) %>
+				<%#	 selection.radio_button :course_date_id, sel.id, {:id => "selection-radio-#{sel.id}", :required => 'required', :checked => selected} %>
+				<!-- <label for=<%# "selection-radio-#{sel.id}" %> class="control-label selection-label <%# 'selected' if selected %>"> -->
+				<!-- <span class="selection-name"><%# sel.start_date %></span> -->
+				<!-- </label> -->
+			<%# end %>
+		<% end %>
+		<%= form.submit %>
 	<% end %>
-	<%= form.submit %>
-<% end %>
+</div>

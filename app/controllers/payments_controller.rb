@@ -6,7 +6,7 @@ class PaymentsController < ApplicationController
       @entry = Entry.find(params[:entry_id])
       @payment = @entry.payments.build
       @payment.ticket_id = @entry.ticket_id
-      raise @payment.ticket.inspect
+      # raise @payment.ticket.inspect
     else
       @payment = @ticket.payments.build
     end
