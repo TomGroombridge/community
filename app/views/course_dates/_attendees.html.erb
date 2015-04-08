@@ -10,14 +10,14 @@
     </tr>
   </thead>
   <tbody>
-    <% @attendess.each do |payment| %>
+    <% @course_date.booking_dates.each do |date| %>
       <tr>
-        <%= raise payment.entry.inspect %>
-        <td><%= payment.entry.payment.full_name %></td>
-        <td><%= payment.email %></td>
-        <td><%= payment.mobile_number %></td>
-        <td><%= payment.created_at.strftime("%d/%m/%Y")%></td>
-        <td><%= link_to 'Delete', payment, method: :delete , data: {confirm: "Are you sure you want to delete this booking?"}%></td>
+        <%# raise payment.entry.inspect %>
+        <td><%= date.booking.name %></td>
+        <td><%= date.booking.email %></td>
+        <td><%= date.booking.contact_number %></td>
+        <td><%= date.booking.created_at.strftime("%d/%m/%Y")%></td>
+        <td><%# link_to 'Delete', date, method: :delete , data: {confirm: "Are you sure you want to delete this booking?"}%></td>
       </tr>
     <% end %>
   </tbody>

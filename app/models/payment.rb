@@ -81,7 +81,7 @@ class Payment < ActiveRecord::Base
 	end
 
 	def send_new_payment_email
-	# 	PaymentMailer.new_payment(self).deliver!
+		PaymentMailer.new_payment(self).deliver!
 	end
 
 	def send_notification
