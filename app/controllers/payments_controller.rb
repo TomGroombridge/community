@@ -2,14 +2,17 @@ class PaymentsController < ApplicationController
 
   def new
     @ticket = Ticket.find(params[:id])
+    @payment = @ticket.payments.build
     if @ticket.number_of_dates > 1
       @entry = Entry.find(params[:entry_id])
-      @payment = @ticket.payments.build
       @payment.entry_id = @entry.id
+      @entry.ticket_id = @entry.id
       # raise @payment.inspect
       # raise @payment.ticket.inspect
     else
-      @payment = @ticket.payments.build
+      @entry = Entry.create(params[:entry])
+      @payment.entry_id = @entry.id
+      # raise @entry_selections.inspect
     end
     @payment.user = current_user
     @payment.course_date_id = @ticket.course_date.id
@@ -18,7 +21,10 @@ class PaymentsController < ApplicationController
 
   def create
     @payment = Payment.new(payment_params)
-    raise @payment.inspect
+    if @payment.ticket.number_of_dates <= 1
+      @entry_selections = EntrySelection.create(params[:entry_selection])
+      @entry_selections.update_attributes(:entry_id => @payment.entry.id, :course_date_id => @payment.ticket.course_date.id)
+    end
     @payment.company_id = @payment.ticket.course_date.course.user_id
     @payment.course_date_id = @payment.ticket.course_date.id
     @course = @payment.ticket.course_date.course
