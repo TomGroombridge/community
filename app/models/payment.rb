@@ -2,7 +2,7 @@ class Payment < ActiveRecord::Base
 	belongs_to :course_date
 	belongs_to :course
 	belongs_to :ticket
-	belongs_to :entry
+	has_many :entries
 	belongs_to :user
 	after_create :send_new_payment_email
 	after_create :send_reminder

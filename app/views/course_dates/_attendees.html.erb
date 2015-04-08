@@ -12,7 +12,7 @@
   <tbody>
     <% @attendess.each do |payment| %>
       <tr>
-        <%# raise payment.entry.inspect %>
+        <%= raise payment.entry.inspect %>
         <td><%= payment.entry.payment.full_name %></td>
         <td><%= payment.email %></td>
         <td><%= payment.mobile_number %></td>
