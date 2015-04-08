@@ -42,7 +42,7 @@
                   Sold Out!
                 <% else %>
                   <% if ticket.number_of_dates > 1 %>
-                    <%= link_to("Choose Dates", new_ticket_entry_path(ticket.id), :class => "ui positive labeled button", :style => "display:inline-block;float: right; width:37%; max-width:37%;" )%>
+                    <%= link_to("Choose Dates", new_ticket_order_path(ticket.id), :class => "ui positive labeled button", :style => "display:inline-block;float: right; width:37%; max-width:37%;" )%>
                   <% else %>
                     <%= link_to("Book Now", new_payment_path(:id => ticket.id, :course_date_id => date.id), :class => "ui positive labeled button", :style => "display:inline-block;float: right; width:37%; max-width:37%;" )%>
                   <% end %>

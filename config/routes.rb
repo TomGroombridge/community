@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   resources :tickets do
-    resources :entries
+    resources :orders
   end
 
   resources :course_dates, :only => [:index]

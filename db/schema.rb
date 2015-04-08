@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150406232035) do
+ActiveRecord::Schema.define(version: 20150408144710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "booking_dates", force: true do |t|
+    t.integer  "booking_id"
+    t.integer  "course_date_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bookings", force: true do |t|
+    t.integer  "order_id"
+    t.string   "name"
+    t.string   "email"
+    t.string   "contact_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "course_addresses", force: true do |t|
     t.string   "address1"
@@ -66,6 +82,12 @@ ActiveRecord::Schema.define(version: 20150406232035) do
   create_table "entry_selections", force: true do |t|
     t.integer  "entry_id"
     t.integer  "course_date_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orders", force: true do |t|
+    t.integer  "ticket_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
