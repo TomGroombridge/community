@@ -7,12 +7,9 @@ class PaymentsController < ApplicationController
       @entry = Entry.find(params[:entry_id])
       @payment.entry_id = @entry.id
       @entry.ticket_id = @entry.id
-      # raise @payment.inspect
-      # raise @payment.ticket.inspect
     else
       @entry = Entry.create(params[:entry])
       @payment.entry_id = @entry.id
-      # raise @entry_selections.inspect
     end
     @payment.user = current_user
     @payment.course_date_id = @ticket.course_date.id
@@ -29,7 +26,9 @@ class PaymentsController < ApplicationController
     @payment.course_date_id = @payment.ticket.course_date.id
     @course = @payment.ticket.course_date.course
     @payment.user = current_user
+    @entry = @payment.entry
     if @payment.save_with_payment(payment_params)
+      @entry.update_attributes(:payment_id => @payment.id)
       redirect_to @payment, :notice => "Thank you for paying!"
     else
       render :new
