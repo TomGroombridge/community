@@ -4,15 +4,14 @@ class OrdersController < ApplicationController
 	def new
 		@order = Order.new
 		@order.ticket_id = @ticket.id
-		raise @order.inspect
-		@ticket.number_of_dates.times{@entry.entry_selections.build}
+		@order.bookings.build #add n.times{} depedning on the number of bookings being made
+		@order.bookings.each {|booking| @ticket.number_of_dates.times{booking.booking_dates.build}}
+
 		@course_dates = @ticket.course_date.course.course_dates
-		# @start_time = []
 		@course_dates.map do |cd|
 			cd.start_time ==  cd.start_date_time.strftime("%A, %d %b %Y %l:%M %p")
 		end
 		@course_date = @ticket.course_date
-		# raise @start_time
 	end
 
 

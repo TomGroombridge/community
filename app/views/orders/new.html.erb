@@ -1,0 +1,62 @@
+<div class="ui segment no-padding">
+<div>
+		<h2 style="display: inline-block;max-width: 40%;"><%= @order.ticket.course_date.course.user.company_name %></h2>
+		<div class="ui small steps" style="display:inline-block; float:right;">
+		  <div class="active step">
+		    <!-- <i class="truck icon"></i> -->
+		    <div class="content">
+		      <div class="title">Dates</div>
+		      <!-- <div class="description">Select your dates</div> -->
+		    </div>
+		  </div>
+		  <div class="step">
+		    <!-- <i class="payment icon"></i> -->
+		    <div class="content">
+		      <div class="title">Payment</div>
+		      <!-- <div class="description">Entry pay</div> -->
+		    </div>
+		  </div>
+		  <div class="step">
+		    <!-- <i class="info icon"></i> -->
+		    <div class="content">
+		      <div class="title">Confirmation</div>
+		      <!-- <div class="description">Verify order details</div> -->
+		    </div>
+		  </div>
+		</div>
+</div>
+	<div class="ui segment">
+    <div class="three column stackable ui grid">
+      <div class="column">
+        <%= @course_date.course.name %>
+      </div>
+      <div class="column">
+        <%# @ticket.price %>
+        <%= number_to_currency(@ticket.price, :precision => 2, :unit => "£")  %>
+        <br>
+        <%# @payment.ticket.course_date.start_time.strftime("%l:%M %p") %>
+      </div>
+      <div class="column">
+        <%= @course_date.course.address %>
+      </div>
+    </div>
+  </div>
+  <h1>Please Select <%= @ticket.number_of_dates %> Dates</h1>
+  <div class="ui segment">
+		<div class="ui form">
+			<%= form_for [@ticket, @order] do |form|%>
+	  		<div class="three column stackable ui grid">
+					<%= form.fields_for(:bookings) do |selection| %>
+						<%= selection.fields_for(:booking_dates) do |date| %>
+						<div class="column">
+							<label>Select Date </label>
+							<%= date.select :course_date_id, options_from_collection_for_select(@course_dates, :id, "select_date"), { :include_blank=>true }, {:class => 'ui dropdown'}%>
+						</div>
+						<% end %>
+					<% end %>
+				</div>
+				<%= form.submit "Proceed to payment", :class => "ui inverted green button", :style => "float:right; margin-top:21px;" %>
+			<% end %>
+	  </div>
+  </div>
+</div>
