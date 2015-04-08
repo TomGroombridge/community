@@ -10,7 +10,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @course_date.payments.each do |payment| %>
+    <% @course_date.all_attendees.each do |payment| %>
       <tr>
         <td><%= payment.full_name %></td>
         <td><%= payment.email %></td>

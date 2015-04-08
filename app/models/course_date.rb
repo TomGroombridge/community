@@ -78,6 +78,16 @@ class CourseDate < ActiveRecord::Base
 		@revenue.inject(:+)
 	end
 
+	def all_attendees
+		@payments = self.payments.map {|p| p}
+		@entry_selections = self.entry_selections.map {|e| e}
+		# raise @payments.inspect
+		# raise @entry_selections.inspect
+		@all = @entry_selections + @payments
+		raise @all.inspect
+
+	end
+
 	# def places_left
 	# 	quantity - self.payments.count
 	# end
