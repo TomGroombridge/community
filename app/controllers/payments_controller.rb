@@ -18,6 +18,7 @@ class PaymentsController < ApplicationController
 
   def create
     @payment = Payment.new(payment_params)
+    raise @payment.entry.payment.inspect
     if @payment.ticket.number_of_dates <= 1
       @entry_selections = EntrySelection.create(params[:entry_selection])
       @entry_selections.update_attributes(:entry_id => @payment.entry.id, :course_date_id => @payment.ticket.course_date.id)
