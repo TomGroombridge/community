@@ -45,9 +45,13 @@
   <div class="ui segment">
 		<div class="ui form">
 			<%= form_for [@ticket, @order] do |form|%>
-				<%= form.hidden_field :ticket_id %>
+
 	  		<div class="three column stackable ui grid">
 					<%= form.fields_for(:bookings) do |selection| %>
+						<%= selection.hidden_field :order_id %>
+						<div class="column">
+							<%= selection.text_field :name %>
+						</div>
 						<%= selection.fields_for(:booking_dates) do |date| %>
 						<div class="column">
 							<label>Select Date </label>
