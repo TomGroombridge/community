@@ -1,6 +1,6 @@
 class CourseDate < ActiveRecord::Base
 	has_many :payments
-	has_many :entry_selections
+	has_many :booking_dates
 	after_create :invalid
 	after_create :send_course_info
 	after_create :full

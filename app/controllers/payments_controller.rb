@@ -4,12 +4,13 @@ class PaymentsController < ApplicationController
     @ticket = Ticket.find(params[:id])
     @payment = @ticket.payments.build
     if @ticket.number_of_dates > 1
-      @entry = Entry.find(params[:entry_id])
-      @payment.entry_id = @entry.id
-      @entry.ticket_id = @entry.id
+      @order = Order.find(params[:order_id])
+      @payment.order_id = @order.id
+      @order.ticket_id = @payment.ticket.id
     else
-      @entry = Entry.create(params[:entry])
-      @payment.entry_id = @entry.id
+      @order = Order.create(params[:entry])
+      @payment.order_id = @order.id
+      @order.ticket_id = @payment.ticket.id
     end
     @payment.user = current_user
     @payment.course_date_id = @ticket.course_date.id
@@ -18,18 +19,17 @@ class PaymentsController < ApplicationController
 
   def create
     @payment = Payment.new(payment_params)
-    raise @payment.entry.payment.inspect
-    if @payment.ticket.number_of_dates <= 1
-      @entry_selections = EntrySelection.create(params[:entry_selection])
-      @entry_selections.update_attributes(:entry_id => @payment.entry.id, :course_date_id => @payment.ticket.course_date.id)
-    end
     @payment.company_id = @payment.ticket.course_date.course.user_id
     @payment.course_date_id = @payment.ticket.course_date.id
     @course = @payment.ticket.course_date.course
     @payment.user = current_user
-    @entry = @payment.entry
     if @payment.save_with_payment(payment_params)
-      @entry.update_attributes(:payment_id => @payment.id)
+      if @payment.ticket.number_of_dates <= 1
+        @booking = Booking.create(params[:booking])
+        @booking.update_attributes(:order_id => @payment.order.id)
+        @booking_date = BookingDate.create(params[:booking_date])
+        @booking_date.update_attributes(:booking_id => @booking.id, :course_date_id => @payment.ticket.course_date.id)
+      end
       redirect_to @payment, :notice => "Thank you for paying!"
     else
       render :new
@@ -49,7 +49,7 @@ class PaymentsController < ApplicationController
 
   private
   def payment_params
-    params.require(:payment).permit(:course_date_id, :email, :course_id, :stripe_card_token, :full_name, :mobile_number, :special_request, :quantity, :ticket_id, :course_date_id, :company_id, :entry_id)
+    params.require(:payment).permit(:course_date_id, :email, :course_id, :stripe_card_token, :full_name, :mobile_number, :special_request, :quantity, :ticket_id, :course_date_id, :company_id, :order_id)
   end
 
 
