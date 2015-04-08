@@ -4,8 +4,9 @@ class PaymentsController < ApplicationController
     @ticket = Ticket.find(params[:id])
     if @ticket.number_of_dates > 1
       @entry = Entry.find(params[:entry_id])
-      @payment = @entry.payments.build
-      @payment.ticket_id = @entry.ticket_id
+      @payment = @ticket.payments.build
+      @payment.entry_id = @entry.id
+      # raise @payment.inspect
       # raise @payment.ticket.inspect
     else
       @payment = @ticket.payments.build
@@ -17,6 +18,7 @@ class PaymentsController < ApplicationController
 
   def create
     @payment = Payment.new(payment_params)
+    raise @payment.inspect
     @payment.company_id = @payment.ticket.course_date.course.user_id
     @payment.course_date_id = @payment.ticket.course_date.id
     @course = @payment.ticket.course_date.course
