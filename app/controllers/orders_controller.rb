@@ -14,6 +14,16 @@ class OrdersController < ApplicationController
 		@course_date = @ticket.course_date
 	end
 
+	def create
+		@order = Order.create(params[:order].permit(:ticket_id, bookings_attributes:[:order_id, :name, :email, :number, booking_dates_attributes:[ :booking_id, :course_date_id]]))
+		raise @order.bookings.last.booking_dates.inspect
+		if @order.save
+			redirect_to new_payment_path(:id => @ticket.id, :course_date_id => @ticket.course_date.id, :order_id => @order.id)
+		else
+			raise "error"
+		end
+	end
+
 
 	private
 
