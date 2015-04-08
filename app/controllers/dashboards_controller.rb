@@ -23,7 +23,6 @@ class DashboardsController < ApplicationController
 			@revenue = 0
 			@monthly_payments = []
 		end
-		# raise @price.inspect
 	end
 
 end
