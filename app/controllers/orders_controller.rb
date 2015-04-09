@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
 	end
 
 	def create
-		@order = Order.create(params[:order].permit(:ticket_id, bookings_attributes:[:order_id, :name, :email, :number, :payment_id, booking_dates_attributes:[ :booking_id, :course_date_id, :name]]))
+		@order = Order.create(params[:order].permit(:ticket_id, bookings_attributes:[:order_id, :name, :email, :number, :payment_id, booking_dates_attributes:[ :booking_id, :course_date_id, :name, :email, :contact_number, :special_request]]))
 		if @order.save
 			redirect_to new_payment_path(:id => @ticket.id, :course_date_id => @ticket.course_date.id, :order_id => @order.id)
 		else
