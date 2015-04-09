@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  before_action :fetch_and_authorize_ticket, :except => [:index]
+  before_action :fetch_and_authorize_ticket, :except => [:index, :show]
 
   def new
     @payment = Payment.new
@@ -7,7 +7,7 @@ class PaymentsController < ApplicationController
     @order.ticket_id = @ticket.id
     @payment.ticket_id = @ticket.id
     @payment.bookings.build
-    @payment.bookings.each {|booking| booking.booking_dates.build}
+    @payment.bookings.each {|booking| @ticket.number_of_dates.times{booking.booking_dates.build}}
     @order.ticket_id = @ticket.id
     @course_dates = @ticket.course_date.course.unsold_dates
     @course_dates.map do |cd|
@@ -26,8 +26,7 @@ class PaymentsController < ApplicationController
     @payment.user = current_user
     if @payment.save_with_payment(payment_params)
       @payment.bookings.each{|booking| booking.update_attributes(:order_id => @payment.order.id)}
-      if @payment.ticket.number_of_dates <= 1
-        @payment.bookings.each{|booking| booking.update_attributes(:order_id => @payment.order.id)}
+      if @payment.ticket.number_of_dates == 1
         @booking = @payment.bookings.last
         @booking_date = BookingDate.create(params[:booking_date])
         @booking_date.update_attributes(:booking_id => @booking.id, :course_date_id => @payment.ticket.course_date.id)
