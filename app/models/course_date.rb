@@ -5,7 +5,7 @@ class CourseDate < ActiveRecord::Base
 	after_create :send_course_info
 	after_create :full
 	belongs_to :course
-  has_many :tickets
+  has_many :tickets, dependent: :destroy
   accepts_nested_attributes_for :tickets
 
 	def valid_dates(course)

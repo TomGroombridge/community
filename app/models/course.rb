@@ -1,6 +1,5 @@
 class Course < ActiveRecord::Base
 	belongs_to :user
-
 	has_many :users
   has_many :course_addresses
   accepts_nested_attributes_for :course_addresses
@@ -8,7 +7,7 @@ class Course < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   after_update :crop_avatar
-  has_many :course_dates
+  has_many :course_dates, dependent: :destroy
   accepts_nested_attributes_for :course_dates
 
   def crop_avatar
