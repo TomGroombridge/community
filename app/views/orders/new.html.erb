@@ -1,12 +1,38 @@
 <div style="min-height:500px">
 	<%= form_for [@ticket, @order], :html => {:class => 'ui form payment fluid '} do |f| %>
-		<%= f.text_field :ticket_id %>
+		<%= f.hidden_field :ticket_id %>
 		<%= f.fields_for(:bookings) do |booking|%>
-			<%= booking.text_field :order_id %>
+			<%= booking.hidden_field :order_id %>
+			<%= booking.label :name %><br/>
 			<%= booking.text_field :name %>
 			<%= booking.fields_for(:booking_dates) do |date| %>
+				<label>Select Date</label>
 				<%= date.select :course_date_id, options_from_collection_for_select(@course_dates, :id, "select_date"), { :include_blank=>true }, {:class => 'ui dropdown'}%>
 			<% end %>
 		<% end %>
+		<%= f.fields_for @payment do |pay| %>
+			<%= pay.text_field :ticket_id %>
+			<%= pay.hidden_field :stripe_card_token %>
+			<div class="ui form">
+        <div class="inline required field">
+          <label class="input-label">Name on Card</label>
+          <input class="full-width" type="text" data-validate="name-on-card">
+        </div>
+        <div class="inline required field">
+          <label class="input-label">Card Number</label>
+          <%= text_field_tag :card_number, nil, :class => "full-width" %>
+        </div>
+        <div class="inline required field">
+          <label class="input-label">Expiry Date</label>
+          <%= select_month nil, {add_month_numbers: true}, {id: "card_month", :class =>"ui dropdown"} %>
+          <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {id: "card_year", :class =>"ui dropdown"} %>
+        </div>
+        <div class="inline required field">
+          <label class="input-label">Security Code</label>
+          <%= text_field_tag :card_code, nil %>
+        </div>
+      </div>
+		<% end %>
+		<%= f.submit %>
 	<% end %>
 </div>
