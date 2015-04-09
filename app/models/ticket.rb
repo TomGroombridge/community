@@ -1,15 +1,16 @@
 class Ticket < ActiveRecord::Base
 	belongs_to :course_date
 	has_many :payments
+  has_many :entries
 
 	def free?
     price.zero?
   end
 
   def places_left
-  	payments = self.payments.count
+    places_booked = self.course_date.booking_dates.count
   	tickets = self.quantity
-  	tickets - payments
+  	tickets - places_booked
   end
 
   def bookings

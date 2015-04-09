@@ -61,6 +61,15 @@ jQuery ->
   $('#course_date_end_date').datepicker
     dateFormat: 'yy-mm-dd'
 
+  $('#detailedTicket').click ->
+    $('#moreTicketRow').slideToggle 'slow'
+    $('#moreTicket').slideToggle 'slow', ->
+    return
+
+  $('#numberDates').click ->
+    $('#numberDatesField').slideToggle 'slow', ->
+    return
+
 $ ->
   validation =
     name:

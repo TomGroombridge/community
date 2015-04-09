@@ -47,6 +47,10 @@ class Course < ActiveRecord::Base
     sort_dates.reverse
   end
 
+  def unsold_dates
+    active_course_dates = self.course_dates.select { |num|  num.active? && num.not_full }
+  end
+
   def address
     course = ""
     course_addresses.each do |address|

@@ -1,5 +1,6 @@
 class CourseDate < ActiveRecord::Base
 	has_many :payments
+	has_many :booking_dates
 	after_create :invalid
 	after_create :send_course_info
 	after_create :full
@@ -28,8 +29,11 @@ class CourseDate < ActiveRecord::Base
 	end
 
 	def full
-		@check = self.quantity == self.payments.count
-		# self.delay(@check => true).update_attributes(active: false)
+		self.booking_dates.count >= self.tickets.last.quantity
+	end
+
+	def not_full
+		self.booking_dates.count < self.tickets.last.quantity
 	end
 
 	def send_course_info
@@ -38,6 +42,10 @@ class CourseDate < ActiveRecord::Base
 
 	def pretty_date
 		start_date.strftime("%m/%d/%Y/") + start_time.strftime("%I:%M%p")
+	end
+
+	def select_date
+		start_date_time.strftime("%A, %d %b %Y %l:%M %p")
 	end
 
 	def max_revenue
@@ -60,7 +68,7 @@ class CourseDate < ActiveRecord::Base
 	end
 
 	def tickets_left
-		self.payments.count.to_s  + "/" + self.max_tickets.to_s
+		self.booking_dates.count.to_s  + "/" + self.max_tickets.to_s
 	end
 
 	def revenue
@@ -72,12 +80,11 @@ class CourseDate < ActiveRecord::Base
 		@revenue.inject(:+)
 	end
 
-	# def places_left
-	# 	quantity - self.payments.count
-	# end
-
-	# def edit_course_date
-	# 	start_date - 24.hours
-	# end
+	def all_attendees
+		@payments = self.payments.map {|p| p}
+		@entry_selections = self.entry_selections.map {|e| e}
+		@all = @entry_selections + @payments
+		raise @all.inspect
+	end
 
 end

@@ -11,10 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150405174736) do
+ActiveRecord::Schema.define(version: 20150409131622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "booking_dates", force: true do |t|
+    t.integer  "booking_id"
+    t.integer  "course_date_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bookings", force: true do |t|
+    t.integer  "order_id"
+    t.string   "name"
+    t.string   "email"
+    t.string   "contact_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "payment_id"
+    t.text     "special_request"
+  end
 
   create_table "course_addresses", force: true do |t|
     t.string   "address1"
@@ -39,7 +57,6 @@ ActiveRecord::Schema.define(version: 20150405174736) do
     t.time     "start_time"
     t.date     "end_date"
     t.time     "end_time"
-    t.integer  "user_id"
   end
 
   create_table "courses", force: true do |t|
@@ -55,6 +72,26 @@ ActiveRecord::Schema.define(version: 20150405174736) do
     t.text     "experience"
     t.string   "avatar"
     t.string   "category"
+  end
+
+  create_table "entries", force: true do |t|
+    t.integer  "ticket_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "payment_id"
+  end
+
+  create_table "entry_selections", force: true do |t|
+    t.integer  "entry_id"
+    t.integer  "course_date_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orders", force: true do |t|
+    t.integer  "ticket_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "payments", force: true do |t|
@@ -73,6 +110,8 @@ ActiveRecord::Schema.define(version: 20150405174736) do
     t.integer  "company_id"
     t.boolean  "paid",                  default: true
     t.boolean  "manually_added",        default: false
+    t.integer  "entry_id"
+    t.integer  "order_id"
   end
 
   create_table "plans", force: true do |t|
@@ -99,7 +138,8 @@ ActiveRecord::Schema.define(version: 20150405174736) do
     t.integer  "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "absorb_fee",     default: false
+    t.boolean  "absorb_fee",      default: false
+    t.integer  "number_of_dates", default: 1
   end
 
   create_table "users", force: true do |t|

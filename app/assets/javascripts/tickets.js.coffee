@@ -3,8 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-
-
   $('#courseSubmit').click ->
     $('.courseLoader').addClass 'active'
     return
