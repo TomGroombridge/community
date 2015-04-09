@@ -29,8 +29,11 @@ class CourseDate < ActiveRecord::Base
 	end
 
 	def full
-		@check = self.quantity == self.payments.count
-		# self.delay(@check => true).update_attributes(active: false)
+		self.booking_dates.count >= self.tickets.last.quantity
+	end
+
+	def not_full
+		self.booking_dates.count < self.tickets.last.quantity
 	end
 
 	def send_course_info
@@ -65,7 +68,7 @@ class CourseDate < ActiveRecord::Base
 	end
 
 	def tickets_left
-		self.payments.count.to_s  + "/" + self.max_tickets.to_s
+		self.booking_dates.count.to_s  + "/" + self.max_tickets.to_s
 	end
 
 	def revenue

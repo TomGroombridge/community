@@ -4,6 +4,7 @@ class PaymentMailer < ActionMailer::Base
 
   def new_payment(payment)
     @payment = payment
+    # raise @payment.bookings.inspect
     @payment.bookings.each {|booking| mail to: booking.email, subject: "Payment Confirmation Email"}
     # mail to: payment.bookings, subject: "Payment Confirmation Email"
   end

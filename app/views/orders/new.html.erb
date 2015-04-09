@@ -52,6 +52,9 @@
 						<div class="column">
 							<%= selection.text_field :name %>
 						</div>
+						<div class="column">
+							<%= selection.text_field :email %>
+						</div>
 						<%= selection.fields_for(:booking_dates) do |date| %>
 						<div class="column">
 							<label>Select Date </label>
