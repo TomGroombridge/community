@@ -9,7 +9,6 @@ class PaymentsController < ApplicationController
       @order.ticket_id = @payment.ticket.id
     else
       @order = Order.create(params[:order])
-      # raise @order.inspect
       @payment.order_id = @order.id
       @order.ticket_id = @payment.ticket.id
       @order.bookings.build
@@ -17,18 +16,10 @@ class PaymentsController < ApplicationController
     end
     @payment.user = current_user
     @payment.course_date_id = @ticket.course_date.id
-    # raise @payment.inspect
   end
 
   def create
     @payment = Payment.new(payment_params)
-
-
-
-
-
-
-
     @payment.company_id = @payment.ticket.course_date.course.user_id
     @payment.course_date_id = @payment.ticket.course_date.id
     @course = @payment.ticket.course_date.course
