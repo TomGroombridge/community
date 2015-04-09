@@ -11,18 +11,18 @@
           <a class="ui blue ribbon label">Ticket Information</a>
           <div class="four column stackable ui grid">
             <div class="column">
-              <%# @payment.ticket.course_date.course.name %>
+              <%= @payment.ticket.course_date.course.name %>
             </div>
             <div class="column">
-              <%# @payment.ticket.course_date.course.address %>
+              <%= @payment.ticket.course_date.course.address %>
             </div>
             <div class="column">
-              <%# @payment.ticket.course_date.start_date.strftime("%d/%m/%Y") %>
+              <%= @payment.ticket.course_date.start_date.strftime("%d/%m/%Y") %>
               <br>
-              <%# @payment.ticket.course_date.start_time.strftime("%l:%M %p") %>
+              <%= @payment.ticket.course_date.start_time.strftime("%l:%M %p") %>
             </div>
             <div class="column">
-              £<%# @payment.ticket.price %>
+              £<%= @payment.ticket.price %>
             </div>
           </div>
         </div>
@@ -30,8 +30,6 @@
           <div class="ui segment no-box-shadow">
             <a class="ui blue ribbon label">Registration Information</a>
             <div class="ui segment user-details no-box-shadow-web">
-            <%# f.fields_for(:order) do |order| %>
-              <%# f.text_field :ticket_id %>
               <%= f.fields_for(:bookings) do |selection| %>
                 <div class="ui form">
                   <div class="inline field required">
@@ -60,13 +58,11 @@
                   </div>
                 </div>
               <% end %>
-              <%# end %>
             </div>
             <div class="ui segment user-details no-box-shadow-web" >
               <div class="ui form">
                 <div class="inline field">
                   <label class="input-label">Special Requests?</label>
-                  <%# f.text_area :special_request, :class => "payment-fields" %>
                 </div>
               </div>
             </div>
@@ -105,7 +101,6 @@
             <div class="ui indeterminate text loader">Sending Payment</div>
           </div>
           <p></p>
-          <!-- <div class="ui green button" style="float:right;" id="test">Test Button</div> -->
           <%= f.submit("Send Payment", :id => "test", :class => "ui green button", :style => 'float:right') %>
         </div>
         <div class="ui segment no-box-shadow-web" style="padding-top:0px;">
