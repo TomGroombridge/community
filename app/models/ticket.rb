@@ -8,9 +8,9 @@ class Ticket < ActiveRecord::Base
   end
 
   def places_left
-  	payments = self.payments.count
+    places_booked = self.course_date.booking_dates.count
   	tickets = self.quantity
-  	tickets - payments
+  	tickets - places_booked
   end
 
   def bookings
