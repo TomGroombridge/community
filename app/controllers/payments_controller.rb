@@ -1,31 +1,31 @@
 class PaymentsController < ApplicationController
+  before_action :fetch_and_authorize_ticket, :except => [:index]
 
   def new
-    @ticket = Ticket.find(params[:id])
-    @payment = @ticket.payments.build
-    if @ticket.number_of_dates > 1
-      @order = Order.find(params[:order_id])
-      @payment.order_id = @order.id
-      @order.ticket_id = @payment.ticket.id
-    else
-      @order = Order.create(params[:order])
-      @payment.order_id = @order.id
-      @order.ticket_id = @payment.ticket.id
-      @order.bookings.build
-      @payment.bookings.build
+    @payment = Payment.new
+    @order = @ticket.orders.build
+    @order.ticket_id = @ticket.id
+    @payment.ticket_id = @ticket.id
+    @payment.bookings.build
+    @payment.bookings.each {|booking| booking.booking_dates.build}
+    @order.ticket_id = @ticket.id
+    @course_dates = @ticket.course_date.course.unsold_dates
+    @course_dates.map do |cd|
+      cd.start_time ==  cd.start_date_time.strftime("%A, %d %b %Y %l:%M %p")
     end
-    @payment.user = current_user
-    @payment.course_date_id = @ticket.course_date.id
   end
 
   def create
     @payment = Payment.new(payment_params)
-    raise @payment.inspect
+    @order = Order.create(params[:order])
+    @order.update_attributes(:ticket_id => @payment.ticket_id)
+    @payment.order_id = @order.id
     @payment.company_id = @payment.ticket.course_date.course.user_id
     @payment.course_date_id = @payment.ticket.course_date.id
     @course = @payment.ticket.course_date.course
     @payment.user = current_user
     if @payment.save_with_payment(payment_params)
+      @payment.bookings.each{|booking| booking.update_attributes(:order_id => @payment.order.id)}
       if @payment.ticket.number_of_dates <= 1
         @payment.bookings.each{|booking| booking.update_attributes(:order_id => @payment.order.id)}
         @booking = @payment.bookings.last
@@ -51,8 +51,12 @@ class PaymentsController < ApplicationController
 
   private
 
+  def fetch_and_authorize_ticket
+    @ticket = Ticket.find(params[:ticket_id])
+  end
+
   def payment_params
-    params.require(:payment).permit(:course_date_id, :email, :course_id, :stripe_card_token, :full_name, :mobile_number, :special_request, :quantity, :ticket_id, :course_date_id, :company_id, :order_id, bookings_attributes:[ :booking_id, :course_date_id, :name, :email, :contact_number, :special_request])
+    params.require(:payment).permit(:course_date_id, :email, :course_id, :stripe_card_token, :full_name, :mobile_number, :special_request, :quantity, :ticket_id, :course_date_id, :company_id, :order_id, bookings_attributes:[ :booking_id, :course_date_id, :name, :email, :contact_number, :special_request, booking_dates_attributes:[:course_date_id]])
   end
 
 

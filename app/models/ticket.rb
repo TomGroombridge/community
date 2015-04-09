@@ -3,6 +3,7 @@ class Ticket < ActiveRecord::Base
 	has_many :payments
   has_many :orders
   has_many :entries
+  accepts_nested_attributes_for :orders
 
 	def free?
     price.zero?

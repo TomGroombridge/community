@@ -1,11 +1,8 @@
 <div class="two column stackable ui grid new-payment">
   <div class="column twelve wide">
     <div class="ui segment no-padding">
-      <%= form_for @payment, :html => {:class => 'ui form payment fluid '} do |f| %>
+      <%= form_for [@ticket, @payment], :html => {:class => 'ui form payment fluid '} do |f| %>
         <%= f.hidden_field :ticket_id %>
-        <%= f.hidden_field :order_id %>
-        <%# f.hidden_field :payment_id %>
-        <%= f.hidden_field :stripe_card_token %>
         <a class="ui teal ribbon label"><i class="shop icon"></i>Secure Checkout</a>
         <div class="ui segment">
           <a class="ui blue ribbon label">Ticket Information</a>
@@ -26,45 +23,56 @@
             </div>
           </div>
         </div>
-          <% if @ticket.number_of_dates == 1 %>
+          <%# if @ticket.number_of_dates == 1 %>
           <div class="ui segment no-box-shadow">
             <a class="ui blue ribbon label">Registration Information</a>
-            <%= f.fields_for(:bookings) do |selection| %>
+            <%= f.fields_for(:bookings) do |booking|%>
+              <%= booking.hidden_field :order_id %>
               <div class="ui segment user-details no-box-shadow-web">
                 <div class="ui form">
                   <div class="inline field required">
                     <label class="input-label">Email Address</label>
                     <% if signed_in? %>
-                      <%= selection.text_field :email, :value => current_user.email, :class => "payment-fields"%>
+                      <%= booking.text_field :email, :value => current_user.email, :class => "payment-fields"%>
                     <% else %>
-                      <%= selection.text_field :email, :class => "payment-fields" %>
+                      <%= booking.text_field :email, :class => "payment-fields" %>
                     <% end %>
                   </div>
                   <div class="inline field required">
                     <label class="input-label">First & Last Name</label>
                     <% if signed_in? %>
-                      <%= selection.text_field :name, :value => current_user.full_name, :class => "payment-fields" %>
+                      <%= booking.text_field :name, :value => current_user.full_name, :class => "payment-fields" %>
                     <% else %>
-                      <%= selection.text_field :name, :class => "payment-fields" %>
+                      <%= booking.text_field :name, :class => "payment-fields" %>
                     <% end %>
                   </div>
                   <div class="inline field required">
                     <label class="input-label">Mobile Number</label>
                     <% if signed_in? %>
-                      <%= selection.text_field :contact_number, :value => current_user.contact_number, :class => "payment-fields" %>
+                      <%= booking.text_field :contact_number, :value => current_user.contact_number, :class => "payment-fields" %>
                     <% else %>
-                      <%= selection.text_field :contact_number, :class => "payment-fields" %>
+                      <%= booking.text_field :contact_number, :class => "payment-fields" %>
                     <% end %>
                   </div>
                   <div class="inline field">
                     <label class="input-label">Special Requests?</label>
-                    <%= selection.text_area :special_request, :class => "payment-fields" %>
+                    <%= booking.text_area :special_request, :class => "payment-fields" %>
                   </div>
                 </div>
               </div>
+              <%= booking.fields_for(:booking_dates) do |date| %>
+                <div class="ui segment user-details no-box-shadow-web">
+                  <div class="ui form">
+                    <div class="inline field required">
+                      <label>Select Date</label>
+                      <%= date.select :course_date_id, options_from_collection_for_select(@course_dates, :id, "select_date"), { :include_blank=>true }, {:class => 'ui dropdown'}%>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
             <% end %>
           </div>
-        <% end %>
+        <%# end %>
         <div class="ui segment no-box-shadow">
           <a class="ui blue ribbon label">Billing & Payment Information</a>
           <div class="ui segment no-box-shadow-web billing-info">
