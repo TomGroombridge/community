@@ -52,3 +52,29 @@
 		}
 	}
 }
+
+.ticket.table{
+	width: 100%;
+  border: 1px solid #d4d4d5;
+  .ticket.table.row{
+  	width: 100%;
+  	background:#f0f0f0;
+  	height:35px;
+  	display:table;
+  }
+}
+
+
+#moreTicketRow{
+	display: none;
+}
+#moreTicket{
+  display: none;
+
+}
+
+#numberDatesField{
+	display: none;
+	width: 23%;
+  margin-top: 15px;
+}

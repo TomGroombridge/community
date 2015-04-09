@@ -1,26 +1,34 @@
-<table class="ui celled table">
-	<thead>
-	  <tr>
-	    <th>Ticket name</th>
-	    <th>Price</th>
-	    <th>Quantity</th>
-	    <th>Absorb Fee<i class="circular absorb_info info icon link" data-content="Attendee will not pay the booking fee, instead you will absorb it" style="margin-left:10px;"></i></th>
-	    <th>dates needed</th>
-	  </tr>
-	</thead>
-	<tbody>
-	  <tr>
-	    <td style="border-bottom: 1px solid #d4d4d5"><%= form.text_field :name, :placeholder => "Early Bird, First Release" %></td>
-	    <td style="border-bottom: 1px solid #d4d4d5"><%= form.text_field :price, :placeholder => "20.00" %></td>
-	    <td style="border-bottom: 1px solid #d4d4d5"><%= form.text_field :quantity, :placeholder => "100"%></td>
-	    <td style="border-bottom: 1px solid #d4d4d5">
-        <div class="ui toggle checkbox">
-          <%= form.check_box :absorb_fee, :type =>"radio" %>
-          <label><b>Absorb</b></label>
-        </div>
-      </td>
-      <td style="border-bottom: 1px solid #d4d4d5"><%= form.text_field :number_of_dates, :placeholder => "100"%></td>
-	    <!-- <td style="  border-left:none;text-align:center;font-size:1.6rem;padding: 1rem; border-bottom: 1px solid #d4d4d5"><i class="setting icon"></i></td> -->
-	  </tr>
-	</tbody>
-</table>
+<div class="ticket table">
+	<div class="ticket table row" style="border-bottom: 1px solid #d4d4d5;">
+		<div class"ticket-header" style="display:table-cell; width:50%; vertical-align:middle; padding:0.7em 0.8em;">Ticket name</div>
+		<div class"ticket-header" style="display:table-cell; width:20%; vertical-align: middle; padding:0.7em 0.8em;">Price</div>
+		<div class"ticket-header" style="display:table-cell; width:20%; vertical-align: middle; padding:0.7em 0.8em;">Quantity</div>
+		<div class"ticket-header" style="display:table-cell; width:10%; vertical-align: middle; padding:0.7em 0.8em; text-align:center">More</div>
+	</div>
+	<div class="table row" style="height:50px; display:table; width:100%;">
+		<div class"table-header" style="display:table-cell; width:50%; vertical-align: middle;   padding: 0.7em 0.8em;"><%= form.text_field :name, :placeholder => "Early Bird, First Release" %></div>
+		<div class"table-header" style="display:table-cell; width:20%; vertical-align: middle;   padding: 0.7em 0.8em;"><%= form.text_field :price, :placeholder => "20.00" %></div>
+		<div class"table-header" style="display:table-cell; width:20%; vertical-align: middle;   padding: 0.7em 0.8em;"><%= form.text_field :quantity, :placeholder => "100"%></div>
+		<div class"table-header" style="display:table-cell; width:10%; vertical-align: middle;   padding: 0.7em 0.8em;"><div id="detailedTicket" style="text-align:center">
+      		<i class="setting icon" style="font-size:2rem;"></i>
+			  </div></div>
+	</div>
+	<div class="table row" id="moreTicket" style="padding: 0.7em 0.8em;">
+		<div class="multiple-dates" style="display:block; margin-top:18px;">
+	    <label><i class="circular absorb_info info icon link" data-content="Attendee will not pay the booking fee, instead you will absorb it" style="margin-right:10px;"></i>Multiple Dates</label>
+	    <div class="ui toggle checkbox" id="numberDates" style="display:inline-block; margin-left:15px;">
+	      <input type="checkbox" class="ui toggle checkbox" id="numberDates">
+	    </div>
+	  	<div id="numberDatesField">
+	  		<%= form.text_field :number_of_dates, :placeholder => "100"%>
+	  	</div>
+	  </div>
+  	<br>
+  	<div class="multiple-dates" style="display:block; margin-top:18px;">
+	    <label><i class="circular absorb_info info icon link" data-content="Attendee will not pay the booking fee, instead you will absorb it" style="margin-right:10px;"></i>Absorb Fee</label>
+	    <div class="ui toggle checkbox" style="display:inline-block; margin-left:15px;">
+        <%= form.check_box :absorb_fee, :type =>"radio" %>
+      </div>
+	  </div>
+	</div>
+</div>
