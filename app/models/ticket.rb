@@ -1,6 +1,7 @@
 class Ticket < ActiveRecord::Base
 	belongs_to :course_date
 	has_many :payments
+  has_many :orders
   has_many :entries
 
 	def free?

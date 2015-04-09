@@ -3,17 +3,20 @@ class PaymentsController < ApplicationController
   def new
     @ticket = Ticket.find(params[:id])
     @payment = @ticket.payments.build
-    if @ticket.number_of_dates > 1
-      @order = Order.find(params[:order_id])
-      @payment.order_id = @order.id
-      @order.ticket_id = @payment.ticket.id
-    else
-      @order = Order.create(params[:order])
-      @payment.order_id = @order.id
-      @order.ticket_id = @payment.ticket.id
-      @order.bookings.build
-      @payment.bookings.build
-    end
+    @order = Order.new
+    @order.ticket_id = @ticket.id
+    @order.bookings.build
+    # if @ticket.number_of_dates > 1
+    #   @order = Order.find(params[:order_id])
+    #   @payment.order_id = @order.id
+    #   @order.ticket_id = @payment.ticket.id
+    # else
+    #   @order = Order.create(params[:order])
+    #   @payment.order_id = @order.id
+    #   @order.ticket_id = @payment.ticket.id
+    #   @order.bookings.build
+    #   @payment.bookings.build
+    # end
     @payment.user = current_user
     @payment.course_date_id = @ticket.course_date.id
   end
