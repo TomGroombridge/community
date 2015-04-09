@@ -1,0 +1,10 @@
+<div style="min-height:500px">
+	<%= form_for @payment, :html => {:class => 'ui form payment fluid '} do |f| %>
+		<%= f.fields_for(:order) do |order| %>
+			<%= order.text_field :ticket_id %>
+			<%= order.fields_for(:bookings) do |booking|%>
+				<%= booking.text_field :name %>
+			<% end %>
+		<% end %>
+	<% end %>
+</div>
