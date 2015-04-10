@@ -38,7 +38,7 @@ payment =
 $ ->
   PaymentValidation =
     email:
-      identifier: 'payment[email]'
+      identifier: 'payment[bookings_attributes][0][email]'
       rules: [
         {
           type: 'empty'
@@ -50,7 +50,7 @@ $ ->
         }
       ]
     full_name:
-      identifier: 'payment[full_name]'
+      identifier: 'payment[bookings_attributes][0][name]'
       rules: [
         {
           type: 'empty'
@@ -58,7 +58,7 @@ $ ->
         }
       ]
     mobile_number:
-      identifier: 'payment[mobile_number]'
+      identifier: 'payment[bookings_attributes][0][contact_number]'
       rules: [
         {
           type: 'empty'
@@ -83,6 +83,54 @@ $ ->
       ]
     csv:
       identifier: 'card_code'
+      rules: [
+        {
+          type: 'empty'
+          prompt: 'Fill in the card csv as it appears on the back of your card'
+        }
+      ]
+    course_date1:
+      identifier: 'payment[bookings_attributes][0][booking_dates_attributes][0][course_date_id]'
+      rules: [
+        {
+          type: 'empty'
+          prompt: 'Fill in the card csv as it appears on the back of your card'
+        }
+      ]
+    course_date2:
+      identifier: 'payment[bookings_attributes][0][booking_dates_attributes][1][course_date_id]'
+      rules: [
+        {
+          type: 'empty'
+          prompt: 'Fill in the card csv as it appears on the back of your card'
+        }
+      ]
+    course_date3:
+      identifier: 'payment[bookings_attributes][0][booking_dates_attributes][2][course_date_id]'
+      rules: [
+        {
+          type: 'empty'
+          prompt: 'Fill in the card csv as it appears on the back of your card'
+        }
+      ]
+    course_date4:
+      identifier: 'payment[bookings_attributes][0][booking_dates_attributes][3][course_date_id]'
+      rules: [
+        {
+          type: 'empty'
+          prompt: 'Fill in the card csv as it appears on the back of your card'
+        }
+      ]
+    course_date5:
+      identifier: 'payment[bookings_attributes][0][booking_dates_attributes][4][course_date_id]'
+      rules: [
+        {
+          type: 'empty'
+          prompt: 'Fill in the card csv as it appears on the back of your card'
+        }
+      ]
+    course_date6:
+      identifier: 'payment[bookings_attributes][0][booking_dates_attributes][5][course_date_id]'
       rules: [
         {
           type: 'empty'
