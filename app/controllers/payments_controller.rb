@@ -25,6 +25,7 @@ class PaymentsController < ApplicationController
     @course = @payment.ticket.course_date.course
     @payment.user = current_user
     if @payment.save_with_payment(payment_params)
+      # raise @payment.bookings.inspect
       if @payment.ticket.number_of_dates == 1
         @booking = @payment.bookings.last
         @booking_date = BookingDate.create(params[:booking_date])
