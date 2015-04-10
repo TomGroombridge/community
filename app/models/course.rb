@@ -58,5 +58,9 @@ class Course < ActiveRecord::Base
     course
   end
 
+  def upcoming_date_price
+    self.upcoming_date.tickets.first.price
+  end
+
 end
 

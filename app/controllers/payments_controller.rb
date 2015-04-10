@@ -21,7 +21,7 @@ class PaymentsController < ApplicationController
     @order.update_attributes(:ticket_id => @payment.ticket_id)
     @payment.order_id = @order.id
     @payment.company_id = @payment.ticket.course_date.course.user_id
-    @payment.course_date_id = @payment.ticket.course_date.id
+    # @payment.course_date_id = @payment.ticket.course_date.id
     @course = @payment.ticket.course_date.course
     @payment.user = current_user
     if @payment.save_with_payment(payment_params)

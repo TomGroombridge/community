@@ -14,6 +14,7 @@
                             <div class="item">
                                 <a><h3 class="ui header" style="font-size:2rem"><%= @course.name.capitalize %></h3></a>
                             </div>
+                            <h6 class="secure-spot">Next Date</h6>
                             <div class="item" style="padding: 0.72em 0em;">
                                 <% if @course.upcoming_date == nil %>
                                     <a style="font-size:1.5rem">
@@ -36,7 +37,7 @@
                             </div>
                             <div class="item" style="padding: 0.38em 0em;">
                               <a style="font-size:1.5rem; margin-left: 8px;">
-                                <%= number_to_currency(@course.price, :precision => 2, :unit => "£")  %>
+                                <%= number_to_currency(@course.upcoming_date_price, :precision => 2, :unit => "£")  %>
                               </a>
                             </div>
                         </div>
