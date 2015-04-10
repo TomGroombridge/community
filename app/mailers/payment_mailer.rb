@@ -4,7 +4,7 @@ class PaymentMailer < ActionMailer::Base
 
   def new_payment(payment)
     @payment = payment
-    mail to: @payment.order.bookings.last.email, subject: "Payment Confirmation Email"
+    mail to: @payment.bookings.last.email, subject: "Payment Confirmation Email"
   end
 
   def reminder(payment)
