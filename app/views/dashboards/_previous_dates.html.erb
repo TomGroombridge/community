@@ -14,7 +14,7 @@
   		<% course.previous_dates.each do |course_date| %>
 		    <tr>
 		      <td><%= course.name %></td>
-		      <td><%= course_date.start_date.strftime("%d/%m/%Y")%></td>
+		      <td><%= course_date.select_date%></td>
 		      <td><%# number_to_currency(course_date.revenue, :precision => 2, :unit => "£")  %></td>
 		      <% if course_date.full%>
             <td>Sold Out</td>
