@@ -35,7 +35,8 @@ class CourseDate < ActiveRecord::Base
 	end
 
 	def send_course_info
-		CourseDateMailer.delay_until(self.start_date_time - 24.hours).course_info(self)
+		@course_date = self.start_date_time
+		CourseDateMailer.delay_until(@course_date - 24.hours).course_info(self)
 	end
 
 	def pretty_date
