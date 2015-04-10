@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150409224434) do
+ActiveRecord::Schema.define(version: 20150410114910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(version: 20150409224434) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "blurb"
-    t.float    "price"
     t.text     "what_to_wear"
     t.text     "what_to_bring"
     t.text     "experience"
@@ -98,20 +97,13 @@ ActiveRecord::Schema.define(version: 20150409224434) do
   create_table "payments", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "course_id"
-    t.string   "email"
     t.integer  "user_id"
     t.string   "stripe_customer_token"
     t.integer  "course_date_id"
-    t.string   "full_name"
-    t.string   "mobile_number"
-    t.text     "special_request"
-    t.integer  "quantity"
     t.integer  "ticket_id"
     t.integer  "company_id"
     t.boolean  "paid",                  default: true
     t.boolean  "manually_added",        default: false
-    t.integer  "entry_id"
     t.integer  "order_id"
   end
 
