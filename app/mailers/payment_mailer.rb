@@ -1,6 +1,5 @@
 class PaymentMailer < ActionMailer::Base
-  default to: "hello@courseiam.com",
-          from: "hello@courseiam"
+  default from: "hello@courseiam"
   layout 'courseiam_mail'
 
   def new_payment(payment)
