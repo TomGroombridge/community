@@ -10,23 +10,19 @@
     </tr>
   </thead>
   <tbody>
-  	<% @courses.each do |course|%>
-  		<% course.upcoming_dates.each do |course_date| %>
-		    <tr>
-		      <td><%= course.name %></td>
-		      <td><%= course_date.select_date%></td>
-          <%# raise course_date.revenue.inspect %>
-		      <td><%= number_to_currency(course_date.revenue, :precision => 2, :unit => "£")  %></td>
-
-          <% if course_date.full == true %>
-            <td>Sold Out</td>
-          <% else %>
-		        <td><%= course_date.tickets_left %></td>
-          <% end %>
-		      <td style="text-align:center"><%= link_to("Manage".html_safe, course_details_course_course_date_path(course_date.course_id, course_date.id), :class =>"ui inverted red button")%>
-		      </td>
-		    </tr>
-	    <% end %>
-	   <% end %>
+		<% @course_dates.each do |course_date| %>
+	    <tr>
+	      <td><%= course_date.course.name %></td>
+	      <td><%= course_date.select_date%></td>
+	      <td><%= number_to_currency(course_date.revenue, :precision => 2, :unit => "£")  %></td>
+        <% if course_date.full == true %>
+          <td>Sold Out</td>
+        <% else %>
+	        <td><%= course_date.tickets_left %></td>
+        <% end %>
+	      <td style="text-align:center"><%= link_to("Manage".html_safe, course_details_course_course_date_path(course_date.course_id, course_date.id), :class =>"ui inverted red button")%>
+	      </td>
+	    </tr>
+    <% end %>
   </tbody>
 </table>

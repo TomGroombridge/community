@@ -6,9 +6,16 @@ class DashboardsController < ApplicationController
 		@active_courses = @all_courses.all.includes(:course_dates).select do |course|
 			course.course_dates.any?(&:active?)
 		end
-		@courses = @active_courses.sort_by! do |course|
-			course.upcoming_date.start_date_time
+		@course_dates = []
+		@active_courses.each do |course|
+			course.course_dates.each do |date|
+					if date.active?
+						@course_dates << date
+					else
+					end
+			end
 		end
+		@course_dates.sort_by!{|date| date.start_date_time}
 		@payments = Payment.all.select{|payment| payment.company_id == @user.id }
 		if @payments.count > 0
 			@price = @payments.map do |p|
