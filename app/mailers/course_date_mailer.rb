@@ -1,6 +1,8 @@
 class CourseDateMailer < ActionMailer::Base
 	default from: "hello@courseiam"
+
 	layout 'courseiam_mail'
+
 
 	def course_info(course_date)
 		@course_date = course_date
