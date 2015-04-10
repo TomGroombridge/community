@@ -7,7 +7,7 @@ class Booking < ActiveRecord::Base
 
 	def send_reminder
 		@course_date = self.payment.ticket.course_date.start_date_time
-		PaymentMailer.reminder(self).deliver!
+		PaymentMailer.delay_until(@course_date - 1.days).reminder(self)
 		self.payment.ticket.course_date.delay_until(@course_date - 1.days).update_attributes(active: false)
 	end
 
