@@ -21,7 +21,9 @@ class CourseDate < ActiveRecord::Base
 	end
 
 	def invalid
-		self.delay_until(self.start_date_time - 24.hours).update_attributes(active: false)
+		@time = self.start_date_time - 24.hours
+		# raise @time.inspect
+		self.delay_until(@time).update_attributes(active: false)
 	end
 
 	def full
