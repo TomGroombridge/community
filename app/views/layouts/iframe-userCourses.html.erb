@@ -71,8 +71,9 @@
 								    	<% if ticket.places_left <= 0%>
 								    		<div class="ui red button text">SOLD OUT</div>
 								    	<% else %>
-												<%= link_to "BOOK NOW", new_payment_path(:id => ticket.id), :class => "ui blue button text", :target => "_blank"%>
+												<%= link_to "BOOK NOW", new_ticket_payment_path(ticket.id), :class => "ui blue button text", :target => "_blank"%>
 												<br>
+
 											<% end %>
 										<% end %>
 									<%# else %>
