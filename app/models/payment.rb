@@ -43,8 +43,6 @@ class Payment < ActiveRecord::Base
 
 	def save_with_payment(params)
 		@amount = self.overall_price * 100
-		@email = self.email
-		@name = self.full_name
 		@course_name = self.ticket.course_date.course.name
 		@course_date = self.ticket.course_date.start_date.strftime("%d/%m/%Y")
 		@quantity = self.ticket.quantity
@@ -60,7 +58,7 @@ class Payment < ActiveRecord::Base
 					amount: @amount.to_i,
 					currency: "gbp",
 					card: params[:stripe_card_token],
-					description: "this is a payment for the #{@course_name} course on the #{@course_date}  by #{@name}")
+					description: "this is a payment for the #{@course_name} course on the #{@course_date}")
 				self.ticket.quantity -= 1
 				if self.ticket.absorb_fee == true
 					@fees = @booking_fee + @fees

@@ -1,1 +1,8 @@
-<p><%= @payment.full_name %> has just purchased a ticket for <%= @course.name %> on the <%= @payment.ticket.course_date.pretty_date %></p>
+<%# raise @payment.bookings.inspect %>
+<p><%= @payment.bookings.last.name %> has just purchased a ticket for <%= @course.name %> on the <%= @payment.ticket.course_date.pretty_date %></p>
+
+<p><strong>Details</strong></p>
+<p>Name: <%= @payment.bookings.last.name %></p>
+<p>Ammount Paid <%= @payment.ticket.price %></p>
+<p>Email: <%= @payment.bookings.last.email %></p>
+<p>Conatct Number: <%= @payment.bookings.last.contact_number %></p>

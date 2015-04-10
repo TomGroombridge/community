@@ -1,4 +1,4 @@
-<p style="color:#666666;font-weight:400;font-size:15px;line-height:18px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">Hi <%= @payment.full_name %>,</p>
+<p style="color:#666666;font-weight:400;font-size:15px;line-height:18px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">Hi <%= @payment.bookings.last.name %>,</p>
 <p style="color:#666666;font-weight:400;font-size:15px;line-height:18px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">This is a confirmation email to confirm that you are going to <%= @payment.ticket.course_date.course.name %> on <%= @payment.ticket.course_date.start_date.strftime("%d/%m/%Y") %></p>
 <p style="color:#666666;font-weight:400;font-size:15px;line-height:18px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">Best wishes,</p>
 <p style="color:#666666;font-weight:400;font-size:15px;line-height:18px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">Tom</p>
@@ -20,7 +20,7 @@
 	  	<tr>
 	      <td colspan="3">
 					<p style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif;margin-bottom:18px">
-	        	Order no.: 399721260
+	        	Order no.: <%= @payment.order.id %>
 					</p>
 	        <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 	          <thead>
