@@ -1,1 +1,4 @@
-<%= @user.inspect %>
+<% @payments.each do |payment| %>
+		<%= payment.order.bookings.last.name %>
+		<br/>
+<% end %>

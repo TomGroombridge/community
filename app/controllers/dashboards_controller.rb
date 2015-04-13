@@ -34,6 +34,13 @@ class DashboardsController < ApplicationController
 
 	def transactions
 		@user = current_user
+		@payments = Payment.all.select{|payment| payment.company_id == @user.id }
+		@payments = @payments.map do |p|
+			if p.paid?
+				p
+			end
+		end
+		@payments = @payments.compact
 	end
 
 end
