@@ -35,12 +35,9 @@ class DashboardsController < ApplicationController
 	def transactions
 		@user = current_user
 		@payments = Payment.all.select{|payment| payment.company_id == @user.id }
-		@payments = @payments.map do |p|
-			if p.paid?
-				p
-			end
-		end
 		@payments = @payments.compact
+		@weekly_payments = @payments.select {|n| n.created_at >= 1.week.ago}
+		@monthly_payments = @payments.select {|n| n.created_at >= 1.week.ago}
 	end
 
 end
