@@ -43,7 +43,9 @@ Rails.application.routes.draw do
     # end
   end
 
-  resource :dashboard
+  resource :dashboard do
+    get 'transactions'
+  end
 
 
 

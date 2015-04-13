@@ -32,4 +32,8 @@ class DashboardsController < ApplicationController
 		end
 	end
 
+	def transactions
+		@user = current_user
+	end
+
 end
