@@ -10,13 +10,14 @@ class Payment < ActiveRecord::Base
 	after_create :send_notification
 	accepts_nested_attributes_for :bookings
 
-	# after_create :check_course_date_active
 	attr_accessor :stripe_card_token
 
 
-	# def check_course_date_active
-	# 	if course_date.quantity == 0
-	# 		course_date.update_attributes(active: false)
+	# def profit
+	# 	if self.ticket.absorb_fee == true
+	# 		self.price - booking_fee
+	# 	else
+	# 		overall_price
 	# 	end
 	# end
 

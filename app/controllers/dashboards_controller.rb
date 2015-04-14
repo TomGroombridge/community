@@ -37,7 +37,84 @@ class DashboardsController < ApplicationController
 		@payments = Payment.all.select{|payment| payment.company_id == @user.id }
 		@payments = @payments.compact
 		@weekly_payments = @payments.select {|n| n.created_at >= 1.week.ago}
-		@monthly_payments = @payments.select {|n| n.created_at >= 1.week.ago}
+		@monthly_payments = @payments.select {|n| n.created_at >= 1.month.ago}
+	end
+
+	def weeks_transactions_csv
+		@user = current_user
+		csv_string = CSV.generate do |csv|
+      csv << ['First name', 'Last name', 'Email']
+      @payments = Payment.all.select{|payment| payment.company_id == @user.id }
+      @weekly_payments = @payments.select {|n| n.created_at >= 1.week.ago}
+      @payments = @weekly_payments.map do |payment|
+      	payment
+      end
+      @payments.each do |payment|
+        client_data = []
+        client_data << payment.price
+        client_data << payment.booking_fee
+        client_data << payment.created_at.strftime("%A, %d %b %Y %l:%M %p")
+        csv << client_data
+      end
+    end
+    respond_to do |format|
+      format.csv do
+        response.headers['Content-Type'] = 'text/csv'
+        response.headers['Content-Disposition'] = 'attachment; filename=emails.csv'
+        render text: csv_string
+      end
+    end
+	end
+
+	def months_transactions_csv
+		@user = current_user
+		csv_string = CSV.generate do |csv|
+      csv << ['First name', 'Last name', 'Email']
+      @payments = Payment.all.select{|payment| payment.company_id == @user.id }
+      @monthly_payments = @payments.select {|n| n.created_at >= 1.month.ago}
+      @payments = @monthly_payments.map do |payment|
+      	payment
+      end
+      @payments.each do |payment|
+        client_data = []
+        client_data << payment.price
+        client_data << payment.booking_fee
+        client_data << payment.created_at.strftime("%A, %d %b %Y %l:%M %p")
+        csv << client_data
+      end
+    end
+    respond_to do |format|
+      format.csv do
+        response.headers['Content-Type'] = 'text/csv'
+        response.headers['Content-Disposition'] = 'attachment; filename=emails.csv'
+        render text: csv_string
+      end
+    end
+	end
+
+	def all_transactions_csv
+		@user = current_user
+		csv_string = CSV.generate do |csv|
+      csv << ['First name', 'Last name', 'Email']
+      @payments = Payment.all.select{|payment| payment.company_id == @user.id }
+      @payments = @payments.map do |payment|
+      	payment
+      end
+      @payments.each do |payment|
+        client_data = []
+        client_data << payment.price
+        client_data << payment.booking_fee
+        client_data << payment.created_at.strftime("%A, %d %b %Y %l:%M %p")
+        csv << client_data
+      end
+    end
+    respond_to do |format|
+      format.csv do
+        response.headers['Content-Type'] = 'text/csv'
+        response.headers['Content-Disposition'] = 'attachment; filename=emails.csv'
+        render text: csv_string
+      end
+    end
 	end
 
 end

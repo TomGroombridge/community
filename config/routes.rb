@@ -45,6 +45,9 @@ Rails.application.routes.draw do
 
   resource :dashboard do
     get 'transactions'
+    get 'weeks_transactions_csv'
+    get 'months_transactions_csv'
+    get 'all_transactions_csv'
   end
 
 
