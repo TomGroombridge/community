@@ -1,7 +1,7 @@
 class DashboardsController < ApplicationController
+	before_action :fetch_and_authorize_user
 
 	def show
-		@user = current_user
 		@all_courses = @user.courses
 		@active_courses = @all_courses.all.includes(:course_dates).select do |course|
 			course.course_dates.any?(&:active?)
@@ -33,7 +33,6 @@ class DashboardsController < ApplicationController
 	end
 
 	def transactions
-		@user = current_user
 		@payments = Payment.all.select{|payment| payment.company_id == @user.id }
 		@payments = @payments.compact
 		@weekly_payments = @payments.select {|n| n.created_at >= 1.week.ago}
@@ -41,7 +40,6 @@ class DashboardsController < ApplicationController
 	end
 
 	def weeks_transactions_csv
-		@user = current_user
 		csv_string = CSV.generate do |csv|
       csv << ['First name', 'Last name', 'Email']
       @payments = Payment.all.select{|payment| payment.company_id == @user.id }
@@ -67,7 +65,6 @@ class DashboardsController < ApplicationController
 	end
 
 	def months_transactions_csv
-		@user = current_user
 		csv_string = CSV.generate do |csv|
       csv << ['First name', 'Last name', 'Email']
       @payments = Payment.all.select{|payment| payment.company_id == @user.id }
@@ -93,7 +90,6 @@ class DashboardsController < ApplicationController
 	end
 
 	def all_transactions_csv
-		@user = current_user
 		csv_string = CSV.generate do |csv|
       csv << ['First name', 'Last name', 'Email']
       @payments = Payment.all.select{|payment| payment.company_id == @user.id }
@@ -116,5 +112,16 @@ class DashboardsController < ApplicationController
       end
     end
 	end
+
+	def bookings
+		@bookings = Booking.all.select{|booking| booking.payment.company_id == @user.id }
+		@weekly_bookings = @bookings.select {|n| n.created_at >= 1.week.ago}
+	end
+
+	private
+
+	def fetch_and_authorize_user
+    @user = current_user
+  end
 
 end

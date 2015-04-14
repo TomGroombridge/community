@@ -48,6 +48,7 @@ Rails.application.routes.draw do
     get 'weeks_transactions_csv'
     get 'months_transactions_csv'
     get 'all_transactions_csv'
+    get 'bookings'
   end
 
 

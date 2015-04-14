@@ -90,4 +90,12 @@ class Payment < ActiveRecord::Base
 	def send_notification
 		PaymentMailer.notification(self).deliver!
 	end
+
+	def status
+		if self.paid == true
+			"yes"
+		else
+			"no"
+		end
+	end
 end

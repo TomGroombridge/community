@@ -29,7 +29,7 @@
 	      <td>
 	        <i class="pound icon"></i> Net
 	      </td>
-	      <td><%= number_to_currency((@revenue - @user.fees) , :precision => 2, :unit => "£")  %></td>
+	      <td><%# number_to_currency((@revenue - @user.fees) , :precision => 2, :unit => "£")  %><%= account_balance(@user) %></td>
 	    </tr>
 	  </tbody>
 	</table>
