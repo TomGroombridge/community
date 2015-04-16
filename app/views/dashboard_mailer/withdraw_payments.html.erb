@@ -1,1 +1,2 @@
 <p>Hello world</p>
+<p>Please send <%= number_to_currency(@user.balance, :precision => 2, :unit => "£") %> to <%= @user.company_name %></p>
