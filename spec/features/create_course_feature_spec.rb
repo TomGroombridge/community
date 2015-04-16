@@ -8,10 +8,11 @@ require 'spec_helper'
 			create(:admin)
 			create(:course)
 			create(:course_date)
+			create(:ticket)
 		end
 
 		it 'should display the new course in the list of courses' do
-			visit "/"
+			visit "/course_dates"
 			expect(page).to have_content 'Learn to Bake Bread'
 		end
 

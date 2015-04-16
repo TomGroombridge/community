@@ -4,7 +4,7 @@ FactoryGirl.define do
   	last_name 'groombridge'
   	email 'tom@t.com'
   	password '123456789'
-  	password_confirmation '123456789'  	
+  	password_confirmation '123456789'
   end
 
   factory :admin, class: User do
@@ -12,7 +12,9 @@ FactoryGirl.define do
   	last_name 'groombridge'
   	email 'james@j.com'
   	password '123456789'
-  	password_confirmation '123456789'  
+  	password_confirmation '123456789'
   	admin true
-  end  
+    company_name "courseiam"
+    id 10
+  end
 end
