@@ -123,6 +123,17 @@ class DashboardsController < ApplicationController
     end
 	end
 
+  def withdraw
+    @company_payments = Payment.all.select{|booking| booking.company_id == @user.id }
+    @undeposited_payments = @company_payments.select {|payment| payment.deposited == false}
+    @undeposited_payments.each do |payment|
+      payment.update_attributes(:deposited => true)
+    end
+    @user.update_attributes(:fees => 0.00)
+    DashboardMailer.withdraw_payments(@user).deliver!
+    redirect_to dashboard_path
+  end
+
 	private
 
 	def fetch_and_authorize_user
