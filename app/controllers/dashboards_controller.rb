@@ -118,10 +118,11 @@ class DashboardsController < ApplicationController
 	def bookings
 		@bookings = Booking.all.select{|booking| booking.payment.company_id == @user.id }
 		@weekly_bookings = @bookings.select {|n| n.created_at >= 1.week.ago}
+    @monthly_bookings = @bookings.select {|n| n.created_at >= 1.month.ago}
     if params[:search]
-      @weekly_bookings = Booking.search(params[:search]).order("created_at DESC")
+      @bookings = Booking.search(params[:search]).order("created_at DESC")
     else
-      @weekly_bookings = Booking.all.order('created_at DESC')
+      @bookings = Booking.all.order('created_at DESC')
     end
 	end
 
