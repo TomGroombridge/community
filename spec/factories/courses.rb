@@ -10,6 +10,14 @@ FactoryGirl.define do
   	user_id 10
  	end
 
+ 	factory :course_address do
+  	address1 "Rye House"
+  	address2 "Maces Hill"
+  	city "Cirencester"
+  	postcode "GL7 7AB"
+  	course_id 10
+ 	end
+
  	factory :course_date do
   	start_date "2015-04-17"
   	start_time "2000-01-01 10:30:00"
@@ -20,14 +28,5 @@ FactoryGirl.define do
   	active true
  	end
 
- 	factory :ticket do
- 		name "Normal Price"
-		price 20.0
-		course_date_id 100
-		quantity 20
-		id 10
-		absorb_fee false
-		number_of_dates 1
- 	end
 
 end

@@ -7,6 +7,7 @@ require 'spec_helper'
 		before do
 			create(:admin)
 			create(:course)
+			create(:course_address)
 			create(:course_date)
 			create(:ticket)
 		end
