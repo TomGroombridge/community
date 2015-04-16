@@ -11,29 +11,24 @@
 	      <td>
 	        <i class="ticket icon"></i> Tickets sold
 	      </td>
-	      <td><%= @payments.count %></td>
+	      <td><%= @company_payments.count %></td>
 	    </tr>
 	    <tr>
 	      <td>
-	        <i class="pound icon"></i> Revenue
+	        <i class="pound icon"></i> Dates created
 	      </td>
-	      <td><%= number_to_currency(@revenue , :precision => 2, :unit => "£")  %></td>
+	      <td><%= @all_dates.count  %></td>
 	    </tr>
 	    <tr>
 	      <td>
-	        <i class="pound icon"></i> Fees
-	      </td>
-	      <td><%= number_to_currency(@user.fees , :precision => 2, :unit => "£")  %></td>
-	    </tr>
-	    <tr>
-	      <td>
-	        <i class="pound icon"></i> Net
+	        <i class="pound icon"></i> Account Balance
 	      </td>
 	      <td><%# number_to_currency((@revenue - @user.fees) , :precision => 2, :unit => "£")  %><%= account_balance(@user) %></td>
 	    </tr>
 	  </tbody>
 	</table>
-	<%= link_to("Withdraw Funds", withdraw_dashboard_path, :class => "item", :style => "text-align:center; color:white;") %>
+	<%# link_to("Withdraw Funds", withdraw_dashboard_path, :class => "item", :style => "text-align:center; color:white;") %>
+	<div class="ui inverted yellow button" id="monthlySummaryButton" style="margin: auto; width: 70%; display: block;">Withdraw Funds</div>
 	<div class="ui divider"></div>
 	<div class="ui list">
 	<%= link_to("Transactions", transactions_dashboard_path, :class => "item", :style => "text-align:center; color:white;") %>
