@@ -14,6 +14,4 @@ class Booking < ActiveRecord::Base
 	  where("email LIKE ?", "%#{search}%")
 	end
 
-
-
 end

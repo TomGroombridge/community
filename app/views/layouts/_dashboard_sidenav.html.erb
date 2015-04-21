@@ -23,7 +23,7 @@
 	      <td>
 	        <i class="pound icon"></i> Account Balance
 	      </td>
-	      <td><%# number_to_currency((@revenue - @user.fees) , :precision => 2, :unit => "£")  %><%= account_balance(@user) %></td>
+	      <td><%= account_balance(@user)%></td>
 	    </tr>
 	  </tbody>
 	</table>
