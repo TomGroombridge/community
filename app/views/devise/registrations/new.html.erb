@@ -16,16 +16,16 @@
           </div>
         </div>
         <div class="field">
-          <%= f.email_field :email, :placeholder => 'Email *' %>
+          <%= f.email_field :email, :placeholder => 'Email *', :id => "signUpEmail" %>
         </div>
         <div class="field">
           <%= f.text_field :contact_number, :placeholder => 'Contact Number *' %>
         </div>
         <div class="field">
-          <%= f.password_field :password, :placeholder => 'Password *', autocomplete: "off"%>
+          <%= f.password_field :password, :placeholder => 'Password *', autocomplete: "off", :id => "signUpPassword" %>
         </div>
         <div class="field">
-          <%= f.password_field :password_confirmation, :placeholder => 'Confirm Password *', autocomplete: "off"%>
+          <%= f.password_field :password_confirmation, :placeholder => 'Confirm Password *', autocomplete: "off" , :id => "signUpPasswordConfirmation"%>
         </div>
         <h4 class="ui dividing header">Company Information</h4>
         <div class="field">

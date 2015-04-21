@@ -1,20 +1,14 @@
 FactoryGirl.define do
+
   factory :user do
   	first_name 'tom'
-  	last_name 'groombridge'
-  	email 'tom@t.com'
-  	password '123456789'
-  	password_confirmation '123456789'
+    last_name 'groombridge'
+    email 'tom@t.com'
+    contact_number "01285 6452968"
+    company_name "Courseiam"
+    password '123456789'
+    password_confirmation '123456789'
+    admin true
   end
 
-  factory :admin, class: User do
-  	first_name 'james'
-  	last_name 'groombridge'
-  	email 'james@j.com'
-  	password '123456789'
-  	password_confirmation '123456789'
-  	admin true
-    company_name "courseiam"
-    id 10
-  end
 end
