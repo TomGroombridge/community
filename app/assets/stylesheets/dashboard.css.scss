@@ -3,7 +3,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .two.column.stackable.ui.grid.dashboard{
+	height: 100%;
+	background-color: #36464f;
+	display: table;
+	width: 100%;
+	min-height: 600px;
 	margin-top: 0px;
+	.column.four.wide{
+		display: table-cell;
+		width: 25%;
+		position: relative;
+	}
+	.column.twelve.wide{
+		display: table-cell;
+		width: 75%;
+		position: relative;
+		background: white;
+	}
 	.header{
 		text-transform: uppercase;
 	  letter-spacing: 1px;

@@ -1,7 +1,7 @@
 <div class="two column stackable ui grid new-payments" style="display:table">
 	<div class="column four wide order-info" style="display:table-cell">
 		<%= image_tag (@ticket.course_date.course.avatar_url(:thumb)), :class => "course-image" %>
-		<h1 class="course-name"><%= @ticket.course_date.course.name %></h1>
+		<h1 class="course-name text"><%= @ticket.course_date.course.name %></h1>
 		<h3 class="course-address"><%= @ticket.course_date.course.address %></h3>
 		<h3 class="course-date"><%= @ticket.course_date.pretty_date %></h3>
 		<div class="ui divider"></div>
