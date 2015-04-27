@@ -11,7 +11,7 @@ class PaymentMailer < ActionMailer::Base
     @booking = booking
     @course_date = @booking.payment.ticket.course_date
     @course = @booking.payment.ticket.course_date.course
-  	mail to: @booking.email, subject: "Reminder that your course is in 24 hours"
+  	mail to: @booking.email, subject: "Reminder that your course is in less than 24 hours"
   end
 
   def notification(payment)
