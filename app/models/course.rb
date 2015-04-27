@@ -42,7 +42,7 @@ class Course < ActiveRecord::Base
   end
 
   def previous_dates
-    unactive_course_dates = self.course_dates.select { |num|  num.active == false  }
+    unactive_course_dates = self.course_dates.select { |num|  num.start_date_time < DateTime.now  }
     sort_dates = unactive_course_dates.sort_by! {|obj| obj.start_date_time}
     sort_dates.reverse
   end

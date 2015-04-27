@@ -1,4 +1,4 @@
-Rails.application.configure do
+  Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -30,12 +30,12 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
-  ActionMailer::Base.smtp_settings = {  
-    :address              => "smtp.gmail.com",  
-    :port                 => 587,  
-    :domain               => "gmail.com",  
-    :user_name            => "hello@courseiam.com",  
-    :password             => Rails.application.secrets.email_password,  
+  ActionMailer::Base.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :domain               => "gmail.com",
+    :user_name            => "hello@courseiam.com",
+    :password             => Rails.application.secrets.email_password,
     :authentication       => "plain",
     :enable_starttls_auto => true
   }

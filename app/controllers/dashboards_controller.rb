@@ -3,16 +3,13 @@ class DashboardsController < ApplicationController
 
 	def show
 		@all_courses = @user.courses
-		@active_courses = @all_courses.all.includes(:course_dates).select do |course|
-			course.course_dates.any?(&:active?)
-		end
+		@active_courses = @all_courses.all.includes(:course_dates)
 		@course_dates = []
 		@active_courses.each do |course|
 			course.course_dates.each do |date|
-					if date.active?
-						@course_dates << date
-					else
-					end
+				if date.start_date_time > DateTime.now
+					@course_dates << date
+				end
 			end
 		end
 		@course_dates.sort_by!{|date| date.start_date_time}

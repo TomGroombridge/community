@@ -38,7 +38,12 @@ class CourseDatesController < ApplicationController
 	end
 
 	def index
-		@active_course_dates = CourseDate.where(:active => true).all
+		@active_course_dates = []
+		CourseDate.all.each  do |d|
+			if d.start_date_time > DateTime.now
+				@active_course_dates << d
+			end
+		end
 		@course_dates = @active_course_dates.sort_by do |course_date|
 			course_date.start_date_time
 		end
