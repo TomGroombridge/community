@@ -303,8 +303,10 @@ width: 200px;
   margin-left: auto !important;
   margin-right: auto !important;
   min-height: 400px;
-
-  @media (min-width: 1245px){
+  @media (min-width: 1525px) and (max-width : 1740px ){
+    width: 1525px;
+  }
+  @media (min-width: 1245px) and (max-width : 1525px ){
     width: 1245px;
   }
   @media (min-width:996px) and (max-width : 1245px ) {
