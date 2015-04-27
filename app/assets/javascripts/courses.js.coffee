@@ -138,7 +138,7 @@ $ ->
           prompt: 'Please add the name of the ticket'
         }
       ]
-    ticket_price:
+    ticket_quantity:
       identifier: 'course[course_dates_attributes][0][tickets_attributes][0][quantity]'
       rules: [
         {
@@ -150,7 +150,7 @@ $ ->
           prompt: 'Ticket quantity must be a number'
         }
       ]
-    ticket_quantity:
+    ticket_price:
       identifier: 'course[course_dates_attributes][0][tickets_attributes][0][price]'
       rules: [
         {

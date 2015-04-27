@@ -88,14 +88,22 @@ $ ->
           prompt: 'You cannot go over 30 characters in the Course Title'
         }
       ]
+    start_date:
+      identifier: 'course_date[start_date]'
+      rules: [
+        {
+          type: 'empty'
+          prompt: 'Please add the quantity of tickets'
+        }
+      ]
   settings =
     on     : 'blur'
     onFailure: ->
       console.log 'Failed'
-
+      $('input[type=submit]').attr('disabled', false)
       false
     onSuccess: ->
       console.log 'Success'
       return
-  $('.ui.form').form validation, settings
+  $('.ui.form.time-select').form validation, settings
 

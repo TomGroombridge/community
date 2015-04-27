@@ -131,5 +131,87 @@ $(document).ready(function() {
 
 });
 
+$(function() {
+  var settings, validation;
+  validation = {
+    name: {
+      identifier: 'course_date[tickets_attributes][0][name]',
+      rules: [
+        {
+          type: 'empty',
+          prompt: 'Fill in a Course Title'
+        }, {
+          type: 'length[4]',
+          prompt: 'The Course Title must be atleast 4 characters long'
+        }, {
+          type: 'maxLength[50]',
+          prompt: 'You cannot go over 30 characters in the Course Title'
+        }
+      ]
+    },
+    start_date: {
+      identifier: 'course_date[start_date]',
+      rules: [
+        {
+          type: 'empty',
+          prompt: 'Please select a start date'
+        }
+      ]
+    },
+    end_date: {
+      identifier: 'course_date[end_date]',
+      rules: [
+        {
+          type: 'empty',
+          prompt: 'Please select a start date'
+        }
+      ]
+    },
+    price: {
+      identifier: 'course_date[tickets_attributes][0][price]',
+      rules: [
+        {
+          type: 'empty',
+          prompt: 'Please add an price to the ticket'
+        },
+        {
+          type: 'integer',
+          prompt: 'Price must be a number'
+        },
+        {
+          type: 'contains[.]',
+          prompt: 'Please add a validated price with a decimal place'
+        },
+      ]
+    },
+    quantity: {
+      identifier: 'course_date[tickets_attributes][0][quantity]',
+      rules: [
+        {
+          type: 'empty',
+          prompt: 'Please add an price to the ticket'
+        },
+        {
+          type: 'integer',
+          prompt: 'Ticket quantity must be a number'
+        },
+      ]
+    }
+  };
+  settings = {
+    on: 'blur',
+    onFailure: function() {
+      console.log('Failed');
+      $('input[type=submit]').attr('disabled', false);
+      $('.courseLoader').removeClass('active')
+      return false;
+    },
+    onSuccess: function() {
+      console.log('Success');
+    }
+  };
+  return $('.ui.form.time-select').form(validation, settings);
+});
+
 
 
