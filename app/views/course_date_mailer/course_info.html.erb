@@ -48,31 +48,31 @@
               </tr>
             </thead>
             <tbody>
-              <% @course_date.payments.each do |payment| %>
+              <% @course_date.booking_dates.each do |booking_date| %>
                 <tr>
                   <td style="padding:12px 0;padding-right:3px; width: 20%">
                     <div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
-                      <%= payment.full_name %>
+                      <%= booking_date.booking.name %>
                     </div>
                   </td>
                   <td style="padding:12px 0;padding-right:3px; width: 20%">
                     <div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
-                      <%= payment.email %>
+                      <%= booking_date.booking.email %>
                     </div>
                   </td>
                   <td style="padding:12px 0;padding-right:3px; width: 14%">
                     <div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
-                      <%= payment.mobile_number %>
+                      <%= booking_date.booking.contact_number %>
                     </div>
                   </td>
                   <td style="text-align:right;padding:12px 0; width:36%; ">
                     <div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
-                      <%= payment.special_request %>
+                      <%= booking_date.booking.special_request %>
                     </div>
                   </td>
                   <td style="text-align:right;padding:12px 0; width:10%">
                     <div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
-                      <%= payment.price %>
+                      <%= booking_date.booking.payment.status %>
                     </div>
                   </td>
                 </tr>

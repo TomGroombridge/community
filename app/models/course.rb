@@ -20,8 +20,6 @@ class Course < ActiveRecord::Base
  		tomorrow = tomorrow_date.strftime("%d/%m/%Y")
  	end
 
-
-
   def check_price(price)
     if price.to_s.include? "."
       raise hello
