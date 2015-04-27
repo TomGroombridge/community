@@ -1,5 +1,5 @@
-<div class="two column stackable ui grid new-payments">
-	<div class="column four wide order-info">
+<div class="two column stackable ui grid new-payments" style="display:table">
+	<div class="column four wide order-info" style="display:table-cell">
 		<%= image_tag (@ticket.course_date.course.avatar_url(:thumb)), :class => "course-image" %>
 		<h1 class="course-name"><%= @ticket.course_date.course.name %></h1>
 		<h3 class="course-address"><%= @ticket.course_date.course.address %></h3>
@@ -9,7 +9,7 @@
 		<h3 class="subtotal">Subtotal: <%= @ticket.price %></h3>
 		<h3 class="booking-fee">Booking Fee: <%= number_to_currency(@payment.booking_fee , :precision => 2, :unit => "£")%></h3>
 	</div>
-	<div class="column twelve wide payment-details">
+	<div class="column twelve wide payment-details" style="display:table-cell">
 		<h1 class="checkout-header">Checkout</h1>
 		<div class="ui divider"></div>
 		<div class="ui divider"></div>
