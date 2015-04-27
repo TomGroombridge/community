@@ -12,10 +12,12 @@ class DashboardsController < ApplicationController
 				end
 			end
 		end
+    @all_dates =  CourseDate.all.select {|n| n.course.user.id == @user.id}
 		@course_dates.sort_by!{|date| date.start_date_time}
-		@payments = Payment.all.select{|payment| payment.company_id == @user.id }
-		if @payments.count > 0
-			@price = @payments.map do |p|
+		@company_payments = Payment.all.select{|payment| payment.company_id == @user.id }
+    @undeposited_payments = @company_payments.select {|payment| payment.deposited == false}
+		if @undeposited_payments.count > 0
+			@price = @undeposited_payments.map do |p|
 				if p.manually_added == false
 					p.price
 				else
@@ -113,10 +115,11 @@ class DashboardsController < ApplicationController
 	def bookings
 		@bookings = Booking.all.select{|booking| booking.payment.company_id == @user.id }
 		@weekly_bookings = @bookings.select {|n| n.created_at >= 1.week.ago}
+    @monthly_bookings = @bookings.select {|n| n.created_at >= 1.month.ago}
     if params[:search]
-      @weekly_bookings = Booking.search(params[:search]).order("created_at DESC")
+      @bookings = Booking.search(params[:search]).order("created_at DESC")
     else
-      @weekly_bookings = Booking.all.order('created_at DESC')
+      @bookings = Booking.all.order('created_at DESC')
     end
 	end
 

@@ -1,0 +1,30 @@
+<div class="ui small modal" id="monthlySummary">
+  <i class="close icon"></i>
+  <a class="ui blue label" style="margin-bottom:20px; margin-left: 0px;">
+    <h4 class="ui header" style="color:white">Account Balance</h4>
+  </a>
+  <div class="content">
+    <table class="ui definition table">
+      <tbody>
+        <tr>
+          <td class="ten wide column">Revenue</td>
+          <td><%= number_to_currency(@revenue , :precision => 2, :unit => "£")  %></td>
+        </tr>
+        <tr>
+          <td>Fees</td>
+          <td><%= number_to_currency(@user.fees , :precision => 2, :unit => "£")  %></td>
+        </tr>
+        <tr>
+          <td>Account Balance</td>
+          <td><%= account_balance(@user) %></td>
+        </tr>
+      </tbody>
+    </table>
+    <% if account_balance(@user) == "£0.00" %>
+      <p>You have no funds to deposit</p>
+    <% else %>
+      <p>Click the button to request funds into your chosen bank account</p>
+      <%= link_to("Transfer Funds", withdraw_dashboard_path, :class => "ui green transfer button", :style => "float:right") %>
+    <% end %>
+  </div>
+</div>

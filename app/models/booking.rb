@@ -11,11 +11,7 @@ class Booking < ActiveRecord::Base
 	end
 
 	def self.search(search)
-	  where("name LIKE ?", "%#{search}%")
 	  where("email LIKE ?", "%#{search}%")
-	  # where("content LIKE ?", "%#{search}%")
 	end
-
-
 
 end

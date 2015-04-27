@@ -119,8 +119,9 @@ $(document).ready(function() {
 
     $("#normalUser").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#signInMobile', 'show');
 
-    $("#monthlySummary").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#monthlySummaryButton', 'show');
+    // $("#monthlySummary").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#monthlySummaryButton', 'show');
 
+    $('#monthlySummary').modal('attach events', '#monthlySummaryButton', 'show');
 
 
 

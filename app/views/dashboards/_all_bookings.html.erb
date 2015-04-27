@@ -1,4 +1,7 @@
-<%# link_to 'Download <i class="download icon"></i>'.html_safe, weeks_transactions_csv_dashboard_path(format: :csv), :class => "ui button " %>
+<%= form_tag(bookings_dashboard_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Bookings" %>
+  <%= submit_tag "Search" %>
+<% end %>
 <table class="ui celled table">
   <thead>
     <tr>
@@ -9,7 +12,7 @@
     </tr>
   </thead>
   <tbody>
-	  <% @weekly_bookings.each do |booking| %>
+	  <% @bookings.each do |booking| %>
 	    <tr>
         <td><%= booking.order.ticket.course_date.course.name %><br/> <%= booking.order.ticket.course_date.start_date.strftime("%A, %d %b %Y %l:%M %p") %></td>
 	    	<td><%= booking.name %></td>
