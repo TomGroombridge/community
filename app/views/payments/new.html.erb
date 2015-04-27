@@ -1,0 +1,113 @@
+<div class="two column stackable ui grid new-payments">
+	<div class="column four wide order-info">
+		<%= image_tag (@ticket.course_date.course.avatar_url(:thumb)), :class => "course-image" %>
+		<h1 class="course-name"><%= @ticket.course_date.course.name %></h1>
+		<h3 class="course-address"><%= @ticket.course_date.course.address %></h3>
+		<h3 class="course-date"><%= @ticket.course_date.pretty_date %></h3>
+		<div class="ui divider"></div>
+		<h3>Tickets</h3>
+		<h3 class="subtotal">Subtotal: <%= @ticket.price %></h3>
+		<h3 class="booking-fee">Booking Fee: <%= number_to_currency(@payment.booking_fee , :precision => 2, :unit => "£")%></h3>
+	</div>
+	<div class="column twelve wide payment-details">
+		<h1 class="checkout-header">Checkout</h1>
+		<div class="ui divider"></div>
+		<div class="ui divider"></div>
+		<h1 class="checkout-header">Your Details</h1>
+		<%= form_for [@ticket, @payment], :html => {:class => 'ui form payment fluid', :style => "width: 80%; margin: auto;"} do |f| %>
+			<%= f.hidden_field :ticket_id %>
+      <%= f.hidden_field :stripe_card_token %>
+      <%= f.fields_for(:bookings) do |booking|%>
+      	<%= booking.hidden_field :order_id %>
+				<div class="two fields">
+			    <div class="required field">
+			      <label>Full Name</label>
+			      <div class="ui icon input">
+			        <% if signed_in? %>
+			      		<%= booking.text_field :name, :value => current_user.full_name %>
+			      	<% else %>
+			      		<%= booking.text_field :name %>
+			      	<% end %>
+			        <i class="user icon"></i>
+			      </div>
+			    </div>
+			    <div class="required field">
+			      <label>Email</label>
+			      <div class="ui icon input">
+			      	<% if signed_in? %>
+			      		<%= booking.text_field :email, :value => current_user.email %>
+			      	<% else %>
+			      		<%= booking.text_field :email %>
+			      	<% end %>
+			        <i class="user icon"></i>
+			      </div>
+			    </div>
+			  </div>
+		    <div class="field">
+			    <div class="required field">
+			      <label>Contact Number</label>
+			      <div class="ui icon input">
+			        <% if signed_in? %>
+			      		<%= booking.text_field :contact_number, :value => current_user.contact_number  %>
+			      	<% else %>
+			      		<%= booking.text_field :contact_number %>
+			      	<% end %>
+			        <i class="user icon"></i>
+			      </div>
+			    </div>
+		    </div>
+		    <div class="field">
+		    	<label>Special Requests</label>
+		    	<%= booking.text_area :special_request %>
+		    </div>
+		  <% end %>
+			<div class="ui divider" style="margin-top:4rem"></div>
+			<h1 class="checkout-header">Card Details</h1>
+	    <div class="required field">
+	      <label>Name on Card</label>
+	      <div class="ui icon input">
+	        <input class="full-width" type="text" data-validate="name-on-card">
+	        <i class="user icon"></i>
+	      </div>
+	    </div>
+	    <div class="required field">
+	      <label>Card Number</label>
+	      <div class="ui icon input">
+	        <%= text_field_tag :card_number, nil %>
+	        <i class="user icon"></i>
+	      </div>
+	    </div>
+	    <div class="two fields">
+	    	<div class="required field">
+	    	<label>Expiry Date</label>
+	    		<div class="inline required field">
+		    		<%= select_month nil, {add_month_numbers: true}, {id: "card_month", :class =>"ui dropdown", :style => "  display: inline-block; width: 40%; margin-right: 10px;"} %>
+	          <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {id: "card_year", :class =>"ui dropdown", :style => "  display: inline-block; width: 40%; margin-right: 10px;"} %>
+	        </div>
+	    	</div>
+	    	<div class="required field" style="width: 25%; float: right;">
+	    		<label>CSV</label>
+	    		<%= text_field_tag :card_code, nil %>
+	    	</div>
+	    </div>
+	    <div class="required inline field">
+	      <div class="ui checkbox">
+	        <input type="checkbox">
+	        <label>I agree to the terms and conditions</label>
+	      </div>
+	    </div>
+	    <div class="ui segment no-box-shadow" style="box-shadow: none; background:none">
+          <div class="ui dimmer buttonLoader">
+            <div class="ui indeterminate text loader">Make your payment</div>
+          </div>
+          <%= f.submit("Send Payment", :id => "test", :class => "ui green button", :style => 'width: 80%; margin: auto; display: block') %>
+        </div>
+        <div class="ui error message" style="margin-top: 0px; margin-bottom: 10px;"></div>
+		<% end %>
+		<div class="ui error message cardError" style="margin: auto; margin-top: 0px; margin-bottom: 10px; width: 80%;">
+      <div id="stripe_error">
+        <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+      </div>
+    </div>
+	</div>
+</div>
