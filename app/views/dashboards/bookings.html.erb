@@ -1,0 +1,25 @@
+<div class="two column stackable ui grid dashboard" style="height:100%; background-color: #36464f;">
+	<div class="column four wide" style="height: 100%">
+		<%# render "layouts/dashboard_sidenav" %>
+	</div>
+	<div class="column twelve wide" style="height: 100%; background:white; min-height:500px;">
+		<div class="row" style="padding-bottom:30px;">
+			<h1 class="header">Company Bookings</h1>
+			<h3 class="header sub-heading">Check all your company bookings</h3>
+		</div>
+		<div class="ui pointing secondary menu">
+	    <a class="active item" data-tab="first" style="width:33.3%; text-align:center;font-size: 18px;">Bookings this week</a>
+	    <a class="item" data-tab="second" style="width:33.3%; text-align:center;font-size: 18px;">Bookings this month</a>
+	    <a class="item" data-tab="third" style="width:33.3%; text-align:center;font-size: 18px;">All Bookings</a>
+	  </div>
+	  <div class="ui active tab" data-tab="first">
+	  	<%= render 'weeks_bookings' %>
+		</div>
+		<div class="ui tab" data-tab="second">
+			2
+		</div>
+		<div class="ui tab" data-tab="third">
+	  	3
+		</div>
+	</div>
+</div>

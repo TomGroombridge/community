@@ -9,6 +9,7 @@ class Course < ActiveRecord::Base
   after_update :crop_avatar
   has_many :course_dates, dependent: :destroy
   accepts_nested_attributes_for :course_dates
+  # validates :name, presence: true
 
   def crop_avatar
     self.avatar.recreate_versions! if crop_x.present?
@@ -41,7 +42,7 @@ class Course < ActiveRecord::Base
   end
 
   def previous_dates
-    unactive_course_dates = self.course_dates.select { |num|  num.active == false  }
+    unactive_course_dates = self.course_dates.select { |num|  num.start_date_time < DateTime.now  }
     sort_dates = unactive_course_dates.sort_by! {|obj| obj.start_date_time}
     sort_dates.reverse
   end

@@ -10,6 +10,12 @@ class Booking < ActiveRecord::Base
 		PaymentMailer.delay_until(@course_date - 1.days).reminder(self)
 	end
 
+	def self.search(search)
+	  where("name LIKE ?", "%#{search}%")
+	  where("email LIKE ?", "%#{search}%")
+	  # where("content LIKE ?", "%#{search}%")
+	end
+
 
 
 end

@@ -43,7 +43,14 @@ Rails.application.routes.draw do
     # end
   end
 
-  resource :dashboard
+  resource :dashboard do
+    get 'transactions'
+    get 'weeks_transactions_csv'
+    get 'months_transactions_csv'
+    get 'all_transactions_csv'
+    get 'bookings'
+    get 'withdraw'
+  end
 
 
 

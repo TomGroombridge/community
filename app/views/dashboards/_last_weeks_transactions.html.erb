@@ -1,0 +1,23 @@
+<%= link_to 'Download <i class="download icon"></i>'.html_safe, weeks_transactions_csv_dashboard_path(format: :csv), :class => "ui button " %>
+<table class="ui celled table">
+  <thead>
+    <tr>
+      <th>Transaction Date</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Fee</th>
+      <th>Net Profit</th>
+    </tr>
+  </thead>
+  <tbody>
+	  <% @weekly_payments.each do |payment| %>
+	    <tr>
+	    	<td><%= time_ago_in_words(payment.created_at)%> ago</td>
+	    	<td><%= payment.order.bookings.last.name %></td>
+	    	<td><%= payment.price %></td>
+	    	<td><%= payment.booking_fee %></td>
+	    	<td><%= payment.overall_price %></td>
+	    </tr>
+    <% end %>
+  </tbody>
+</table>

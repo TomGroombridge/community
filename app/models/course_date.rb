@@ -22,7 +22,6 @@ class CourseDate < ActiveRecord::Base
 
 	def invalid
 		@time = self.start_date_time - 24.hours
-		# raise @time.inspect
 		self.delay_until(@time).update_attributes(active: false)
 	end
 
@@ -52,7 +51,7 @@ class CourseDate < ActiveRecord::Base
 	end
 
 	def sale_percentage
-		value = self.payments.count.to_f / quantity * 1100.00
+		value = self.payments.count.to_f / quantity * 100.00
 		value.to_i
 	end
 

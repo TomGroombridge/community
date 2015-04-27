@@ -20,4 +20,17 @@ class User < ActiveRecord::Base
     self.first_name + " " + self.last_name
   end
 
+  def balance
+    @all_payments = Payment.all.select{|payment| payment.company_id == self.id }
+    @payments = @all_payments.select {|payment| payment.deposited == false}
+    @price = @payments.map do |p|
+      if p.manually_added == false
+        p.overall_price - p.booking_fee
+      else
+        0
+      end
+    end
+    @price.inject {|sum, n| sum += n }
+  end
+
 end
