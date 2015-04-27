@@ -52,3 +52,47 @@
 		margin-right: 0rem;
 	}
 }
+
+
+.new-payments{
+	.order-info{
+		height: auto;
+		background-color: #ffffff;
+		border-right: 1px solid #dadada;
+		.course-image{
+			width: 180px;
+		  margin: auto;
+		  display: block;
+		  margin-top: 37px;
+		  border-radius: 40px;
+		}
+		.course-name{
+			text-align: center;
+		}
+		.course-address{
+			text-align: center;
+		}
+		.course-date{
+			text-align: center;
+		}
+		.subtotal{
+			text-align: center;
+		}
+		.booking-fee{
+			text-align: center;
+		}
+	}
+	.payment-details{
+		background: #F8F8F8;
+		height: auto;
+		.checkout-header{
+			text-align: center;
+		}
+		.ui.divider{
+			width: 90%;
+  		margin: auto;
+  		border-top: 1px solid #dadada;
+  		margin-bottom: 4rem;
+		}
+	}
+}
