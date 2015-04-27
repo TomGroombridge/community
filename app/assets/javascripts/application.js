@@ -175,10 +175,6 @@ $(function() {
           prompt: 'Please add an price to the ticket'
         },
         {
-          type: 'integer',
-          prompt: 'Price must be a number'
-        },
-        {
           type: 'contains[.]',
           prompt: 'Please add a validated price with a decimal place'
         },

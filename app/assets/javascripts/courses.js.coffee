@@ -166,7 +166,6 @@ $ ->
     on     : 'blur'
     onFailure: ->
       console.log 'Failed'
-      $('input[type=submit]').attr('disabled', false)
       $('.courseLoader').removeClass('active')
       false
     onSuccess: ->
