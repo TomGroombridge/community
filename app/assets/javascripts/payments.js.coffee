@@ -29,6 +29,10 @@ payment =
   handleStripeResponse: (status, response) ->
     if response.error
       console.log 'error :('
+      $('.cardError').addClass('active')
+      $('#stripe_error').text(response.error.message)
+      $('input[type=submit]').attr('disabled', false)
+      $('.buttonLoader').removeClass('active')
       return
     else
       $('#payment_stripe_card_token').val(response.id)

@@ -47,6 +47,7 @@ class CoursesController < ApplicationController
 				render :crop
 			else
 				redirect_to dashboard_path
+				flash[:notice] = 'New Course Successfully Created'
 			end
 		else
 			render :new

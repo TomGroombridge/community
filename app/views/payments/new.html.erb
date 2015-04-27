@@ -1,7 +1,7 @@
 <div class="two column stackable ui grid new-payment">
   <div class="column twelve wide">
     <div class="ui segment no-padding">
-      <%= form_for [@ticket, @payment], :html => {:class => 'ui form payment fluid '} do |f| %>
+      <%= form_for [@ticket, @payment], :html => {:class => 'ui form payment fluid'} do |f| %>
         <%= f.hidden_field :ticket_id %>
         <%= f.hidden_field :stripe_card_token %>
         <a class="ui teal ribbon label"><i class="shop icon"></i>Secure Checkout</a>
@@ -24,7 +24,6 @@
             </div>
           </div>
         </div>
-        <%# if @ticket.number_of_dates == 1 %>
         <%= f.fields_for(:bookings) do |booking|%>
           <% if @ticket.number_of_dates == 1 %>
           <% else %>
@@ -116,10 +115,17 @@
           <p></p>
           <%= f.submit("Send Payment", :id => "test", :class => "ui green button", :style => 'float:right') %>
         </div>
-        <div class="ui segment no-box-shadow-web" style="padding-top:0px;">
-          <div class="ui error message"></div>
-        </div>
+
+
+          <div class="ui error message">
+          </div>
       <% end %>
+        <div class="ui error message cardError">
+          <div id="stripe_error">
+            <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+          </div>
+        </div>
+
     </div>
   </div>
   <%= render 'payments/booking_information' %>

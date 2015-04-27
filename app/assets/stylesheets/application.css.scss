@@ -164,6 +164,13 @@ overflow: hidden;
   font-size:1.5em
 }
 
+.cardError{
+  display: none;
+}
+.cardError.active{
+  display: block;
+}
+
 
 
 /*============================
