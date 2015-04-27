@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
 		if @payment.save_with_payment(payment_params)
 			raise @payment.inspect
 			@payment.update_attributes(:order_id => @order.id)
-			redirect_to @payment, :notice => "Thank you for paying!"
+			redirect_to @payment
 		else
 			render :new
 		end

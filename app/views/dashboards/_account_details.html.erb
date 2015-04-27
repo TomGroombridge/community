@@ -24,7 +24,14 @@
       <p>You have no funds to deposit</p>
     <% else %>
       <p>Click the button to request funds into your chosen bank account</p>
-      <%= link_to("Transfer Funds", withdraw_dashboard_path, :class => "ui green transfer button", :style => "float:right") %>
+      <%= link_to("Transfer Funds", withdraw_dashboard_path, :class => "ui green transfer button", :style => "float:right", :id => "transferFunds") %>
     <% end %>
   </div>
 </div>
+
+
+<script>
+  $('#transferFunds').click(function() {
+    $('.green.transfer.button').addClass('loading');
+  });
+</script>

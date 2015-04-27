@@ -34,7 +34,7 @@ class PaymentsController < ApplicationController
       else
         @payment.bookings.each{|booking| booking.update_attributes(:order_id => @payment.order.id)}
       end
-      redirect_to @payment, :notice => "Thank you for paying!"
+      redirect_to @payment
     else
       render :new
     end

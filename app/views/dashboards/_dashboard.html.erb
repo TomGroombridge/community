@@ -1,3 +1,6 @@
+<% if flash[:notice] %>
+	<div class="ui green message" id="notice" style="margin-bottom:0px;"><%= notice %></div>
+<% end %>
 <%= render "account_details" %>
 <div class="two column stackable ui grid dashboard" style="height:100%; background-color: #36464f;">
 	<div class="column four wide" style="height: 100%">

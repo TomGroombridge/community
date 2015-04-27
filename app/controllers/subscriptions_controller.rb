@@ -1,17 +1,17 @@
 class SubscriptionsController < ApplicationController
 
 def new
-  @plan = Plan.find(params[:plan_id])      
-  @subscription = @plan.subscriptions.build 
+  @plan = Plan.find(params[:plan_id])
+  @subscription = @plan.subscriptions.build
 end
 
-def create    
+def create
   @subscription = Subscription.new(params[:subscription].permit(:email, :plan_id, :stripe_card_token))
   if @subscription.save_with_payment
-    redirect_to @subscription, :notice => "Thank you for subscribing!"
-    current_user.update_column(:subscription_added, true)    
+    redirect_to @subscription
+    current_user.update_column(:subscription_added, true)
   else
-    render :new, :notice => "Failed"
+    render :new
   end
 end
 
