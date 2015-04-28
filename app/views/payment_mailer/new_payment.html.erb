@@ -95,22 +95,20 @@
 					</h2>
 					<table cellspacing="0" cellpadding="0" width="100%" align="">
 						<tbody>
-						<tr>
-							<td width="20" height="" style="vertical-align:top;padding-right:10px" align="" valign="" colspan="1">
-								<img src="https://ci5.googleusercontent.com/proxy/K5NOKd2qRftFOiSFcKbzG2xIEoT5TsuEhqxZYpsPovzNv3ftZUWB5HHbrXY3_H8siBt0HFXxBev2YpiWh2yQpTzHuHF2GEi_JnCi2AwuMB8Fe65DQGb14F8c9B62BEa86Xil1zU2sPDX=s0-d-e1-ft#https://cdn.evbstatic.com/s3-s3/marketing/emails/order_confirmation/date-iconx2.png" title="date" alt="date" style="width:20px;min-height:20px;vertical-align:-2px" border="0" width="20" height="20" class="CToWUd">
-							</td>
-							<td width="" height="" align="" valign="" colspan="1">
-								<div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
-
-                  <%# @payment.ticket.course_date.start_date.strftime("%A, %e %B %Y") %> <!-- from --> <%# @payment.ticket.course_date.start_time.strftime(" %l:%M %p") %> <!-- to --> <%# @payment.ticket.course_date.end_time.strftime(" %l:%M %p")%>
-                  <% @payment.order.bookings.each do |booking| %>
-                  	<% booking.booking_dates.each do |date| %>
-                  		<%= date.course_date.start_date.strftime("%A, %e %B %Y")%> from <%= date.course_date.start_time.strftime(" %l:%M %p") %> to <%= date.course_date.end_time.strftime(" %l:%M %p")%>
-                  	<% end %>
-                  <% end %>
-								</div>
-							</td>
-						</tr>
+            <% @payment.order.bookings.each do |booking| %>
+            	<% booking.booking_dates.each do |date| %>
+								<tr>
+									<td width="20" height="" style="vertical-align:top;padding-right:10px" align="" valign="" colspan="1">
+										<img src="https://ci5.googleusercontent.com/proxy/K5NOKd2qRftFOiSFcKbzG2xIEoT5TsuEhqxZYpsPovzNv3ftZUWB5HHbrXY3_H8siBt0HFXxBev2YpiWh2yQpTzHuHF2GEi_JnCi2AwuMB8Fe65DQGb14F8c9B62BEa86Xil1zU2sPDX=s0-d-e1-ft#https://cdn.evbstatic.com/s3-s3/marketing/emails/order_confirmation/date-iconx2.png" title="date" alt="date" style="width:20px;min-height:20px;vertical-align:-2px" border="0" width="20" height="20" class="CToWUd">
+									</td>
+									<td width="" height="" align="" valign="" colspan="1">
+										<div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
+		                  <%= date.course_date.start_date.strftime("%A, %e %B %Y")%> from <%= date.course_date.start_time.strftime(" %l:%M %p") %> to <%= date.course_date.end_time.strftime(" %l:%M %p")%>
+										</div>
+									</td>
+								</tr>
+							<% end %>
+						<% end %>
 						<tr>
 							<td width="20" height="" style="vertical-align:top;padding-right:10px" align="" valign="" colspan="1">
 								<img src="https://ci6.googleusercontent.com/proxy/0EyFIZsXl2MqZQQ6aFvuUJTNcprk97pCJebIvMsVIElYkmuBmk9PRurQ4lOmde9CUGy42OT7YGXF3MiKkQ2YswIbCn83g7Iv_c9WOgsIqXOdtkPOxFNWhNQDAVR0lcjQaYTiSwysz2Mn2SFvYXphsWo=s0-d-e1-ft#https://cdn.evbstatic.com/s3-s3/marketing/emails/order_confirmation/location-pin-iconx2.png" title="date" alt="date" style="width:20px;min-height:20px;vertical-align:-4px" border="0" width="20" height="20" class="CToWUd">
