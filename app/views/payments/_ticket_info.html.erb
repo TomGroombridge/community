@@ -1,0 +1,6 @@
+<h3 style="text-align:center; margin-bottom:6px;">Ticket information</h3>
+<h3 class="subtotal" style="font-size:14px">(<%= @ticket.name %>)</h3>
+<h3 class="subtotal">Subtotal: <%= number_to_currency(@ticket.price, :precision => 2, :unit => "£") %></h3>
+<h3 class="booking-fee">Booking Fee: <%= number_to_currency(@payment.booking_fee , :precision => 2, :unit => "£")%></h3>
+<div class="ui divider" style="width: 90%; margin: auto; border-top: 1px solid #dadada; margin-top: 15px;"></div>
+<h3 class="overall-price">Overall Price: <%= number_to_currency(@payment.overall_price , :precision => 2, :unit => "£")  %></h3>

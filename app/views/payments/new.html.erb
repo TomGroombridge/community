@@ -1,13 +1,8 @@
 <div class="two column stackable ui grid new-payments" style="display:table">
 	<div class="column four wide order-info" style="display:table-cell">
-		<%= image_tag (@ticket.course_date.course.avatar_url(:thumb)), :class => "course-image" %>
-		<h1 class="course-name text"><%= @ticket.course_date.course.name %></h1>
-		<h3 class="course-address"><%= @ticket.course_date.course.address %></h3>
-		<h3 class="course-date"><%= @ticket.course_date.pretty_date %></h3>
-		<div class="ui divider"></div>
-		<h3>Tickets</h3>
-		<h3 class="subtotal">Subtotal: <%= @ticket.price %></h3>
-		<h3 class="booking-fee">Booking Fee: <%= number_to_currency(@payment.booking_fee , :precision => 2, :unit => "£")%></h3>
+		<%= render "course_date_info" %>
+		<div class="ui divider" style="width: 90%; margin: auto; border-top: 1px solid #dadada;"></div>
+		<%= render "ticket_info" %>
 	</div>
 	<div class="column twelve wide payment-details" style="display:table-cell">
 		<h1 class="checkout-header">Checkout</h1>
@@ -39,7 +34,7 @@
 			      	<% else %>
 			      		<%= booking.text_field :email %>
 			      	<% end %>
-			        <i class="user icon"></i>
+			        <i class="mail outline icon"></i>
 			      </div>
 			    </div>
 			  </div>
@@ -52,7 +47,7 @@
 			      	<% else %>
 			      		<%= booking.text_field :contact_number %>
 			      	<% end %>
-			        <i class="user icon"></i>
+			        <i class="mobile icon"></i>
 			      </div>
 			    </div>
 		    </div>
@@ -67,14 +62,12 @@
 	      <label>Name on Card</label>
 	      <div class="ui icon input">
 	        <input class="full-width" type="text" data-validate="name-on-card">
-	        <i class="user icon"></i>
 	      </div>
 	    </div>
 	    <div class="required field">
 	      <label>Card Number</label>
 	      <div class="ui icon input">
-	        <%= text_field_tag :card_number, nil %>
-	        <i class="user icon"></i>
+	        <%= text_field_tag :card_number, nil , :placeholder => "•••• •••• •••• ••••"%>
 	      </div>
 	    </div>
 	    <div class="two fields">
