@@ -105,7 +105,7 @@
                   <%# @payment.ticket.course_date.start_date.strftime("%A, %e %B %Y") %> <!-- from --> <%# @payment.ticket.course_date.start_time.strftime(" %l:%M %p") %> <!-- to --> <%# @payment.ticket.course_date.end_time.strftime(" %l:%M %p")%>
                   <% @payment.order.bookings.each do |booking| %>
                   	<% booking.booking_dates.each do |date| %>
-                  		<%= date.start_date.strftime("%A, %e %B %Y")%> from <%= date.start_time.strftime(" %l:%M %p") %> to <%= date.end_time.strftime(" %l:%M %p")%>
+                  		<%= date.course_date.start_date.strftime("%A, %e %B %Y")%> from <%= date.course_date.start_time.strftime(" %l:%M %p") %> to <%= date.course_date.end_time.strftime(" %l:%M %p")%>
                   	<% end %>
                   <% end %>
 								</div>
