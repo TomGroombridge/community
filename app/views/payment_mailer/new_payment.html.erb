@@ -101,7 +101,13 @@
 							</td>
 							<td width="" height="" align="" valign="" colspan="1">
 								<div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
-                  <%= @payment.ticket.course_date.start_date.strftime("%A, %e %B %Y") %> from <%= @payment.ticket.course_date.start_time.strftime(" %l:%M %p") %> to <%= @payment.ticket.course_date.end_time.strftime(" %l:%M %p")%>
+
+                  <%# @payment.ticket.course_date.start_date.strftime("%A, %e %B %Y") %> <!-- from --> <%# @payment.ticket.course_date.start_time.strftime(" %l:%M %p") %> <!-- to --> <%# @payment.ticket.course_date.end_time.strftime(" %l:%M %p")%>
+                  <% @payment.order.bookings.each do |booking| %>
+                  	<% booking.booking_dates.each do |date| %>
+                  		<%= date.start_date.strftime("%A, %e %B %Y")%> from <%= date.start_time.strftime(" %l:%M %p") %> to <%= date.end_time.strftime(" %l:%M %p")%>
+                  	<% end %>
+                  <% end %>
 								</div>
 							</td>
 						</tr>
