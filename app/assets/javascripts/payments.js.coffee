@@ -98,7 +98,7 @@ $ ->
       rules: [
         {
           type: 'empty'
-          prompt: 'Fill in the card csv as it appears on the back of your card'
+          prompt: 'Please Select a Date to attend'
         }
       ]
     course_date2:
@@ -106,7 +106,7 @@ $ ->
       rules: [
         {
           type: 'empty'
-          prompt: 'Fill in the card csv as it appears on the back of your card'
+          prompt: 'Please Select a Date to attend'
         }
       ]
     course_date3:
@@ -114,7 +114,7 @@ $ ->
       rules: [
         {
           type: 'empty'
-          prompt: 'Fill in the card csv as it appears on the back of your card'
+          prompt: 'Please Select a Date to attend'
         }
       ]
     course_date4:
@@ -122,7 +122,7 @@ $ ->
       rules: [
         {
           type: 'empty'
-          prompt: 'Fill in the card csv as it appears on the back of your card'
+          prompt: 'Please Select a Date to attend'
         }
       ]
     course_date5:
@@ -130,7 +130,7 @@ $ ->
       rules: [
         {
           type: 'empty'
-          prompt: 'Fill in the card csv as it appears on the back of your card'
+          prompt: 'Please Select a Date to attend'
         }
       ]
     course_date6:
@@ -138,7 +138,7 @@ $ ->
       rules: [
         {
           type: 'empty'
-          prompt: 'Fill in the card csv as it appears on the back of your card'
+          prompt: 'Please Select a Date to attend'
         }
       ]
   settings =
