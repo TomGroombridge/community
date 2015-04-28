@@ -46,7 +46,8 @@ class Course < ActiveRecord::Base
   end
 
   def unsold_dates
-    active_course_dates = self.course_dates.select { |num|  num.active? && num.not_full }
+    active_course_dates = self.course_dates.select { |num|  num.start_date_time > DateTime.now && num.not_full }
+    sort_dates = active_course_dates.sort_by! {|obj| obj.start_date_time}
   end
 
   def address
