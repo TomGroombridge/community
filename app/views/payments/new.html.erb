@@ -7,7 +7,6 @@
 	<div class="column twelve wide payment-details" style="display:table-cell">
 		<h1 class="checkout-header">Checkout</h1>
 		<div class="ui divider"></div>
-		<div class="ui divider"></div>
 		<h1 class="checkout-header">Your Details</h1>
 		<%= form_for [@ticket, @payment], :html => {:class => 'ui form payment fluid', :style => "width: 80%; margin: auto;"} do |f| %>
 			<%= f.hidden_field :ticket_id %>
