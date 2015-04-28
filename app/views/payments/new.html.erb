@@ -69,7 +69,7 @@
 		    </div>
 		  <% end %>
 			<div class="ui divider" style="margin-top:4rem"></div>
-			<h1 class="checkout-header">Card Details</h1>
+			<h1 class="checkout-header">Card Details<span style="font-size: 12px; margin-left: 35px; color: grey"><i class="lock icon"></i>Secure</span></h1>
 			<div class="card-images">
 				<%= image_tag ("visa-straight-128px.png"), :class => "card-image" %>
 				<%= image_tag ("mastercard-straight-128px.png"), :class => "card-image" %>
@@ -90,9 +90,9 @@
 	    <div class="two fields">
 	    	<div class="required field">
 	    	<label>Expiry Date</label>
-	    		<div class="inline required field">
-		    		<%= select_month nil, {add_month_numbers: true}, {id: "card_month", :class =>"ui dropdown", :style => "  display: inline-block; width: 40%; margin-right: 10px;"} %>
-	          <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {id: "card_year", :class =>"ui dropdown", :style => "  display: inline-block; width: 40%; margin-right: 10px;"} %>
+	    		<div class="inline required field" style="min-width: 391px;">
+		    		<%= select_month nil, {add_month_numbers: true}, {id: "card_month", :class =>"ui dropdown", :style => "  display: inline-block; width: 48%;"} %>
+	          <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {id: "card_year", :class =>"ui dropdown", :style => "  display:inline-block; width:50%;"} %>
 	        </div>
 	    	</div>
 	    	<div class="required field" style="width: 25%; float: right;">
