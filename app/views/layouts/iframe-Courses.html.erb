@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CommunityMarketplace</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "https://js.stripe.com/v1/", "application", "data-turbolinks-track" => true %>
+  	<%= tag :meta, :name => "stripe-key", :content => Rails.application.secrets.stripe_public_key %>
+    <%= csrf_meta_tags %>
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  </head>
+  <body class="list-body" style="background:white;">
+  	<div class="course-date-list">
+	  	<div class="ui grid course-date-title">
+	  		<div class="one wide column">
+	  		</div>
+	  		<div class="eight wide column title top">
+	  			<div class="ui segment info">
+	  				Courses & Events
+	  			</div>
+	  		</div>
+	  		<div class="three wide column title">
+	  			<div class="ui segment info center">
+	  				Price
+	  			</div>
+	  		</div>
+	  		<div class="four wide column">
+	  		</div>
+	  	</div>
+	  		<% @courses.each do |course|%>
+  				<%# course.upcoming_dates.each do |date| %>
+	  			<div class="ui grid course-date">
+					    <div class="one wide column center" style="padding-left:0px;">
+					    </div>
+					    <div class="eight wide column top" style="padding:0px;">
+					    	<div class="ui segment no-box-shadow-web" style="background: #f1f2f2;">
+					    		<div class="algin-middle">
+									  <p class="title"><%= course.name %></p>
+									  <p class="address"><%= course.address %></p>
+									  <p><i class="info circle icon" id="flip-<%= course.id %>" style="margin-top:2px;"></i>Course Details</p>
+									</div>
+								</div>
+					    </div>
+					    <div class="three wide column price">
+					    	<div class="ui segment center no-box-shadow-web">
+					    		<div class="algin-middle">
+						    		<% course.upcoming_date.tickets.each do |ticket| %>
+							    		<%= number_to_currency(ticket.price, :precision => 2, :unit => "£")  %>
+							    		<br>
+							    	<% end %>
+						    	</div>
+						    </div>
+					    </div>
+					    <div class="four wide column top actions">
+					    	<div class="book-button">
+					    		<div class="inside">
+					    		<%# if date.tickets.count <= 1 %>
+							    	<% course.upcoming_date.tickets.each do |ticket| %>
+								    	<% if ticket.places_left <= 0%>
+								    		<div class="ui red button text">SOLD OUT</div>
+								    	<% else %>
+												<%= link_to "BOOK NOW", new_ticket_payment_path(ticket.id), :class => "ui blue button text", :target => "_blank"%>
+												<br>
+											<% end %>
+										<% end %>
+									<%# else %>
+										<%# link_to "BOOK NOW", course_path(date.course), :class => "ui blue button text", :target => "_blank"%>
+									<%# end %>
+									</div>
+								</div>
+					    </div>
+					  </div>
+				    <div id="panel-<%= course.id %>" class="ui segment panel">
+				    	<h3> Description</h3>
+				    	<%= course.description.html_safe %>
+				    	<br>
+				    	<%= link_to "View More Details...", course_path(course), :class => "ui blue panel button", :target => "_blank" %>
+				    </div>
+				  	<script>
+							$(document).ready(function(){
+							    $("#flip-<%= course.id %>").click(function(){
+							        $("#panel-<%= course.id %>").slideToggle("slow", function() {
+										  });
+							    });
+							});
+						</script>
+						<style>
+							#panel-<%= course.id %>{
+							  padding: 50px;
+							  display: none;
+							  font-size: 15px;
+							  margin-top: -3px;
+							  margin-left: 14px;
+							  margin-right: 14px;
+							  padding-top: 10px;
+							  padding-bottom: 15px;
+							  margin-bottom: 13px;
+							}
+						</style>
+					<%# end %>
+			  <% end %>
+	  	</div>
+	  </div>
+  </body>
+</html>

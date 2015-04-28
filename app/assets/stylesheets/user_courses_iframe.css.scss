@@ -33,14 +33,21 @@
 		.column{
 			@media only screen and (max-width: 768px) {
 				width: 100% !important;
+				height: 15%;
 			}
 		}
 		.column.top{
 			padding-top: 1rem!important;
+			@media only screen and (max-width: 768px) {
+				height: 31%;
+			}
 		}
 	}
 		.center{
 			text-align: center;
+			@media only screen and (max-width: 768px) {
+				height: 10%;
+			}
 		}
 
 	.ui.grid.course-date{
@@ -50,12 +57,13 @@
 		border-radius: 6px;
 		background: #f1f2f2;
 		min-height: 115px;
-		height: auto;
+		height: 100%;
+  	max-height: 120px;
 		@media only screen and (max-width: 768px) {
 			padding: 0.1rem;
 		}
 		@media only screen and (max-width: 768px) {
-			height: initial;
+			max-height: 280px;
 		}
 		@media (min-width:768px) and (max-width : 996px ) {
 			height: 135px;
@@ -74,13 +82,29 @@
 				}
 			}
 		}
+		.column.top{
+			@media only screen and (max-width: 768px) {
+				height: 32%;
+			}
+		}
+		.column.center{
+			@media only screen and (max-width: 768px) {
+				height: 10%;
+			}
+		}
 		.column.price{
 			font-size: 25px;
 		  font-weight: 100;
 		  height: 100%;
+		  @media only screen and (max-width: 768px) {
+		  	height: 23%;
+		  }
 		}
 		.column.top.actions{
 			height: 100%;
+			@media only screen and (max-width: 768px) {
+				height: 31%;
+			}
 			.book-button{
 				height: 100%;
 			  display: table;
