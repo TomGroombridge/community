@@ -17,7 +17,6 @@ class OrdersController < ApplicationController
 	def create
 		@order = Order.create(params[:order].permit(:ticket_id, bookings_attributes:[:order_id, :name, :email, :number, :payment_id, booking_dates_attributes:[ :booking_id, :course_date_id, :name, :email, :contact_number, :special_request]]))
 		@payment = Payment.new(payment_params)
-
 		@payment.order_id = @order.id
 		if @payment.save_with_payment(payment_params)
 			raise @payment.inspect
