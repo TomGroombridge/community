@@ -33,7 +33,6 @@ class PaymentsController < ApplicationController
         @payment.bookings.each{|booking| booking.update_attributes(:order_id => @payment.order.id)}
       end
       redirect_to @payment
-      PaymentMailer.new_payment(self).deliver!
     else
       render :new
     end
