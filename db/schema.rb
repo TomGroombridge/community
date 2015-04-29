@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150414110539) do
+ActiveRecord::Schema.define(version: 20150429112132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 20150414110539) do
     t.boolean  "manually_added",        default: false
     t.integer  "order_id"
     t.boolean  "deposited",             default: false
+    t.float    "price",                 default: 0.0
   end
 
   create_table "plans", force: true do |t|
