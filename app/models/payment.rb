@@ -12,15 +12,6 @@ class Payment < ActiveRecord::Base
 
 	attr_accessor :stripe_card_token
 
-
-	# def profit
-	# 	if self.ticket.absorb_fee == true
-	# 		self.price - booking_fee
-	# 	else
-	# 		overall_price
-	# 	end
-	# end
-
 	def price
 		self.ticket.price
 	end
