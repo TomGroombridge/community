@@ -147,7 +147,7 @@ $ ->
       console.log 'Failed'
       $('input[type=submit]').attr('disabled', false)
       $('.buttonLoader').removeClass('active')
-      false
+      return false
     onSuccess: ->
       console.log 'Success'
       return

@@ -56,6 +56,7 @@ class Payment < ActiveRecord::Base
 					@fees = @booking_fee + @fees
 					@course_provider.update_attributes(fees: @fees)
 				end
+				self.update_attributes(amount_paid: @amount)
 				self.save
 			rescue Stripe::InvalidRequestError => e
 				logger.error "Stripe error while creating customer: #{e.message}"
