@@ -7,7 +7,7 @@ class CourseDatesController < ApplicationController
 	end
 
 	def create
-		@course_date = @course.course_dates.create(params[:course_date].permit(:start_date, :start_time, :end_date, :end_time, :course_id, tickets_attributes:[:course_date_id, :price, :quantity, :absorb_fee, :number_of_dates]))
+		@course_date = @course.course_dates.create(params[:course_date].permit(:start_date, :start_time, :end_date, :end_time, :course_id, tickets_attributes:[:course_date_id, :name, :price, :quantity, :absorb_fee, :number_of_dates]))
 		if @course_date.save
 			redirect_to dashboard_path(@course_date.course.user.id)
 			flash[:notice] = 'New Course Date Created'
