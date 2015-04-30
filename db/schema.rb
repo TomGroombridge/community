@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150429112132) do
+ActiveRecord::Schema.define(version: 20150430142412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 20150429112132) do
     t.boolean  "manually_added",        default: false
     t.integer  "order_id"
     t.boolean  "deposited",             default: false
-    t.float    "price",                 default: 0.0
+    t.decimal  "amount_paid",           default: 0.0
   end
 
   create_table "plans", force: true do |t|
@@ -127,7 +127,7 @@ ActiveRecord::Schema.define(version: 20150429112132) do
 
   create_table "tickets", force: true do |t|
     t.string   "name"
-    t.float    "price"
+    t.decimal  "price",           default: 0.0
     t.integer  "course_date_id"
     t.integer  "quantity"
     t.datetime "created_at"
@@ -163,7 +163,7 @@ ActiveRecord::Schema.define(version: 20150429112132) do
     t.string   "pinterest"
     t.boolean  "admin",                  default: false
     t.string   "avatar"
-    t.float    "fees",                   default: 0.0
+    t.decimal  "fees",                   default: 0.0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
