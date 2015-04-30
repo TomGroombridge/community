@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  # Sidekiq admin UI
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 
   # root "course_dates#index"
   root "pages#home_page"

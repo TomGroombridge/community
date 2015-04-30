@@ -10,7 +10,7 @@ gem "fog-aws"
 gem 'cancancan', '~> 1.10'
 gem 'carrierwave'
 gem 'ckeditor'
-gem 'delayed_job_active_record'
+gem 'delayed_job_active_record' #MSP- Do we need this if we use Sidekiq?
 gem 'devise'
 gem 'foundation-rails'
 gem 'geocoder'
