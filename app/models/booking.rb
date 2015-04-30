@@ -6,7 +6,7 @@ class Booking < ActiveRecord::Base
 	after_create :send_reminder
 
 	def send_reminder
-		@course_date = self.payment.ticket.course_date.start_date_time
+		@course_date = self.order.payment.ticket.course_date.start_date_time
 		PaymentMailer.delay_until(@course_date - 1.days).reminder(self)
 		# PaymentMailer.delay_for(10.seconds).reminder(self)
 	end
