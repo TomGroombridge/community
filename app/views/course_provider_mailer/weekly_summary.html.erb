@@ -1,0 +1,23 @@
+<p>Hi <%= @tutor.full_name %>,</p>
+
+<p>Here's a list of your bookings by date for <%= @course.name %></p>
+
+<ul>
+  <% @course_dates.each do |course_date| %>
+      <li>
+        <%= course_date.start_date %>
+
+        <ul>
+            <% course_date.booking_dates.each do |booking_date| %>
+              <li>
+                <%= booking_date.to_yaml %>
+              </li>
+            <% end %>
+        </ul>
+      </li>
+  <% end %>
+</ul>
+
+
+<p>Best wishes,</p>
+<p>Tom</p>

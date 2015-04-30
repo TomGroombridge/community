@@ -62,5 +62,16 @@ class Course < ActiveRecord::Base
     self.upcoming_date.tickets.first.price
   end
 
+  def self.provider_mailer
+    puts "Weekly update email to all course providers. Total number of courses: #{Course.count}"
+
+    Course.find_each(batch_size: 500) do |course|
+      puts "Course: #{course.name} : #{course.user.email}"
+      CourseProviderMailer.delay(:queue => 'email').weekly_summary(course.id)
+    end
+
+    puts "DONE"
+  end
+
 end
 
