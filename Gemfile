@@ -1,80 +1,45 @@
 source 'https://rubygems.org'
 ruby '2.1.2'
 
-
-gem "paperclip", "~> 4.2"
-
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.0.beta1'
-
-# Use postgresql as the database for Active Record
-gem 'pg'
-
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0.rc1'
-
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-
+gem "chartkick"
 # Use CoffeeScript for .js.coffee assets and views
-
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
-
+gem 'coffee-rails', '~> 4.0.0'
+gem "combined_time_select", "~> 1.0.1"
+gem "fog"
+gem "fog-aws"
+gem 'cancancan', '~> 1.10'
+gem 'carrierwave'
+gem 'ckeditor'
+gem 'delayed_job_active_record'
+gem 'devise'
+gem 'foundation-rails'
+gem 'geocoder'
+gem 'gon'
+gem 'groupdate'
+gem 'jbuilder', '~> 1.2'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-
-gem 'coffee-rails', '~> 4.0.0'
-
+gem 'jquery-ui-rails'
+gem "paperclip", "~> 4.2"
+gem 'pg'
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '~> 4.1.0'
+gem 'redis'
+gem 'rmagick'
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 4.0.0.rc1'
+gem 'sdoc',          group: :doc, require: false
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
+gem 'sidekiq'
+gem 'simple_form'
+gem 'sinatra', :require => nil
+gem 'stripe'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
-
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
-
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc',          group: :doc, require: false
-
-gem 'delayed_job_active_record'
-
-gem 'devise'
-
-gem 'sidekiq'
-
-gem 'stripe'
-
-gem 'foundation-rails'
-
-gem 'ckeditor'
-
-gem 'cancancan', '~> 1.10'
-
-gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
-
-gem 'groupdate'
-
-gem "chartkick"
-
-gem 'carrierwave'
-
-gem 'rmagick'
-
-gem 'gon'
-
-gem 'redis'
-
-gem 'jquery-ui-rails'
-
-gem 'geocoder'
-
-gem "combined_time_select", "~> 1.0.1"
-
-gem 'simple_form'
-
-gem "fog-aws"
-
-gem "fog"
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+# gem 'therubyracer',  platforms: :ruby
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
 
 
 group :test, :development do
