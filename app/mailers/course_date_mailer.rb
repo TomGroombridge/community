@@ -8,8 +8,8 @@ class CourseDateMailer < ActionMailer::Base
 		@course_date = course_date
 		@user = @course_date.course.user.email
 		@price = []
-		@course_date.booking_dates.each {|d| @price << d.booking.payment.price}
-		@total = @price.inject {|sum, n| sum += n }
+		# @course_date.booking_dates.each {|d| @price << d.booking.payment.price}
+		# @total = @price.inject {|sum, n| sum += n }
 		mail to: @user, subject: "List of course attendees"
 	end
 
