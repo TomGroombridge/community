@@ -14,7 +14,7 @@ class CoursesController < ApplicationController
 		@course.user = current_user
 		if @course.save
 			@user =  @course.user
-			UserMailer.delay_for(0.003.hours).welcome_email(@user, @course)
+			# UserMailer.delay_for(0.003.hours).welcome_email(@user, @course)
 			render :crop
 	  else
 		  format.html { render action: 'new' }
