@@ -21,3 +21,5 @@
 .env
 
 config/secrets.yml
+
+.idea
