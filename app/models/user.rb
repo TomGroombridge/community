@@ -23,14 +23,15 @@ class User < ActiveRecord::Base
   def balance
     @all_payments = Payment.all.select{|payment| payment.company_id == self.id }
     @payments = @all_payments.select {|payment| payment.deposited == false}
+    # raise @payments.each{|p| puts p.amount_paid}.inspect
     @price = @payments.map do |p|
       if p.manually_added == false
-        p.overall_price - p.booking_fee
-      else
-        0
+        p.amount_paid / 100
       end
     end
-    @price.inject {|sum, n| sum += n }
+    # raise @price.inspect
+    @test = @price.inject {|sum, n| sum += n }
+    raise @test.to_s.inspect
   end
 
 end
