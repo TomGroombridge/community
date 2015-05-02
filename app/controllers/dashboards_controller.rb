@@ -131,7 +131,7 @@ class DashboardsController < ApplicationController
       payment.update_attributes(:deposited => true)
     end
     @user.update_attributes(:fees => 0.00)
-    flash[:notice] = 'Successfully withdraw'
+    flash[:notice] = 'Successfully requested withdraw of funds'
     redirect_to dashboard_path
   end
 

@@ -1,19 +1,45 @@
-<%= form_for [@course_date, @booking], :multipart => true do |form| %>
-	<%= form.label :name %>
-	<%= form.text_field :name %>
-	<br>
-	<%= form.label :contact_number %>
-	<%= form.text_field :contact_number %>
-	<br>
-	<%= form.label :email %>
-	<%= form.text_field :email %>
-	<br>
-	<%= form.label :special_request %>
-	<%= form.text_field :special_request %>
-	<br>
-	<%= form.fields_for :booking_dates do |test| %>
-		<%= test.label :course_date_id %>
-		<%= test.text_field :course_date_id, :value => @course_date.id %>
-	<% end %>
-	<%= form.submit %>
+<% if flash[:message] %>
+
 <% end %>
+<div class="two column stackable ui grid dashboard course-details-dash" style="background-color: #36464f;">
+	<div class="column four wide">
+		<%= render "layouts/course_details_sidenav" %>
+	</div>
+	<div class="column twelve wide" style="background:white; min-height: 420px;">
+		<h1 style="text-align:center">Add Booking</h1>
+		<div class="ui form time-select" style="width: 80%; margin: auto;">
+			<%= form_for [@course_date, @booking], :multipart => true , :class => "ui form booking" do |form| %>
+				<div class="field">
+					<%= form.label :name %>
+					<%= form.text_field :name %>
+				</div>
+				<br>
+				<div class="field">
+					<%= form.label :contact_number %>
+					<%= form.text_field :contact_number %>
+				</div>
+				<br>
+				<div class="field">
+					<%= form.label :email %>
+					<%= form.text_field :email %>
+				</div>
+				<br>
+				<div class="field">
+					<%= form.label :special_request %>
+					<%= form.text_area :special_request %>
+				</div>
+				<br>
+				<%= form.fields_for :booking_dates do |test| %>
+					<%= test.hidden_field :course_date_id, :value => @course_date.id %>
+				<% end %>
+				<div class="ui segment no-box-shadow" style="box-shadow: none; background:none">
+          <div class="ui dimmer buttonLoader">
+            <div class="ui indeterminate text loader">Make your payment</div>
+          </div>
+          <%= form.submit("Create Booking", :id => "test", :class => "ui green button", :style => 'width: 80%; margin: auto; display: block;height: 65px;font-size: 1.7rem;') %>
+          <div class="ui error message" style="margin-top:50px;"></div>
+        </div>
+			<% end %>
+		</div>
+	</div>
+</div>

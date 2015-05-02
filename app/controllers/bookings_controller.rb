@@ -3,15 +3,20 @@ class BookingsController < ApplicationController
 	before_action :find_course_date
 
 	def new
+		@user = current_user
 		@booking = Booking.new
 		@booking_dates = @booking.booking_dates.build
 	end
 
 	def create
 		@booking = Booking.create(booking_params)
-		@booking.save
-		flash[:notice] = 'Booking Added'
-		redirect_to dashboard_path
+		if @booking.save
+			flash[:notice] = 'Booking Added'
+			redirect_to dashboard_path
+		else
+			flash[:message] = 'Failed'
+			render :new
+		end
 	end
 
 	private

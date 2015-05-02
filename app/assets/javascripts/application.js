@@ -209,5 +209,3 @@ $(function() {
   return $('.ui.form.time-select').form(validation, settings);
 });
 
-
-

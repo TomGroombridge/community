@@ -4,6 +4,7 @@ class Booking < ActiveRecord::Base
 	has_many :booking_dates
 	accepts_nested_attributes_for :booking_dates
 	after_create :send_reminder
+	validates_presence_of :name
 
 	def send_reminder
 		@booking = self
