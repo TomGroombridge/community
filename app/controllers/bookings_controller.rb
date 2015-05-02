@@ -15,12 +15,9 @@ class BookingsController < ApplicationController
 
 	private
 
-	# def fetch_and_authorize_ticket
-	# 	@ticket = Ticket.find(params[:ticket_id])
-	# end
-
 	def find_course_date
 		@course_date = CourseDate.find(params[:course_date_id])
+		raise 'Unauthorized' unless @course_date.course.user == current_user
 	end
 
 	def booking_params
