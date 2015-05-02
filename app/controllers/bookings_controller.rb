@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
 	def create
 		@booking = Booking.create(booking_params)
 		@booking.save
+		flash[:notice] = 'Booking Added'
 		redirect_to dashboard_path
 	end
 
