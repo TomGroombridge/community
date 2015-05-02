@@ -13,8 +13,7 @@
 	<br>
 	<%= form.fields_for :booking_dates do |test| %>
 		<%= test.label :course_date_id %>
-		<%= test.text_field :course_date_id %>
+		<%= test.text_field :course_date_id, :value => @course_date.id %>
 	<% end %>
-
 	<%= form.submit %>
 <% end %>

@@ -8,9 +8,9 @@ class BookingsController < ApplicationController
 	end
 
 	def create
-		@booking = Booking.new(booking_params)
+		@booking = Booking.create(booking_params)
 		@booking.save
-		raise @booking.inspect
+		redirect_to dashboard_path
 	end
 
 	private
