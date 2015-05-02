@@ -7,5 +7,11 @@ class DashboardMailer < ActionMailer::Base
 		mail to: "groombridgetom@gmail.com", subject: "Withdraw Payments"
 	end
 
+	def withdraw_notification(user)
+		@user = user
+		email = user.email
+		mail to: email, subject: "Withdraw Payments"
+	end
+
 
 end

@@ -127,6 +127,7 @@ class DashboardsController < ApplicationController
     @company_payments = Payment.all.select{|booking| booking.company_id == @user.id }
     @undeposited_payments = @company_payments.select {|payment| payment.deposited == false}
     DashboardMailer.withdraw_payments(@user).deliver!
+    DashboardMailer.withdraw_notification(@user).deliver!
     @undeposited_payments.each do |payment|
       payment.update_attributes(:deposited => true)
     end
