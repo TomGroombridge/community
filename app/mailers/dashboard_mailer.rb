@@ -1,5 +1,6 @@
 class DashboardMailer < ActionMailer::Base
 	default from: "hello@courseiam"
+	layout 'courseiam_mail'
 
 	def withdraw_payments(user)
 		@user = user
