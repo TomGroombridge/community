@@ -1,26 +1,33 @@
 class BookingsController < ApplicationController
-	before_action :fetch_and_authorize_ticket, :except => [:index]
+	# before_action :fetch_and_authorize_ticket, :except => [:index]
+	before_action :find_course_date
 
 	def new
-		@order = Order.create(params[:order])
-		@order.ticket_id = @ticket.id
-		@bookings = @order.bookings.build
-		# raise @bookings.inspect
-		# @order.bookings.build #add n.times{} depedning on the number of bookings being made
-		@order.bookings.each {|booking| 3.times{booking.booking_dates.build}}
-		# raise @order.bookings.last.booking_dates.inspect
-		# raise @order.bookings.inspect
-		@course_dates = @ticket.course_date.course.course_dates
-		@course_dates.map do |cd|
-			cd.start_time ==  cd.start_date_time.strftime("%A, %d %b %Y %l:%M %p")
+		@user = current_user
+		@booking = Booking.new
+		@booking_dates = @booking.booking_dates.build
+	end
+
+	def create
+		@booking = Booking.create(booking_params)
+		if @booking.save
+			flash[:notice] = 'Booking Added'
+			redirect_to dashboard_path
+		else
+			flash[:message] = 'Failed'
+			render :new
 		end
-		@course_date = @ticket.course_date
 	end
 
 	private
 
-	def fetch_and_authorize_ticket
-		@ticket = Ticket.find(params[:ticket_id])
+	def find_course_date
+		@course_date = CourseDate.find(params[:course_date_id])
+		raise 'Unauthorized' unless @course_date.course.user == current_user
+	end
+
+	def booking_params
+    params.require(:booking).permit(:order_id, :name, :email, :contact_number, :special_request, booking_dates_attributes:[:booking_id, :course_date_id])
 	end
 
 end

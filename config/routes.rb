@@ -22,13 +22,14 @@ Rails.application.routes.draw do
     resources :payments
   end
 
-  resources :course_dates, :only => [:index]
+  resources :course_dates do
+    resources :bookings
+  end
 
   resources :payments
 
   resources :plans
   resources :subscriptions
-
 
 
 

@@ -41,6 +41,7 @@ class Payment < ActiveRecord::Base
 		@course_provider = self.ticket.course_date.course.user
 		@fees = @course_provider.fees
 		@booking_fee = self.booking_fee
+		@booking = self.bookings.last
 		if ticket.free?
 			save! and return true
 		end
@@ -50,7 +51,7 @@ class Payment < ActiveRecord::Base
 					amount: @amount.to_i,
 					currency: "gbp",
 					card: params[:stripe_card_token],
-					description: "this is a payment for the #{@course_name} course on the #{@course_date}")
+					description: "this is a payment for the #{@course_name} course on the #{@course_date} for #{@booking.name}")
 				self.ticket.quantity -= 1
 				if self.ticket.absorb_fee == true
 					@fees = @booking_fee + @fees

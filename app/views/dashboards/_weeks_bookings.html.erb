@@ -5,17 +5,15 @@
       <th>Event</th>
       <th>Name</th>
       <th>Contact</th>
-      <th>Status</th>
     </tr>
   </thead>
   <tbody>
-	  <% @weekly_bookings.each do |booking| %>
+	  <% @weekly_bookings.each do |date| %>
 	    <tr>
-        <td><%= booking.order.ticket.course_date.course.name %><br/> <%= booking.order.ticket.course_date.start_date.strftime("%A, %d %b %Y %l:%M %p") %></td>
-	    	<td><%= booking.name %></td>
-        <td><%= booking.email %><br/><%= booking.contact_number %></td>
-        <td><%= booking.payment.status %></td>
-	    </tr>
+        <td><%= date.course_date.course.name %><br/> <%= date.course_date.start_date.strftime("%A, %d %b %Y %l:%M %p") %></td>
+        <td><%= date.booking.name %></td>
+        <td><%= date.booking.email %><br/><%= date.booking.contact_number %></td>
+      </tr>
     <% end %>
   </tbody>
 </table>

@@ -113,13 +113,13 @@ class DashboardsController < ApplicationController
 	end
 
 	def bookings
-		@bookings = Booking.all.select{|booking| booking.payment.company_id == @user.id }
-		@weekly_bookings = @bookings.select {|n| n.created_at >= 1.week.ago}
-    @monthly_bookings = @bookings.select {|n| n.created_at >= 1.month.ago}
+    @booking_dates = BookingDate.all.select{|date| date.course_date.course.id == @user.id }
+		@weekly_bookings = @booking_dates.select {|n| n.created_at >= 1.week.ago}
+    @monthly_bookings = @booking_dates.select {|n| n.created_at >= 1.month.ago}
     if params[:search]
-      @bookings = Booking.search(params[:search]).order("created_at DESC")
+      @booking_dates = BookingDate.search(params[:search]).order("created_at DESC")
     else
-      @bookings = Booking.all.order('created_at DESC')
+      @booking_dates = BookingDate.all.order('created_at DESC')
     end
 	end
 
@@ -127,11 +127,12 @@ class DashboardsController < ApplicationController
     @company_payments = Payment.all.select{|booking| booking.company_id == @user.id }
     @undeposited_payments = @company_payments.select {|payment| payment.deposited == false}
     DashboardMailer.withdraw_payments(@user).deliver!
+    DashboardMailer.withdraw_notification(@user).deliver!
     @undeposited_payments.each do |payment|
       payment.update_attributes(:deposited => true)
     end
     @user.update_attributes(:fees => 0.00)
-    flash[:notice] = 'Successfully withdraw'
+    flash[:notice] = 'Successfully requested withdraw of funds'
     redirect_to dashboard_path
   end
 
