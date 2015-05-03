@@ -12,19 +12,22 @@
       <%= f.hidden_field :stripe_card_token %>
       <%= f.fields_for(:bookings) do |booking|%>
       	<%= booking.hidden_field :order_id %>
-    		<% if @ticket.number_of_dates == 1 %>
-        <% else %>
-        	<h1 class="checkout-header">Select <%= @ticket.number_of_dates %> dates to attend</h1>
-        		<%= booking.fields_for(:booking_dates) do |date| %>
-            <div class="ui form" style="margin-top:10px;">
-              <div class="inline field required">
-                <label class="input-label">Select Course Date</label>
-                <%= date.select :course_date_id, options_from_collection_for_select(@course_dates, :id, "select_date"), { :include_blank=>true }, {:class => 'ui dropdown date-select'}%>
-              </div>
-            </div>
+      		<% if @ticket.number_of_dates != 1 %>
+        		<h1 class="checkout-header">Select <%= @ticket.number_of_dates %> dates to attend</h1>
         	<% end %>
-        	<div class="ui divider"></div>
-      	<% end %>
+        		<%= booking.fields_for(:booking_dates) do |date| %>
+			    		<% if @ticket.number_of_dates == 1 %>
+			    			<%= date.hidden_field :course_date_id, :value => @ticket.course_date.id %>
+			        <% else %>
+	            <div class="ui form" style="margin-top:10px;">
+	              <div class="inline field required">
+	                <label class="input-label">Select Course Date</label>
+	                <%= date.select :course_date_id, options_from_collection_for_select(@course_dates, :id, "select_date"), { :include_blank=>true }, {:class => 'ui dropdown date-select'}%>
+	              </div>
+	            </div>
+        			<div class="ui divider"></div>
+	        	<% end %>
+	      	<% end %>
         <h1 class="checkout-header">Your Details</h1>
 				<div class="two fields">
 			    <div class="required field">

@@ -7,15 +7,6 @@ class PaymentMailer < ActionMailer::Base
     mail to: @payment.bookings.last.email, subject: "Payment Confirmation Email"
   end
 
-  def reminder(booking_id)
-    @booking = Booking.find(booking_id)
-    @course_date = @booking.payment.ticket.course_date
-    puts "MSPX @booking: #{@booking.to_yaml}"
-    @course = @booking.payment.ticket.course_date.course
-    puts "MSPX @course: #{@course.to_yaml}"
-  	mail to: @booking.email, subject: "Reminder that your course is in less than 24 hours"
-  end
-
   def notification(payment)
   	@course = payment.ticket.course_date.course
     @payment = payment
