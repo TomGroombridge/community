@@ -6,6 +6,6 @@ include Clockwork
 
 # https://devcenter.heroku.com/articles/clock-processes-ruby
 # https://github.com/tomykaira/clockwork
-every(1.week, 'Email bookings to course providers') do
+every(0.1.hours, 'Email bookings to course providers') do
   Course.provider_mailer
 end
