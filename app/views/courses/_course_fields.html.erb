@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <label>Course Category</label>
-    <%= form.select :category, options_for_select([["Arts & Crafts", "arts"], ["Food & Drink","food"],["Health & Wellbeing", "health"],["Music", "music"],["Other", "other"]])%>
+    <%= form.select :category, options_for_select([["Arts & Crafts", "arts"], ["Food & Drink","food"],["Health & Wellbeing", "health"],["Music", "music"],["Outdoor Education", "outdoor"],["Other", "other"]])%>
   </div>
   <%= form.fields_for :course_addresses do |addresses_form| %>
 	  <div class="two fields">
