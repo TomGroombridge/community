@@ -40,7 +40,7 @@ class DashboardsController < ApplicationController
 
 	def weeks_transactions_csv
 		csv_string = CSV.generate do |csv|
-      csv << ['First name', 'Last name', 'Email']
+      csv << ['Ammount paid', 'Fees', 'Transaction date' ]
       @payments = Payment.all.select{|payment| payment.company_id == @user.id }
       @weekly_payments = @payments.select {|n| n.created_at >= 1.week.ago}
       @payments = @weekly_payments.map do |payment|
@@ -48,7 +48,7 @@ class DashboardsController < ApplicationController
       end
       @payments.each do |payment|
         client_data = []
-        client_data << payment.price
+        client_data << payment.amount_paid.to_s
         client_data << payment.booking_fee
         client_data << payment.created_at.strftime("%A, %d %b %Y %l:%M %p")
         csv << client_data
@@ -65,7 +65,7 @@ class DashboardsController < ApplicationController
 
 	def months_transactions_csv
 		csv_string = CSV.generate do |csv|
-      csv << ['First name', 'Last name', 'Email']
+      csv << ['Ammount paid', 'Fees', 'Transaction date' ]
       @payments = Payment.all.select{|payment| payment.company_id == @user.id }
       @monthly_payments = @payments.select {|n| n.created_at >= 1.month.ago}
       @payments = @monthly_payments.map do |payment|
@@ -73,7 +73,7 @@ class DashboardsController < ApplicationController
       end
       @payments.each do |payment|
         client_data = []
-        client_data << payment.price
+        client_data << payment.amount_paid.to_s
         client_data << payment.booking_fee
         client_data << payment.created_at.strftime("%A, %d %b %Y %l:%M %p")
         csv << client_data
@@ -90,14 +90,14 @@ class DashboardsController < ApplicationController
 
 	def all_transactions_csv
 		csv_string = CSV.generate do |csv|
-      csv << ['First name', 'Last name', 'Email']
+      csv << ['Ammount paid', 'Fees', 'Transaction date' ]
       @payments = Payment.all.select{|payment| payment.company_id == @user.id }
       @payments = @payments.map do |payment|
       	payment
       end
       @payments.each do |payment|
         client_data = []
-        client_data << payment.price
+        client_data << payment.amount_paid.to_s
         client_data << payment.booking_fee
         client_data << payment.created_at.strftime("%A, %d %b %Y %l:%M %p")
         csv << client_data
@@ -122,6 +122,31 @@ class DashboardsController < ApplicationController
     #   @booking_dates = BookingDate.all.order('created_at DESC')
     # end
 	end
+
+  def weeks_bookings_csv
+    csv_string = CSV.generate do |csv|
+      csv << ['Name', 'Email', 'Created at']
+      @booking_dates = BookingDate.all.select{|date| date.course_date.course.id == @user.id }
+      @weekly_bookings = @booking_dates.select {|n| n.created_at >= 1.week.ago}
+      @booking_dates = @weekly_bookings.map do |booking|
+        booking
+      end
+      @booking_dates.each do |date|
+        client_data = []
+        client_data << date.booking.name
+        client_data << date.booking.email
+        client_data << date.booking.created_at.strftime("%A, %d %b %Y %l:%M %p")
+        csv << client_data
+      end
+    end
+    respond_to do |format|
+      format.csv do
+        response.headers['Content-Type'] = 'text/csv'
+        response.headers['Content-Disposition'] = 'attachment; filename=WeeksBookings.csv'
+        render text: csv_string
+      end
+    end
+  end
 
   def withdraw
     @company_payments = Payment.all.select{|booking| booking.company_id == @user.id }

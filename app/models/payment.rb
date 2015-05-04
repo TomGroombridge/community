@@ -22,9 +22,9 @@ class Payment < ActiveRecord::Base
 
 	def overall_price
 		if self.ticket.absorb_fee == true
-			price
-		else
 			booking_fee + price
+		else
+			price
 		end
 	end
 

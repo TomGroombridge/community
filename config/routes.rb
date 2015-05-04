@@ -50,6 +50,7 @@ Rails.application.routes.draw do
   resource :dashboard do
     get 'transactions'
     get 'weeks_transactions_csv'
+    get 'weeks_bookings_csv'
     get 'months_transactions_csv'
     get 'all_transactions_csv'
     get 'bookings'
