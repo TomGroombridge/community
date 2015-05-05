@@ -6,3 +6,8 @@
 <% end %>
 <div class="ui divider" style="width: 90%; margin: auto; border-top: 1px solid #dadada; margin-top: 15px;"></div>
 <h3 class="overall-price">Overall Price: <%= number_to_currency(@payment.overall_price , :precision => 2, :unit => "£")  %></h3>
+<div class="ui divider" style="width: 90%; margin: auto; border-top: 1px solid #dadada; margin-top: 15px;"></div>
+<div class="company_logo" style="text-align:center">
+	<%= image_tag (@ticket.course_date.course.user.avatar_url(:thumb)), :style => "border-radius:10px;	"%>
+	<h1 class="course-address">Brought to you by <span style="font-weight:bold"><%= @ticket.course_date.course.user.company_name %></span></h1>
+</div>

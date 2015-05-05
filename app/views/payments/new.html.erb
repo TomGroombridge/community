@@ -26,9 +26,11 @@
 	                <%= date.select :course_date_id, options_from_collection_for_select(@course_dates, :id, "select_date"), { :include_blank=>true }, {:class => 'ui dropdown date-select'}%>
 	              </div>
 	            </div>
-        			<div class="ui divider"></div>
 	        	<% end %>
 	      	<% end %>
+	      	<% if @ticket.number_of_dates != 1 %>
+        		<div class="ui divider"></div>
+        	<% end %>
         <h1 class="checkout-header">Your Details</h1>
 				<div class="two fields">
 			    <div class="required field">
