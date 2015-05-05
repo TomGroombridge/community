@@ -7,7 +7,7 @@ class CourseDateMailer < ActionMailer::Base
 	def course_info(course_date_id)
 		@course_date = CourseDate.find(course_date_id)
 		puts "MSPX @course: #{@course_date.to_yaml}"
-		@user = @course_date.course.user.email
+		@user = @course_date.course.user
 		@price = []
 		@course_date.booking_dates.each {|d| @price << d.booking.payment.price}
 		@total = @price.inject {|sum, n| sum += n }
