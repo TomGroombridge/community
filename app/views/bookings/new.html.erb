@@ -8,7 +8,7 @@
 	<div class="column twelve wide" style="background:white; min-height: 420px;">
 		<h1 style="text-align:center">Add Booking</h1>
 		<div class="ui form time-select" style="width: 80%; margin: auto;">
-			<%= form_for [@course_date, @booking], :multipart => true , :class => "ui form booking" do |form| %>
+			<%= form_for [@course_date, @booking], :multipart => true, :html => {:class => "ui form booking"} do |form| %>
 				<div class="field">
 					<%= form.label :name %>
 					<%= form.text_field :name %>
