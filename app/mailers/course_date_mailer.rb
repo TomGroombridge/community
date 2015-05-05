@@ -11,7 +11,7 @@ class CourseDateMailer < ActionMailer::Base
 		@price = []
 		@course_date.booking_dates.each {|d| @price << d.booking.payment.price}
 		@total = @price.inject {|sum, n| sum += n }
-		mail to: @user, subject: "List of course attendees"
+		mail to: @user.email, subject: "List of course attendees"
 	end
 
 	# def new_date(course_date)
