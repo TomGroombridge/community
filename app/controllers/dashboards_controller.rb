@@ -40,7 +40,7 @@ class DashboardsController < ApplicationController
 
 	def weeks_transactions_csv
 		csv_string = CSV.generate do |csv|
-      csv << ['Ammount paid', 'Fees', 'Transaction date' ]
+      csv << ['Name', 'Ammount paid', 'Fees', 'Transaction date' ]
       @payments = Payment.all.select{|payment| payment.company_id == @user.id }
       @weekly_payments = @payments.select {|n| n.created_at >= 1.week.ago}
       @payments = @weekly_payments.map do |payment|
@@ -48,6 +48,7 @@ class DashboardsController < ApplicationController
       end
       @payments.each do |payment|
         client_data = []
+        client_data << payment.bookings.last.name
         client_data << payment.amount_paid.to_s
         client_data << payment.booking_fee
         client_data << payment.created_at.strftime("%A, %d %b %Y %l:%M %p")
