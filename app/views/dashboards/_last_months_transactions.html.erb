@@ -19,7 +19,11 @@
         <% else %>
           <td><%= number_to_currency(payment.amount_paid, :precision => 2, :unit => "£") %></td>
         <% end %>
-        <td><%= number_to_currency(payment.ticket_fee, :precision => 2, :unit => "£") %></td>
+        <% if payment.ticket_fee.to_s == "0.0" %>
+          <td><%= number_to_currency((payment.ticket.price * 0.04), :precision => 2, :unit => "£") %></td>
+        <% else %>
+          <td><%= number_to_currency(payment.ticket_fee, :precision => 2, :unit => "£") %></td>
+        <% end %>
         <td><%= number_to_currency(payment.profit, :precision => 2, :unit => "£") %></td>
       </tr>
     <% end %>
