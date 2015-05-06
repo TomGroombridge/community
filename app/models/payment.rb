@@ -21,7 +21,7 @@ class Payment < ActiveRecord::Base
 
 	def company_fee
 		if self.ticket.absorb_fee == true
-			self.ticket_fee * 0.04
+			self.ticket_fee
 		else
 			0.00
 		end
