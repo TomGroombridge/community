@@ -35,7 +35,7 @@ class DashboardsController < ApplicationController
     @payments.sort_by! do |payment|
       payment.created_at
     end
-    @payments.reverse
+    @payments = @payments.reverse
 		@weekly_payments = @payments.select {|n| n.created_at >= DateTime.now.beginning_of_week}
 		@monthly_payments = @payments.select {|n| n.created_at >= DateTime.now.beginning_of_month}
 	end
