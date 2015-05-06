@@ -44,7 +44,7 @@ class DashboardsController < ApplicationController
 		csv_string = CSV.generate do |csv|
       csv << ['Name', 'Ammount paid', 'Fees', 'Net', 'Transaction date' ]
       @payments = Payment.all.select{|payment| payment.company_id == @user.id }
-      @weekly_payments = @payments.select {|n| n.created_at >= 1.week.ago}
+      @weekly_payments = @payments.select {|n| n.created_at >= DateTime.now.beginning_of_week}
       @payments = @weekly_payments.map do |payment|
       	payment
       end
@@ -71,7 +71,7 @@ class DashboardsController < ApplicationController
 		csv_string = CSV.generate do |csv|
       csv << ['Name', 'Ammount paid', 'Fees', 'Net', 'Transaction date' ]
       @payments = Payment.all.select{|payment| payment.company_id == @user.id }
-      @monthly_payments = @payments.select {|n| n.created_at >= 1.month.ago}
+      @monthly_payments = @payments.select {|n| n.created_at >= DateTime.now.beginning_of_month}
       @payments = @monthly_payments.map do |payment|
       	payment
       end
@@ -131,7 +131,7 @@ class DashboardsController < ApplicationController
     csv_string = CSV.generate do |csv|
       csv << ['Course', 'Start date', 'Name', 'Email', 'Contact number',  'Created at']
       @booking_dates = BookingDate.all.select{|date| date.course_date.course.id == @user.id }
-      @weekly_bookings = @booking_dates.select {|n| n.created_at >= 1.week.ago}
+      @weekly_bookings = @booking_dates.select {|n| n.created_at >= DateTime.now.beginning_of_week}
       @booking_dates = @weekly_bookings.map do |booking|
         booking
       end
@@ -159,7 +159,7 @@ class DashboardsController < ApplicationController
     csv_string = CSV.generate do |csv|
       csv << ['Course', 'Start date', 'Name', 'Email', 'Contact number',  'Created at']
       @booking_dates = BookingDate.all.select{|date| date.course_date.course.id == @user.id }
-      @monthly_bookings = @booking_dates.select {|n| n.created_at >= 1.month.ago}
+      @monthly_bookings = @booking_dates.select {|n| n.created_at >= DateTime.now.beginning_of_month}
       @booking_dates = @monthly_bookings.map do |booking|
         booking
       end
