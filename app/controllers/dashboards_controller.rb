@@ -48,7 +48,7 @@ class DashboardsController < ApplicationController
         client_data = []
         client_data << payment.bookings.last.name
         client_data << payment.amount_paid.to_s
-        client_data << payment.booking_fee
+        client_data << payment.ticket_fee
         client_data << payment.profit
         client_data << payment.created_at.strftime("%A, %d %b %Y %l:%M %p")
         csv << client_data
@@ -75,7 +75,7 @@ class DashboardsController < ApplicationController
         client_data = []
         client_data << payment.bookings.last.name
         client_data << payment.amount_paid.to_s
-        client_data << payment.booking_fee
+        client_data << payment.ticket_fee
         client_data << payment.profit
         client_data << payment.created_at.strftime("%A, %d %b %Y %l:%M %p")
         csv << client_data
@@ -101,7 +101,7 @@ class DashboardsController < ApplicationController
         client_data = []
         client_data << payment.bookings.last.name
         client_data << payment.amount_paid.to_s
-        client_data << payment.booking_fee
+        client_data << payment.ticket_fee
         client_data << payment.profit
         client_data << payment.created_at.strftime("%A, %d %b %Y %l:%M %p")
         csv << client_data

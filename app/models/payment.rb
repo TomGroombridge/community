@@ -16,7 +16,8 @@ class Payment < ActiveRecord::Base
 	end
 
 	def booking_fee
-		self.amount_paid * 0.04
+		fee = self.amount_paid * 0.04
+		fee.to_d
 	end
 
 	def company_fee
