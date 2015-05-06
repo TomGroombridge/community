@@ -20,9 +20,6 @@ class Payment < ActiveRecord::Base
 		self.amount_paid * 0.04
 	end
 
-	def ticket_fee
-		self.ticket.price * 0.04
-	end
 
 	def company_fee
 		if self.ticket.absorb_fee == true
@@ -32,7 +29,11 @@ class Payment < ActiveRecord::Base
 		end
 	end
 
-	def ticket_price
+	def ticket_fee
+		self.ticket.price * 0.04
+	end
+
+	def overall_payment
 		if self.ticket.absorb_fee == true
 			self.ticket.price
 		else
@@ -58,7 +59,7 @@ class Payment < ActiveRecord::Base
 	end
 
 	def save_with_payment(params)
-		@amount = self.ticket_price * 100
+		@amount = self.overall_payment * 100
 		@course_name = self.ticket.course_date.course.name
 		@course_date = self.ticket.course_date.start_date.strftime("%d/%m/%Y")
 		@quantity = self.ticket.quantity
