@@ -122,6 +122,7 @@ class DashboardsController < ApplicationController
 
 	def bookings
     @booking_dates = BookingDate.all.select{|date| date.course_date.course.id == @user.id }
+    @booking_dates.compact
 		@weekly_bookings = @booking_dates.select {|n| n.created_at >= DateTime.now.beginning_of_week}
     @monthly_bookings = @booking_dates.select {|n| n.created_at >= DateTime.now.beginning_of_month}
 	end

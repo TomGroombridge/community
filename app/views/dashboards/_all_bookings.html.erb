@@ -14,7 +14,7 @@
   <tbody>
 	  <% @booking_dates.each do |date| %>
 	    <tr>
-        <td><%= date.course_date.course.name %><br/> <%= date.course_date.start_date_time.strftime("%A, %d %b %Y %l:%M %p") %></td>
+        <td><%= date.course_date.course.name %><br/> <%= date.course_date.start_date_time.strftime("%A, %d %b") %></td>
 	    	<td><%= date.booking.name %></td>
         <td><%= date.booking.email %><br/><%= date.booking.contact_number %></td>
 	    </tr>
