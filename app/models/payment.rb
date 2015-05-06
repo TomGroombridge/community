@@ -17,7 +17,11 @@ class Payment < ActiveRecord::Base
 	end
 
 	def booking_fee
-		self.amount_paid * 0.04
+		if self.amount_paid.to_s == "0.00"
+			self.ticket.price * 0.04
+		else
+			self.amount_paid * 0.04
+		end
 	end
 
 	def company_fee
