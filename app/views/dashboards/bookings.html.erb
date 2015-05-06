@@ -1,6 +1,20 @@
 <div class="two column stackable ui grid dashboard" style="height:100%; background-color: #36464f;">
 	<div class="column four wide" style="height: 100%">
-		<%# render "layouts/dashboard_sidenav" %>
+		<div class="dash-sidenav">
+			<div class="account">
+		    <div class=""><%= image_tag @user.avatar_url(:thumb), :class => "profile-pic"%></div>
+		    <div class="username"><%= @user.company_name %></div>
+		  </div>
+		  <div class="ui divider"></div>
+			<!-- <div class="ui divider"></div> -->
+
+			<div class="ui list side-buttons" style="text-align:center">
+			  <%= link_to("Transactions", transactions_dashboard_path, :class => "item", :style => "text-align:center; color:white;") %>
+				<%= link_to("Edit Company Details", edit_user_path(@user.id), :class => "item", :style => "text-align:center; color:white;") %>
+				<%= link_to("Bookings", bookings_dashboard_path, :class => "item", :style => "text-align:center; color:white;") %>
+			  <%= link_to( "Back to Dashboard".html_safe, dashboard_path, :class => "item" ) %>
+			</div>
+		</div>
 	</div>
 	<div class="column twelve wide" style="height: 100%; background:white; min-height:500px;">
 		<div class="row" style="padding-bottom:30px;">
@@ -8,18 +22,18 @@
 			<h3 class="header sub-heading">Check all your company bookings</h3>
 		</div>
 		<div class="ui pointing secondary menu">
-	    <a class="active item" data-tab="first" style="width:33.3%; text-align:center;font-size: 18px;">All Bookings</a>
-	    <a class="item" data-tab="second" style="width:33.3%; text-align:center;font-size: 18px;">Bookings this week</a>
-	    <a class="item" data-tab="third" style="width:33.3%; text-align:center;font-size: 18px;">Bookings this month</a>
+	    <a class="active item" data-tab="second" style="width:33.3%; text-align:center;font-size: 18px;">Bookings this week<span style="display:block; font-size:16px; font-weight:100; margin-top:8px;">(<%= DateTime.now.beginning_of_week.strftime("%A, %d %b") %>)</span></a>
+	    <a class="item" data-tab="third" style="width:33.3%; text-align:center;font-size: 18px;">Bookings this month<span style="display:block; font-size:16px; font-weight:100; margin-top:8px;">(<%= DateTime.now.beginning_of_month.strftime("%A, %d %b") %>)</span></a>
+	    <a class="item" data-tab="first" style="width:33.3%; text-align:center;font-size: 18px;">All Bookings</a>
 	  </div>
 	  <div class="ui active tab" data-tab="first">
-	  	<%= render 'all_bookings' %>
-		</div>
-		<div class="ui tab" data-tab="second">
 	  	<%= render 'weeks_bookings' %>
 		</div>
-		<div class="ui tab" data-tab="third">
+		<div class="ui tab" data-tab="second">
 			<%= render 'months_bookings' %>
+		</div>
+		<div class="ui tab" data-tab="third">
+	  	<%= render 'all_bookings' %>
 		</div>
 	</div>
 </div>

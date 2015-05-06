@@ -32,8 +32,8 @@ class DashboardsController < ApplicationController
 	def transactions
 		@payments = Payment.all.select{|payment| payment.company_id == @user.id }
 		@payments = @payments.compact
-		@weekly_payments = @payments.select {|n| n.created_at >= 1.week.ago}
-		@monthly_payments = @payments.select {|n| n.created_at >= 1.month.ago}
+		@weekly_payments = @payments.select {|n| n.created_at >= DateTime.now.beginning_of_week}
+		@monthly_payments = @payments.select {|n| n.created_at >= DateTime.now.beginning_of_month}
 	end
 
 	def weeks_transactions_csv
@@ -118,18 +118,13 @@ class DashboardsController < ApplicationController
 
 	def bookings
     @booking_dates = BookingDate.all.select{|date| date.course_date.course.id == @user.id }
-		@weekly_bookings = @booking_dates.select {|n| n.created_at >= 1.week.ago}
-    @monthly_bookings = @booking_dates.select {|n| n.created_at >= 1.month.ago}
-    # if params[:search]
-    #   @booking_dates = BookingDate.search(params[:search]).order("created_at DESC")
-    # else
-    #   @booking_dates = BookingDate.all.order('created_at DESC')
-    # end
+		@weekly_bookings = @booking_dates.select {|n| n.created_at >= DateTime.now.beginning_of_week}
+    @monthly_bookings = @booking_dates.select {|n| n.created_at >= DateTime.now.beginning_of_month}
 	end
 
   def weeks_bookings_csv
     csv_string = CSV.generate do |csv|
-      csv << ['Name', 'Email', 'Created at']
+      csv << ['Course', 'Start date', 'Name', 'Email', 'Contact number',  'Created at']
       @booking_dates = BookingDate.all.select{|date| date.course_date.course.id == @user.id }
       @weekly_bookings = @booking_dates.select {|n| n.created_at >= 1.week.ago}
       @booking_dates = @weekly_bookings.map do |booking|
@@ -137,8 +132,66 @@ class DashboardsController < ApplicationController
       end
       @booking_dates.each do |date|
         client_data = []
+        client_data << date.course_date.course.name
+        client_data << date.course_date.start_date.strftime("%d/%m/%Y")
         client_data << date.booking.name
         client_data << date.booking.email
+        client_data << date.booking.contact_number
+        client_data << date.booking.created_at.strftime("%A, %d %b %Y %l:%M %p")
+        csv << client_data
+      end
+    end
+    respond_to do |format|
+      format.csv do
+        response.headers['Content-Type'] = 'text/csv'
+        response.headers['Content-Disposition'] = 'attachment; filename=WeeksBookings.csv'
+        render text: csv_string
+      end
+    end
+  end
+
+  def months_bookings_csv
+    csv_string = CSV.generate do |csv|
+      csv << ['Course', 'Start date', 'Name', 'Email', 'Contact number',  'Created at']
+      @booking_dates = BookingDate.all.select{|date| date.course_date.course.id == @user.id }
+      @monthly_bookings = @booking_dates.select {|n| n.created_at >= 1.month.ago}
+      @booking_dates = @monthly_bookings.map do |booking|
+        booking
+      end
+      @booking_dates.each do |date|
+        client_data = []
+        client_data << date.course_date.course.name
+        client_data << date.course_date.start_date.strftime("%d/%m/%Y")
+        client_data << date.booking.name
+        client_data << date.booking.email
+        client_data << date.booking.contact_number
+        client_data << date.booking.created_at.strftime("%A, %d %b %Y %l:%M %p")
+        csv << client_data
+      end
+    end
+    respond_to do |format|
+      format.csv do
+        response.headers['Content-Type'] = 'text/csv'
+        response.headers['Content-Disposition'] = 'attachment; filename=WeeksBookings.csv'
+        render text: csv_string
+      end
+    end
+  end
+
+  def all_bookings_csv
+    csv_string = CSV.generate do |csv|
+      csv << ['Course', 'Start date', 'Name', 'Email', 'Contact number',  'Created at']
+      @all_bookings = BookingDate.all.select{|date| date.course_date.course.id == @user.id }
+      @booking_dates = @all_bookings.map do |booking|
+        booking
+      end
+      @booking_dates.each do |date|
+        client_data = []
+        client_data << date.course_date.course.name
+        client_data << date.course_date.start_date.strftime("%d/%m/%Y")
+        client_data << date.booking.name
+        client_data << date.booking.email
+        client_data << date.booking.contact_number
         client_data << date.booking.created_at.strftime("%A, %d %b %Y %l:%M %p")
         csv << client_data
       end

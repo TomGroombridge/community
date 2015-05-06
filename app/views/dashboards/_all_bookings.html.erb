@@ -2,6 +2,7 @@
   <%# text_field_tag :search, params[:search], placeholder: "Search Bookings" %>
   <%# submit_tag "Search" %>
 <%# end %>
+<%= link_to 'Download <i class="download icon"></i>'.html_safe, all_bookings_csv_dashboard_path(format: :csv), :class => "ui button " %>
 <table class="ui celled table">
   <thead>
     <tr>

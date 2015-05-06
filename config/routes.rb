@@ -48,6 +48,8 @@ Rails.application.routes.draw do
   end
 
   resource :dashboard do
+    get 'months_bookings_csv'
+    get 'all_bookings_csv'
     get 'transactions'
     get 'weeks_transactions_csv'
     get 'weeks_bookings_csv'
