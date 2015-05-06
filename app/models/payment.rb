@@ -13,7 +13,11 @@ class Payment < ActiveRecord::Base
 	attr_accessor :stripe_card_token
 
 	def price
-		self.amount_paid
+		if self.amount_paid.to_s == "0.00"
+			self.ticket.price
+		else
+			self.amount_paid
+		end
 	end
 
 	def booking_fee
