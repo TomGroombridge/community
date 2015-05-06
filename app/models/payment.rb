@@ -6,7 +6,6 @@ class Payment < ActiveRecord::Base
 	belongs_to :user
 	has_many :bookings
 	after_create :send_new_payment_email
-	# after_create :send_reminder
 	after_create :send_notification
 	accepts_nested_attributes_for :bookings
 
@@ -20,10 +19,9 @@ class Payment < ActiveRecord::Base
 		self.amount_paid * 0.04
 	end
 
-
 	def company_fee
 		if self.ticket.absorb_fee == true
-			self.amount_paid * 0.04
+			self.ticket_fee * 0.04
 		else
 			0.00
 		end

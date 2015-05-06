@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
     @payments = @all_payments.select {|payment| payment.deposited == false}
     @price = @payments.map do |p|
       if p.manually_added == false
-        p.booking_fee
+        p.ticket_fee
       else
         0.00
       end
