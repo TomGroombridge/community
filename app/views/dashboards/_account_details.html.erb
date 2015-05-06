@@ -11,8 +11,12 @@
           <td><%= number_to_currency(@revenue , :precision => 2, :unit => "£")  %></td>
         </tr>
         <tr>
-          <td>Fees</td>
-          <td><%= number_to_currency(@user.feees , :precision => 2, :unit => "£")  %></td>
+          <td>All Bookings Fees</td>
+          <td><%= number_to_currency(@user.all_fees , :precision => 2, :unit => "£")  %></td>
+        </tr>
+        <tr>
+          <td>Fees Outstanding</td>
+          <td><%= number_to_currency(@user.outstanding_fees , :precision => 2, :unit => "£")  %></td>
         </tr>
         <tr>
           <td>Account Balance</td>

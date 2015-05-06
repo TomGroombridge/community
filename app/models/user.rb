@@ -33,12 +33,25 @@ class User < ActiveRecord::Base
     @price.inject {|sum, n| sum += n }
   end
 
-  def feees
+  def all_fees
     @all_payments = Payment.all.select{|payment| payment.company_id == self.id }
     @payments = @all_payments.select {|payment| payment.deposited == false}
     @price = @payments.map do |p|
       if p.manually_added == false
         p.booking_fee
+      else
+        0.00
+      end
+    end
+    @price.inject {|sum, n| sum += n }
+  end
+
+  def outstanding_fees
+    @all_payments = Payment.all.select{|payment| payment.company_id == self.id }
+    @payments = @all_payments.select {|payment| payment.deposited == false}
+    @price = @payments.map do |p|
+      if p.manually_added == false
+        p.company_fee
       else
         0.00
       end
