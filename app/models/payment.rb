@@ -13,19 +13,15 @@ class Payment < ActiveRecord::Base
 	attr_accessor :stripe_card_token
 
 	def price
-		if self.amount_paid.to_s == "0.00"
-			self.ticket.price
-		else
-			self.amount_paid
-		end
+		self.amount_paid
 	end
 
 	def booking_fee
-		if self.amount_paid.to_s == "0.00"
-			self.ticket.price * 0.04
-		else
-			self.amount_paid * 0.04
-		end
+		self.amount_paid * 0.04
+	end
+
+	def ticket_fee
+		self.ticket.price * 0.04
 	end
 
 	def company_fee
@@ -33,6 +29,14 @@ class Payment < ActiveRecord::Base
 			self.amount_paid * 0.04
 		else
 			0.00
+		end
+	end
+
+	def ticket_price
+		if self.ticket.absorb_fee == true
+			self.ticket.price
+		else
+			self.ticket.price + ticket_fee
 		end
 	end
 
@@ -45,11 +49,7 @@ class Payment < ActiveRecord::Base
 	end
 
 	def profit
-		if self.ticket.absorb_fee == true
-			price - booking_fee
-		else
-			price
-		end
+		price - booking_fee
 	end
 
 	def reduce_quantity
@@ -58,13 +58,10 @@ class Payment < ActiveRecord::Base
 	end
 
 	def save_with_payment(params)
-		@amount = self.overall_price * 100
+		@amount = self.ticket_price * 100
 		@course_name = self.ticket.course_date.course.name
 		@course_date = self.ticket.course_date.start_date.strftime("%d/%m/%Y")
 		@quantity = self.ticket.quantity
-		@course_provider = self.ticket.course_date.course.user
-		@fees = @course_provider.fees
-		@booking_fee = self.booking_fee
 		@booking = self.bookings.last
 		if ticket.free?
 			save! and return true
@@ -77,10 +74,10 @@ class Payment < ActiveRecord::Base
 					card: params[:stripe_card_token],
 					description: "this is a payment for the #{@course_name} course on the #{@course_date} for #{@booking.name}")
 				self.ticket.quantity -= 1
-				if self.ticket.absorb_fee == true
-					@fees = @booking_fee + @fees
-					@course_provider.update_attributes(fees: @fees)
-				end
+				# if self.ticket.absorb_fee == true
+				# 	@fees = @booking_fee + @fees
+				# 	@course_provider.update_attributes(fees: @fees)
+				# end
 				self.save
 			rescue Stripe::InvalidRequestError => e
 				logger.error "Stripe error while creating customer: #{e.message}"

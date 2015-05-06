@@ -10,6 +10,7 @@
 		<%= form_for [@ticket, @payment], :html => {:class => 'ui form payment fluid', :style => "width: 80%; margin: auto;"} do |f| %>
 			<%= f.hidden_field :ticket_id %>
       <%= f.hidden_field :stripe_card_token %>
+      <%= f.hidden_field :ticket_price, :value => @ticket.price %>
       <%= f.hidden_field :amount_paid, :value => @payment.overall_price %>
       <%= f.fields_for(:bookings) do |booking|%>
       	<%= booking.hidden_field :order_id %>
