@@ -12,12 +12,12 @@
   <tbody>
 	  <% @weekly_payments.each do |payment| %>
 	    <tr>
-	    	<td><%= time_ago_in_words(payment.created_at)%> ago</td>
-	    	<td><%= payment.bookings.last.name %></td>
-	    	<td><%= payment.amount_paid %></td>
-	    	<td><%= payment.booking_fee %></td>
-	    	<td><%= payment.profit %></td>
-	    </tr>
+        <td><%= time_ago_in_words(payment.created_at)%> ago</td>
+        <td><%= payment.bookings.last.name %></td>
+        <td><%= number_to_currency(payment.amount_paid, :precision => 2, :unit => "£") %></td>
+        <td><%= number_to_currency(payment.booking_fee, :precision => 2, :unit => "£") %></td>
+        <td><%= number_to_currency(payment.profit, :precision => 2, :unit => "£") %></td>
+      </tr>
     <% end %>
   </tbody>
 </table>
