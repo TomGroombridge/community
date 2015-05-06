@@ -11,6 +11,7 @@
 			<%= f.hidden_field :ticket_id %>
       <%= f.hidden_field :stripe_card_token %>
       <%= f.hidden_field :ticket_price, :value => @ticket.price %>
+      <%= f.hidden_field :ticket_fee, :value => (@ticket.price * 0.04) %>
       <%= f.hidden_field :amount_paid, :value => @payment.overall_price %>
       <%= f.fields_for(:bookings) do |booking|%>
       	<%= booking.hidden_field :order_id %>

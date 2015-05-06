@@ -56,7 +56,7 @@ class PaymentsController < ApplicationController
   end
 
   def payment_params
-    params.require(:payment).permit(:course_date_id, :email, :price, :ticket_price, :course_id, :stripe_card_token, :full_name, :mobile_number, :special_request, :quantity, :ticket_id, :course_date_id, :company_id, :amount_paid, :order_id, bookings_attributes:[ :booking_id, :course_date_id, :name, :email, :contact_number, :special_request, booking_dates_attributes:[:course_date_id]])
+    params.require(:payment).permit(:course_date_id, :email, :price, :ticket_price, :ticket_fee, :course_id, :stripe_card_token, :full_name, :mobile_number, :special_request, :quantity, :ticket_id, :course_date_id, :company_id, :amount_paid, :order_id, bookings_attributes:[ :booking_id, :course_date_id, :name, :email, :contact_number, :special_request, booking_dates_attributes:[:course_date_id]])
   end
 
 
