@@ -14,7 +14,11 @@
 	    <tr>
         <td><%= time_ago_in_words(payment.created_at)%> ago</td>
         <td><%= payment.bookings.last.name %></td>
-        <td><%= number_to_currency(payment.amount_paid, :precision => 2, :unit => "£") %></td>
+        <% if payment.amount_paid.to_s == "0.0" %>
+          <td><%= number_to_currency(payment.ticket.price, :precision => 2, :unit => "£") %></td>
+        <% else %>
+          <td><%= number_to_currency(payment.amount_paid, :precision => 2, :unit => "£") %></td>
+        <% end %>
         <td><%= number_to_currency(payment.booking_fee, :precision => 2, :unit => "£") %></td>
         <td><%= number_to_currency(payment.profit, :precision => 2, :unit => "£") %></td>
       </tr>
