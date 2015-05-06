@@ -13,7 +13,7 @@ class Payment < ActiveRecord::Base
 	attr_accessor :stripe_card_token
 
 	def price
-		self.ticket.price
+		self.amount_paid
 	end
 
 	def booking_fee
