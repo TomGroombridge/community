@@ -19,12 +19,10 @@ class DashboardsController < ApplicationController
 		if @undeposited_payments.count > 0
 			@price = @undeposited_payments.map do |p|
 				if p.manually_added == false
-					p.price
-				else
-					0
-				end
+          p.amount_paid
+        end
 			end
-			@revenue = @price.inject {|sum, n| sum += n }
+			@revenue = @price.compact.inject {|sum, n| sum += n }
 		else
 			@revenue = 0
 			@monthly_payments = []
