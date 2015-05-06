@@ -13,7 +13,7 @@ class Payment < ActiveRecord::Base
 	attr_accessor :stripe_card_token
 
 	def price
-		self.amount_paid
+		self.ticket.price
 	end
 
 	def booking_fee
@@ -45,7 +45,7 @@ class Payment < ActiveRecord::Base
 		if self.ticket.absorb_fee == true
 			price
 		else
-			booking_fee + price
+			ticket_fee + price
 		end
 	end
 
