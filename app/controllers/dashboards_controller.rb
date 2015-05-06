@@ -31,7 +31,10 @@ class DashboardsController < ApplicationController
 
 	def transactions
 		@payments = Payment.all.select{|payment| payment.company_id == @user.id }
-		@payments = @payments.compact
+    @payments = @payments.compact
+    @payments.sort_by! do |payment|
+      payment.created_at
+    end
 		@weekly_payments = @payments.select {|n| n.created_at >= DateTime.now.beginning_of_week}
 		@monthly_payments = @payments.select {|n| n.created_at >= DateTime.now.beginning_of_month}
 	end
