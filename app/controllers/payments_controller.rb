@@ -11,7 +11,7 @@ class PaymentsController < ApplicationController
     @order.ticket_id = @ticket.id
     @course_dates = @ticket.course_date.course.unsold_dates
     @course_dates.map do |cd|
-      cd.start_time ==  cd.start_date_time.strftime("%A, %d %b %Y %l:%M %p")
+      cd.start_time == cd.start_date_time.strftime("%A, %d %b %Y %l:%M %p")
     end
   end
 
