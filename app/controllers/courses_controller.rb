@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
 	before_action :fetch_and_authorize_course, :except => [:index, :show]
+	before_action :fetch_and_authorize_user, :except => [:index, :show, :new, :create]
 
 	def new
 		@course = Course.new
@@ -58,6 +59,11 @@ class CoursesController < ApplicationController
 
 	def fetch_and_authorize_course
 		raise 'Unauthorized' unless current_user.admin == true
+	end
+
+	def fetch_and_authorize_user
+		@course = Course.find(params[:id])
+		raise 'Unauthorized' unless @course.user == current_user
 	end
 
 	def course_params
