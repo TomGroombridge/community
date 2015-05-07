@@ -28,6 +28,8 @@ Rails.application.routes.draw do
 
   resources :payments
 
+  resources :booking_dates
+
   resources :plans
   resources :subscriptions
 

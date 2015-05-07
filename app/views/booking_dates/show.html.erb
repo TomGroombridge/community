@@ -1,0 +1,22 @@
+<div class="two column stackable ui grid dashboard course-details-dash" style="background-color: #36464f;">
+	<div class="column four wide">
+		<%= render "layouts/course_details_sidenav" %>
+	</div>
+	<div class="column twelve wide" style="background:white; min-height: 420px;">
+		<div class="row" style="padding-bottom: 20px;">
+			<h1 class="header">Booking Information</h1>
+			<!-- <h3 class="header sub-heading">hello world</h3> -->
+		</div>
+		<%= @booking_date.booking.name %>
+		<br>
+		<%= @booking_date.course_date_id %>
+		<br>
+		<%= @booking_date.course_date.course.name %>
+		<%= form_for [@booking_date], :multipart => true, :html => {:class => "ui form booking"} do |form| %>
+			<%= form.label :course_date_id %>
+			<%= form.text_field :course_date_id %>
+			<%= form.select :course_date_id, options_from_collection_for_select(@course_dates, :id, "select_date"), { :include_blank=>true }, {:class => 'ui dropdown date-select'}%>
+			<%= form.submit %>
+		<% end %>
+	</div>
+</div>
