@@ -22,7 +22,7 @@
         <% end %>
 	      <td style="text-align:center">
           <%= link_to("Manage".html_safe, course_details_course_course_date_path(course_date.course_id, course_date.id), :class =>"ui inverted red button")%>
-          <%# link_to("Add Booking", new_course_date_booking_path(course_date.id), :class =>"ui inverted red button")%>
+          <%= link_to("Add Booking", new_course_date_booking_path(course_date.id), :class =>"ui inverted red button")%>
 	      </td>
 	    </tr>
     <% end %>

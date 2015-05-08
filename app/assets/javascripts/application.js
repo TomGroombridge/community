@@ -217,7 +217,7 @@ $(function() {
       rules: [
         {
           type: 'empty',
-          prompt: 'Fill in a Bookings Name'
+          prompt: 'Fill in a bookings name'
         }
       ]
     },
@@ -238,7 +238,7 @@ $(function() {
       rules: [
         {
           type: 'empty',
-          prompt: "Fill in their contact number if you dont have one put 'N/A'"
+          prompt: "Fill in their contact number, if you dont have one put 'N/A'"
         }
       ]
     }

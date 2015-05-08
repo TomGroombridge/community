@@ -6,6 +6,8 @@
 		<%= render "layouts/course_details_sidenav" %>
 	</div>
 	<div class="column twelve wide" style="background:white; min-height: 420px;">
+		<h1 class="text" style="position:relative; left:45px"><%= @course_date.course.name %></h1>
+		<h2 class="text" style="position:relative; left:45px"><%= @course_date.start_date_time.strftime("%A, %d %b %Y %l:%M %p") %></h2>
 		<h1 style="text-align:center">Add Booking</h1>
 		<div class="ui form time-select" style="width: 80%; margin: auto;">
 			<%= form_for [@course_date, @booking], :multipart => true, :html => {:class => "ui form booking"} do |form| %>
