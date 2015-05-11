@@ -29,10 +29,8 @@ class PaymentsController < ApplicationController
         # @booking_date = BookingDate.create(params[:booking_date])
         # @booking_date.update_attributes(:booking_id => @booking.id, :course_date_id => @payment.ticket.course_date.id)
         @payment.bookings.each{|booking| booking.update_attributes(:order_id => @payment.order.id)}
-        PaymentMailer.notification(@payment).deliver!
       else
         @payment.bookings.each{|booking| booking.update_attributes(:order_id => @payment.order.id)}
-        PaymentMailer.notification(@payment).deliver!
       end
       redirect_to @payment
     else
