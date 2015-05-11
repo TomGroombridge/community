@@ -1,5 +1,8 @@
 <p style="color:#666666;font-weight:400;font-size:15px;line-height:18px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">Hi <%= @payment.bookings.last.name %>,</p>
-<p style="color:#666666;font-weight:400;font-size:15px;line-height:18px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">This is a confirmation email to confirm that you are going to <%= @payment.ticket.course_date.course.name %> on <%= @payment.ticket.course_date.start_date.strftime("%d/%m/%Y") %></p>
+<p style="color:#666666;font-weight:400;font-size:15px;line-height:18px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">This is a confirmation email to confirm that you are going to <%= @payment.ticket.course_date.course.name %> on the following dates </p>
+<% @booking_dates.each do |date| %>
+	<p style="color:#666666;font-weight:400;font-size:15px;font-family:'Helvetica neue',Helvetica,arial,sans-serif"><%= date.course_date.start_date_time.strftime("%A, %d %b %Y %l:%M %p") %></p>
+<% end %>
 <p style="color:#666666;font-weight:400;font-size:15px;line-height:18px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">Best wishes,</p>
 <p style="color:#666666;font-weight:400;font-size:15px;line-height:18px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">Tom</p>
 <tr>
