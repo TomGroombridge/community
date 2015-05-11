@@ -8,8 +8,8 @@ class PaymentMailer < ActionMailer::Base
   end
 
   def notification(payment)
-  	@course = payment.ticket.course_date.course
     @booking_dates = payment.order.bookings.last.booking_dates
+  	@course = @booking_dates.last.course_date.course
     @payment = payment
   	mail to: @course.user.email, subject: "Someone has joined a class"
   end
