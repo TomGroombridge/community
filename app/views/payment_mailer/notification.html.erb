@@ -1,7 +1,8 @@
 <%# raise @payment.bookings.inspect %>
-<p><%= @payment.bookings.last.name %> has just purchased a ticket for <%= @course.name %> on the
+<p><%= @payment.bookings.last.name %> has just purchased a ticket for <%= @course.name %> for the follwing dates</p>
+
 <% @booking_dates.each do |date| %>
-	<%= date.course_date.start_date_time.strftime("%A, %d %b %Y %l:%M %p") %>,
+	<p><%= date.course_date.start_date_time.strftime("%A, %d %b %Y %l:%M %p") %></p>
 <% end %>
 <p><strong>Details</strong></p>
 <p>Name: <%= @payment.bookings.last.name %></p>
