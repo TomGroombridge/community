@@ -1,6 +1,8 @@
 <%# raise @payment.bookings.inspect %>
-<p><%= @payment.bookings.last.name %> has just purchased a ticket for <%= @course.name %> on the <%= @payment.ticket.course_date.pretty_date %></p>
-
+<p><%= @payment.bookings.last.name %> has just purchased a ticket for <%= @course.name %> on the
+<% @booking_dates.each do |date| %>
+	<%= date.course_date.pretty_date %>,
+<% end %>
 <p><strong>Details</strong></p>
 <p>Name: <%= @payment.bookings.last.name %></p>
 <p>Amount Paid <%= @payment.ticket.price %></p>
