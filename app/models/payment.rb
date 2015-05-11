@@ -6,7 +6,7 @@ class Payment < ActiveRecord::Base
 	belongs_to :user
 	has_many :bookings
 	after_create :send_new_payment_email
-	after_create :send_notification
+	# after_create :send_notification
 	accepts_nested_attributes_for :bookings
 
 	attr_accessor :stripe_card_token
