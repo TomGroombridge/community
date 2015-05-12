@@ -7,9 +7,9 @@
 	<!-- <div class="ui divider"></div> -->
 
 	<div class="ui list side-buttons" style="text-align:center">
-	  <%# link_to("Transactions", transactions_dashboard_path, :class => "item", :style => "text-align:center; color:white;") %>
+	  <%= link_to("Transactions", transactions_dashboard_path, :class => "item", :style => "text-align:center; color:white;") %>
 		<%= link_to("Edit Company Details", edit_user_path(@user.id), :class => "item", :style => "text-align:center; color:white;") %>
-		<%# link_to("Bookings", bookings_dashboard_path, :class => "item", :style => "text-align:center; color:white;") %>
+		<%= link_to("Bookings", bookings_dashboard_path, :class => "item", :style => "text-align:center; color:white;") %>
 	  <%= link_to( "Back to Dashboard".html_safe, dashboard_path, :class => "item" ) %>
 	</div>
 </div>
