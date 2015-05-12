@@ -1,0 +1,17 @@
+.ui.grid.course-date.bicycle-society{
+	.column.top{
+		@media only screen and (max-width: 768px) {
+			height: 50% !important;
+		}
+	}
+	.column.price{
+		@media only screen and (max-width: 768px) {
+			height: 20% !important;
+		}
+	}
+	.column.top.actions{
+		@media only screen and (max-width: 768px) {
+			height: 31% !important;
+		}
+	}
+}
