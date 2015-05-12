@@ -37,7 +37,7 @@
 						    	<div class="ui segment no-box-shadow-web" style="background: #f1f2f2;">
 						    		<div class="algin-middle">
 										  <p class="title"><%= course.name %></p>
-										  <p class="address"><%= course.address %></p>
+										  <p class="address" data-content="Add users to your feed"><%= course.address.truncate(50) %></p>
 										  <p><i class="info circle icon" id="flip-<%= course.id %>" style="margin-top:2px;"></i>Course Details</p>
 										</div>
 									</div>
