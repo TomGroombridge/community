@@ -121,7 +121,7 @@ class DashboardsController < ApplicationController
 	end
 
 	def bookings
-    @booking_dates = BookingDate.all.select{|date| date.course_date.course.id == @user.id }
+    @booking_dates = BookingDate.all.select{|date| date.course_date.course.user.id == @user.id }
     @booking_dates.compact
 		@weekly_bookings = @booking_dates.select {|n| n.created_at >= DateTime.now.beginning_of_week}
     @monthly_bookings = @booking_dates.select {|n| n.created_at >= DateTime.now.beginning_of_month}
@@ -130,7 +130,7 @@ class DashboardsController < ApplicationController
   def weeks_bookings_csv
     csv_string = CSV.generate do |csv|
       csv << ['Course', 'Start date', 'Name', 'Email', 'Contact number',  'Created at']
-      @booking_dates = BookingDate.all.select{|date| date.course_date.course.id == @user.id }
+      @booking_dates = BookingDate.all.select{|date| date.course_date.course.user.id == @user.id }
       @weekly_bookings = @booking_dates.select {|n| n.created_at >= DateTime.now.beginning_of_week}
       @booking_dates = @weekly_bookings.map do |booking|
         booking
@@ -158,7 +158,7 @@ class DashboardsController < ApplicationController
   def months_bookings_csv
     csv_string = CSV.generate do |csv|
       csv << ['Course', 'Start date', 'Name', 'Email', 'Contact number',  'Created at']
-      @booking_dates = BookingDate.all.select{|date| date.course_date.course.id == @user.id }
+      @booking_dates = BookingDate.all.select{|date| date.course_date.course.user.id == @user.id }
       @monthly_bookings = @booking_dates.select {|n| n.created_at >= DateTime.now.beginning_of_month}
       @booking_dates = @monthly_bookings.map do |booking|
         booking
@@ -186,7 +186,7 @@ class DashboardsController < ApplicationController
   def all_bookings_csv
     csv_string = CSV.generate do |csv|
       csv << ['Course', 'Start date', 'Name', 'Email', 'Contact number',  'Created at']
-      @all_bookings = BookingDate.all.select{|date| date.course_date.course.id == @user.id }
+      @all_bookings = BookingDate.all.select{|date| date.course_date.course.user.id == @user.id }
       @booking_dates = @all_bookings.map do |booking|
         booking
       end
