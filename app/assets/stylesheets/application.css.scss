@@ -82,6 +82,15 @@ body{
   top: 10px;
 }
 
+.ui.segment.no-box-shadow-web.course-address-iframe{
+  padding-left: 2rem !important;
+  padding-right: 0rem !important;
+  @media only screen and (max-width: 768px) {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
 
 .right-side {
   width: 100%;
