@@ -31,13 +31,11 @@
   				<% if course.upcoming_date.nil? %>
 					<% else %>
 		  			<div class="ui grid course-date">
-						    <div class="one wide column center" style="padding-left:0px;">
-						    </div>
-						    <div class="eight wide column top" style="padding:0px;">
-						    	<div class="ui segment no-box-shadow-web" style="background: #f1f2f2;">
+						    <div class="nine wide column top" style="padding:0px;">
+						    	<div class="ui segment no-box-shadow-web" style="background:#f1f2f2; padding-left:2rem; padding-right:0rem;">
 						    		<div class="algin-middle">
 										  <p class="title"><%= course.name %></p>
-										  <p class="address" data-content="Add users to your feed"><%= course.address.truncate(50) %></p>
+										  <p class="address"><%= course.address %></p>
 										  <p><i class="info circle icon" id="flip-<%= course.id %>" style="margin-top:2px;"></i>Course Details</p>
 										</div>
 									</div>
