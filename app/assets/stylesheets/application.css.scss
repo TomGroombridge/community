@@ -31,9 +31,12 @@
   width: 60% !important;
 }
 
-.ui.selection.dropdown.menu{
-  @media only screen and (min-width: 992px){
-    max-height: inherit;
+
+.ui.dropdown.date-select{
+  .menu.transition.visible{
+    @media only screen and (min-width: 992px){
+      max-height: inherit;
+    }
   }
 }
 
