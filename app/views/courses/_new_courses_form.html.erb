@@ -17,6 +17,9 @@
 				<%= form.fields_for :course_dates do |builder| %>
 			    <%= render 'course_date_fields', form: builder %>
 			  <% end %>
+			  <%= form.fields_for :confirmation_emails do |builder| %>
+			  	<%= render 'confirmation_email_fields', form: builder %>
+			  <% end %>
 				<div class="ui segment no-box-shadow" style="margin-top: 40px;">
 					<div class="ui dimmer courseLoader">
             <div class="ui indeterminate text loader">Creating Course</div>
