@@ -9,8 +9,6 @@ class CoursesController < ApplicationController
 		course_dates = @course.course_dates.build
 		course_dates.tickets.build
 		@course.confirmation_emails.build
-		# raise @course.confirmation_email.inspect
-		# raise @course.course_dates.last.inspect
 	end
 
 	def create
@@ -45,7 +43,7 @@ class CoursesController < ApplicationController
 
 	def update
 		@course = Course.find(params[:id])
-		if @course.update_attributes(params[:course].permit(:name, :description, :price, :avatar, :crop_x, :crop_y, :crop_w, :crop_h, :what_to_wear, :what_to_bring, :experience, :category, course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county, :longitude, :latitude], course_dates_attributes:[:id, :start_time, :end_time, :start_date, :end_date, :absorb_fee, :number_of_dates]))
+		if @course.update_attributes(params[:course].permit(:name, :description, :price, :avatar, :crop_x, :crop_y, :crop_w, :crop_h, :what_to_wear, :what_to_bring, :experience, :category, confirmation_emails_attributes:[:content, :course_id, :id], course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county, :longitude, :latitude], course_dates_attributes:[:id, :start_time, :end_time, :start_date, :end_date, :absorb_fee, :number_of_dates]))
 			if params[:course][:avatar].present?
 				render :crop
 			else

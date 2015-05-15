@@ -17,9 +17,23 @@
 				<%= form.fields_for :course_dates do |builder| %>
 			    <%= render 'course_date_fields', form: builder %>
 			  <% end %>
-			  <%= form.fields_for :confirmation_emails do |builder| %>
-			  	<%= render 'confirmation_email_fields', form: builder %>
-			  <% end %>
+			  <div class="ui divider" style="margin-top: 100px; margin-bottom: 25px;"></div>
+				<div class="ui circular labels">
+				  <a class="ui label" style="display:inline-block; font-size: 1.8571rem;">4</a>
+					<h2 style="display:inline-block">Extras</h2>
+				</div>
+				<div class="ui styled fluid accordion">
+			    <div class="title">
+			      <i class="dropdown icon"></i>
+			      Extra Content to Accompany Confirmation Email
+			    </div>
+			    <div class="content">
+			    	<h2>Please add some content to add to the confirmation email</h2>
+					  <%= form.fields_for :confirmation_emails do |builder| %>
+					  	<%= render 'confirmation_email_fields', form: builder %>
+					  <% end %>
+			    </div>
+			  </div>
 				<div class="ui segment no-box-shadow" style="margin-top: 40px;">
 					<div class="ui dimmer courseLoader">
             <div class="ui indeterminate text loader">Creating Course</div>

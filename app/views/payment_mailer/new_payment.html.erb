@@ -3,6 +3,11 @@
 <% @booking_dates.each do |date| %>
 	<p style="color:#666666;font-weight:400;font-size:15px;font-family:'Helvetica neue',Helvetica,arial,sans-serif"><%= date.course_date.start_date_time.strftime("%A, %d %b %Y %l:%M %p") %></p>
 <% end %>
+<% unless @course.confirmation_emails.last.content.nil? %>
+	<p style="color:#666666;font-weight:400;font-size:15px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
+		<%= @course.confirmation_emails.last.content.html_safe%>
+	</p>
+<% end %>
 <p style="color:#666666;font-weight:400;font-size:15px;line-height:18px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">Best wishes,</p>
 <p style="color:#666666;font-weight:400;font-size:15px;line-height:18px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">Tom</p>
 <tr>
