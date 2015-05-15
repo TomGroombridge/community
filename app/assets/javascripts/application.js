@@ -19,9 +19,12 @@
 //= require semantic-ui
 //= require_tree .
 //= require ckeditor/init
+//= require fullcalendar
 
 
 $(document).ready(function() {
+
+
 
     $('#example2')
       .progress({

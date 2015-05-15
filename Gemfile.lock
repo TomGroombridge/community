@@ -187,6 +187,9 @@ GEM
     foundation-rails (5.4.5.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
+    fullcalendar-rails (2.3.1.0)
+      jquery-rails (>= 3.1.1, < 5.0.0)
+      momentjs-rails (~> 2.8, >= 2.8.4)
     geocoder (1.2.7)
     gon (5.2.3)
       actionpack (>= 2.3.0)
@@ -215,6 +218,8 @@ GEM
     mime-types (2.5)
     mini_portile (0.6.1)
     minitest (5.6.1)
+    momentjs-rails (2.10.2)
+      railties (>= 3.1)
     multi_json (1.11.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -368,6 +373,7 @@ DEPENDENCIES
   fog
   fog-aws
   foundation-rails
+  fullcalendar-rails
   geocoder
   gon
   groupdate

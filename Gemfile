@@ -18,6 +18,7 @@ gem 'geocoder'
 gem 'gon'
 gem 'groupdate'
 gem 'jbuilder', '~> 1.2'
+gem 'fullcalendar-rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
