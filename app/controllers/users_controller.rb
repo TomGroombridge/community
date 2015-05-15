@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 	  @course_dates = @active_course_dates.sort_by do |course_date|
 			course_date.start_date_time
 		end
+		@calender_dates = @course_dates.group_by(&:start_date)
 	  render layout: "iframe-#{params[:embed]}" if params[:embed]
 	end
 
