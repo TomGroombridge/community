@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	load_and_authorize_resource :except => [:index, :show, :course_providers_index]
+	load_and_authorize_resource :except => [:index, :show, :course_providers_index, :calendar]
 
 	def show
 	  @user = User.find(params[:id])
@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 			course_date.start_date_time
 		end
 		@calender_dates = @course_dates.group_by(&:start_date)
+		@date = params[:date] ? Date.parse(params[:date]) : Date.today
 	  render layout: "iframe-#{params[:embed]}" if params[:embed]
 	end
 
@@ -44,6 +45,20 @@ class UsersController < ApplicationController
 
 	def dashboard
 		@user = User.find(params[:id])
+	end
+
+	def calendar
+		@user = User.find(params[:id])
+	  @courses = @user.courses
+	  @course_dates = []
+	  @courses.each {|c| c.course_dates.each {|cd| @course_dates << cd}}
+	  @active_course_dates = @course_dates.select {|c| c.valid_dates(c)}
+	  @course_dates = @active_course_dates.sort_by do |course_date|
+			course_date.start_date_time
+		end
+		@calender_dates = @course_dates.group_by(&:start_date)
+		@date = params[:date] ? Date.parse(params[:date]) : Date.today
+		render :layout => false
 	end
 
 end

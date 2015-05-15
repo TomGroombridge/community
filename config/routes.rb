@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   get 'users/course_providers', :to => 'users#course_providers_index'
+  get 'users/:id/calendar', :to => 'users#calendar'
 
   resources :users, :only => [:show, :edit, :update, :index] do
     # member do
