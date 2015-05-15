@@ -8,8 +8,24 @@
     <%= csrf_meta_tags %>
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	  <script>
+	  $(function() {
+	    $( document ).tooltip();
+	  });
+	  </script>
+	  <style>
+	  label {
+	    display: inline-block;
+	    width: 5em;
+	  }
+	  </style>
   </head>
-  <body>
+  <body style="background:#ffffff">
+  	<p><a href="#" title="That&apos;s what this widget is">Tooltips</a> can be attached to any element. When you hover
+the element with your mouse, the title attribute is displayed in a little box next to the element, just like a native tooltip.</p>
 		<div id="articles">
 			<h2 id="month">
 		    <%= link_to "<", date: @date.prev_month %>
@@ -21,7 +37,12 @@
 				<% if @calender_dates[date] %>
 					<ul>
 						<% @calender_dates[date].each do |course_date| %>
-							<li><%= link_to course_date.course.name, course_date.course %></li>
+								<li>
+									<p>
+										<!-- <a href="#" title="That&apos;s what this widget is"><%= course_date.course.name %></a> -->
+										<%= link_to course_date.course.name, course_date.course, { :title => "That&apos;s what this widget is" } %>
+									</p>
+								</li>
 						<% end %>
 					</ul>
 				<% end %>
