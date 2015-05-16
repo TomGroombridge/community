@@ -21,7 +21,7 @@
     // background: #FFF;
     background: #e9e7e1;
     color: #777;
-    height: 170px;
+    height: 158px;
     vertical-align: top;
     font-size: 16px;
     text-align: center;
@@ -50,11 +50,13 @@
   padding-left: 0px;
   margin: 0px;
   height: 80%;
-  background: #36464f;
   border-radius: 10px;
   padding: 2px;
   li{
-    padding-top: 3px;
+    background: #35464f;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     a{
       color: white;
       font-size: 12px;
