@@ -29,7 +29,7 @@
 					<ul>
 						<% @calender_dates[date].each do |course_date| %>
 							<li>
-								<%= link_to course_date.course.name.truncate(20), course_date.course, { :title => "Time: #{course_date.start_time.strftime("%I:%M%p")}-#{course_date.end_time.strftime("%I:%M%p")}", :target => "_blank" }%>
+								<%= link_to course_date.course.name, course_date.course, { :title => "Time: #{course_date.start_time.strftime("%I:%M%p")}-#{course_date.end_time.strftime("%I:%M%p")}", :target => "_blank" }%>
 							</li>
 						<% end %>
 					</ul>
