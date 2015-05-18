@@ -52,8 +52,7 @@ class UsersController < ApplicationController
 	  @courses = @user.courses
 	  @course_dates = []
 	  @courses.each {|c| c.course_dates.each {|cd| @course_dates << cd}}
-	  @active_course_dates = @course_dates.select {|c| c.valid_dates(c)}
-	  @course_dates = @active_course_dates.sort_by do |course_date|
+	  @course_dates = @courses.sort_by do |course_date|
 			course_date.start_date_time
 		end
 		@calender_dates = @course_dates.group_by(&:start_date)
