@@ -8,6 +8,7 @@ class CoursesController < ApplicationController
 		@course.course_addresses.build
 		course_dates = @course.course_dates.build
 		course_dates.tickets.build
+		@course.confirmation_emails.build
 	end
 
 	def create
@@ -15,7 +16,6 @@ class CoursesController < ApplicationController
 		@course.user = current_user
 		if @course.save
 			@user =  @course.user
-			# UserMailer.delay_for(0.003.hours).welcome_email(@user, @course)
 			render :crop
 	  else
 		  format.html { render action: 'new' }
@@ -43,7 +43,7 @@ class CoursesController < ApplicationController
 
 	def update
 		@course = Course.find(params[:id])
-		if @course.update_attributes(params[:course].permit(:name, :description, :price, :avatar, :crop_x, :crop_y, :crop_w, :crop_h, :what_to_wear, :what_to_bring, :experience, :category, course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county, :longitude, :latitude], course_dates_attributes:[:id, :start_time, :end_time, :start_date, :end_date, :absorb_fee, :number_of_dates]))
+		if @course.update_attributes(params[:course].permit(:name, :description, :price, :avatar, :crop_x, :crop_y, :crop_w, :crop_h, :what_to_wear, :what_to_bring, :experience, :category, confirmation_emails_attributes:[:content, :course_id, :id, :attachment_one, :attachment_two, :attachment_three], course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county, :longitude, :latitude], course_dates_attributes:[:id, :start_time, :end_time, :start_date, :end_date, :absorb_fee, :number_of_dates]))
 			if params[:course][:avatar].present?
 				render :crop
 			else
@@ -67,7 +67,7 @@ class CoursesController < ApplicationController
 	end
 
 	def course_params
-    params.require(:course).permit(:name, :description, :price, :avatar, :crop_x, :crop_y, :crop_w, :crop_h, :what_to_wear, :what_to_bring, :experience, :category, course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county, :longitude, :latitude], course_dates_attributes:[:id, :start_time, :end_time, :start_date, :end_date, :course_id, tickets_attributes:[:id, :name, :course_date_id, :price, :quantity, :absorb_fee, :number_of_dates]])
+    params.require(:course).permit(:name, :description, :price, :avatar, :crop_x, :crop_y, :crop_w, :crop_h, :what_to_wear, :what_to_bring, :experience, :category, confirmation_emails_attributes:[:content, :course_id, :id, :attachment_one, :attachment_two, :attachment_three], course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county, :longitude, :latitude], course_dates_attributes:[:id, :start_time, :end_time, :start_date, :end_date, :course_id, tickets_attributes:[:id, :name, :course_date_id, :price, :quantity, :absorb_fee, :number_of_dates]])
 	end
 
 end
