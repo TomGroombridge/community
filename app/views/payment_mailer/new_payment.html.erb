@@ -12,13 +12,13 @@
 <% end %>
 =========================================================
 <p style="font-weight:bold">Ticket Information:</p>
-<table width="350" style="margin:auto">
+<table width="350" style="margin:auto;">
 	<tbody>
 		<tr>
 			<td width="150"><%= @payment.ticket.name %></td>
-			<td width="100"><%= @payment.amount_paid.to_s %> x 1</td>
-			<td width="100"><%= @payment.amount_paid.to_s %></td>
+			<td width="100"><%= number_to_currency(@payment.amount_paid, :precision => 2, :unit => "£") %> x 1</td>
+			<td width="100"><%= number_to_currency(@payment.amount_paid, :precision => 2, :unit => "£") %></td>
 		</tr>
 	</tbody>
 </table>
-<p>Please contact <%= @course.user.company_name %> if you have any questions before the course.</p>
+<p style="margin-bottom: 25px;">Please contact <%= @course.user.company_name %> if you have any questions before the course.</p>
