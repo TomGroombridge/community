@@ -16,7 +16,7 @@
         <td><%= date.booking.email %></td>
         <td><%= date.booking.contact_number %></td>
         <td><%= date.booking.created_at.strftime("%d/%m/%Y")%></td>
-        <td><%# link_to 'Delete', date, method: :delete , data: {confirm: "Are you sure you want to delete this booking?"}%></td>
+        <td><%= link_to 'Edit Bookings', booking_date_path(date)%></td>
       </tr>
     <% end %>
   </tbody>

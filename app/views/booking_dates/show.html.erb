@@ -1,3 +1,6 @@
+<% if flash[:notice] %>
+	<div class="ui green message" id="notice" style="margin-bottom:0px;"><%= notice %></div>
+<% end %>
 <div class="two column stackable ui grid dashboard course-details-dash" style="background-color: #36464f;">
 	<div class="column four wide">
 		<%= render "layouts/course_details_sidenav" %>
@@ -23,9 +26,16 @@
 		  </div>
 		  <div class="column">
 				<%= form_for [@booking_date], :multipart => true, :html => {:class => "ui form booking"} do |form| %>
-					<%= form.label :course_date_id %>
+					<%= form.label :course_date_id, "Course Date:" %>
 					<%= form.select :course_date_id, options_from_collection_for_select(@course_dates, :id, "select_date", @booking_date.course_date_id), {}, {:class => 'ui dropdown date-select'}%>
-					<%= form.submit %>
+					<br>
+					<div class="ui segment no-box-shadow" style="margin-top: 40px;">
+						<div class="ui dimmer courseLoader">
+	            <div class="ui indeterminate text loader">Updating Booking</div>
+	          </div>
+						<%= form.submit "Transfer Date", :id => "courseSubmit", :style =>"float:right; width:250px", :class => "ui inverted green button" %>
+					<div class="ui error message" style="margin-top:50px;"></div>
+				</div>
 				<% end %>
 		  </div>
 		</div>
