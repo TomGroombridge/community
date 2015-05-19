@@ -6,7 +6,7 @@
       <th>Email</th>
       <th>Phone</th>
       <th>Paid on</th>
-      <th>Actions</th>
+      <th style="text-align:center">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -16,7 +16,7 @@
         <td><%= date.booking.email %></td>
         <td><%= date.booking.contact_number %></td>
         <td><%= date.booking.created_at.strftime("%d/%m/%Y")%></td>
-        <td><%= link_to 'Edit Bookings', booking_date_path(date)%></td>
+        <td style="text-align:center"><%= link_to 'Transfer Date', booking_date_path(date), :class => "ui inverted red button" %></td>
       </tr>
     <% end %>
   </tbody>

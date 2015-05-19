@@ -11,7 +11,6 @@ class BookingDatesController < ApplicationController
 	def update
 		@booking_date = BookingDate.find(params[:id])
 		if @booking_date.update_attributes(params[:booking_date].permit(:course_date_id))
-			# redirect_to dashboard_path
 			redirect_to :back
 			flash[:notice] = 'Date transfered Sucessfully '
 		else

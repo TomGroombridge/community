@@ -1,7 +1,9 @@
 <p>Hi, <%= @payment.bookings.last.name %></p>
 <p>Your booking of <%= @payment.ticket.course_date.course.name %> is complete.</p>
 <p>Your ticket number is <%= @payment.order.id %>.</p>
-<p><%= @course.confirmation_emails.last.content.html_safe%></p>
+<% unless @course..confirmation_emails.last.content.nil? %>
+	<p><%= @course.confirmation_emails.last.content.html_safe%></p>
+<% end %>
 =========================================================
 <p style="font-weight:bold">Booking Details:</p>
 <% @booking_dates.each do |date| %>
