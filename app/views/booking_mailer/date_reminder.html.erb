@@ -1,5 +1,24 @@
+<div style="width:100%; text-align:center">
+	<%= image_tag(@course.user.avatar_url(:thumb))%>
+</div>
+<br>
 <p>Hi <%= @booking_date.booking.name %>,</p>
-<p>We are just emailing you to remind you that <%= @course.name %> will start tomorrow at<%= @course_date.start_time.strftime("%I:%M%p") %>.</p>
-<p>If you have any problems with this please contact <%= @course.user.company_name %> on <%= @course.user.contact_number %>.</p>
-<p>Best wishes,</p>
-<p>Tom</p>
+<br>
+<p>This is a reminder that you a booked on to the following course:</p>
+<br>
+<p><span style="font-weight:bold">Course name: </span><%= @course.name %></p>
+<% @course.course_addresses.each do |address|%>
+	<p><span style="font-weight:bold">Location: </span><a href="http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{address.latitude}%2C#{address.longitude}">
+		<%= @booking_date.course_date.course.address %>
+	</a></p>
+<% end %>
+<p><span style="font-weight:bold">Date:</span> <%= @booking_date.course_date.start_date_time.strftime("%A, %d %b %Y %l:%M %p") %> </p>
+<p><span style="font-weight:bold">What to bring:</span><%= @course.what_to_bring %></p>
+<p><span style="font-weight:bold">What to wear:</span><%= @course.what_to_wear %></p>
+<br>
+<p>We look forward to seeing you at the course.</p>
+<br>
+<p>Kind regards</p>
+<p><%= @course.user.company_name %></p>
+<p><%= @course.user.email %></p>
+<p><%= @course.user.contact_number %></p>
