@@ -26,6 +26,11 @@ class AvatarUploader < CarrierWave::Uploader::Base
     resize_to_fill(300, 300)
   end
 
+  version :logo do
+    process :crop
+    resize_to_limit(200, 200)
+  end
+
   version :thumb do
     process :crop
     resize_to_fill(100, 100)

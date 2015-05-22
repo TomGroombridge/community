@@ -4,9 +4,15 @@ class Booking < ActiveRecord::Base
 	has_many :booking_dates
 	accepts_nested_attributes_for :booking_dates
 	validates_presence_of :name
+	# after_create :send_new_booking_email
 
 	def self.search(search)
 	  where("email LIKE ?", "%#{search}%")
 	end
+
+	# def send_new_booking_email
+	# 	PaymentMailer.new_payment(self).deliver!
+	# end
+
 
 end
