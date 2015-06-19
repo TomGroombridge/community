@@ -33,6 +33,15 @@
 }
 
 
+.ui.blue.button.course-details{
+  @media only screen and (max-width: 768px) {
+    margin: auto !important;
+    width: 167px;
+    position: relative;
+    display: block;
+  }
+}
+
 .ui.dropdown.date-select{
   .menu.transition.visible{
     @media only screen and (min-width: 992px){
