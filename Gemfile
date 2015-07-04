@@ -43,6 +43,8 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'sidekiq-failures'
 
+gem 'seed_dump'
+
 
 group :test, :development do
   gem 'rspec-rails'

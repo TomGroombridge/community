@@ -1,6 +1,16 @@
-h1. CourseIam
+h1.Clothes Retailer
 
-TODO: Short desc
+A resposive 2 page website created for a clothing company which allows them to add products to a shopping cart, add vouchers (when necessary), edit the shopping cart and  filter through categories.
+
+h2. Features
+
+* Framework: Ruby On Rails
+* Database: Postgres
+* View Templates: ERB
+* Stylesheets: SASS
+* CSS Framework: Semantic UI
+* Testing Framework: TODO
+* Build system: TODO
 
 h2. Development stack
 
