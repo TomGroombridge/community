@@ -9,3 +9,6 @@
 <p>Amount Paid <%= @payment.ticket.price %></p>
 <p>Email: <%= @payment.bookings.last.email %></p>
 <p>Conatct Number: <%= @payment.bookings.last.contact_number %></p>
+<% unless @payment.bookings.last.age.nil? %>
+	<p>Age: <%= @payment.bookings.last.age %></p>
+<% end %>
