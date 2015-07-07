@@ -53,6 +53,9 @@
                   <td style="padding:12px 0;padding-right:3px; width: 20%">
                     <div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
                       <%= booking_date.booking.name %>
+                      <% unless booking_date.booking.age.nil? %>
+                        (Age:<%= booking_date.booking.age%>)
+                      <% end %>
                     </div>
                   </td>
                   <td style="padding:12px 0;padding-right:3px; width: 20%">
