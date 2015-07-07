@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150515213903) do
+ActiveRecord::Schema.define(version: 20150707121840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20150515213903) do
     t.datetime "updated_at"
     t.integer  "payment_id"
     t.text     "special_request"
+    t.integer  "age"
   end
 
   create_table "confirmation_emails", force: true do |t|
