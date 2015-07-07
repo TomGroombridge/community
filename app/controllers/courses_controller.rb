@@ -67,7 +67,7 @@ class CoursesController < ApplicationController
 	end
 
 	def course_params
-    params.require(:course).permit(:name, :description, :price, :avatar, :crop_x, :crop_y, :crop_w, :crop_h, :what_to_wear, :what_to_bring, :experience, :category, confirmation_emails_attributes:[:content, :course_id, :id, :attachment_one, :attachment_two, :attachment_three], course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county, :longitude, :latitude], course_dates_attributes:[:id, :start_time, :end_time, :start_date, :end_date, :course_id, tickets_attributes:[:id, :name, :course_date_id, :price, :quantity, :absorb_fee, :number_of_dates]])
+    params.require(:course).permit(:name, :description, :price, :avatar, :crop_x, :crop_y, :crop_w, :crop_h, :what_to_wear, :what_to_bring, :experience, :category, :age_needed, confirmation_emails_attributes:[:content, :course_id, :id, :attachment_one, :attachment_two, :attachment_three], course_addresses_attributes:[:id, :postcode, :address1, :address2, :city, :county, :longitude, :latitude], course_dates_attributes:[:id, :start_time, :end_time, :start_date, :end_date, :course_id, tickets_attributes:[:id, :name, :course_date_id, :price, :quantity, :absorb_fee, :number_of_dates]])
 	end
 
 end

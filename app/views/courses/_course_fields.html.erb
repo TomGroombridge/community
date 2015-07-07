@@ -41,6 +41,10 @@
 	  </div>
   <% end %>
   <div class="field">
+    <h3>Age Needed?</h3>
+    <%= form.check_box :age_needed %>
+  </div>
+  <div class="field">
   	<h3>Upload image</h3>
   	<img id="blah" src="#" alt="" class="ui small bordered image" style="display:inline-block"/>
   	<%= form.file_field :avatar, :id => "imgInp" %>

@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 20150707123800) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "attachment_1"
     t.string   "attachment_one"
     t.string   "attachment_two"
     t.string   "attachment_three"
