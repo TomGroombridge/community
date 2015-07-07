@@ -71,10 +71,12 @@
 			      </div>
 			    </div>
 		    </div>
-		    <div class="field">
-		    	<label>Age</label>
-		    	<%= booking.select :age, options_for_select((1..100).step(1).to_a.map{|s| ["#{s}", s]})%>
-		    </div>
+		    <% if @ticket.course_date.course.age_needed? %>
+			    <div class="field">
+			    	<label>Age</label>
+			    	<%= booking.select :age, options_for_select((1..100).step(1).to_a.map{|s| ["#{s}", s]})%>
+			    </div>
+		    <% end %>
 		    <div class="field">
 		    	<label>Special Requests</label>
 		    	<%= booking.text_area :special_request %>
