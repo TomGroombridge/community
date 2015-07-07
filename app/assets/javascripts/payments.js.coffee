@@ -69,6 +69,14 @@ $ ->
           prompt: 'Fill in your mobile number'
         }
       ]
+    age:
+      identifier: 'payment[bookings_attributes][0][age]'
+      rules: [
+        {
+          type: 'empty'
+          prompt: 'Please fill in the age'
+        }
+      ]
     name_on_card:
       identifier: 'name-on-card'
       rules: [

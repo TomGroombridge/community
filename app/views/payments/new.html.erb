@@ -72,9 +72,9 @@
 			    </div>
 		    </div>
 		    <% if @ticket.course_date.course.age_needed? %>
-			    <div class="field">
+			    <div class="required field">
 			    	<label>Age</label>
-			    	<%= booking.select :age, options_for_select((1..100).step(1).to_a.map{|s| ["#{s}", s]})%>
+			    	<%= booking.select :age, options_for_select(1..100),{ :include_blank => true },{:class =>"ui dropdown half"}%>
 			    </div>
 		    <% end %>
 		    <div class="field">
