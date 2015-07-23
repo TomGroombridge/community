@@ -8,9 +8,9 @@ class CourseDateMailer < ActionMailer::Base
 		@course_date = CourseDate.find(course_date_id)
 		puts "MSPX @course: #{@course_date.to_yaml}"
 		@user = @course_date.course.user
-		@price = []
-		@course_date.booking_dates.each {|d| @price << d.booking.payment.price}
-		@total = @price.inject {|sum, n| sum += n }
+		# @price = []
+		# @course_date.booking_dates.each {|d| @price << d.booking.payment.price}
+		# @total = @price.inject {|sum, n| sum += n }
 		mail to: @user.email, subject: "List of course attendees"
 	end
 
