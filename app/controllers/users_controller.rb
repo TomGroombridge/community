@@ -7,11 +7,13 @@ class UsersController < ApplicationController
 	  @course_dates = []
 	  @courses.each {|c| c.course_dates.each {|cd| @course_dates << cd}}
 	  @active_course_dates = @course_dates.select {|c| c.valid_dates(c)}
+	  # raise @active_course_dates.inspect
 	  @course_dates = @active_course_dates.sort_by do |course_date|
 			course_date.start_date_time
 		end
 		@calender_dates = @course_dates.group_by(&:start_date)
 		@date = params[:date] ? Date.parse(params[:date]) : Date.today
+		@non_private_courses = @courses.select {|c| c.private? == false}
 	  render layout: "iframe-#{params[:embed]}" if params[:embed]
 	end
 

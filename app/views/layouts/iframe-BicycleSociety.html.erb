@@ -27,7 +27,7 @@
 	  		<div class="four wide column">
 	  		</div>
 	  	</div>
-	  		<% @courses.each do |course|%>
+	  		<% @non_private_courses.each do |course|%>
   				<% if course.upcoming_date.nil? %>
 					<% else %>
 		  			<div class="ui grid course-date bicycle-society">
