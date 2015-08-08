@@ -41,7 +41,7 @@ class CourseDatesController < ApplicationController
 	def index
 		@active_course_dates = []
 		CourseDate.all.each  do |d|
-			if d.start_date_time > DateTime.now
+			if d.start_date_time > DateTime.now && d.course.private? == false
 				@active_course_dates << d
 			end
 		end

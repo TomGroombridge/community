@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150707123800) do
+ActiveRecord::Schema.define(version: 20150808132907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20150707123800) do
     t.string   "avatar"
     t.string   "category"
     t.boolean  "age_needed"
+    t.boolean  "private",       default: false
   end
 
   create_table "entries", force: true do |t|
