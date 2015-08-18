@@ -84,12 +84,7 @@ $ ->
         type: 'empty'
         prompt: 'Please fill in the postcode of your address'
       } ]
-    image:
-      identifier: 'course[avatar]'
-      rules: [ {
-        type: 'empty'
-        prompt: 'Please add an image to the course'
-      } ]
+
     price:
       identifier: 'course[price]'
       rules: [
