@@ -53,7 +53,7 @@
   <div class="field">
   	<h3>Upload image</h3>
   	<img id="blah" src="#" alt="" class="ui small bordered image" style="display:inline-block"/>
-  	<%= form.file_field :avatar, :id => "imgInp" %>
+  	<%= form.file_field :avatar, :id => "imgInp" , :name => "newImage" %>
     <%= image_tag @course.avatar.medium, :id => 'cropbox' %>
   	<%= form.hidden_field :avatar_cache %>
   </div>
