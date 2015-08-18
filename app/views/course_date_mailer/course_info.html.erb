@@ -75,7 +75,11 @@
                   </td>
                   <td style="text-align:right;padding:12px 0; width:10%">
                     <div style="color:#666666;font-weight:400;font-size:15px;line-height:21px;font-family:'Helvetica neue',Helvetica,arial,sans-serif">
-                      <%= booking_date.booking.payment.status %>
+                      <% if booking_date.booking.payment.paid? %>
+                        yes
+                      <% else %>
+                        no
+                      <% end %>
                     </div>
                   </td>
                 </tr>
