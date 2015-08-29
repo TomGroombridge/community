@@ -1,6 +1,5 @@
 <div class="content" style="min-height: 500px;">
 	<%# render "normal_user_modal" %>
-	<%= render "company_user_modal" %>
 	<div class="ui segment" style="width: 50%; margin: auto; position: relative; margin-bottom:60px; margin-top:50px">
 		<div class="ui form">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:id => "new_user",:class => 'ui form company user'}) do |f| %>
