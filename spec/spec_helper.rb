@@ -3,7 +3,7 @@
 # The generated `.rspec` file contains `--require spec_helper` which will cause this
 # file to always be loaded, without a need to explicitly require it in any files.
 #
-ENV["RAILS_ENV"] ||= 'development'
+ENV["RAILS_ENV"] ||= 'test'
   require 'spec_helper'
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
