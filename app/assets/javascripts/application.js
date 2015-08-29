@@ -113,8 +113,6 @@ $(document).ready(function() {
 
     $("#normalUserModal").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#user', 'show');
 
-    $("#companyUserModal").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#companyUser', 'show');
-
     $("#normalUser").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#signIn', 'show');
 
     $("#normalUser").modal('setting', 'transition', 'horizontal flip').modal('attach events', '#signInMobile', 'show');
