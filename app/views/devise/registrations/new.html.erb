@@ -18,7 +18,7 @@
           <%= f.email_field :email, :placeholder => 'Email *', :id => "signUpEmail" %>
         </div>
         <div class="field">
-          <%= f.text_field :contact_number, :placeholder => 'Contact Number *' %>
+          <%= f.text_field :contact_number, :placeholder => 'Contact Number *', :required => true %>
         </div>
         <div class="field">
           <%= f.password_field :password, :placeholder => 'Password *', autocomplete: "off", :id => "signUpPassword" %>
@@ -36,3 +36,12 @@
       <% end %>
 	</div>
 </div>
+<script>
+  $('#new_user').on('keyup keypress', function(e) {
+  var code = e.keyCode || e.which;
+  if (code == 13) {
+    e.preventDefault();
+    return false;
+  }
+});
+</script>
