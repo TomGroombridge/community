@@ -4,7 +4,7 @@
   <%= link_to("How it works", how_it_works_path, :class => "item") %>
   <% if signed_in? %>
     <% if current_user.admin? || nil%>
-      <%= link_to("<i class='add square icon'></i>Add Course".html_safe, new_course_path, :class => "item right", :style => "  background-color:#36464f; color:white;") %>
+      <%= link_to("<i class='add square icon'></i>Add Course".html_safe, new_course_path, :class => "item right" ,:id => "addCourse", :style => "  background-color:#36464f; color:white;") %>
       <%= link_to( "Dashboard".html_safe, dashboard_path, :class => "item right" ) %>
     <% else %>
       <%= link_to("Log out".html_safe, destroy_user_session_path, :method => :delete, :class => "item right") %>
