@@ -41,4 +41,14 @@ require 'spec_helper'
 			end
 
 		end
+
+		context "given no user" do
+
+			xit "should not let you add a new course if you are not signed in as a admin user" do
+				visit('/courses/new')
+				expect(page).to have_content("Unauthorized")
+			end
+
+		end
+
 	end
