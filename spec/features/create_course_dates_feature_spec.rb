@@ -64,7 +64,14 @@ require 'spec_helper'
 			end
 
 			it "should allow me to manually add a booking to a course date" do
-
+				visit "/dashboard"
+				click_link "Add Booking"
+				fill_in "booking_name", :with => "James Groombridge"
+				fill_in "booking_contact_number", :with => "01292182198"
+				fill_in "booking_email", :with => "james@groombridge.com"
+				click_button "Create Booking"
+				expect(current_path).to eq "/dashboard"
+				expect(page).to have_content "Booking Added"
 			end
 
 			it "should not allow you to add a date if the course isn't owned by you" do
