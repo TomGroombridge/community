@@ -47,11 +47,16 @@ require 'spec_helper'
 			end
 
 			it "should allow me to view the attendees for that course date" do
-
+				visit "/dashboard"
+				click_link('Manage')
 			end
 
 			it "should not allow me edit the course date" do
-
+				make_a_booking
+				visit "/dashboard"
+				click_link('Manage')
+				expect(page).to have_content("tom groombridge")
+				expect(page).to have_content("Tickets sold: 1/10")
 			end
 
 			it "should allow me delete the course date if there is no one booked onto it" do
