@@ -17,7 +17,7 @@ require 'spec_helper'
 			end
 
 			it "should allow you to be able to book a place on the course", js: true do
-				# StripeMock.start_client
+				expect(@user.courses.last.course_dates.last.booking_dates.count).to eq(0)
 				visit "/course_dates"
 				click_link('Learn To Bake Bread')
 				click_link('bookNow')
@@ -28,9 +28,8 @@ require 'spec_helper'
 				select '2016', from: 'card_year'
 				fill_in 'card_code', with: '444'
 				click_button('Send Payment')
-				save_and_open_page
-				# StripeMock.stop_client
-				# raise @user.courses.last.course_dates.last.tickets.last.inspect
+				expect(@user.courses.last.course_dates.last.booking_dates.count).to eq(1)
+				expect(@user.courses.last.course_dates.last.booking_dates.last.booking.name).to eq('tom groombridge')
 			end
 	end
 end
