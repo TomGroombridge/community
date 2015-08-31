@@ -15,7 +15,7 @@
           <%# link_to(course_date.course.name, course_path(course_date.course), :class => "header text", :style => "color: white; font-size: 1em;") %>
 		      <td><%= course.course_dates.count %></td>
 		      <td><%= course.upcoming_dates.count %></td>
-		      <td style="text-align:center"><%= link_to("Add Date".html_safe, new_course_course_date_path(course.id), :class =>"ui inverted red button")%>
+		      <td style="text-align:center"><%= link_to("Add Date".html_safe, new_course_course_date_path(course.id), :class =>"ui inverted red button", :id => 'addDate')%>
           <br>
             <%= link_to("Edit Text", edit_course_path(course.id), :class =>"ui inverted green button", :style => "margin-top:10px;") %>
 		      </td>

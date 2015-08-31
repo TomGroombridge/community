@@ -31,5 +31,9 @@ require 'spec_helper'
 				expect(@user.courses.last.course_dates.last.booking_dates.count).to eq(1)
 				expect(@user.courses.last.course_dates.last.booking_dates.last.booking.name).to eq('tom groombridge')
 			end
-	end
+		end
+
+		context "given a course with multiple_dates" do
+
+		end
 end
