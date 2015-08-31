@@ -4,6 +4,11 @@
 # file to always be loaded, without a need to explicitly require it in any files.
 #
 ENV["RAILS_ENV"] ||= 'test'
+  require 'simplecov'
+  require 'simplecov-rcov'
+  SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
+  SimpleCov.command_name 'RSpec'
+  SimpleCov.start 'rails'
   require 'spec_helper'
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
