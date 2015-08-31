@@ -74,10 +74,6 @@ class Payment < ActiveRecord::Base
 					card: params[:stripe_card_token],
 					description: "this is a payment for the #{@course_name} course on the #{@course_date} for #{@booking.name}")
 				self.ticket.quantity -= 1
-				# if self.ticket.absorb_fee == true
-				# 	@fees = @booking_fee + @fees
-				# 	@course_provider.update_attributes(fees: @fees)
-				# end
 				self.save
 			rescue Stripe::InvalidRequestError => e
 				logger.error "Stripe error while creating customer: #{e.message}"

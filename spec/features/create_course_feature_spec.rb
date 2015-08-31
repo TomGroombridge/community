@@ -13,7 +13,7 @@ require 'spec_helper'
 				user_sign_in
 			end
 
-			it "should be able to create a new course" do
+			it "should be able to create a new course", :js => true do
 				click_link('addCourse')
 				fill_in "course_name", with: "Learn To Bake Bread"
 				fill_in "course_what_to_wear", with: "Nothing special"
