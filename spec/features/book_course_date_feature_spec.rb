@@ -1,6 +1,5 @@
 require 'spec_helper'
 	require_relative '../test_helpers/user_helpers_spec'
-	require 'stripe_mock'
 
 
 	RSpec.configure do |c|
@@ -8,9 +7,6 @@ require 'spec_helper'
 	end
 
 	describe "Booking a course" do
-		let(:stripe_helper) { StripeMock.create_test_helper }
-	  before { StripeMock.start }
-	  after { StripeMock.stop }
 
 		context "given a course" do
 
