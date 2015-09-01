@@ -38,15 +38,15 @@ Ticket.create!([
   {name: "Normal Tickets", price: "12.12", course_date_id: 10, quantity: 21, absorb_fee: false, number_of_dates: 1}
 ])
 CourseDate.create!([
-  {course_id: 1, active: true, start_date: "2015-09-01", start_time: "2000-01-01 19:49:15", end_date: "2015-09-02", end_time: "2000-01-01 13:33:00"},
-  {course_id: 2, active: true, start_date: "2015-09-01", start_time: "2000-01-01 19:49:15", end_date: "2015-09-02", end_time: "2000-01-01 13:33:00"},
-  {course_id: 3, active: true, start_date: "2015-09-01", start_time: "2000-01-01 19:49:15", end_date: "2015-09-02", end_time: "2000-01-01 13:36:00"},
-  {course_id: 4, active: true, start_date: "2015-09-01", start_time: "2000-01-01 19:49:15", end_date: "2015-09-02", end_time: "2000-01-01 13:43:00"},
-  {course_id: 5, active: true, start_date: "2015-09-01", start_time: "2000-01-01 19:49:15", end_date: "2015-09-02", end_time: "2000-01-01 13:33:00"},
-  {course_id: 6, active: true, start_date: "2015-09-01", start_time: "2000-01-01 19:49:15", end_date: "2015-09-02", end_time: "2000-01-01 13:36:00"},
-  {course_id: 7, active: true, start_date: "2015-09-01", start_time: "2000-01-01 19:49:15", end_date: "2015-09-02", end_time: "2000-01-01 13:43:00"},
-  {course_id: 8, active: true, start_date: "2015-09-01", start_time: "2000-01-01 19:49:15", end_date: "2015-09-02", end_time: "2000-01-01 13:33:00"},
-  {course_id: 9, active: true, start_date: "2015-09-01", start_time: "2000-01-01 19:49:15", end_date: "2015-09-02", end_time: "2000-01-01 13:36:00"},
-  {course_id: 10, active: true, start_date: "2015-09-01", start_time: "2000-01-01 19:49:15", end_date: "2015-09-02", end_time: "2000-01-01 13:43:00"}
+  {course_id: 1, active: true, start_date: "#{(DateTime.now + 2.days).strftime("%Y-%m-%d")}", start_time: "2020-01-01 19:49:15", end_date: "#{(DateTime.now + 3.days).strftime("%Y-%m-%d")}", end_time: "2020-01-01 13:33:00"},
+  {course_id: 2, active: true, start_date: "#{(DateTime.now + 2.days).strftime("%Y-%m-%d")}", start_time: "2020-01-01 19:49:15", end_date: "#{(DateTime.now + 3.days).strftime("%Y-%m-%d")}", end_time: "2020-01-01 13:33:00"},
+  {course_id: 3, active: true, start_date: "#{(DateTime.now + 2.days).strftime("%Y-%m-%d")}", start_time: "2020-01-01 19:49:15", end_date: "#{(DateTime.now + 3.days).strftime("%Y-%m-%d")}", end_time: "2020-01-01 13:36:00"},
+  {course_id: 4, active: true, start_date: "#{(DateTime.now + 2.days).strftime("%Y-%m-%d")}", start_time: "2020-01-01 19:49:15", end_date: "#{(DateTime.now + 3.days).strftime("%Y-%m-%d")}", end_time: "2020-01-01 13:43:00"},
+  {course_id: 5, active: true, start_date: "#{(DateTime.now + 2.days).strftime("%Y-%m-%d")}", start_time: "2020-01-01 19:49:15", end_date: "#{(DateTime.now + 3.days).strftime("%Y-%m-%d")}", end_time: "2020-01-01 13:33:00"},
+  {course_id: 6, active: true, start_date: "#{(DateTime.now + 2.days).strftime("%Y-%m-%d")}", start_time: "2020-01-01 19:49:15", end_date: "#{(DateTime.now + 3.days).strftime("%Y-%m-%d")}", end_time: "2020-01-01 13:36:00"},
+  {course_id: 7, active: true, start_date: "#{(DateTime.now + 2.days).strftime("%Y-%m-%d")}", start_time: "2020-01-01 19:49:15", end_date: "#{(DateTime.now + 3.days).strftime("%Y-%m-%d")}", end_time: "2020-01-01 13:43:00"},
+  {course_id: 8, active: true, start_date: "#{(DateTime.now + 2.days).strftime("%Y-%m-%d")}", start_time: "2020-01-01 19:49:15", end_date: "#{(DateTime.now + 3.days).strftime("%Y-%m-%d")}", end_time: "2020-01-01 13:33:00"},
+  {course_id: 9, active: true, start_date: "#{(DateTime.now + 2.days).strftime("%Y-%m-%d")}", start_time: "2020-01-01 19:49:15", end_date: "#{(DateTime.now + 3.days).strftime("%Y-%m-%d")}", end_time: "2020-01-01 13:36:00"},
+  {course_id: 10, active: true, start_date: "#{(DateTime.now + 2.days).strftime("%Y-%m-%d")}", start_time: "2020-01-01 19:49:15", end_date: "#{(DateTime.now + 3.days).strftime("%Y-%m-%d")}", end_time: "2020-01-01 13:43:00"}
 ])
 

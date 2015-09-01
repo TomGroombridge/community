@@ -78,5 +78,25 @@ require 'spec_helper'
 
 			end
 
+			it "should allow you to transfer a booking" do
+
+			end
+
+			it 'should allow you to asborb the fee of the ticket' do
+
+			end
+
+			it 'should allow you to add multiple dates to a ticket' do
+
+			end
+
+			it 'should not allow you at add a course date that starts in the past' do
+
+			end
+
+			it 'should not allow you at add a course date that the end date is before the start date' do
+
+			end
+
 		end
 	end

@@ -3,7 +3,7 @@ class BookingDatesController < ApplicationController
 
 	def show
 		@booking_date = BookingDate.find(params[:id])
-		@ticket = @booking_date.booking.order.ticket
+		@ticket = @booking_date.course_date.tickets.last
 		@course_dates = @ticket.course_date.course.unsold_dates
 		@user = current_user
 	end

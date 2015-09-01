@@ -40,13 +40,16 @@ require 'spec_helper'
 				expect(@user.courses.last.name).to eq("Learn To Bake Bread")
 			end
 
+			it 'should not allow you to have a title over 50 characters long' do
+
+			end
+
 		end
 
 		context "given no user" do
 
-			xit "should not let you add a new course if you are not signed in as a admin user" do
-				visit('/courses/new')
-				expect(page).to have_content("Unauthorized")
+			it "should not let you add a new course if you are not signed in as a admin user" do
+
 			end
 
 		end
