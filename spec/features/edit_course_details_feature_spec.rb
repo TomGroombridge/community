@@ -9,35 +9,35 @@ require 'spec_helper'
 	describe 'Editing course details' do
 		context 'given a course and a signed in user' do
 
-			it "should allow you to edit the course name " do
+			xit "should allow you to edit the course name " do
 
 			end
 
-			it "should allow you to edit the course description " do
+			xit "should allow you to edit the course description " do
 
 			end
 
-			it "should allow you to edit the 'what to wear' " do
+			xit "should allow you to edit the 'what to wear' " do
 
 			end
 
-			it "should allow you to edit the 'what to bring' " do
+			xit "should allow you to edit the 'what to bring' " do
 
 			end
 
-			it "should allow you to edit the 'experience needed'" do
+			xit "should allow you to edit the 'experience needed'" do
 
 			end
 
-			it "should allow you to edit the course category " do
+			xit "should allow you to edit the course category " do
 
 			end
 
-			it "should allow you to edit the location " do
+			xit "should allow you to edit the location " do
 
 			end
 
-			it "should allow you to edit the course image" do
+			xit "should allow you to edit the course image" do
 
 			end
 

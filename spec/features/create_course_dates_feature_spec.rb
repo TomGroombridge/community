@@ -46,7 +46,7 @@ require 'spec_helper'
 				expect(current_path).to eq "/courses/#{@course.id}/course_dates/#{@course.course_dates.last.id}/course_details"
 			end
 
-			it "should allow me to view the attendees for that course date" do
+			xit "should allow me to view the attendees for that course date" do
 				visit "/dashboard"
 				click_link('Manage')
 			end
@@ -59,7 +59,7 @@ require 'spec_helper'
 				expect(page).to have_content("Tickets sold: 1/10")
 			end
 
-			it "should allow me delete the course date if there is no one booked onto it" do
+			xit "should allow me delete the course date if there is no one booked onto it" do
 
 			end
 
@@ -74,27 +74,27 @@ require 'spec_helper'
 				expect(page).to have_content "Booking Added"
 			end
 
-			it "should not allow you to add a date if the course isn't owned by you" do
+			xit "should not allow you to add a date if the course isn't owned by you" do
 
 			end
 
-			it "should allow you to transfer a booking" do
+			xit "should allow you to transfer a booking" do
 
 			end
 
-			it 'should allow you to asborb the fee of the ticket' do
+			xit 'should allow you to asborb the fee of the ticket' do
 
 			end
 
-			it 'should allow you to add multiple dates to a ticket' do
+			xit 'should allow you to add multiple dates to a ticket' do
 
 			end
 
-			it 'should not allow you at add a course date that starts in the past' do
+			xit 'should not allow you at add a course date that starts in the past' do
 
 			end
 
-			it 'should not allow you at add a course date that the end date is before the start date' do
+			xit 'should not allow you at add a course date that the end date is before the start date' do
 
 			end
 

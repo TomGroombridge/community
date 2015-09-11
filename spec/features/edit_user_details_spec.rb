@@ -10,46 +10,46 @@ require 'spec_helper'
 
 		context 'given a signed in user' do
 
-			it 'should allow you to edit your first name' do
+			xit 'should allow you to edit your first name' do
 
 			end
 
-			it 'should allow you to edit your last name' do
+			xit 'should allow you to edit your last name' do
 
 			end
 
-			it 'should allow you to edit your email address' do
+			xit 'should allow you to edit your email address' do
 
 			end
 
-			it 'should allow you to edit your company name' do
+			xit 'should allow you to edit your company name' do
 
 			end
 
-			it 'should allow you to edit your contact number' do
+			xit 'should allow you to edit your contact number' do
 
 			end
 
-			it "should allow you to edit 'about your company'" do
+			xit "should allow you to edit 'about your company'" do
 
 			end
 
-			it 'should allow you to edit your facebook handle' do
+			xit 'should allow you to edit your facebook handle' do
 			end
 
-			it 'should allow you to edit your twitter handle' do
-
-			end
-
-			it 'should allow you to edit your instagram handle' do
+			xit 'should allow you to edit your twitter handle' do
 
 			end
 
-			it 'should allow you to edit your company website' do
+			xit 'should allow you to edit your instagram handle' do
 
 			end
 
-			it 'should allow you to edit your company logo' do
+			xit 'should allow you to edit your company website' do
+
+			end
+
+			xit 'should allow you to edit your company logo' do
 
 			end
 

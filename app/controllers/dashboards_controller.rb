@@ -225,8 +225,14 @@ class DashboardsController < ApplicationController
 
 	private
 
-	def fetch_and_authorize_user
-    @user = current_user
+  def fetch_and_authorize_user
+    if current_user.nil?
+      raise 'Unauthorized'
+    elsif current_user.admin != true
+      raise 'Unauthorized'
+    else
+      @user = current_user
+    end
   end
 
 end

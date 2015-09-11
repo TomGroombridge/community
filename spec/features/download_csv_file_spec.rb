@@ -10,27 +10,27 @@ require 'spec_helper'
 
 		context 'given a signed in admin user and list of payments/bookings' do
 
-			it "should allow me to view a list of bookings from this week and download a csv file with them all in it" do
+			xit "should allow me to view a list of bookings from this week and download a csv file with them all in it" do
 
 			end
 
-			it "should allow me to view a list of bookings from this month and download a csv file with them all in it" do
+			xit "should allow me to view a list of bookings from this month and download a csv file with them all in it" do
 
 			end
 
-			it "should allow me to view a list of all bookings and download a csv file with them all in it" do
+			xit "should allow me to view a list of all bookings and download a csv file with them all in it" do
 
 			end
 
-			it "should allow me to view a list of transactions from this week and download a csv file with them all in it" do
+			xit "should allow me to view a list of transactions from this week and download a csv file with them all in it" do
 
 			end
 
-			it "should allow me to view a list of transactions from this month and download a csv file with them all in it" do
+			xit "should allow me to view a list of transactions from this month and download a csv file with them all in it" do
 
 			end
 
-			it "should allow me to view a list of all transactions and download a csv file with them all in it" do
+			xit "should allow me to view a list of all transactions and download a csv file with them all in it" do
 
 			end
 
