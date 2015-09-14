@@ -26,7 +26,6 @@ class UsersController < ApplicationController
 		if @user.update_attributes(params[:user].permit(:first_name, :last_name, :contact_number, :company_name, :description, :facebook, :twitter, :instagram, :google, :pinterest, :admin, :email, :avatar))
 			redirect_to dashboard_path
 		else
-			# redirect_to course_path(@course)
 			render :edit
 		end
 	end

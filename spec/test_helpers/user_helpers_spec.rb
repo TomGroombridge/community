@@ -45,4 +45,20 @@ module CreateUserHelper
 		click_button('Send Payment')
 	end
 
+	def create_course_with_date_and_ticket
+		@course = create(:course) do |course|
+			@course_date = course.course_dates.create(attributes_for(:course_date))
+		end
+		@ticket = @course_date.tickets.create(attributes_for(:ticket))
+	end
+
+
+	def create_booking
+		@booking = create(:booking) do |booking|
+			@booking_date = booking.booking_dates.create(attributes_for(:booking_date, course_date_id: @course_date.id))
+		end
+		puts @booking.id
+		puts @booking_date.booking.id
+	end
+
 end

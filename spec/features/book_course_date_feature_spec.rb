@@ -14,6 +14,7 @@ require 'spec_helper'
 				@user = create(:user)
 				user_sign_in
 				create_food_course
+
 			end
 
 			it "should allow you to be able to book a place on the course", js: true do
