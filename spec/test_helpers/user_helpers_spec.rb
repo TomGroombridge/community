@@ -33,8 +33,7 @@ module CreateUserHelper
 	end
 
 	def make_a_booking
-		visit "/course_dates"
-		click_link('Learn To Bake Bread')
+		visit "/courses/#{@course.id}"
 		click_link('bookNow')
 		click_link('bookDate')
 		fill_in 'cardName', with: "Tom Groombridge"
@@ -60,5 +59,6 @@ module CreateUserHelper
 		puts @booking.id
 		puts @booking_date.booking.id
 	end
+
 
 end
