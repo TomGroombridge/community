@@ -93,16 +93,18 @@ require 'spec_helper'
 				expect{visit "/courses/#{@course.id}/course_dates/new"}.to raise_error("Unauthorized")
 			end
 
-			xit 'should not allow you to view the bookings/new' do
-
+			it 'should not allow you to view the bookings/new' do
+				create_booking
+				expect{visit "/booking_dates/#{@booking_date.id}"}.to raise_error("Unauthorized")
 			end
 
-			xit 'should not allow you to view the booking_dates/show for bookings they dont own' do
-
+			it 'should not allow you to view the booking_dates/show for bookings they dont own' do
+				create_booking
+				expect{visit "/booking_dates/#{@booking_date.id}"}.to raise_error("Unauthorized")
 			end
 
-			xit 'should not allow you to view the course_dates/edit for courses they dont own' do
-
+			it 'should not allow you to view the course_dates/edit for courses they dont own' do
+				expect{visit "courses/#{@course.id}/course_dates/#{@course_date.id}/edit"}.to raise_error("Unauthorized")
 			end
 
 
