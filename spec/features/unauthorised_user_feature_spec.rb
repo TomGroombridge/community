@@ -65,26 +65,32 @@ require 'spec_helper'
 
 		end
 
-		context 'if a user is signed in but its not their account' do
-
-			xit 'should not allow you to view the course_dates/new for courses that they dont own' do
-
+		context "if a user is signed in but doesn't have admin rights" do
+			before(:each) do
+				@user = create(:user)
+				user_sign_in
+				@user.update_attributes(:admin => false)
+				create_course_with_date_and_ticket
 			end
 
-			xit 'should not allow you to view the /dashboard/transactions for transactions that they dont own' do
-
+			it 'should not allow you to view the course_dates/new for courses that they dont own' do
+				expect{visit "/courses/new"}.to raise_error("Unauthorized")
 			end
 
-			xit 'should not allow you to view the /dashboard/bookings for bookings that they dont own' do
+			it 'should not allow you to view the /dashboard/transactions for transactions that they dont own' do
+				expect{visit "/dashboard/transactions"}.to raise_error("Unauthorized")
+			end
 
+			it 'should not allow you to view the /dashboard/bookings for bookings that they dont own' do
+				expect{visit "/dashboard/bookings"}.to raise_error("Unauthorized")
 			end
 
 			xit 'should not allow you to view the course_details for courses that they dont own' do
-
+				expect{visit "/dashboard/bookings"}.to raise_error("Unauthorized")
 			end
 
-			xit 'should not allow you to view the course_dates/new' do
-
+			it 'should not allow you to view the course_dates/new' do
+				expect{visit "/courses/#{@course.id}/course_dates/new"}.to raise_error("Unauthorized")
 			end
 
 			xit 'should not allow you to view the bookings/new' do

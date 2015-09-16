@@ -40,16 +40,25 @@ require 'spec_helper'
 				expect(@user.courses.last.name).to eq("Learn To Bake Bread")
 			end
 
-			xit 'should not allow you to have a title over 50 characters long' do
-
+			xit 'should not allow you to have a title over 50 characters long', :js => true do
+				click_link('addCourse')
+				fill_in "course_name", with: "Learn To Bake Bread fsdakjfn sdkfjn sdakfsdjkaf sdakfjn sdakjfn sdakfjnsad fksjadnf skadjfn sadkjfn sadkfjn"
+				click_button("Create Course")
+				save_and_open_page
 			end
 
 		end
 
-		context "given no user" do
+		context "given a user" do
 
-			xit "should not let you add a new course if you are not signed in as a admin user" do
+			before(:each) do
+				@user = create(:user)
+				user_sign_in
+			end
 
+			it "should not let you add a new course if you are not signed in as a admin user" do
+				@user.update_attributes(:admin => false)
+				expect{visit "/courses/new"}.to raise_error("Unauthorized")
 			end
 
 		end
