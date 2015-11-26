@@ -46,9 +46,11 @@ require 'spec_helper'
 				expect(current_path).to eq "/courses/#{@course.id}/course_dates/#{@course.course_dates.last.id}/course_details"
 			end
 
-			xit "should allow me to view the attendees for that course date" do
+			it "should allow me to view the attendees for that course date" do
+				make_a_booking
 				visit "/dashboard"
 				click_link('Manage')
+				within('.attendee-name') { expect(page).to have_content("tom groombridge") }
 			end
 
 			it "should not allow me edit the course date" do
