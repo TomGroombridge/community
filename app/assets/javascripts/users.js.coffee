@@ -158,14 +158,14 @@ $ ->
           prompt: 'Please fill in a valid Email Address'
         }
       ]
-    user_avatar:
-      identifier: 'user[avatar]'
-      rules: [
-        {
-          type: 'empty'
-          prompt: 'Please add a image to a user'
-        }
-      ]
+    # user_avatar:
+    #   identifier: 'user[avatar]'
+    #   rules: [
+    #     {
+    #       type: 'empty'
+    #       prompt: 'Please add a image to a user'
+    #     }
+    #   ]
     contact_number:
       identifier: 'user[contact_number]'
       rules: [ {

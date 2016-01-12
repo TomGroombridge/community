@@ -76,8 +76,9 @@ require 'spec_helper'
 				expect(page).to have_content "Booking Added"
 			end
 
-			xit "should not allow you to add a date if the course isn't owned by you" do
-
+			it "should not allow you to add a date if the course isn't owned by you" do
+				@course.update_attributes(:user_id => 100)
+				expect { visit "/courses/#{@course.id}/course_dates/new" }.to raise_error
 			end
 
 			xit "should allow you to transfer a booking" do

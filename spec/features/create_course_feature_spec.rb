@@ -44,7 +44,6 @@ require 'spec_helper'
 				click_link('addCourse')
 				fill_in "course_name", with: "Learn To Bake Bread fsdakjfn sdkfjn sdakfsdjkaf sdakfjn sdakjfn sdakfjnsad fksjadnf skadjfn sadkjfn sadkfjn"
 				click_button("Create Course")
-				save_and_open_page
 			end
 
 		end
