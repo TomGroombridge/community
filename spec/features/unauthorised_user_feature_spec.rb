@@ -35,7 +35,7 @@ require 'spec_helper'
 				expect{visit "/dashboard/bookings"}.to raise_error("Unauthorized")
 			end
 
-			xit 'should not allow you to view the course_details' do
+			it 'should not allow you to view the course_details' do
 				expect{visit "/dashboard/bookings"}.to raise_error("Unauthorized")
 			end
 
@@ -85,7 +85,7 @@ require 'spec_helper'
 				expect{visit "/dashboard/bookings"}.to raise_error("Unauthorized")
 			end
 
-			xit 'should not allow you to view the course_details for courses that they dont own' do
+			it 'should not allow you to view the course_details for courses that they dont own' do
 				expect{visit "/dashboard/bookings"}.to raise_error("Unauthorized")
 			end
 

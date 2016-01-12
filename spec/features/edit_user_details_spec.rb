@@ -96,15 +96,6 @@ require_relative '../test_helpers/user_helpers_spec'
 				expect(@user.company_website).to eq "James.com"
 			end
 
-			xit 'should allow you to edit your company logo' do
-				fill_in "user[first_name]", :with  => "James"
-				click_button "Update User"
-				expect(current_path).to eq("/dashboard")
-				@user.reload
-				expect(@user.first_name).to eq "James"
-			end
-
-
 		end
 
 	end

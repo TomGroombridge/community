@@ -61,10 +61,6 @@ require 'spec_helper'
 				expect(page).to have_content("Tickets sold: 1/10")
 			end
 
-			xit "should allow me delete the course date if there is no one booked onto it" do
-
-			end
-
 			it "should allow me to manually add a booking to a course date" do
 				visit "/dashboard"
 				click_link "Add Booking"
@@ -97,14 +93,6 @@ require 'spec_helper'
 				select("Wednesday, 13 Jan 2016 10:30 AM", :from => 'booking_date[course_date_id]')
 				click_button("Transfer Date")
 				expect(BookingDate.last.course_date.start_date.strftime("%d/%m/%Y")).to eq('13/01/2016')
-			end
-
-			xit 'should allow you to asborb the fee of the ticket' do
-
-			end
-
-			xit 'should allow you to add multiple dates to a ticket' do
-
 			end
 
 			xit 'should not allow you at add a course date that starts in the past' do

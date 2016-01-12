@@ -34,7 +34,4 @@ require 'spec_helper'
 			end
 		end
 
-		context "given a course with multiple_dates" do
-
-		end
 end

@@ -40,12 +40,6 @@ require 'spec_helper'
 				expect(@user.courses.last.name).to eq("Learn To Bake Bread")
 			end
 
-			xit 'should not allow you to have a title over 50 characters long', :js => true do
-				click_link('addCourse')
-				fill_in "course_name", with: "Learn To Bake Bread fsdakjfn sdkfjn sdakfsdjkaf sdakfjn sdakjfn sdakfjnsad fksjadnf skadjfn sadkjfn sadkfjn"
-				click_button("Create Course")
-			end
-
 		end
 
 		context "given a user" do

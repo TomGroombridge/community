@@ -88,9 +88,5 @@ require 'spec_helper'
 				expect(@course.course_addresses.last.postcode).to eq "SW18 1NY"
 			end
 
-			xit "should allow you to edit the course image" do
-
-			end
-
 		end
 	end
