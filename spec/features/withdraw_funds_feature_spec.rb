@@ -28,16 +28,28 @@ require 'spec_helper'
 				within('.account_balance') { expect(page).to have_content("£50.00") }
 			end
 
-			xit "should add fees outstanding if the ticket absorbs the fee" do
-
+			it "should add fees outstanding if the ticket absorbs the fee" do
+				@course.course_dates.last.tickets.last.update_attributes(absorb_fee: true)
+				visit "/dashboard"
+				make_a_booking
+				visit "/dashboard"
+				within('.fees_outstanding') { expect(page).to have_content("£2.00") }
 			end
 
-			xit 'should add to the booking fee for every booking that is taken' do
-
+			it 'should add to the booking fee for every booking that is taken' do
+				visit "/dashboard"
+				make_a_booking
+				visit "/dashboard"
+				within('.booking_fees') { expect(page).to have_content("£2.00") }
 			end
 
-			xit "should put the acount balance back to 0 and the outstanding fees to 0 when you request to transfer the funds from your account" do
-
+			it "should put the acount balance back to 0 and the outstanding fees to 0 when you request to transfer the funds from your account" do
+				visit "/dashboard"
+				make_a_booking
+				visit "/dashboard"
+				within('.account_balance') { expect(page).to have_content("£50.00") }
+				click_link("transferFunds")
+				within('.account_balance') { expect(page).to have_content("£0.00") }
 			end
 
 		end
