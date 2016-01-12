@@ -81,8 +81,22 @@ require 'spec_helper'
 				expect { visit "/courses/#{@course.id}/course_dates/new" }.to raise_error
 			end
 
-			xit "should allow you to transfer a booking" do
-
+			it "should allow you to transfer a booking" do
+				@course_date = @course.course_dates.create(attributes_for(:course_date, :start_date => "2016-01-20", :end_date => "2016-01-20"))
+				@ticket = @course_date.tickets.create(attributes_for(:ticket))
+				visit "/tickets/#{@ticket.id}/payments/new"
+				fill_in 'cardName', with: "Tom Groombridge"
+				fill_in 'card_number', with: '4242424242424242'
+				select '1 - January', from: 'card_month'
+				select '2016', from: 'card_year'
+				fill_in 'card_code', with: '444'
+				click_button('Send Payment')
+				expect(BookingDate.last.course_date.start_date.strftime("%d/%m/%Y")).to eq('20/01/2016')
+				visit "/courses/#{@course.id}/course_dates/#{@course_date.id}/course_details"
+				click_link ("Transfer Date")
+				select("Wednesday, 13 Jan 2016 10:30 AM", :from => 'booking_date[course_date_id]')
+				click_button("Transfer Date")
+				expect(BookingDate.last.course_date.start_date.strftime("%d/%m/%Y")).to eq('13/01/2016')
 			end
 
 			xit 'should allow you to asborb the fee of the ticket' do
