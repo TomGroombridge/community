@@ -56,8 +56,6 @@ module CreateUserHelper
 		@booking = create(:booking) do |booking|
 			@booking_date = booking.booking_dates.create(attributes_for(:booking_date, course_date_id: @course_date.id))
 		end
-		puts @booking.id
-		puts @booking_date.booking.id
 	end
 
 

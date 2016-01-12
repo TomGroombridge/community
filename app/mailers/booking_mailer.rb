@@ -11,10 +11,4 @@ class BookingMailer < ActionMailer::Base
   	mail to: @booking_date.booking.email, subject: "Reminder that your course is in less than 24 hours"
   end
 
-	# def new_date(course_date)
-	# 	@course = course_date.course
-	# 	@course_date = course_date
-	# 	mail to: @course.user.email, subject: "You have created a new course date"
-	# end
-
 end
