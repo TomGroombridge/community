@@ -80,13 +80,7 @@ class Payment < ActiveRecord::Base
 				errors.add :base, "There was a problem with your credit card."
 			end
 		end
-		# raise self.ticket.course_date.course.user.fees.inspect
 	end
-
-	# def send_reminder
-	# 	PaymentMailer.delay_until(ticket.course_date.start_date_time - 24.hours).reminder(self)
-	# 	# PaymentMailer.reminder(self).deliver!
-	# end
 
 	def send_new_payment_email
 		PaymentMailer.new_payment(self).deliver!
