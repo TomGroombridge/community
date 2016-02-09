@@ -19,6 +19,21 @@ class BookingsController < ApplicationController
 		end
 	end
 
+	def edit
+		@user = current_user
+		@booking = Booking.find(params[:id])
+	end
+
+	def update
+		@booking = Booking.find(params[:id])
+		if @booking.update_attributes(params[:booking].permit(:name, :email, :age, :special_request, :contact_number))
+			flash[:notice] = "Booking has been updated"
+			redirect_to edit_course_date_booking_path(@course_date.id, @booking.id)
+		else
+			render :edit
+		end
+	end
+
 	private
 
 	def find_course_date

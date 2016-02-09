@@ -1,0 +1,48 @@
+<% if flash[:notice] %>
+	<div class="ui green message" id="notice" style="margin-bottom:0px;"><%= notice %></div>
+<% end %>
+<div class="two column stackable ui grid dashboard course-details-dash" style="background-color: #36464f;">
+	<div class="column four wide">
+		<%= render "layouts/course_details_sidenav" %>
+	</div>
+	<div class="column twelve wide" style="background:white; min-height: 420px;">
+		<div class="row" style="padding-bottom: 20px;">
+			<h1 class="header">Edit Booking</h1>
+		</div>
+		<div class="ui segment">
+		  <div class="column">
+				<%= form_for [@course_date, @booking], :multipart => true, :html => {:class => "ui form booking"} do |form| %>
+					<div class="ui segment no-box-shadow" style="margin-top: 40px;">
+						<div class="field">
+							<%= form.label :name %>
+							<%= form.text_field :name %>
+						</div>
+						<div class="field">
+							<%= form.label :email %>
+							<%= form.text_field :email %>
+						</div>
+						<div class="field">
+							<%= form.label :contact_number %>
+							<%= form.text_field :contact_number %>
+						</div>
+						<div class="field">
+							<%= form.label :special_request %>
+							<%= form.text_area :special_request  %>
+						</div>
+						<div class="field">
+							<%= form.label :age %>
+							<%= form.number_field :age  %>
+						</div>
+						<div class="ui segment no-box-shadow" style="box-shadow: none; background:none">
+							<div class="ui dimmer bookingLoader">
+		            <div class="ui indeterminate text loader">Updating Booking...</div>
+		          </div>
+							<%= form.submit "Update Details", :id => "bookingEdit", :style =>"float:right; width:250px", :class => "ui inverted green button" %>
+							<div class="ui error message" style="margin-top:50px;"></div>
+						</div>
+					</div>
+				<% end %>
+		  </div>
+		</div>
+	</div>
+</div>
