@@ -17,7 +17,6 @@
 			  		<%= course_date_form.text_field :start_date, :placeholder => "11/02/2015" %>
 			  	</div>
 			  	<div class="field four wide">
-			  		<%# course_date_form.time_select :start_time, :placeholder => "19:30" %>
 			  		<%= course_date_form.time_select :start_time %>
 			  	</div>
 			  	<div class="field four wide">
@@ -34,10 +33,6 @@
 			</div>
 			<div class="ui divider" style="margin-top: 100px; margin-bottom: 25px;"></div>
 			<div class="ui segment">
-				<!-- <div id="terms" class="ui button labeled icon basic">
-					<i class="icon pencil"></i>
-					Terms & Conditions
-				</div> -->
 				<%= course_date_form.submit :style =>"float:right; width:250px", :class => "ui inverted green button" %>
 			</div>
 		<% end %>

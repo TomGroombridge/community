@@ -58,7 +58,11 @@ class CoursesController < ApplicationController
 	private
 
 	def fetch_and_authorize_course
-		raise 'Unauthorized' unless current_user.admin == true
+		if current_user.nil?
+			raise 'Unauthorized'
+		else
+			raise 'Unauthorized' unless current_user.admin == true
+		end
 	end
 
 	def fetch_and_authorize_user

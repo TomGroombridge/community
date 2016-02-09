@@ -22,4 +22,8 @@
 
 config/secrets.yml
 
+coverage
+
+uploads
+
 .idea

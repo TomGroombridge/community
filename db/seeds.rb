@@ -1,5 +1,5 @@
 User.create!([
-  {email: "groombridgetom@gmail.com", password:"testing123", encrypted_password: "$2a$10$A/ucB.oCGWGVlATwrMfHQuNREpVXnPkPl3u.ZPkkx5cKIlQuuWPoO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 3, current_sign_in_at: "2015-08-18 17:12:48", last_sign_in_at: "2015-08-08 13:31:31", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", contact_number: "09382423409", first_name: "Tom", last_name: "Groombridge", description: nil, company_name: "hello world", subscription_added: false, company_website: nil, facebook: nil, twitter: nil, instagram: nil, google: nil, pinterest: nil, admin: true, avatar: nil, fees: "0.0"}
+  {email: "groombridgetom@gmail.com", password:"testing123", remember_created_at: nil, sign_in_count: 3, current_sign_in_at: "2015-08-18 17:12:48", last_sign_in_at: "2015-08-08 13:31:31", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", contact_number: "09382423409", first_name: "Tom", last_name: "Groombridge", description: nil, company_name: "hello world", subscription_added: false, company_website: nil, facebook: nil, twitter: nil, instagram: nil, google: nil, pinterest: nil, admin: true, avatar: nil, fees: "0.0"}
 ])
 Course.create!([
   {name: "Learn to bake bread", description: "<p>Come and learn how to bake bread</p>\r\n", user_id: 1, blurb: nil, what_to_wear: "nothing special", what_to_bring: "nothing special", experience: "none", avatar: "972126_10201133739614523_924525143_n.jpg", category: "arts", age_needed: false, private: false},
@@ -38,15 +38,15 @@ Ticket.create!([
   {name: "Normal Tickets", price: "12.12", course_date_id: 10, quantity: 21, absorb_fee: false, number_of_dates: 1}
 ])
 CourseDate.create!([
-  {course_id: 1, active: true, start_date: "2015-09-01", start_time: "2000-01-01 19:49:15", end_date: "2015-09-02", end_time: "2000-01-01 13:33:00"},
-  {course_id: 2, active: true, start_date: "2015-09-01", start_time: "2000-01-01 19:49:15", end_date: "2015-09-02", end_time: "2000-01-01 13:33:00"},
-  {course_id: 3, active: true, start_date: "2015-09-01", start_time: "2000-01-01 19:49:15", end_date: "2015-09-02", end_time: "2000-01-01 13:36:00"},
-  {course_id: 4, active: true, start_date: "2015-09-01", start_time: "2000-01-01 19:49:15", end_date: "2015-09-02", end_time: "2000-01-01 13:43:00"},
-  {course_id: 5, active: true, start_date: "2015-09-01", start_time: "2000-01-01 19:49:15", end_date: "2015-09-02", end_time: "2000-01-01 13:33:00"},
-  {course_id: 6, active: true, start_date: "2015-09-01", start_time: "2000-01-01 19:49:15", end_date: "2015-09-02", end_time: "2000-01-01 13:36:00"},
-  {course_id: 7, active: true, start_date: "2015-09-01", start_time: "2000-01-01 19:49:15", end_date: "2015-09-02", end_time: "2000-01-01 13:43:00"},
-  {course_id: 8, active: true, start_date: "2015-09-01", start_time: "2000-01-01 19:49:15", end_date: "2015-09-02", end_time: "2000-01-01 13:33:00"},
-  {course_id: 9, active: true, start_date: "2015-09-01", start_time: "2000-01-01 19:49:15", end_date: "2015-09-02", end_time: "2000-01-01 13:36:00"},
-  {course_id: 10, active: true, start_date: "2015-09-01", start_time: "2000-01-01 19:49:15", end_date: "2015-09-02", end_time: "2000-01-01 13:43:00"}
+  {course_id: 1, active: true, start_date: "#{(DateTime.now + 2.days).strftime("%Y-%m-%d")}", start_time: "2020-01-01 19:49:15", end_date: "#{(DateTime.now + 3.days).strftime("%Y-%m-%d")}", end_time: "2020-01-01 13:33:00"},
+  {course_id: 2, active: true, start_date: "#{(DateTime.now + 2.days).strftime("%Y-%m-%d")}", start_time: "2020-01-01 19:49:15", end_date: "#{(DateTime.now + 3.days).strftime("%Y-%m-%d")}", end_time: "2020-01-01 13:33:00"},
+  {course_id: 3, active: true, start_date: "#{(DateTime.now + 2.days).strftime("%Y-%m-%d")}", start_time: "2020-01-01 19:49:15", end_date: "#{(DateTime.now + 3.days).strftime("%Y-%m-%d")}", end_time: "2020-01-01 13:36:00"},
+  {course_id: 4, active: true, start_date: "#{(DateTime.now + 2.days).strftime("%Y-%m-%d")}", start_time: "2020-01-01 19:49:15", end_date: "#{(DateTime.now + 3.days).strftime("%Y-%m-%d")}", end_time: "2020-01-01 13:43:00"},
+  {course_id: 5, active: true, start_date: "#{(DateTime.now + 2.days).strftime("%Y-%m-%d")}", start_time: "2020-01-01 19:49:15", end_date: "#{(DateTime.now + 3.days).strftime("%Y-%m-%d")}", end_time: "2020-01-01 13:33:00"},
+  {course_id: 6, active: true, start_date: "#{(DateTime.now + 2.days).strftime("%Y-%m-%d")}", start_time: "2020-01-01 19:49:15", end_date: "#{(DateTime.now + 3.days).strftime("%Y-%m-%d")}", end_time: "2020-01-01 13:36:00"},
+  {course_id: 7, active: true, start_date: "#{(DateTime.now + 2.days).strftime("%Y-%m-%d")}", start_time: "2020-01-01 19:49:15", end_date: "#{(DateTime.now + 3.days).strftime("%Y-%m-%d")}", end_time: "2020-01-01 13:43:00"},
+  {course_id: 8, active: true, start_date: "#{(DateTime.now + 2.days).strftime("%Y-%m-%d")}", start_time: "2020-01-01 19:49:15", end_date: "#{(DateTime.now + 3.days).strftime("%Y-%m-%d")}", end_time: "2020-01-01 13:33:00"},
+  {course_id: 9, active: true, start_date: "#{(DateTime.now + 2.days).strftime("%Y-%m-%d")}", start_time: "2020-01-01 19:49:15", end_date: "#{(DateTime.now + 3.days).strftime("%Y-%m-%d")}", end_time: "2020-01-01 13:36:00"},
+  {course_id: 10, active: true, start_date: "#{(DateTime.now + 2.days).strftime("%Y-%m-%d")}", start_time: "2020-01-01 19:49:15", end_date: "#{(DateTime.now + 3.days).strftime("%Y-%m-%d")}", end_time: "2020-01-01 13:43:00"}
 ])
 

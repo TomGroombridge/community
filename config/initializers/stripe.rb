@@ -1,4 +1,4 @@
-if Rails.env.development?
+if Rails.env.development? || Rails.env.test?
 	Stripe.api_key = Rails.application.secrets.secret_key
 else
 	Rails.configuration.stripe = {

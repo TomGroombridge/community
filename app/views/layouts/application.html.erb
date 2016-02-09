@@ -44,7 +44,9 @@
   <!-- All the content that isnt sidenav is wrapped in the content class -->
       <div class="pusher right-side" >
         <div class="content-container" >
-          <%= render "devise/sessions/sign_in" %>
+          <% unless signed_in? %>
+            <%= render "devise/sessions/sign_in" %>
+          <% end %>
           <%= yield %>
           <%= render "templates/footer" %>
         </div>

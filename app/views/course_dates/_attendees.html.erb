@@ -7,16 +7,18 @@
       <th>Phone</th>
       <th>Paid on</th>
       <th style="text-align:center">Actions</th>
+      <th style="text-align:center">Edit Details</th>
     </tr>
   </thead>
   <tbody>
     <% @course_date.booking_dates.each do |date| %>
       <tr>
-        <td><%= date.booking.name %></td>
+        <td class="attendee-name"><%= date.booking.name %></td>
         <td><%= date.booking.email %></td>
         <td><%= date.booking.contact_number %></td>
         <td><%= date.booking.created_at.strftime("%d/%m/%Y")%></td>
         <td style="text-align:center"><%= link_to 'Transfer Date', booking_date_path(date), :class => "ui inverted red button" %></td>
+        <td style="text-align:center"><%= link_to 'Edit', edit_course_date_booking_path(@course_date, date.booking.id), :class => "ui inverted blue button" %></td>
       </tr>
     <% end %>
   </tbody>

@@ -92,13 +92,13 @@
 	    <div class="required field">
 	      <label>Name on Card</label>
 	      <div class="ui icon input">
-	        <input class="full-width" type="text" data-validate="name-on-card">
+	        <input class="full-width" type="text" data-validate="name-on-card" id ="cardName">
 	      </div>
 	    </div>
 	    <div class="required field">
 	      <label>Card Number</label>
 	      <div class="ui icon input">
-	        <%= text_field_tag :card_number, nil , :placeholder => "•••• •••• •••• ••••" , :id => "card_number"%>
+	        <%= text_field_tag :card_number, nil , :placeholder => "•••• •••• •••• ••••" , :id => "card_number", :required => true %>
 	      </div>
 	    </div>
 	    <div class="two fields">

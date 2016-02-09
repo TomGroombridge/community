@@ -7,7 +7,6 @@ class UsersController < ApplicationController
 	  @course_dates = []
 	  @courses.each {|c| c.course_dates.each {|cd| @course_dates << cd}}
 	  @active_course_dates = @course_dates.select {|c| c.valid_dates(c)}
-	  # raise @active_course_dates.inspect
 	  @course_dates = @active_course_dates.sort_by do |course_date|
 			course_date.start_date_time
 		end
@@ -23,10 +22,9 @@ class UsersController < ApplicationController
 
 	def update
 		@user = User.find(params[:id])
-		if @user.update_attributes(params[:user].permit(:first_name, :last_name, :contact_number, :company_name, :description, :facebook, :twitter, :instagram, :google, :pinterest, :admin, :email, :avatar))
+		if @user.update_attributes(params[:user].permit(:first_name, :last_name, :contact_number, :company_name, :description, :facebook, :twitter, :instagram, :google, :pinterest, :admin, :email, :avatar, :company_website))
 			redirect_to dashboard_path
 		else
-			# redirect_to course_path(@course)
 			render :edit
 		end
 	end

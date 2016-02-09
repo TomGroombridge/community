@@ -1,9 +1,7 @@
 class CourseDate < ActiveRecord::Base
 	has_many :payments
 	has_many :booking_dates
-	# after_create :invalid
 	after_create :send_course_info
-	after_create :full
 	belongs_to :course
   has_many :tickets, dependent: :destroy
   accepts_nested_attributes_for :tickets
@@ -34,9 +32,8 @@ class CourseDate < ActiveRecord::Base
 	end
 
 	def send_course_info
-		@date = self
 		@course_date = self.start_date_time
-		CourseDateMailer.delay_until(@course_date - 1.days).course_info(@date.id)
+		CourseDateMailer.delay_until(@course_date - 1.days).course_info(self.id)
 	end
 
 	def pretty_date

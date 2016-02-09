@@ -25,14 +25,12 @@ class PaymentsController < ApplicationController
     @payment.user = current_user
     if @payment.save_with_payment(payment_params)
       if @payment.ticket.number_of_dates == 1
-        # @booking = @payment.bookings.last
-        # @booking_date = BookingDate.create(params[:booking_date])
-        # @booking_date.update_attributes(:booking_id => @booking.id, :course_date_id => @payment.ticket.course_date.id)
         @payment.bookings.each{|booking| booking.update_attributes(:order_id => @payment.order.id)}
       else
         @payment.bookings.each{|booking| booking.update_attributes(:order_id => @payment.order.id)}
       end
-      redirect_to @payment
+      @payment.save if Rails.env.test?
+      redirect_to payment_path(@payment.id)
     else
       render :new
     end

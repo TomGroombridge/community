@@ -4,10 +4,6 @@
   <div class="content" style="padding-top:0px;">
     <h3><%= @course.name%></h3>
     <div class="ui segment" style="padding-top:0px;">
-      <%# form_tag course_tickets_path(@course), id: 'ticket_form' do %>
-        <%#  select_tag 'start_date', options_from_collection_for_select(@course.upcoming_dates, :id, :pretty_date) %>
-        <!-- Quantity: <%# text_field_tag @course.course_date.payment, '0' %> -->
-      <%# end %>
       <ul class="course-dates">
       <li class="header" style="padding-bottom: 0px;">
         <div class="ui grid">
@@ -18,7 +14,6 @@
         </div>
         <div class="ui divider"></div>
       </li>
-
       <% if @course.upcoming_date == nil %>
         <h3>There are no course dates available for this course yet</h3>
       <% else %>
@@ -44,23 +39,12 @@
                   <% if ticket.number_of_dates > 1 %>
                     <%= link_to("Choose Dates", new_ticket_payment_path(ticket.id), :class => "ui positive labeled button", :style => "display:inline-block;float: right; width:37%; max-width:37%;" )%>
                   <% else %>
-                    <%= link_to("Book Now", new_ticket_payment_path(ticket.id), :class => "ui positive labeled button", :style => "display:inline-block;float: right; width:37%; max-width:37%;" )%>
+                    <%= link_to("Book Now", new_ticket_payment_path(ticket.id), :class => "ui positive labeled button", :style => "display:inline-block;float: right; width:37%; max-width:37%;", :id => "bookDate" )%>
                   <% end %>
                 <% end %>
               </div>
             <% end %>
           </div>
-            <!-- <div class="three wide column center">
-              <%# number_to_currency(date.course.price, :precision => 2, :unit => "£")  %>
-            </div>
-            <%#if date.quantity == date.payments.count %>
-              <div class="five wide column center">
-                Sold Out!
-              </div>
-            <%# else %>
-              <div class="five wide column center">
-                <%# link_to "Book Date", new_payment_path(:id => date.id), :class => "ui positive labeled button" %>
-              </div> -->
         </div>
         <div class="ui divider"></div>
       </li>
@@ -71,13 +55,4 @@
       <ul>
     </div>
   </div>
-  <!-- <div class="actions">
-    <div class="ui black button">
-      Nope
-    </div>
-    <button type='submit' form='ticket_form' class="ui positive right labeled icon button">
-      Yep, that's me
-      <i class="checkmark icon"></i>
-    </button>
-  </div> -->
 </div>

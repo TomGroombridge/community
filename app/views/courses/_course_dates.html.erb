@@ -5,17 +5,12 @@
   		<%= form.text_field :start_date, :placeholder => "11/02/2015"%>
   	</div>
   	<div class="field four wide">
-  		<%# course_date_form.time_select :start_time, :placeholder => "19:30" %>
-  		<%# course_date_form.time_select :start_time, :combined => true, :default => Time.now.change(:hour => 11, :min => 30), :minute_interval => 15, :time_separator => "", :start_hour => 0, :start_minute => 00, :end_hour => 23, :end_minute => 00 %>
-
   		<%= form.time_select :start_time, :class => "time-select" %>
   	</div>
   	<div class="field four wide">
   		<%= form.text_field :end_date, :placeholder => "11/02/2015" %>
   	</div>
   	<div class="field four wide">
-  		<%# course_date_form.time_select :end_time, :placeholder => "19:30" %>
-  		<%# course_date_form.time_select :end_time, :combined => true, :default => Time.now.change(:hour => 11, :min => 30), :minute_interval => 15, :time_separator => "", :start_hour => 0, :start_minute => 00, :end_hour => 23, :end_minute => 45 %>
   		<%= form.time_select :end_time %>
   	</div>
   </div>
