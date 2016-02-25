@@ -16,11 +16,9 @@ require 'spec_helper'
 				create_food_course
 				@booking = create(:booking, order_id: 1, name: "tom groombridge", email: "test@account.com", contact_number: "01285 6452968")
 				@booking_date = create(:booking_date, booking_id: @booking.id, course_date_id: CourseDate.last.id)
-				@course = @user.courses.last
 			end
 
 			it "should not allow you to transfer a booking that is in the past" do
-				# # make_a_booking
 				# visit "/dashboard"
 				# # click_link('Manage')
 				# # puts CourseDate.last.inspect

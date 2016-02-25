@@ -12,8 +12,6 @@ require 'spec_helper'
 				@user = create(:user)
 				user_sign_in
 				create_food_course
-				@course = @user.courses.last
-				@course_date = @course.course_dates.last
 				@booking = Booking.create(name: "Tom Groombridge", email: "groombridgetom@gmail.com", contact_number: "09382423409", special_request: "", age: nil)
 				@booking_date = BookingDate.create(:booking_id => @booking.id, :course_date_id => @course_date.id)
 			end

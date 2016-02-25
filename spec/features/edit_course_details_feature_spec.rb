@@ -12,7 +12,6 @@ require 'spec_helper'
 			@user = create(:user)
 			user_sign_in
 			create_food_course
-			@course = @user.courses.last
 			visit "/courses/#{@course.id}/edit"
 		end
 

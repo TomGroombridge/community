@@ -12,7 +12,6 @@ require 'spec_helper'
 				@user = create(:user)
 				user_sign_in
 				create_food_course
-				@course = @user.courses.last
 			end
 
 			it "should allow me to go to my dashbaord and view that course date" do
