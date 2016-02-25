@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
-	# before_action :fetch_and_authorize_ticket, :except => [:index]
 	before_action :find_course_date
+	before_action :check_for_expired_booking
 
 	def new
 		@user = current_user
@@ -39,6 +39,10 @@ class BookingsController < ApplicationController
 	def find_course_date
 		@course_date = CourseDate.find(params[:course_date_id])
 		raise 'Unauthorized' unless @course_date.course.user == current_user
+	end
+
+	def check_for_expired_booking
+		raise 'Unauthorized' unless @course_date.start_date > DateTime.now
 	end
 
 	def booking_params

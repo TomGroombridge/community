@@ -18,17 +18,16 @@ require 'spec_helper'
 				@booking_date = create(:booking_date, booking_id: @booking.id, course_date_id: CourseDate.last.id)
 			end
 
-			it "should not allow you to transfer a booking that is in the past" do
-				# visit "/dashboard"
-				# # click_link('Manage')
-				# # puts CourseDate.last.inspect
-				# puts Course.count
-				# puts CourseDate.last.booking_dates.count
-				# # puts CourseDate.last.booking_dates.last.booking.inspect
-				# # puts CourseDate.last.booking_dates.last.booking.order.inspect
-				# # puts CourseDate.bookings
-				# within('.attendee-name') { expect(page).to have_content("tom groombridge") }
+			it "should not allow you to visit the booking edit page if the course date is in the past" do
+				@course_date.update_attributes(start_date: (DateTime.now - 1.days))
+				expect{visit "/course_dates/#{@course_date.id}/bookings/#{@booking.id}/edit"}.to raise_error("Unauthorized")
+			end
 
+			it "should not allow you to see the 'Transfer Booking' button if the course date is in the past" do
+				@course_date.update_attributes(start_date: (DateTime.now - 1.days))
+				visit "/dashboard"
+				click_link("Manage")
+				expect(page).to_not have_content("Transfer Date")
 			end
 
 		end
