@@ -17,20 +17,6 @@ require 'spec_helper'
 
 		context 'given a course and a signed in user' do
 
-			# name
-			# description
-			# created_at
-			# updated_at
-			# user_id
-			# blurb
-			# what_to_wear
-			# what_to_bring
-			# experience
-			# avatar
-			# category
-			# age_needed
-			# private
-
 			it "should allow you to edit the course name " do
 				fill_in "course[name]", :with  => "Bread Bashing"
 				click_button "Update Course"
