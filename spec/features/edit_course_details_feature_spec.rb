@@ -12,25 +12,10 @@ require 'spec_helper'
 			@user = create(:user)
 			user_sign_in
 			create_food_course
-			@course = @user.courses.last
 			visit "/courses/#{@course.id}/edit"
 		end
 
 		context 'given a course and a signed in user' do
-
-			# name
-			# description
-			# created_at
-			# updated_at
-			# user_id
-			# blurb
-			# what_to_wear
-			# what_to_bring
-			# experience
-			# avatar
-			# category
-			# age_needed
-			# private
 
 			it "should allow you to edit the course name " do
 				fill_in "course[name]", :with  => "Bread Bashing"

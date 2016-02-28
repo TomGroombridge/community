@@ -17,7 +17,11 @@
         <td><%= date.booking.email %></td>
         <td><%= date.booking.contact_number %></td>
         <td><%= date.booking.created_at.strftime("%d/%m/%Y")%></td>
-        <td style="text-align:center"><%= link_to 'Transfer Date', booking_date_path(date), :class => "ui inverted red button" %></td>
+        <td style="text-align:center">
+          <% if @course_date.start_date > DateTime.now %>
+            <%= link_to 'Transfer Date', booking_date_path(date), :class => "ui inverted red button" %>
+          <% end %>
+        </td>
         <td style="text-align:center"><%= link_to 'Edit', edit_course_date_booking_path(@course_date, date.booking.id), :class => "ui inverted blue button" %></td>
       </tr>
     <% end %>
