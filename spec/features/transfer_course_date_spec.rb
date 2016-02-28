@@ -30,6 +30,11 @@ require 'spec_helper'
 				expect(page).to_not have_content("Transfer Date")
 			end
 
+			it "should not allow you to visit the booking transfer  page if the course date is in the past" do
+				@course_date.update_attributes(start_date: (DateTime.now - 1.days))
+				expect{visit "/booking_dates/#{@booking.id}"}.to raise_error("Unauthorized")
+			end
+
 		end
 
 	end
