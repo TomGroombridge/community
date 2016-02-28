@@ -22,7 +22,11 @@
             <%= link_to 'Transfer Date', booking_date_path(date), :class => "ui inverted red button" %>
           <% end %>
         </td>
-        <td style="text-align:center"><%= link_to 'Edit', edit_course_date_booking_path(@course_date, date.booking.id), :class => "ui inverted blue button" %></td>
+        <td style="text-align:center">
+          <% if @course_date.start_date > DateTime.now %>
+            <%= link_to 'Edit', edit_course_date_booking_path(@course_date, date.booking.id), :class => "ui inverted blue button" %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

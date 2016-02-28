@@ -1,5 +1,6 @@
 class BookingDatesController < ApplicationController
 	before_action :fetch_and_authorize_course
+	before_action :check_for_expired_booking
 
 	def show
 		@booking_date = BookingDate.find(params[:id])
@@ -23,6 +24,11 @@ class BookingDatesController < ApplicationController
 	def fetch_and_authorize_course
 		@booking_date = BookingDate.find(params[:id])
 		raise 'Unauthorized' unless @booking_date.course_date.course.user == current_user
+	end
+
+	def check_for_expired_booking
+		@course_date = @booking_date.course_date
+		raise 'Unauthorized' unless @course_date.start_date > DateTime.now
 	end
 
 end
