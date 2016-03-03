@@ -17,6 +17,7 @@ class PaymentsController < ApplicationController
 
   def create
     @payment = Payment.new(payment_params)
+    raise JSON.parse(params[:stripeToken]).inspect
     @order = Order.create(params[:order])
     @order.update_attributes(:ticket_id => @payment.ticket_id)
     @payment.order_id = @order.id

@@ -9,7 +9,6 @@
 		<div class="ui divider"></div>
 		<%= form_for [@ticket, @payment], :html => {:class => 'ui form payment fluid', :style => "width: 80%; margin: auto;"} do |f| %>
 			<%= f.hidden_field :ticket_id %>
-      <%= f.hidden_field :stripe_card_token %>
       <%= f.hidden_field :ticket_price, :value => @ticket.price %>
       <%= f.hidden_field :ticket_fee, :value => (@ticket.price * 0.04) %>
       <%= f.hidden_field :amount_paid, :value => @payment.overall_price %>

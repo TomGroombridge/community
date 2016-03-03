@@ -35,7 +35,9 @@ payment =
       $('.buttonLoader').removeClass('active')
       return
     else
-      $('#payment_stripe_card_token').val(response.id)
+      console.log(response)
+      $stripeToken = $('<input id="stripeToken" name="stripeToken" type="hidden">').val(JSON.stringify(response))
+      $('#new_payment').append($stripeToken)
       $('#new_payment')[0].submit()
       return
 
