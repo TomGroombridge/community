@@ -5,13 +5,16 @@
 		<%= render "ticket_info" %>
 	</div>
 	<div class="column twelve wide payment-details" style="display:table-cell">
+		<% if flash[:notice] %>
+			<div class="ui green message" id="notice" style="margin-bottom:0px;"><%= notice %></div>
+		<% end %>
 		<h1 class="checkout-header">Checkout</h1>
 		<div class="ui divider"></div>
 		<%= form_for [@ticket, @payment], :html => {:class => 'ui form payment fluid', :style => "width: 80%; margin: auto;"} do |f| %>
-			<%= f.hidden_field :ticket_id %>
-      <%= f.hidden_field :ticket_price, :value => @ticket.price %>
-      <%= f.hidden_field :ticket_fee, :value => (@ticket.price * 0.04) %>
-      <%= f.hidden_field :amount_paid, :value => @payment.overall_price %>
+			<%# f.hidden_field :ticket_id %>
+      <%# f.hidden_field :ticket_price, :value => @ticket.price %>
+      <%# f.hidden_field :ticket_fee, :value => (@ticket.price * 0.04) %>
+      <%# f.hidden_field :amount_paid, :value => @payment.overall_price %>
       <%= f.fields_for(:bookings) do |booking|%>
       	<%= booking.hidden_field :order_id %>
       		<% if @ticket.number_of_dates != 1 %>
@@ -113,12 +116,6 @@
 	    		<%= text_field_tag :card_code, nil %>
 	    	</div>
 	    </div>
-	    <!-- <div class="required inline field">
-	      <div class="ui checkbox">
-	        <input type="checkbox">
-	        <label>I agree to the terms and conditions</label>
-	      </div>
-	    </div> -->
 	    <div class="ui segment no-box-shadow" style="box-shadow: none; background:none">
           <div class="ui dimmer buttonLoader">
             <div class="ui indeterminate text loader">Make your payment</div>

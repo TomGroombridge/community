@@ -62,7 +62,7 @@ class Payment < ActiveRecord::Base
 		@course_name = self.ticket.course_date.course.name
 		@course_date = self.ticket.course_date.start_date.strftime("%d/%m/%Y")
 		@quantity = self.ticket.quantity
-		@booking = self.bookings.last
+		@booking = self.bookings.last #THIS IS A ISSUE!!!!!!
 		if ticket.free?
 			save! and return true
 		end
