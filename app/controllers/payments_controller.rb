@@ -2,20 +2,10 @@ class PaymentsController < ApplicationController
   before_action :fetch_and_authorize_ticket, :except => [:index, :show]
 
   def new
-    @payment = Payment.new
+    @payment = @ticket.payments.build
     @course = @ticket.course_date.course
-    # raise @ticket.inspect
-    # @order = @ticket.oxrders.build
-    # @order.ticket_id = @ticket.id
-    @payment.ticket_id = @ticket.id
     @payment.bookings.build
-
     @payment.bookings.each {|booking| @ticket.number_of_dates.times{booking.booking_dates.build}}
-
-    # @booking = Booking.new
-    # @ticket.number_of_dates.times{@booking.booking_dates.build}
-
-    # @order.ticket_id = @ticket.id
     @course_dates = @ticket.course_date.course.unsold_dates
     @course_dates.map do |cd|
       cd.start_time == cd.start_date_time.strftime("%A, %d %b %Y %l:%M %p")
