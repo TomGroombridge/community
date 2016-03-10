@@ -59,9 +59,6 @@ class Payment < ActiveRecord::Base
 
 	def save_with_payment(params)
 		@amount = self.overall_payment * 100
-		@course_name = self.ticket.course_date.course.name
-		@course_date = self.ticket.course_date.start_date.strftime("%d/%m/%Y")
-		@quantity = self.ticket.quantity
 		@booking = self.bookings.last #THIS IS A ISSUE!!!!!!
 		if ticket.free?
 			save! and return true
@@ -73,34 +70,16 @@ class Payment < ActiveRecord::Base
 			    :amount => @amount.to_i, # amount in cents, again
 			    :currency => "gbp",
 			    :source => token,
-			    :description => "Example charge"
+			    :description => "Payment for Booking",
+			    :metadata => {"course_date_id" => self.ticket.course_date.id, "ticket_id" => self.ticket.id, "booking_id" => @booking.id, "name_on_booking" => @booking.name}
 			  )
 			rescue Stripe::CardError => e
-			  # The card has been declined
 	      logger.error "Stripe error while creating customer: #{e.message}"
 	      errors.add :base, "There was a problem with your credit card."
-	      false
+	      return false
 			end
-      # customer = Stripe::Customer.create(description: "hello", card: stripe_card_token)
-      # self.stripe_customer_token = customer.id
       save!
     end
-    # rescue Stripe::InvalidRequestError => e
-		# if valid?
-		# 	begin
-		# 		Stripe::Charge.create(
-		# 			amount: @amount.to_i,
-		# 			currency: "gbp",
-		# 			card: params[:stripe_card_token],
-		# 			description: "this is a payment for the #{@course_name} course on the #{@course_date} for #{@booking.name}"
-		# 		)
-		# 		self.ticket.quantity -= 1
-		# 		save!
-		# 	rescue Stripe::InvalidRequestError => e
-		# 		logger.error "Stripe error while creating customer: #{e.message}"
-		# 		errors.add :base, "There was a problem with your credit card."
-		# 	end
-		# end
 	end
 
 	def send_new_payment_email
