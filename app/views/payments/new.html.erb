@@ -13,78 +13,74 @@
 		<%= form_for [@ticket, @payment], :html => {:class => 'ui form payment fluid', :style => "width: 80%; margin: auto;"} do |f| %>
 			<%= f.hidden_field :ticket_id %>
 			<%= f.hidden_field :company_id, :value => @course.user.id %>
-      <%# f.hidden_field :ticket_price, :value => @ticket.price %>
-      <%# f.hidden_field :ticket_fee, :value => (@ticket.price * 0.04) %>
-      <%# f.hidden_field :amount_paid, :value => @payment.overall_price %>
       <%= f.fields_for(:bookings) do |booking|%>
-      	<%= booking.hidden_field :order_id %>
-      		<% if @ticket.number_of_dates != 1 %>
-        		<h1 class="checkout-header">Select <%= @ticket.number_of_dates %> dates to attend</h1>
-        	<% end %>
-        		<%= booking.fields_for(:booking_dates) do |date| %>
-			    		<% if @ticket.number_of_dates == 1 %>
-			    			<%= date.hidden_field :course_date_id, :value => @ticket.course_date.id %>
-			        <% else %>
-	            <div class="ui form" style="margin-top:10px;">
-	              <div class="inline field required">
-	                <label class="input-label">Select Course Date</label>
-	                <%= date.select :course_date_id, options_from_collection_for_select(@course_dates, :id, "select_start_end_date"), { :include_blank=>true }, {:class => 'ui dropdown date-select'}%>
-	              </div>
-	            </div>
-	        	<% end %>
-	      	<% end %>
-	      	<% if @ticket.number_of_dates != 1 %>
-        		<div class="ui divider"></div>
-        	<% end %>
-        <h1 class="checkout-header">Attendees Details</h1>
-				<div class="two fields">
-			    <div class="required field">
-			      <label>Full Name</label>
-			      <div class="ui icon input">
-			        <% if signed_in? %>
-			      		<%= booking.text_field :name, :value => current_user.full_name %>
-			      	<% else %>
-			      		<%= booking.text_field :name %>
-			      	<% end %>
-			        <i class="user icon"></i>
-			      </div>
-			    </div>
-			    <div class="required field">
-			      <label>Email</label>
-			      <div class="ui icon input">
-			      	<% if signed_in? %>
-			      		<%= booking.text_field :email, :value => current_user.email %>
-			      	<% else %>
-			      		<%= booking.text_field :email %>
-			      	<% end %>
-			        <i class="mail outline icon"></i>
-			      </div>
-			    </div>
-			  </div>
-		    <div class="field">
-			    <div class="required field">
-			      <label>Contact Number</label>
-			      <div class="ui icon input">
-			        <% if signed_in? %>
-			      		<%= booking.text_field :contact_number, :value => current_user.contact_number  %>
-			      	<% else %>
-			      		<%= booking.text_field :contact_number %>
-			      	<% end %>
-			        <i class="mobile icon"></i>
-			      </div>
-			    </div>
+  		<% if @ticket.number_of_dates != 1 %>
+    		<h1 class="checkout-header">Select <%= @ticket.number_of_dates %> dates to attend</h1>
+    	<% end %>
+  		<%= booking.fields_for(:booking_dates) do |date| %>
+				<% if @ticket.number_of_dates == 1 %>
+					<%= date.hidden_field :course_date_id, :value => @ticket.course_date.id %>
+		    <% else %>
+		      <div class="ui form" style="margin-top:10px;">
+		        <div class="inline field required">
+		          <label class="input-label">Select Course Date</label>
+		          <%= date.select :course_date_id, options_from_collection_for_select(@course_dates, :id, "select_start_end_date"), { :include_blank=>true }, {:class => 'ui dropdown date-select'}%>
+		        </div>
+		      </div>
+		  	<% end %>
+  		<% end %>
+  		<% if @ticket.number_of_dates != 1 %>
+  			<div class="ui divider"></div>
+  		<% end %>
+    	<h1 class="checkout-header">Attendees Details</h1>
+			<div class="two fields">
+		    <div class="required field">
+		      <label>Full Name</label>
+		      <div class="ui icon input">
+		        <% if signed_in? %>
+		      		<%= booking.text_field :name, :value => current_user.full_name %>
+		      	<% else %>
+		      		<%= booking.text_field :name %>
+		      	<% end %>
+		        <i class="user icon"></i>
+		      </div>
 		    </div>
-		    <% if @ticket.course_date.course.age_needed? %>
-			    <div class="required field">
-			    	<label>Age</label>
-			    	<%= booking.select :age, options_for_select(1..100),{ :include_blank => true },{:class =>"ui dropdown half"}%>
-			    </div>
-		    <% end %>
-		    <div class="field">
-		    	<label>Special Requests</label>
-		    	<%= booking.text_area :special_request %>
+		    <div class="required field">
+		      <label>Email</label>
+		      <div class="ui icon input">
+		      	<% if signed_in? %>
+		      		<%= booking.text_field :email, :value => current_user.email %>
+		      	<% else %>
+		      		<%= booking.text_field :email %>
+		      	<% end %>
+		        <i class="mail outline icon"></i>
+		      </div>
 		    </div>
-		  <% end %>
+		  </div>
+	    <div class="field">
+		    <div class="required field">
+		      <label>Contact Number</label>
+		      <div class="ui icon input">
+		        <% if signed_in? %>
+		      		<%= booking.text_field :contact_number, :value => current_user.contact_number  %>
+		      	<% else %>
+		      		<%= booking.text_field :contact_number %>
+		      	<% end %>
+		        <i class="mobile icon"></i>
+		      </div>
+		    </div>
+	    </div>
+	    <% if @ticket.course_date.course.age_needed? %>
+		    <div class="required field">
+		    	<label>Age</label>
+		    	<%= booking.select :age, options_for_select(1..100),{ :include_blank => true },{:class =>"ui dropdown half"}%>
+		    </div>
+	    <% end %>
+	    <div class="field">
+	    	<label>Special Requests</label>
+	    	<%= booking.text_area :special_request %>
+	    </div>
+	  <% end %>
 			<div class="ui divider" style="margin-top:4rem"></div>
 			<h1 class="checkout-header">Card Details<span style="font-size: 12px; margin-left: 35px; color: grey"><i class="lock icon"></i>Secure</span></h1>
 			<div class="card-images">

@@ -71,7 +71,7 @@ class Payment < ActiveRecord::Base
 			    :currency => "gbp",
 			    :source => token,
 			    :description => "Payment for Booking",
-			    :metadata => {"course_date_id" => self.ticket.course_date.id, "ticket_id" => self.ticket.id, "booking_id" => @booking.id, "name_on_booking" => @booking.name}
+			    :metadata => {"course_date_id" => self.ticket.course_date.id, "ticket_id" => self.ticket.id, "name_on_booking" => @booking.name}
 			  )
 			rescue Stripe::CardError => e
 	      logger.error "Stripe error while creating customer: #{e.message}"
