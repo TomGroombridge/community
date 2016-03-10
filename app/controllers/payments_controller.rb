@@ -19,7 +19,7 @@ class PaymentsController < ApplicationController
     if card_type.to_s == "credit"
       flash[:notice] = "Sorry we do not take credit cards"
       redirect_to new_ticket_payment_path(@ticket.id)
-    if @payment.save_with_payment(@response)
+    elsif @payment.save_with_payment(@response)
       redirect_to payment_path(@payment.id)
     else
       flash[:notice] = "Something went wrong please try again."
