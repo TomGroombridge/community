@@ -58,6 +58,7 @@ group :test, :development do
   gem 'selenium-webdriver'
   gem 'simplecov', :require => false
   gem 'simplecov-rcov'
+  gem 'stripe-ruby-mock'
 end
 
 

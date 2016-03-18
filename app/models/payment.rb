@@ -64,22 +64,24 @@ class Payment < ActiveRecord::Base
 			save! and return true
 		end
 		token = params["id"]
-		if valid?
-			begin
-			  charge = Stripe::Charge.create(
-			    :amount => @amount.to_i, # amount in cents, again
-			    :currency => "gbp",
-			    :source => token,
-			    :description => "Payment for Booking",
-			    :metadata => {"course_date_id" => self.ticket.course_date.id, "ticket_id" => self.ticket.id, "name_on_booking" => @booking.name}
-			  )
-			rescue Stripe::CardError => e
-	      logger.error "Stripe error while creating customer: #{e.message}"
-	      errors.add :base, "There was a problem with your credit card."
-	      return false
-			end
-      save!
-    end
+		begin
+		  charge = Stripe::Charge.create(
+		    :amount => @amount.to_i, # amount in cents, again
+		    :currency => "gbp",
+		    :source => token,
+		    :description => "Payment for Booking",
+		    :metadata => {"course_date_id" => self.ticket.course_date.id, "ticket_id" => self.ticket.id, "name_on_booking" => @booking.name}
+		  )
+		  if charge["paid"] == true
+    		save!
+    	else
+    		return false
+    	end
+		rescue Stripe::CardError => e
+      logger.error "Stripe error while creating customer: #{e.message}"
+      errors.add :base, "There was a problem with your credit card."
+      return false
+		end
 	end
 
 	def send_new_payment_email

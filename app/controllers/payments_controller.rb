@@ -13,6 +13,7 @@ class PaymentsController < ApplicationController
   end
 
   def create
+    puts "the amount of bookings availbale are #{Booking.all.count}"
     @payment = Payment.new(payment_params)
     @response =  JSON.parse(params[:stripeToken])
     card_type = @response["card"]["funding"]
@@ -20,11 +21,13 @@ class PaymentsController < ApplicationController
       flash[:notice] = "Sorry we do not take credit cards"
       redirect_to new_ticket_payment_path(@ticket.id)
     elsif @payment.save_with_payment(@response)
+      puts "the amount of bookings availbale are #{Booking.all.count}"
       redirect_to payment_path(@payment.id)
     else
       flash[:notice] = "Something went wrong please try again."
       redirect_to new_ticket_payment_path(@ticket.id)
     end
+    puts "the amount of bookings availbale are #{Booking.all.count}"
   end
 
   def show

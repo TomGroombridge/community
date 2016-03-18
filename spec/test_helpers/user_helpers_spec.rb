@@ -41,8 +41,8 @@ module CreateUserHelper
 		click_link('bookNow')
 		click_link('bookDate')
 		fill_in 'cardName', with: "Tom Groombridge"
-		fill_in 'card_number', with: '4242424242424242'
-		select '1 - January', from: 'card_month'
+		fill_in 'card_number', with: '4000056655665556'
+		select '5 - May', from: 'card_month'
 		select '2016', from: 'card_year'
 		fill_in 'card_code', with: '444'
 		click_button('Send Payment')

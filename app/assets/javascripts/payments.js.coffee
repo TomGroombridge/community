@@ -33,7 +33,7 @@ payment =
       $('#stripe_error').text(response.error.message)
       $('input[type=submit]').attr('disabled', false)
       $('.buttonLoader').removeClass('active')
-      return
+      return false
     else
       $stripeToken = $('<input id="stripeToken" name="stripeToken" type="hidden">').val(JSON.stringify(response))
       $('#new_payment').append($stripeToken)
