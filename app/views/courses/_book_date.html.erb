@@ -39,7 +39,7 @@
                   <% if ticket.number_of_dates > 1 %>
                     <%= link_to("Choose Dates", new_ticket_payment_path(ticket.id), :class => "ui positive labeled button", :style => "display:inline-block;float: right; width:37%; max-width:37%;" )%>
                   <% else %>
-                    <%= link_to("Book Now", new_ticket_payment_path(ticket.id), :class => "ui positive labeled button", :style => "display:inline-block;float: right; width:37%; max-width:37%;", :id => "bookDate" )%>
+                    <%= link_to("Book Now", new_ticket_payment_path(ticket.id), :class => "ui positive button", :style => "display:inline-block;float: right; width:37%; max-width:37%;", :id => "bookDate" )%>
                   <% end %>
                 <% end %>
               </div>
