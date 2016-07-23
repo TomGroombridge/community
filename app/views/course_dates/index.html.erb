@@ -17,7 +17,7 @@
                 <div class="content">
                   <div class="ui list">
                     <div class="item"><i class="user icon"></i><%= course_date.course.user.company_name.truncate(27) %></div>
-                    <div class="item"><i class="map icon"></i><%= course_date.course.address.truncate(27) %></div>
+                    <div class="item"><i class="compass icon"></i><%= course_date.course.address.truncate(27) %></div>
                     <div class="item"><i class="tag icon"></i><%= course_date.course.category %></div>
                     <div class="item center">
                       <%= link_to("View Details", course_path(course_date.course), :class => "ui inverted button")%>
