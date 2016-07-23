@@ -10,7 +10,7 @@ module CreateUserHelper
 
 	def create_food_course
 		@course = create(:course, name: "Learn To Bake Bread", description: "Let's make some beautiful food", user_id: @user.id, what_to_wear: "Apron", what_to_bring: "Happy Faces", category: "food")
-		@course_date = create(:course_date, course_id: @course.id, start_date: (DateTime.now + 7.days), start_time: Time.now, end_date: (DateTime.now + 7.days), end_time: Time.now)
+		@course_date = create(:course_date, course_id: @course.id, start_date: (DateTime.now + 7.days), start_time: '10:00:00', end_date: (DateTime.now + 7.days), end_time: '12:00:00')
 		@ticket = create(:ticket, course_date_id: @course_date.id, name: "Normal Price", price: 50.00, quantity: 10)
 		@course_address = create(:course_address, address1: "Rye House", address2: "Maces Hill", city: "Gloucester", county: "Gloucestershire", postcode: "GL7 7AB", course_id: @course.id)
 		# click_link('addCourse')
