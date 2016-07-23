@@ -86,7 +86,6 @@ require 'spec_helper'
 				click_link ("Transfer Date")
 				select((DateTime.now + 7.days).strftime("%A, %d %b %Y 10:00 AM"), :from => 'booking_date[course_date_id]')
 				click_button("Transfer Date")
-				@booking_date.reload
 				expect(BookingDate.last.course_date.start_date.strftime("%d/%m/%Y")).to eq((DateTime.now + 7.days).strftime("%d/%m/%Y"))
 			end
 
