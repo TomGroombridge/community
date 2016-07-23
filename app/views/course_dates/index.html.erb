@@ -1,4 +1,4 @@
-<div class="ui pusher">
+<!-- <div class="ui pusher"> -->
   <!-- <div id="filters" class="ui six column stackable grid category-buttons button-group" style="background: #35464f">
       <div class="column buttons">
         <button class="ui inverted red button text is-checked" data-filter="*">
@@ -37,11 +37,11 @@
         </button>
       </div>
   </div> -->
-</div`>
+<!-- </div> -->
 <div class="ui special cards container isotope course-dates">
     <% @course_dates.each do |course_date| %>
 
-        <div class="card element-item <%= course_date.course.category %>">
+        <div class="card element-item">
 
             <div class="ui dimmable image">
               <% if course_date.full %>
@@ -74,9 +74,6 @@
               <span class="left floated like text" style="color: #cdc5ff;">
                 <i class="calendar icon"></i>
                 <%= course_date.start_date.strftime("%d, %b, %Y") %>
-              </span>
-              <span class="right floated star text" style="color: #ffe400;">
-                <%# number_to_currency(course_date.course.price, :precision => 2, :unit => "£")  %>
               </span>
             </div>
         </div>

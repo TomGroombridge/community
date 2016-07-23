@@ -4,18 +4,18 @@
 
 $ ->
   # init Isotope
-  $container = $('.isotope').isotope(
-    itemSelector: '.element-item'
-    layoutMode: 'fitRows'
-    getSortData:
-      name: '.name'
-      symbol: '.symbol'
-      number: '.number parseInt'
-      category: '[data-category]'
-      weight: (itemElem) ->
-        weight = $(itemElem).find('.weight').text()
-        parseFloat weight.replace(/[\(\)]/g, '')
-  )
+  # $container = $('.isotope').isotope(
+    # itemSelector: '.element-item'
+    # layoutMode: 'fitRows'
+    # getSortData:
+    #   name: '.name'
+    #   symbol: '.symbol'
+    #   number: '.number parseInt'
+    #   category: '[data-category]'
+    #   weight: (itemElem) ->
+    #     weight = $(itemElem).find('.weight').text()
+    #     parseFloat weight.replace(/[\(\)]/g, '')
+  # )
   # filter functions
   filterFns =
     numberGreaterThan50: ->
