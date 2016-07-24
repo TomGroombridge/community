@@ -22,6 +22,8 @@
 
 $(document).ready(function() {
 
+    console.log("hello world")
+
     $('#example2')
       .progress({
         percent: gon.percentage
