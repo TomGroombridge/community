@@ -12,12 +12,12 @@
        $('html,body').animate({scrollTop:dest}, 1000,'swing');
    });
 </script>
-<div class="row">
-	<div class="ui top banner test ad how-it-works-banner" data-text="Top Banner">
+<div class="content-container">
+	<div class="ui top banner test how-it-works-banner" data-text="Top Banner">
 		<div class="ui three column stackable grid">
       <div class="column">
-      	<i class="map icon"></i>
-      	<h1 class="map">Discover</h1>
+      	<i class="compass icon"></i>
+      	<h1 class="compass">Discover</h1>
       </div>
       <div class="column">
       	<i class="ticket icon"></i>
@@ -43,7 +43,7 @@
 			</div>
 		</div>
 	</div>
-  <div class="ui top banner test ad how-it-works-banner" data-text="Top Banner" style="background-color: #36464f; padding-bottom: 16px;" id="destination2">
+  <div class="ui top banner test how-it-works-banner" data-text="Top Banner" style="background-color: #36464f; padding-bottom: 16px;" id="destination2">
     <h1 class="sub-heading" style="color:white; padding-top:60px; padding-bottom:20px;">If you're a Course Provider</h1>
     <div class="ui three column stackable grid">
       <div class="column">
@@ -76,20 +76,20 @@
       <%= render "pricing" %>
     </div>
   </div>
-  <div class="ui top banner test ad how-it-works-banner" data-text="Top Banner" style="padding-bottom: 50px;" id="destination1">
+  <div class="ui top banner test how-it-works-banner" data-text="Top Banner" style="padding-bottom: 50px;" id="destination1">
     <h1 class="sub-heading" style="padding-top:60px; padding-bottom:20px;">If you're a Course Attendee</h1>
     <div class="ui three column stackable grid">
       <div class="column">
-        <i class="map icon"></i>
-        <h1 class="map">Discover & Book Courses</h1>
-      </div>
-      <div class="column">
-        <i class="flag icon"></i>
-        <h1>Receive Updates for Courses you are Intersted in</h1>
+        <i class="compass icon"></i>
+        <h1 class="compass">Discover & Book Courses</h1>
       </div>
       <div class="column">
         <i class="grid layout icon"></i>
         <h1>Find Events by Category</h1>
+      </div>
+      <div class="column">
+        <i class="flag icon"></i>
+        <h1 class="flag">Receive Updates for Courses you are Intersted in</h1>
       </div>
       <div class="ui inverted red pricing button">
         <%= link_to("Start Discovering", course_dates_path()) %>

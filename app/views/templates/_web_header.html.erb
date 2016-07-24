@@ -1,24 +1,10 @@
-<div class="ui top attached demo menu web">
-  <%= link_to( image_tag( "Courseiam2-blue.png" ), root_url, :class=>"item logo") %>
+<div class="ui menu">
+  <%= link_to( image_tag( "Courseiam2-blue.png" ), root_url, :class => "logo header item") %>
   <%= link_to("Discover", course_dates_path, :class => "item") %>
   <%= link_to("How it works", how_it_works_path, :class => "item") %>
-  <% if signed_in? %>
-    <% if current_user.admin? || nil%>
-      <%= link_to("<i class='add square icon'></i>Add Course".html_safe, new_course_path, :class => "item right" ,:id => "addCourse", :style => "  background-color:#36464f; color:white;") %>
-      <%= link_to( "Dashboard".html_safe, dashboard_path, :class => "item right" ) %>
-    <% else %>
-      <%= link_to("Log out".html_safe, destroy_user_session_path, :method => :delete, :class => "item right") %>
-    <% end %>
-    <%# link_to("<i class='sign in icon'></i>Log out".html_safe, destroy_user_session_path, :method => :delete, :class => "item right") %>
-  <% else %>
-    <a class="item right" id="signIn" href="#">
-      <i class="user icon"></i>
-      Sign in
-    </a>
-    <%= link_to("<i class='sign in icon'></i>Sign up".html_safe, new_user_registration_path, :class => "item right", :id => "signUp") %>
-  <% end %>
-    <div class="ui pointing dropdown link item" style="float:right">
-      <!-- <i class="dropdown icon"></i> -->
+  <div class="right menu">
+
+    <div class="ui pointing dropdown link item">
       <span class="text"><i class="settings icon"></i>settings</span>
       <div class="menu">
         <%= link_to "About us", about_path ,:class => "item" %>
@@ -31,4 +17,24 @@
         <% end %>
       </div>
     </div>
+
+    <% if signed_in? %>
+
+      <% if current_user.admin? || nil%>
+        <%= link_to("<i class='add square icon'></i>Add Course".html_safe, new_course_path, :class => "item" ,:id => "addCourse", :style => "  background-color:#36464f; color:white;") %>
+        <%= link_to( "Dashboard".html_safe, dashboard_path, :class => "item" ) %>
+      <% else %>
+        <%= link_to("Log out".html_safe, destroy_user_session_path, :method => :delete, :class => "item") %>
+      <% end %>
+
+    <% else %>
+
+      <a class="item" id="signIn" href="#">
+        <i class="user icon"></i>
+        Sign in
+      </a>
+      <%= link_to("<i class='sign in icon'></i>Sign up".html_safe, new_user_registration_path, :class => "item", :id => "signUp") %>
+
+    <% end %>
+  </div>
 </div>

@@ -30,7 +30,8 @@ gem 'rmagick'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0.rc1'
 gem 'sdoc',          group: :doc, require: false
-gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
+# gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
 gem 'sidekiq'
 gem 'simple_form'
 gem 'sinatra', :require => nil

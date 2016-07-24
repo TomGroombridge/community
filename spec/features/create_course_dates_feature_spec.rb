@@ -84,9 +84,8 @@ require 'spec_helper'
 				expect(BookingDate.last.course_date.start_date.strftime("%d/%m/%Y")).to eq('20/10/2016')
 				visit "/courses/#{@course.id}/course_dates/#{@course_date.id}/course_details"
 				click_link ("Transfer Date")
-				select((DateTime.now + 7.days).strftime("%A, %d %b %Y %l:%M %p"), :from => 'booking_date[course_date_id]')
+				select((DateTime.now + 7.days).strftime("%A, %d %b %Y 10:00 AM"), :from => 'booking_date[course_date_id]')
 				click_button("Transfer Date")
-				@booking_date.reload
 				expect(BookingDate.last.course_date.start_date.strftime("%d/%m/%Y")).to eq((DateTime.now + 7.days).strftime("%d/%m/%Y"))
 			end
 

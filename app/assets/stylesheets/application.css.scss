@@ -26,14 +26,18 @@
 @import "bicycle_society";
 @import "calendar";
 
-
-
 .ui.dropdown.date-select{
   width: 60% !important;
 }
 
 .ui.dropdown.half{
   width: 50% !important;
+}
+
+.logo.header.item{
+  img{
+    width: 6.5em !important;
+  }
 }
 
 
@@ -189,7 +193,6 @@ iframe {
   width: 16rem;
   padding-top: 1.8rem;
   padding-bottom: 1.8rem;
-  background: #F5B286;
   box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.50);
   border-radius: 2px;
 }

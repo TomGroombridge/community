@@ -1,6 +1,6 @@
 <%= image_tag (@ticket.course_date.course.avatar_url(:medium)), :class => "course-image" %>
 <h1 class="course-name text"><%= @ticket.course_date.course.name %></h1>
-<h3 style="text-align: center;margin: 0px;"><i class="map icon"></i></h3>
+<h3 style="text-align: center;margin: 0px;"><i class="compass icon"></i></h3>
 <h3 class="course-address"><%= @ticket.course_date.course.address %></h3>
 <% if @ticket.number_of_dates == 1 %>
 	<h3 style="text-align:center; margin:0px; margin-top:10px;"><i class="calendar icon"></i></h3>

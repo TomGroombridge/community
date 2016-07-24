@@ -2,12 +2,4 @@
   <a class="open_item item burger">
     <i class="sidebar icon"></i>
   </a>
-  <% if signed_in? %>
-    <%= link_to("<i class='sign in icon'></i>Log out".html_safe, destroy_user_session_path, :method => :delete, :class => "item right") %>
-  <% else %>
-    <a class="item right" id="signInMobile">
-      <i class="user icon"></i>
-      Sign in
-    </a>
-  <% end %>
 </div>
