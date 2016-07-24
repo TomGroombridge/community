@@ -3,7 +3,7 @@
 			<h1 style="margin-bottom:0px;">Thank-you for booking with Courseiam </h1>
 			<!-- <h3 style="font-weight:100; margin-top:0px;">A confirmation email has been sent to <%= @payment.order.bookings.last.email %></h3> -->
 		</div>
-	<div class="ui segment no-box-shadow-web" style="margin:0px; padding-top:0em">
+	<div class="ui segment no-box-shadow-web" style="margin:0px; padding-top:0em; border:none">
 		<div class="header">
 			<h3 style="border-bottom: 1px solid black; text-align: left; margin-bottom: 20px; margin-top:0px;">PREVIEW</h3>
 		</div>
@@ -16,7 +16,7 @@
 			<div class="column twelve wide" >
 				<h1 style="margin:0px;"><%= @payment.ticket.course_date.course.name.capitalize %></h1>
 				<h4><%=@payment.ticket.course_date.course.user.company_website %></h4>
-				<div class="ui segment no-box-shadow-web" style="padding-left:0px; padding-top:0px;">
+				<div class="ui segment no-box-shadow-web" style="padding-left:0px; padding-top:0px; border:none">
 					<div class="two column stackable ui grid">
 						<div class="column" style="padding-left:0px;">
 							<p><strong>date of course:</strong> <%= @payment.ticket.course_date.start_date_time.strftime("%e %b %Y %H:%M%p") %></p>
